@@ -25,11 +25,7 @@ const Header = () => {
         </button>
         <button>
           <FontAwesomeIcon icon={faHome} />
-          <Link to="/light">Tank model</Link>
-        </button>
-        <button>
-          <FontAwesomeIcon icon={faHome} />
-          <Link to="/foodForFish">Food for fish</Link>
+          <Link to="/tankmodel">Tank model</Link>
         </button>
         <button>
           <FontAwesomeIcon icon={faHome} />

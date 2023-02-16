@@ -6,6 +6,7 @@ import Navbar from "./component/navbar/Navbar";
 import Header from "./component/menubar/Header";
 import Mainboard from "./component/mainboard/Mainboard";
 import Shopping from "./page/shopping/Shopping";
+import TankModel from "./component/tankmodel/TankModel";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/knowledge" element={<Knowledge />} />
         <Route path="/shoppingcart" element={<Shopping />} />
+        <Route path="/tankmodel" element={<TankModel />} />
       </Routes>
       <Footer />
     </>
