@@ -1,0 +1,28 @@
+.navbar {
+  display: flex;
+  height: 70px;
+  justify-content: center;
+}
+.navContainerMenu {
+  width: 100%;
+  max-width: 1140px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  div {
+    flex: 1;
+  }
+  img {
+    max-width: 45px;
+  }
+}
+.navBarTextTitle {
+  font-size: small;
+  font-weight: 700;
+}
+.navBarText {
+  font-size: x-small;
+}
+.navContainerIconAds {
+  display: flex;
+}
