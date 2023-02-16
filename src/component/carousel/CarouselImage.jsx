@@ -1,7 +1,8 @@
+import React from "react";
+import style from "./carousel.module.scss";
 import Carousel from "react-bootstrap/Carousel";
-import style from "./adsImg.module.scss";
 
-const AdsImg = () => {
+const CarouselImage = () => {
   return (
     <div className={style.divImg}>
       <div className={style.divImgContainer}>
@@ -47,4 +48,4 @@ const AdsImg = () => {
   );
 };
 
-export default AdsImg;
+export default CarouselImage;

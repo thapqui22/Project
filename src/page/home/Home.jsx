@@ -1,11 +1,11 @@
 import React from "react";
-import AdsImg from "./AdsImg";
+import CarouselImage from "../../component/carousel/CarouselImage";
 import Iconads from "./Iconads";
 import Productbox from "../../component/productbox/Productbox";
 const Home = () => {
   return (
     <div>
-      <AdsImg />
+      <CarouselImage />
       <Iconads />
       <Productbox />
       <Productbox />
