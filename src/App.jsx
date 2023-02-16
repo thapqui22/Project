@@ -3,7 +3,7 @@ import Home from "./page/home/Home";
 import Knowledge from "./page/knowledge/Knowledge";
 import Footer from "./component/footer/Footer";
 import Navbar from "./component/navbar/Navbar";
-import Header from "./component/header/Header";
+import Header from "./component/menubar/Header";
 import Mainboard from "./component/mainboard/Mainboard";
 import Shopping from "./page/shopping/Shopping";
 import "bootstrap/dist/css/bootstrap.min.css";

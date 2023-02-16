@@ -11,6 +11,7 @@ const Home = () => {
       <Productbox />
       <Productbox />
       <Productbox />
+      <Productbox />
     </div>
   );
 };
