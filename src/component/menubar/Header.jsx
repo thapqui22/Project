@@ -33,7 +33,7 @@ const Header = () => {
         </button>
         <button>
           <FontAwesomeIcon icon={faHome} />
-          <Link to="/youtube">Youtube</Link>
+          <Link to="https://www.youtube.com/">Youtube</Link>
         </button>
       </div>
     </div>
