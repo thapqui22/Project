@@ -1,10 +1,18 @@
 import React from "react";
+import {
+  MDBCard,
+  MDBCardBody,
+  MDBCardTitle,
+  MDBCardText,
+  MDBCardImage,
+} from "mdb-react-ui-kit";
 import { useState } from "react";
 import { ProductList } from "../listproduct/ProductList";
+import style from "./shoppingCart.module.scss";
+
 const ShoppingCart = () => {
   const [cart, setCart] = useState([]);
   const [products, setProducts] = useState(ProductList);
-
   function totalitems() {
     let a = 0;
     a = cart.length;
@@ -57,16 +65,23 @@ const ShoppingCart = () => {
     return x;
   }
   return (
-    <div className="container mt-2">
-      <div className="row justify-content-center">
-        {products.map((item) => (
-          <div className="col-3" key={item.id}>
-            <div className="card">
-              <img src={item.url} />
-              <div className="card-body">
-                <h6 className="card-title">
-                  {item.name} - $ {item.price}
-                </h6>
+    <div>
+      <div className={style.containers}>
+        <div className={style.container}>
+          {products.map((item) => (
+            <MDBCard className={style.box} key={item.id}>
+              <MDBCardImage src={item.url} className={style.Image} />
+              <MDBCardBody>
+                <MDBCardTitle>{item.name}</MDBCardTitle>
+                <div className="d-flex flex-row align-items-center mb-1">
+                  <h4 className="mb-1 me-1">${item.price}</h4>
+                  <span className="text-danger">
+                    <s>$25.99</s>
+                  </span>
+                </div>
+                <MDBCardText className={style.textt}>
+                  {item.decristion}
+                </MDBCardText>
                 {item.cart == false && (
                   <button
                     className="btn btn-primary"
@@ -84,12 +99,11 @@ const ShoppingCart = () => {
                     Added
                   </button>
                 )}
-              </div>
-            </div>
-          </div>
-        ))}
+              </MDBCardBody>
+            </MDBCard>
+          ))}
+        </div>
       </div>
-
       <div className="row mt-3">
         <table className="table  text-center">
           <thead>

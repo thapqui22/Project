@@ -1,39 +1,78 @@
 import React from "react";
+import { useState } from "react";
 import {
+  MDBContainer,
+  MDBRow,
+  MDBCol,
   MDBCard,
   MDBCardBody,
-  MDBCardTitle,
-  MDBCardText,
-  MDBCardImage,
-  MDBBtn,
+  MDBIcon,
 } from "mdb-react-ui-kit";
-import { useState } from "react";
-import { ProductList } from "../listproduct/ProductList";
 import style from "./tankModel.module.scss";
+import { ProductList } from "../listproduct/ProductList";
+
 const TankModel = () => {
   const [cart, setCart] = useState([]);
   const [products, setProducts] = useState(ProductList);
+
   return (
-    <div className={style.containers}>
-      <div className={style.container}>
-        {products.map((item) => (
-          <MDBCard className={style.box} key={item.id}>
-            <MDBCardImage src={item.url} position="top" alt="..." />
-            <MDBCardBody>
-              <MDBCardTitle>{item.name}</MDBCardTitle>
-              <div className="d-flex flex-row align-items-center mb-1">
-                <h4 className="mb-1 me-1">${item.price}</h4>
-                <span className="text-danger">
-                  <s>$25.99</s>
-                </span>
-              </div>
-              <MDBCardText>{item.decristion}</MDBCardText>
-              <button href="#">Button</button>
-            </MDBCardBody>
-          </MDBCard>
-        ))}
-      </div>
-    </div>
+    <MDBContainer fluid>
+      {products.map((item) => (
+        <MDBRow className="justify-content-center mb-0" key={item.id}>
+          <MDBCol md="10" xl="8">
+            <MDBCard className="shadow-0 border rounded-3 mt-5 mb-3">
+              <MDBCardBody>
+                <MDBRow>
+                  <MDBCol md="10" lg="3" className="mb-4 mb-lg-0">
+                    <img className={style.imgItem} src={item.url} />
+                    <a href="#!">
+                      <div
+                        className="mask"
+                        style={{
+                          backgroundColor: "rgba(251, 251, 251, 0.15)",
+                        }}
+                      ></div>
+                    </a>
+                  </MDBCol>
+                  <MDBCol md="8">
+                    <h5>{item.name}</h5>
+                    <div className="mt-1 mb-0 text-muted small">
+                      <span>100% cotton</span>
+                      <span className="text-primary"> • </span>
+                      <span>Light weight</span>
+                      <span className="text-primary"> • </span>
+                      <span>
+                        Best finish
+                        <br />
+                      </span>
+                    </div>
+                    <div className="mb-2 text-muted small">
+                      <span>Unique design</span>
+                      <span className="text-primary"> • </span>
+                      <span>For men</span>
+                      <span className="text-primary"> • </span>
+                      <span>
+                        Casual
+                        <br />
+                      </span>
+                    </div>
+                    <p>
+                      There are many variations of passages of Lorem Ipsum
+                      available, but the majority have suffered alteration in
+                      some form, by injected humour, or randomised words which
+                      don't look even slightly believable.
+                    </p>
+                    <div>
+                      <button className={style.detals}>Details</button>
+                    </div>
+                  </MDBCol>
+                </MDBRow>
+              </MDBCardBody>
+            </MDBCard>
+          </MDBCol>
+        </MDBRow>
+      ))}
+    </MDBContainer>
   );
 };
 

@@ -1,16 +1,12 @@
 import React from "react";
 import CarouselImage from "../../component/carousel/CarouselImage";
-import Iconads from "./Iconads";
+import Iconadss from "../../component/iconads/IconAdss";
 import Productbox from "../../component/productbox/Productbox";
 const Home = () => {
   return (
     <div>
       <CarouselImage />
-      <Iconads />
-      <Productbox />
-      <Productbox />
-      <Productbox />
-      <Productbox />
+      <Iconadss />
       <Productbox />
     </div>
   );

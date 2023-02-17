@@ -1,7 +1,7 @@
 import React from "react";
 import style from "./iconads.module.scss";
 
-const Iconads = () => {
+const Iconadss = () => {
   return (
     <div className={style.navbar}>
       <div className={style.navContainerMenu}>
@@ -69,4 +69,4 @@ const Iconads = () => {
   );
 };
 
-export default Iconads;
+export default Iconadss;

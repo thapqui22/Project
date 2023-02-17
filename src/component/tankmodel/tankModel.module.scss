@@ -1,18 +1,20 @@
-.container {
-  width: 100%;
-  max-width: 1140px;
-  display: flex;
-  gap: 1em;
-  flex-wrap: wrap;
-  height: auto;
-  padding-top: 20px;
-  padding-bottom: 20px;
+.imgItem {
+  width: 100% !important;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 5px;
 }
-.containers {
-  display: flex;
-  justify-content: center;
+@media (max-width: 767.98px) {
+  .border-sm-start-none {
+    border-left: none !important;
+  }
 }
-.box {
-  width: 250px;
-  height: 400px;
+.detals {
+  background-color: #b90000;
+  border-radius: 10px;
+  color: white;
+  width: 100px;
+  &:hover {
+    background-color: #b90000cc;
+  }
 }
