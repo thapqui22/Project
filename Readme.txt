@@ -1,3 +1,3 @@
-Step to run this Project
+All step to run this Project
 -npm i 
 -npm run dev
