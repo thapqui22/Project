@@ -26,7 +26,7 @@ const Header = () => {
         </button>
         <button>
           <FontAwesomeIcon icon={faHome} />
-          <Link to="https://www.youtube.com/">Youtube</Link>
+          <Link to="/manage">Add/Delect Item</Link>
         </button>
         <button>
           <FontAwesomeIcon icon={faHome} />
