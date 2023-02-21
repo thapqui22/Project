@@ -20,7 +20,7 @@ const ProductItem = () => {
       {products.map((item) => (
         <MDBRow className="justify-content-center mb-0" key={item.id}>
           <MDBCol md="10" xl="8">
-            <MDBCard className="shadow-0 border rounded-3 mt-5 mb-3">
+            <MDBCard className="shadow-0 border rounded-3 mt-2 mb-1">
               <MDBCardBody>
                 <MDBRow>
                   <MDBCol md="10" lg="3" className="mb-4 mb-lg-0">

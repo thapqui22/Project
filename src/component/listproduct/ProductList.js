@@ -6,7 +6,7 @@ export const ProductList = [
     url: "https://images.pexels.com/photos/59945/strawberry-fruit-delicious-red-59945.jpeg",
     cart: false,
     quantity: 1,
-    decristion: "This is a description",
+    description: "This is a description",
   },
   {
     id: 2,
@@ -15,7 +15,7 @@ export const ProductList = [
     url: "https://images.pexels.com/photos/52533/orange-fruit-vitamins-healthy-eating-52533.jpeg",
     cart: false,
     quantity: 1,
-    decristion: "This is a description",
+    description: "This is a description",
   },
   {
     id: 3,
@@ -24,7 +24,7 @@ export const ProductList = [
     url: "https://images.pexels.com/photos/51312/kiwi-fruit-vitamins-healthy-eating-51312.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
     cart: false,
     quantity: 1,
-    decristion: "This is a description",
+    description: "This is a description",
   },
   {
     id: 4,
@@ -33,7 +33,7 @@ export const ProductList = [
     url: "https://bizweb.dktcdn.net/100/344/954/files/neon-den-1.jpg?v=1632304030262",
     cart: false,
     quantity: 1,
-    decristion: "This is a description",
+    description: "This is a description",
   },
   {
     id: 5,
@@ -42,7 +42,7 @@ export const ProductList = [
     url: "https://bizweb.dktcdn.net/thumb/1024x1024/100/344/954/products/neon-den-2.jpg?v=1632387561037",
     cart: false,
     quantity: 1,
-    decristion: "This is a description",
+    description: "This is a description",
   },
   {
     id: 8,
@@ -51,7 +51,7 @@ export const ProductList = [
     url: "https://images.pexels.com/photos/51312/kiwi-fruit-vitamins-healthy-eating-51312.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
     cart: false,
     quantity: 1,
-    decristion: "This is a description",
+    description: "This is a description",
   },
   {
     id: 7,
@@ -60,7 +60,7 @@ export const ProductList = [
     url: "https://cacanhkimgiang.com/wp-content/uploads/2020/08/ca_bay_mau_rung.jpg",
     cart: false,
     quantity: 1,
-    decristion: "This is a description",
+    description: "This is a description",
   },
   {
     id: 9,
@@ -69,6 +69,6 @@ export const ProductList = [
     url: "https://cabaymau.vn/wp-content/uploads/2019/12/ca-7-mau-tiger-king-1.jpg",
     cart: false,
     quantity: 1,
-    decristion: "This is a description",
+    description: "This is a description",
   },
 ];

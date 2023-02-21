@@ -70,7 +70,14 @@ const ShoppingCart = () => {
         <div className={style.container}>
           {products.map((item) => (
             <MDBCard className={style.box} key={item.id}>
-              <MDBCardImage src={item.url} className={style.Image} />
+              {item.url ? (
+                <MDBCardImage src={item.url} className={style.Image} />
+              ) : (
+                <MDBCardImage
+                  src="https://media.istockphoto.com/id/1368239780/photo/clown-fish.jpg?b=1&s=170667a&w=0&k=20&c=mBdC45x6navTxLRmA7_k7srPFGvbQmaBf6HINhwkE-Q="
+                  className={style.Image}
+                />
+              )}
               <MDBCardBody>
                 <MDBCardTitle>{item.name}</MDBCardTitle>
                 <div className="d-flex flex-row align-items-center mb-1">
@@ -80,7 +87,7 @@ const ShoppingCart = () => {
                   </span>
                 </div>
                 <MDBCardText className={style.textt}>
-                  {item.decristion}
+                  {item.description}
                 </MDBCardText>
                 {item.cart == false && (
                   <button
