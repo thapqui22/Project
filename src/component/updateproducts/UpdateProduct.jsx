@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useState } from "react";
 import style from "./updateproduct.module.scss";
 import { toast, ToastContainer } from "react-toastify";
+import ProductsList from "../listproduct/ProductsList";
 const UpdateProduct = () => {
   const [itemId, setId] = useState("");
   const [itemName, setItemName] = useState("");
@@ -50,70 +51,75 @@ const UpdateProduct = () => {
     }
   };
   return (
-    <div className={style.container}>
-      <div class="form-outline mb-2">
-        <input
-          class="form-control"
-          placeholder="Id"
-          type="number"
-          value={itemId}
-          onChange={(e) => setId(e.target.value)}
-        />
+    <div className={style.containers}>
+      <div className={style.containerList}>
+        <div class="form-outline mb-2">
+          <input
+            class="form-control"
+            placeholder="Id"
+            type="number"
+            value={itemId}
+            onChange={(e) => setId(e.target.value)}
+          />
+        </div>
+        <div class="form-outline mb-2">
+          <input
+            placeholder="Name"
+            class="form-control"
+            value={itemName}
+            type="text"
+            onChange={(e) => setItemName(e.target.value)}
+          />
+        </div>
+        <div class="form-outline mb-2">
+          <input
+            placeholder="Price"
+            class="form-control"
+            type="number"
+            value={itemPrice}
+            onChange={(e) => setItemPrice(e.target.value)}
+          />
+        </div>
+        <div class="form-outline mb-2">
+          <input
+            placeholder="Link URL Image"
+            class="form-control"
+            type="text"
+            value={itemImage}
+            onChange={(e) => setItemImage(e.target.value)}
+          />
+        </div>
+        <div class="form-outline mb-2">
+          <textarea
+            value={itemDescription}
+            class="form-control"
+            type="text"
+            rows="4"
+            placeholder=" Description"
+            onChange={(e) => setItemDescription(e.target.value)}
+          ></textarea>
+        </div>
+        <div class="form-outline mb-2">
+          <input
+            class="form-control"
+            rows="4"
+            placeholder=" Total"
+            type="number"
+            value={itemTotal}
+            onChange={(e) => setItemTotal(e.target.value)}
+          />
+        </div>
+        <button class="btn btn-primary btn-block mb-2">Add</button>
+        <button
+          class="btn btn-primary btn-block mb-2"
+          onClick={handleUpdateButtonClick}
+        >
+          Update
+        </button>
       </div>
-      <div class="form-outline mb-2">
-        <input
-          placeholder="Name"
-          class="form-control"
-          value={itemName}
-          type="text"
-          onChange={(e) => setItemName(e.target.value)}
-        />
+      <div className={style.containerTable}>
+        <ProductsList />
       </div>
-      <div class="form-outline mb-2">
-        <input
-          placeholder="Price"
-          class="form-control"
-          type="number"
-          value={itemPrice}
-          onChange={(e) => setItemPrice(e.target.value)}
-        />
-      </div>
-      <div class="form-outline mb-2">
-        <input
-          placeholder="Link URL Image"
-          class="form-control"
-          type="text"
-          value={itemImage}
-          onChange={(e) => setItemImage(e.target.value)}
-        />
-      </div>
-      <div class="form-outline mb-2">
-        <textarea
-          value={itemDescription}
-          class="form-control"
-          type="text"
-          rows="4"
-          placeholder=" Description"
-          onChange={(e) => setItemDescription(e.target.value)}
-        ></textarea>
-      </div>
-      <div class="form-outline mb-2">
-        <input
-          class="form-control"
-          rows="4"
-          placeholder=" Total"
-          type="number"
-          value={itemTotal}
-          onChange={(e) => setItemTotal(e.target.value)}
-        />
-      </div>
-      <button class="btn btn-primary btn-block mb-2">Add</button>
-      <button
-        class="btn btn-primary btn-block mb-2"
-        onClick={handleUpdateButtonClick}
-      >
-        Update
-      </button>
     </div>
   );
 };

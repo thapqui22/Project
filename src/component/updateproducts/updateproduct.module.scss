@@ -1,5 +1,12 @@
-.container {
-  margin: auto;
+.containerList {
   width: 500px;
+  margin: 20px 20px 20px 20px;
+}
+.containerTable {
+  width: 700px;
+  margin: 20px 20px 20px 20px;
+}
+.containers {
+  display: flex;
   padding-top: 30px;
 }
