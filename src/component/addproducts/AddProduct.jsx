@@ -13,7 +13,7 @@ const AddProduct = () => {
       });
   };
 
-  const UpdateProduct = (itemId, newdata) => {
+  const AddProduct = async (itemId, data) => {
     let url = `https://63f43c77864fb1d600247a6d.mockapi.io/Products/products/${itemId}`;
     return axios
       .put(url, newdata)
