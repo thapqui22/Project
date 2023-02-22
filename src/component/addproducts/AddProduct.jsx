@@ -25,9 +25,6 @@ const AddProduct = () => {
       });
   };
 
-  const itemId = 1;
-  const newData = { name: "Test update 3", description: "123456789" };
-
   const AddProduct = (itemId, data) => {
     let url = `https://63f43c77864fb1d600247a6d.mockapi.io/Products/products/${itemId}`;
     return axios
@@ -39,7 +36,9 @@ const AddProduct = () => {
         console.error("Error updating item:", error);
       });
   };
-
+  const shoot = () => {
+    alert("Great Shot!");
+  };
   return (
     <div className={style.container}>
       <form>
@@ -81,7 +80,12 @@ const AddProduct = () => {
         </button>
         <button
           class="btn btn-primary btn-block mb-2"
-          onClick={() => UpdateProduct(itemId, newData)}
+          onClick={() =>
+            UpdateProduct(3, {
+              name: "Test update 3333",
+              description: "123456789",
+            })
+          }
         >
           Update
         </button>
