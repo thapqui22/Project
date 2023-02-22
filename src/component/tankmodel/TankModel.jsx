@@ -11,17 +11,15 @@ import style from "./tankModel.module.scss";
 import axios from "axios";
 
 const TankModel = () => {
+  let url = "https://63f43c77864fb1d600247a6d.mockapi.io/Products/products";
   const [data, setData] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = await axios.get(
-        "https://63f43c77864fb1d600247a6d.mockapi.io/Products/products"
-      );
+      const response = await axios.get(url);
       setData(response.data);
     };
     fetchData();
-    console.log(data);
   }, []);
 
   return (
@@ -54,6 +52,7 @@ const TankModel = () => {
                       </MDBCol>
                       <MDBCol md="8">
                         <h5>{item.name}</h5>
+                        <h5>${item.price}</h5>
                         <div className="mt-1 mb-0 text-muted small">
                           <span>100% cotton</span>
                           <span className="text-primary"> • </span>
