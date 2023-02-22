@@ -11,16 +11,30 @@ import style from "./tankModel.module.scss";
 import axios from "axios";
 
 const TankModel = () => {
+  let url = "https://63f43c77864fb1d600247a6d.mockapi.io/Products/products";
   const [data, setData] = useState(null);
+
+  const UpdateProduct = (itemId, data) => {
+    let url = `https://63f43c77864fb1d600247a6d.mockapi.io/Products/products/${itemId}`;
+    return axios
+      .put(url, data)
+      .then((response) => {
+        console.log("Item updated:", response.data);
+      })
+      .catch((error) => {
+        console.error("Error updating item:", error);
+      });
+  };
+  const itemId = 2;
+  const newData = { name: "Test update 2", description: "123456789" };
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = await axios.get(
-        "https://63f43c77864fb1d600247a6d.mockapi.io/Products/products"
-      );
+      const response = await axios.get(url);
       setData(response.data);
     };
     fetchData();
+    UpdateProduct(itemId, newData);
     console.log(data);
   }, []);
 

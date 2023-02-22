@@ -1,4 +1,3 @@
-import React from "react";
 import axios from "axios";
 const UpdateProduct = (itemId, data) => {
   return axios
@@ -16,6 +15,6 @@ const UpdateProduct = (itemId, data) => {
 
 const itemId = 1;
 const newData = { name: "Test update" };
-updateItem(itemId, newData);
+UpdateProduct(itemId, newData);
 
 export default UpdateProduct;
