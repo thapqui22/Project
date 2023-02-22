@@ -8,12 +8,16 @@ import Mainboard from "./component/mainboard/Mainboard";
 import Shopping from "./page/shopping/Shopping";
 import TankModel from "./component/tankmodel/TankModel";
 import AddProduct from "./component/addproducts/AddProduct";
+import UpdateProduct from "./component/updateproducts/UpdateProduct";
 import FakeData from "./component/data/FakeData";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
   return (
     <>
+      <ToastContainer />
       <Navbar />
       <Mainboard />
       <Header />

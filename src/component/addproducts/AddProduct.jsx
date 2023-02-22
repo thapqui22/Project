@@ -1,104 +1,111 @@
 import style from "./addproduct.module.scss";
-import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { Await } from "react-router-dom";
+import React, { useState } from "react";
+import { toast, ToastContainer } from "react-toastify";
 const AddProduct = () => {
-  const handleDeleteProduct = async (itemId, data) => {
-    let url = `https://63f43c77864fb1d600247a6d.mockapi.io/Products/products/${itemId}`;
-    return await axios
-      .put(url, data)
-      .then((response) => {
-        console.log("Item updated:", response.data);
-      })
-      .catch((error) => {
-        console.error("Error updating item:", error);
-      });
-  };
+  const [itemName, setItemName] = useState("");
+  const [itemPrice, setItemPrice] = useState("");
+  const [itemDescription, setItemDescription] = useState("");
+  const [itemImage, setItemImage] = useState("");
+  const [itemTotal, setItemTotal] = useState(null);
 
   const handleAddProduct = async (itemId, data) => {
-    let url = `https://63f43c77864fb1d600247a6d.mockapi.io/Products/products/${itemId}`;
-    return await axios
-      .put(url, data)
-      .then((response) => {
-        console.log("Item updated:", response.data);
-      })
-      .catch((error) => {
-        console.error("Error updating item:", error);
-      });
+    try {
+      const url = `https://63f43c77864fb1d600247a6d.mockapi.io/Products/products/`;
+      const response = await axios.post(url, data);
+      console.log("Item has added:", response.data);
+    } catch (error) {
+      console.error("Error adding item:", error);
+    }
   };
-
-  const handleUpdateProduct = async (itemId, data) => {
-    let url = `https://63f43c77864fb1d600247a6d.mockapi.io/Products/products/${itemId}`;
-    return await axios
-      .put(url, data)
-      .then((response) => {
-        console.log("Item updated:", response.data);
-      })
-      .catch((error) => {
+  const handleAddButtonClick = async () => {
+    if (
+      itemName !== "" &&
+      itemPrice !== "" &&
+      itemImage !== "" &&
+      itemDescription !== "" &&
+      itemTotal !== ""
+    ) {
+      try {
+        const addedData = {
+          name: itemName,
+          price: itemPrice,
+          quantity: 1,
+          description: itemDescription,
+          image: itemImage,
+          total: itemTotal,
+        };
+        await handleAddProduct(``, addedData);
+        setItemName("");
+        setItemPrice("");
+        setItemImage("");
+        setItemDescription("");
+        setItemTotal("");
+      } catch (error) {
         console.error("Error updating item:", error);
-      });
+      }
+    } else {
+      toast.error("The field is empty!");
+    }
   };
 
   return (
     <div className={style.container}>
-      <form>
-        <div class="form-outline mb-2">Add product</div>
-        <div class="form-outline mb-2">
-          <input
-            placeholder="Name"
-            type="text"
-            id="form4Example1"
-            class="form-control"
-          />
-        </div>
-        <div class="form-outline mb-2">
-          <input
-            placeholder="Link URL Image"
-            type="email"
-            id="form4Example2"
-            class="form-control"
-          />
-        </div>
-        <div class="form-outline mb-2">
-          <input
-            placeholder="Price"
-            type="email"
-            id="form4Example2"
-            class="form-control"
-          />
-        </div>
-        <div class="form-outline mb-2">
-          <textarea
-            class="form-control"
-            id="form4Example3"
-            rows="4"
-            placeholder=" Description"
-          ></textarea>
-        </div>
-        <button type="submit" class="btn btn-primary btn-block mb-2">
+      <div class="form-outline mb-2">
+        <input
+          placeholder="Name"
+          class="form-control"
+          type="text"
+          value={itemName}
+          onChange={(e) => setItemName(e.target.value)}
+        />
+      </div>
+      <div class="form-outline mb-2">
+        <input
+          placeholder="Price"
+          class="form-control"
+          type="number"
+          value={itemPrice}
+          onChange={(e) => setItemPrice(e.target.value)}
+        />
+      </div>
+      <div class="form-outline mb-2">
+        <input
+          placeholder="Link URL Image"
+          class="form-control"
+          type="text"
+          value={itemImage}
+          onChange={(e) => setItemImage(e.target.value)}
+        />
+      </div>
+      <div class="form-outline mb-2">
+        <input
+          class="form-control"
+          rows="4"
+          placeholder=" Description"
+          type="text"
+          value={itemDescription}
+          onChange={(e) => setItemDescription(e.target.value)}
+        />
+      </div>
+      <div class="form-outline mb-2">
+        <input
+          class="form-control"
+          rows="4"
+          placeholder=" Total"
+          type="number"
+          value={itemTotal}
+          onChange={(e) => setItemTotal(e.target.value)}
+        />
+      </div>
+      <div class="form-outline mb-2">
+        <button
+          className="btn btn-primary btn-block mb-2"
+          onClick={handleAddButtonClick}
+        >
           Add
         </button>
-        <button
-          class="btn btn-primary btn-block mb-2"
-          onClick={handleUpdateProduct(1, {
-            name: "Test update ",
-            description: "123456789",
-          })}
-        >
-          Update
-        </button>
-        <div class="form-outline mb-2">
-          <input
-            class="form-control"
-            id="form4Example3"
-            rows="4"
-            placeholder=" ID"
-          />
-        </div>
-        <button type="submit" class="btn btn-primary btn-block mb-2">
-          Delete
-        </button>
-      </form>
+      </div>
     </div>
   );
 };

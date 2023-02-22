@@ -14,18 +14,6 @@ const TankModel = () => {
   let url = "https://63f43c77864fb1d600247a6d.mockapi.io/Products/products";
   const [data, setData] = useState(null);
 
-  const UpdateProduct = (itemId, data) => {
-    let url = `https://63f43c77864fb1d600247a6d.mockapi.io/Products/products/${itemId}`;
-    return axios
-      .put(url, data)
-      .then((response) => {
-        console.log("Item updated:", response.data);
-      })
-      .catch((error) => {
-        console.error("Error updating item:", error);
-      });
-  };
-
   useEffect(() => {
     const fetchData = async () => {
       const response = await axios.get(url);
@@ -64,6 +52,7 @@ const TankModel = () => {
                       </MDBCol>
                       <MDBCol md="8">
                         <h5>{item.name}</h5>
+                        <h5>${item.price}</h5>
                         <div className="mt-1 mb-0 text-muted small">
                           <span>100% cotton</span>
                           <span className="text-primary"> • </span>
@@ -86,17 +75,7 @@ const TankModel = () => {
                         </div>
                         <p>{item.description}</p>
                         <div>
-                          <button
-                            className={style.detals}
-                            onClick={() => {
-                              UpdateProduct(1, {
-                                name: "Test update 3333444",
-                                description: "123456789",
-                              });
-                            }}
-                          >
-                            Details
-                          </button>
+                          <button className={style.detals}>Details</button>
                         </div>
                       </MDBCol>
                     </MDBRow>
