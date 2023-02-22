@@ -7,11 +7,11 @@ const AddProduct = () => {
   const [itemPrice, setItemPrice] = useState("");
   const [itemDescription, setItemDescription] = useState("");
   const [itemImage, setItemImage] = useState("");
-  const [itemTotal, setItemTotal] = useState(null);
+  const [itemTotal, setItemTotal] = useState("");
 
   const handleAddProduct = async (itemId, data) => {
     try {
-      const url = `https://63f43c77864fb1d600247a6d.mockapi.io/Products/products/`;
+      const url = `https://63f43c77864fb1d600247a6d.mockapi.io/Products/products/${itemId}`;
       const response = await axios.post(url, data);
       console.log("Item has added:", response.data);
     } catch (error) {
@@ -35,7 +35,7 @@ const AddProduct = () => {
           image: itemImage,
           total: itemTotal,
         };
-        await handleAddProduct(``, addedData);
+        await handleAddProduct(1, addedData);
         setItemName("");
         setItemPrice("");
         setItemImage("");
@@ -79,14 +79,14 @@ const AddProduct = () => {
         />
       </div>
       <div class="form-outline mb-2">
-        <input
+        <textarea
+          value={itemDescription}
           class="form-control"
+          type="text"
           rows="4"
           placeholder=" Description"
-          type="text"
-          value={itemDescription}
           onChange={(e) => setItemDescription(e.target.value)}
-        />
+        ></textarea>
       </div>
       <div class="form-outline mb-2">
         <input

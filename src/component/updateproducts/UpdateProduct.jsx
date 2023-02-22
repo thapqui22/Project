@@ -1,13 +1,14 @@
 import axios from "axios";
 import React, { useState } from "react";
 import style from "./updateproduct.module.scss";
-
+import { toast, ToastContainer } from "react-toastify";
 const UpdateProduct = () => {
   const [itemId, setId] = useState("");
   const [itemName, setItemName] = useState("");
   const [itemDescription, setItemDescription] = useState("");
   const [itemImage, setItemImage] = useState("");
   const [itemPrice, setItemPrice] = useState("");
+  const [itemTotal, setItemTotal] = useState("");
 
   const handleUpdateProduct = async (itemId, data) => {
     try {
@@ -19,21 +20,33 @@ const UpdateProduct = () => {
     }
   };
   const handleUpdateButtonClick = async () => {
-    try {
-      const updatedData = {
-        name: itemName,
-        description: itemDescription,
-        price: itemPrice,
-        image: itemImage,
-      };
-      await handleUpdateProduct(itemId, updatedData);
-      setId("");
-      setItemName("");
-      setItemDescription("");
-      setItemImage("");
-      setItemPrice("");
-    } catch (error) {
-      console.error("Error updating item:", error);
+    if (
+      itemName !== "" &&
+      itemPrice !== "" &&
+      itemImage !== "" &&
+      itemDescription !== "" &&
+      itemTotal !== ""
+    ) {
+      try {
+        const updatedData = {
+          name: itemName,
+          description: itemDescription,
+          price: itemPrice,
+          image: itemImage,
+          total: itemTotal,
+        };
+        await handleUpdateProduct(itemId, updatedData);
+        setId("");
+        setItemName("");
+        setItemDescription("");
+        setItemImage("");
+        setItemPrice("");
+        setItemTotal("");
+      } catch (error) {
+        console.error("Error updating item:", error);
+      }
+    } else {
+      toast.error("The field is empty!");
     }
   };
   return (
@@ -83,6 +96,16 @@ const UpdateProduct = () => {
           placeholder=" Description"
           onChange={(e) => setItemDescription(e.target.value)}
         ></textarea>
+      </div>
+      <div class="form-outline mb-2">
+        <input
+          class="form-control"
+          rows="4"
+          placeholder=" Total"
+          type="number"
+          value={itemTotal}
+          onChange={(e) => setItemTotal(e.target.value)}
+        />
       </div>
       <button class="btn btn-primary btn-block mb-2">Add</button>
       <button
