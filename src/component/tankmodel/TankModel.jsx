@@ -25,8 +25,6 @@ const TankModel = () => {
         console.error("Error updating item:", error);
       });
   };
-  const itemId = 2;
-  const newData = { name: "Test update 2", description: "123456789" };
 
   useEffect(() => {
     const fetchData = async () => {
@@ -34,8 +32,6 @@ const TankModel = () => {
       setData(response.data);
     };
     fetchData();
-    UpdateProduct(itemId, newData);
-    console.log(data);
   }, []);
 
   return (
@@ -90,7 +86,17 @@ const TankModel = () => {
                         </div>
                         <p>{item.description}</p>
                         <div>
-                          <button className={style.detals}>Details</button>
+                          <button
+                            className={style.detals}
+                            onClick={() => {
+                              UpdateProduct(1, {
+                                name: "Test update 3333444",
+                                description: "123456789",
+                              });
+                            }}
+                          >
+                            Details
+                          </button>
                         </div>
                       </MDBCol>
                     </MDBRow>

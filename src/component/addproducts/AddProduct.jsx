@@ -1,9 +1,11 @@
-import React from "react";
 import style from "./addproduct.module.scss";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import { Await } from "react-router-dom";
 const AddProduct = () => {
-  const DeleteProduct = (itemId, data) => {
+  const handleDeleteProduct = async (itemId, data) => {
     let url = `https://63f43c77864fb1d600247a6d.mockapi.io/Products/products/${itemId}`;
-    return axios
+    return await axios
       .put(url, data)
       .then((response) => {
         console.log("Item updated:", response.data);
@@ -13,21 +15,9 @@ const AddProduct = () => {
       });
   };
 
-  const AddProduct = async (itemId, data) => {
+  const handleAddProduct = async (itemId, data) => {
     let url = `https://63f43c77864fb1d600247a6d.mockapi.io/Products/products/${itemId}`;
-    return axios
-      .put(url, newdata)
-      .then((response) => {
-        console.log("Item updated:", response.data);
-      })
-      .catch((error) => {
-        console.error("Error updating item:", error);
-      });
-  };
-
-  const AddProduct = (itemId, data) => {
-    let url = `https://63f43c77864fb1d600247a6d.mockapi.io/Products/products/${itemId}`;
-    return axios
+    return await axios
       .put(url, data)
       .then((response) => {
         console.log("Item updated:", response.data);
@@ -36,9 +26,19 @@ const AddProduct = () => {
         console.error("Error updating item:", error);
       });
   };
-  const shoot = () => {
-    alert("Great Shot!");
+
+  const handleUpdateProduct = async (itemId, data) => {
+    let url = `https://63f43c77864fb1d600247a6d.mockapi.io/Products/products/${itemId}`;
+    return await axios
+      .put(url, data)
+      .then((response) => {
+        console.log("Item updated:", response.data);
+      })
+      .catch((error) => {
+        console.error("Error updating item:", error);
+      });
   };
+
   return (
     <div className={style.container}>
       <form>
@@ -80,12 +80,10 @@ const AddProduct = () => {
         </button>
         <button
           class="btn btn-primary btn-block mb-2"
-          onClick={() =>
-            UpdateProduct(3, {
-              name: "Test update 3333",
-              description: "123456789",
-            })
-          }
+          onClick={handleUpdateProduct(1, {
+            name: "Test update ",
+            description: "123456789",
+          })}
         >
           Update
         </button>
