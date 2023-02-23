@@ -1,9 +1,9 @@
 import axios from "axios";
 import React, { useState } from "react";
-import style from "./updateproduct.module.scss";
+import style from "./handleproduct.module.scss";
 import { toast, ToastContainer } from "react-toastify";
 import ProductsList from "../listproduct/ProductsList";
-const UpdateProduct = () => {
+const HandleProducts = () => {
   const [itemId, setId] = useState("");
   const [itemName, setItemName] = useState("");
   const [itemDescription, setItemDescription] = useState("");
@@ -166,4 +166,4 @@ const UpdateProduct = () => {
   );
 };
 
-export default UpdateProduct;
+export default HandleProducts;
