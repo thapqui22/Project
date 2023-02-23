@@ -1,9 +1,9 @@
 import React from "react";
-import style from "./header.module.scss";
+import style from "./menubar.module.scss";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHome } from "@fortawesome/free-solid-svg-icons";
-const Header = () => {
+const MenuBar = () => {
   return (
     <div className={style.navbar}>
       <div className={style.navContainerMenu}>
@@ -37,4 +37,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default MenuBar;

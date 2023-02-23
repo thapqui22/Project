@@ -1,9 +1,9 @@
 import axios from "axios";
 import React, { useState } from "react";
-import style from "./handleproduct.module.scss";
+import style from "./manageproduct.module.scss";
 import { toast, ToastContainer } from "react-toastify";
 import ProductsList from "../listproduct/ProductsList";
-const HandleProducts = () => {
+const ManageProducts = () => {
   const [itemId, setId] = useState("");
   const [itemName, setItemName] = useState("");
   const [itemDescription, setItemDescription] = useState("");
@@ -166,4 +166,4 @@ const HandleProducts = () => {
   );
 };
 
-export default HandleProducts;
+export default ManageProducts;

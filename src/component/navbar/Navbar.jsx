@@ -18,7 +18,7 @@ const Navbar = () => {
                 <span>Giao hàng toàn quốc</span>
               </a>
             </div>
-            <div>
+            <div className={{flex:2}}>
               <a>
                 <FontAwesomeIcon icon={faTaxi} />
                 <span>Nhận hàng thanh toán sau(COD)</span>

@@ -3,15 +3,13 @@ import Home from "./page/home/Home";
 import Knowledge from "./page/knowledge/Knowledge";
 import Footer from "./component/footer/Footer";
 import Navbar from "./component/navbar/Navbar";
-import Header from "./component/menubar/Header";
+import MenuBar from "./component/menubar/MenuBar";
 import Mainboard from "./component/mainboard/Mainboard";
 import Shopping from "./page/shopping/Shopping";
 import TankModel from "./component/tankmodel/TankModel";
-import AddProduct from "./component/addproducts/AddProduct";
-import UpdateProduct from "./component/updateproducts/UpdateProduct";
-import ProductList from "./component/listproduct/ProductsList";
+import ManageProducts from "./component/manageproducts/ManageProducts";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { toast, ToastContainer } from "react-toastify";
+import {ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 function App() {
@@ -20,13 +18,13 @@ function App() {
       <ToastContainer />
       <Navbar />
       <Mainboard />
-      <Header />
+      <MenuBar />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/knowledge" element={<Knowledge />} />
         <Route path="/shoppingcart" element={<Shopping />} />
         <Route path="/tankmodel" element={<TankModel />} />
-        <Route path="/manage" element={<UpdateProduct />} />
+        <Route path="/manage" element={<ManageProducts />} />
       </Routes>
       <Footer />
     </>
