@@ -8,9 +8,14 @@ import {
 } from "mdb-react-ui-kit";
 import { useState } from "react";
 import { ProductList } from "../listproduct/ProductList";
-import style from "./shoppingCart.module.scss";
+import style from "./shopping.module.scss";
 
-const ShoppingCart = () => {
+const Shopping = (props) => {
+  const { data, onDataChange } = props;
+
+  const handleInputChange = (event) => {
+    onDataChange(event.target.value);
+  };
   const [cart, setCart] = useState([]);
   const [products, setProducts] = useState(ProductList);
   function totalitems() {
@@ -172,4 +177,4 @@ const ShoppingCart = () => {
   );
 };
 
-export default ShoppingCart;
+export default Shopping;
