@@ -18,7 +18,7 @@ const MenuBar = () => {
 
         <button>
           <FontAwesomeIcon icon={faHome} />
-          <Link to="/shoppingcart">Shopping</Link>
+          <Link to="/shopping">Shopping</Link>
         </button>
         <button>
           <FontAwesomeIcon icon={faHome} />

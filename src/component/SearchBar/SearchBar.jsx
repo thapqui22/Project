@@ -1,9 +1,9 @@
 import React from "react";
-import style from "./mainboard.module.scss";
+import style from "./searchbar.module.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPhone, faHome } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
-const Mainboard = () => {
+const SearchBar = () => {
   return (
     <div className={style.navbar}>
       <div className={style.navContainer}>
@@ -37,4 +37,4 @@ const Mainboard = () => {
     </div>
   );
 };
-export default Mainboard;
+export default SearchBar;
