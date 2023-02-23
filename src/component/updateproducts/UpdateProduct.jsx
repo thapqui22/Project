@@ -19,41 +19,40 @@ const UpdateProduct = () => {
       const url = `https://63f43c77864fb1d600247a6d.mockapi.io/Products/products/${itemId}`;
       const response = await axios.post(url, data);
       console.log("Item has added:", response.data);
-      window.location.reload();
     } catch (error) {
       console.error("Error adding item:", error);
     }
   };
-    const handleAddButtonClick = async () => {
-      if (
-        itemName !== "" &&
-        itemPrice !== "" &&
-        itemImage !== "" &&
-        itemDescription !== "" &&
-        itemTotal !== ""
-      ) {
-        try {
-          const addedData = {
-            name: itemName,
-            price: itemPrice,
-            quantity: 1,
-            description: itemDescription,
-            image: itemImage,
-            total: itemTotal,
-          };
-          await handleAddProduct(1, addedData);
-          setItemName("");
-          setItemPrice("");
-          setItemImage("");
-          setItemDescription("");
-          setItemTotal("");
-        } catch (error) {
-          console.error("Error updating item:", error);
-        }
-      } else {
-        toast.error("The field is empty!");
+  const handleAddButtonClick = async () => {
+    if (
+      itemName !== "" &&
+      itemPrice !== "" &&
+      itemImage !== "" &&
+      itemDescription !== "" &&
+      itemTotal !== ""
+    ) {
+      try {
+        const addedData = {
+          name: itemName,
+          price: itemPrice,
+          quantity: 1,
+          description: itemDescription,
+          image: itemImage,
+          total: itemTotal,
+        };
+        await handleAddProduct(``, addedData);
+        setItemName("");
+        setItemPrice("");
+        setItemImage("");
+        setItemDescription("");
+        setItemTotal("");
+      } catch (error) {
+        console.error("Error updating item:", error);
       }
-    };
+    } else {
+      toast.error("The field is empty!");
+    }
+  };
   const handleUpdateProduct = async (itemId, data) => {
     try {
       const url = `https://63f43c77864fb1d600247a6d.mockapi.io/Products/products/${itemId}`;
@@ -80,7 +79,6 @@ const UpdateProduct = () => {
           total: itemTotal,
         };
         await handleUpdateProduct(itemId, updatedData);
-        setId("");
         setItemName("");
         setItemDescription("");
         setItemImage("");
@@ -96,15 +94,11 @@ const UpdateProduct = () => {
   return (
     <div className={style.containers}>
       <div className={style.containerList}>
-        <div class="form-outline mb-2">
-          <input
-            class="form-control"
-            placeholder="Id"
-            type="number"
-            value={itemId}
-            onChange={(e) => setId(e.target.value)}
-          />
-        </div>
+        {itemId ? (
+          <p>ID: {itemId}</p>
+        ) : (
+          <p>ID:Choose item you want update...</p>
+        )}
         <div class="form-outline mb-2">
           <input
             placeholder="Name"
@@ -152,7 +146,12 @@ const UpdateProduct = () => {
             onChange={(e) => setItemTotal(e.target.value)}
           />
         </div>
-        <button class="btn btn-primary btn-block mb-2">Add</button>
+        <button
+          class="btn btn-primary btn-block mb-2"
+          onClick={handleAddButtonClick}
+        >
+          Add
+        </button>
         <button
           class="btn btn-primary btn-block mb-2"
           onClick={handleUpdateButtonClick}
@@ -161,7 +160,7 @@ const UpdateProduct = () => {
         </button>
       </div>
       <div className={style.containerTable}>
-        <ProductsList />
+        <ProductsList onClick={handleChildClick} />
       </div>
     </div>
   );

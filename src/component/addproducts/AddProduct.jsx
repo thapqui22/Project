@@ -1,7 +1,7 @@
 import style from "./addproduct.module.scss";
 import axios from "axios";
 import React, { useState } from "react";
-import { toast, ToastContainer } from "react-toastify";
+import { toast } from "react-toastify";
 const AddProduct = () => {
   const [itemName, setItemName] = useState("");
   const [itemPrice, setItemPrice] = useState("");
@@ -11,7 +11,7 @@ const AddProduct = () => {
 
   const handleAddProduct = async (itemId, data) => {
     try {
-      const url = `https://63f43c77864fb1d600247a6d.mockapi.io/Products/products/${itemId}`;
+      const url = `https://63f43c77864fb1d600247a6d.mockapi.io/Products/products`;
       const response = await axios.post(url, data);
       console.log("Item has added:", response.data);
     } catch (error) {
@@ -35,7 +35,7 @@ const AddProduct = () => {
           image: itemImage,
           total: itemTotal,
         };
-        await handleAddProduct(1, addedData);
+        await handleAddProduct(``, addedData);
         setItemName("");
         setItemPrice("");
         setItemImage("");

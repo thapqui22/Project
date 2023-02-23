@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-const ProductsList = () => {
+const ProductsList = (props) => {
   let url = "https://63f43c77864fb1d600247a6d.mockapi.io/Products/products";
   const [data, setData] = useState(null);
+  const [dataID, setDataID] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -11,16 +12,25 @@ const ProductsList = () => {
     };
     fetchData();
   }, []);
-
+  const handleReload = () => {
+    window.location.reload();
+  };
   const handleRemoveButton = async (itemId) => {
     try {
       const url = `https://63f43c77864fb1d600247a6d.mockapi.io/Products/products/${itemId}`;
       const response = await axios.delete(url);
       console.log("Item deleted:", response.data);
-      window.location.reload();
+      handleReload();
     } catch (error) {
       console.error("Error deleting item:", error);
     }
+  };
+  const handleClick = (data) => {
+    setDataID(data);
+    const handleClick = () => {
+      props.onClick(dataID);
+    };
+    handleClick();
   };
 
   return (
@@ -35,10 +45,10 @@ const ProductsList = () => {
                 <th scope="col">Name</th>
                 <th scope="col">Price</th>
                 <th scope="col">Total</th>
-                <th scope="col">Remove</th> <th scope="col">Fix</th>
+                <th scope="col">Remove</th>
+                <th scope="col">Fix</th>
               </tr>
             </thead>
-
             <tbody>
               {data.map((i, index) => (
                 <tr key={i.id}>
@@ -51,7 +61,7 @@ const ProductsList = () => {
                   </th>
                   <td>{i.name}</td>
                   <td>{i.price}</td>
-                  <td>{i.price}</td>
+                  <td>{i.total}</td>
                   <td>
                     <button
                       className="btn btn-danger"
@@ -65,7 +75,7 @@ const ProductsList = () => {
                     <button
                       className="btn btn-danger"
                       value={i.id}
-                      onClick={(e) => handleRemoveButton(e.target.value)}
+                      onClick={(e) => handleClick(e.target.value)}
                     >
                       Fix
                     </button>
