@@ -18,7 +18,6 @@ function App() {
   const handleDataChange = (newData) => {
     setData(newData);
   };
-  console.log(`New data`, data);
   return (
     <>
       <ToastContainer />

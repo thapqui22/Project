@@ -1,10 +1,10 @@
-import React from "react";
-import { ProductList } from "../listproduct/ProductList";
 import { useState } from "react";
-const ShoppingCart = (props) => {
-  const { data } = props;
+import { ProductList } from "../listproduct/ProductList";
+import Cart from "./Cart";
+
+const ShoppingCart = () => {
   const [cart, setCart] = useState([]);
-  const [products, setProducts] = useState(ProductList);
+  const [products] = useState(ProductList);
   function totalitems() {
     let a = 0;
     a = cart.length;
@@ -46,7 +46,7 @@ const ShoppingCart = (props) => {
   }
   return (
     <div>
-      <p>Data received from Child A: {data}</p>
+      <Cart />
       <div className="row mt-3">
         <table className="table  text-center">
           <thead>
