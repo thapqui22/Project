@@ -17,9 +17,22 @@
   height: 350px;
 }
 .Image {
-  width: auto !important;
-  height: 200px;
-  object-fit: cover;
+  width: auto;
+  height: 300px;
+  object-fit: fill;
   border-top-right-radius: 5px;
   border-top-left-radius: 5px;
+}
+.textdes {
+  width: auto;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.textname {
+  width: auto;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }

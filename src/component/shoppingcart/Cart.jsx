@@ -1,21 +1,6 @@
 import { useState, useEffect } from "react";
 import { ProductList } from "../listproduct/ProductList";
-
-export const useStorage = (key, initialValue) => {
-  const [state, setState] = useState(() => {
-    const storedValue = localStorage.getItem(key);
-    if (storedValue !== null) {
-      return JSON.parse(storedValue);
-    }
-    return initialValue;
-  });
-
-  useEffect(() => {
-    localStorage.setItem(key, JSON.stringify(state));
-  }, [key, state]);
-
-  return [state, setState];
-};
+import { useStorage } from "../localstorage/LocalStorage";
 
 const Cart = () => {
   const [products, setProducts] = useState(ProductList);

@@ -5,15 +5,15 @@
 }
 
 .fLists {
-  width: 100%;
   display: flex;
+  flex: 1;
   justify-content: space-between;
   margin-bottom: 50px;
 }
 
 .fList {
-  list-style: none;
-  padding: 0;
+  padding: none;
+  text-align: justify;
 }
 
 .fListItem {

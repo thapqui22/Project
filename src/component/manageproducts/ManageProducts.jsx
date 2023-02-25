@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useState } from "react";
 import style from "./manageproduct.module.scss";
-import { toast, ToastContainer } from "react-toastify";
+import { toast } from "react-toastify";
 import ProductsList from "../listproduct/ProductsList";
 const ManageProducts = () => {
   const [itemId, setId] = useState("");
@@ -46,6 +46,7 @@ const ManageProducts = () => {
         setItemImage("");
         setItemDescription("");
         setItemTotal("");
+        toast.success("Has adding product");
       } catch (error) {
         console.error("Error updating item:", error);
       }

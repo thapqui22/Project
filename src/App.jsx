@@ -31,7 +31,10 @@ function App() {
           path="/shopping"
           element={<Shopping data={data} onDataChange={handleDataChange} />}
         />
-        <Route path="/shoppingcart" element={<ShoppingCart data={data} />} />
+        <Route
+          path="/shoppingcart"
+          element={<ShoppingCart data={data} onDataChange={handleDataChange} />}
+        />
         <Route path="/tankmodel" element={<TankModel />} />
         <Route path="/manage" element={<ManageProducts />} />
       </Routes>

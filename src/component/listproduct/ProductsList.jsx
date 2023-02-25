@@ -55,7 +55,7 @@ const ProductsList = (props) => {
                   <th scope="row">{index + 1}</th>
                   <th scope="row">
                     <img
-                      src={i.url}
+                      src={i.image}
                       style={{ width: "3rem", height: "3rem" }}
                     />
                   </th>

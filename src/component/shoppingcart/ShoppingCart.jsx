@@ -1,52 +1,67 @@
-import { useState } from "react";
-import { ProductList } from "../listproduct/ProductList";
-import Cart from "./Cart";
+import { useStorage } from "../localstorage/LocalStorage";
+import { toast } from "react-toastify";
 
 const ShoppingCart = () => {
-  const [cart, setCart] = useState([]);
-  const [products] = useState(ProductList);
-  function totalitems() {
-    let a = 0;
-    a = cart.length;
-    return a;
-  }
-  function removetocart(item) {
-    let cart2 = cart.filter((i) => i.id != item.id);
-    products.map((i) => {
-      if (i.id == item.id) {
-        i.cart = false;
+  const [cartItems, setCartItems] = useStorage("cartItems", []);
+
+  const increase = (product) => {
+    if (product !== null) {
+      setCartItems(
+        cartItems.map((item) =>
+          item.id === product.id
+            ? { ...item, quantity: item.quantity + 1 }
+            : item
+        )
+      );
+      toast.success(`Increasing successful`);
+    } else {
+      toast.error(`Error: Can't increasing product`);
+    }
+  };
+  const clearCart = () => {
+    setCartItems([]);
+  };
+  const decrease = (product) => {
+    const existingCartItem = cartItems.find((item) => item.id === product.id);
+
+    if (existingCartItem) {
+      const updatedCartItem = {
+        ...existingCartItem,
+        quantity: existingCartItem.quantity - 1,
+      };
+      if (updatedCartItem.quantity === 0) {
+        setCartItems(cartItems.filter((item) => item.id !== product.id));
+        toast.success(`Delete successful`);
+      } else {
+        setCartItems(
+          cartItems.map((item) =>
+            item.id === product.id ? updatedCartItem : item
+          )
+        );
+        toast.success(`Decreasing successful`);
       }
-    });
-    setCart(cart2);
-  }
-  function increase(item) {
-    let x = cart.map((i) => {
-      if (item.id == i.id) {
-        i.quantity += 1;
-      }
-      return i;
-    });
-    setCart(x);
-  }
-  function decrease(item) {
-    let x = cart.map((i) => {
-      if (item.id == i.id && i.quantity > 1) {
-        i.quantity -= 1;
-      }
-      return i;
-    });
-    setCart(x);
-  }
+    } else {
+      setCartItems([...cartItems, { ...product, quantity: 1 }]);
+    }
+  };
   function total() {
     let x = 0;
-    cart.map((i) => {
+    cartItems.map((i) => {
       x += i.price * i.quantity;
     });
     return x;
   }
+  const removeFromCart = (productId) => {
+    setCartItems(cartItems.filter((item) => item.id !== productId));
+    toast.success(`Removing successful`);
+  };
+  function totalitems() {
+    let a = 0;
+    a = cartItems.length;
+    return a;
+  }
   return (
     <div>
-      <Cart />
       <div className="row mt-3">
         <table className="table  text-center">
           <thead>
@@ -60,11 +75,14 @@ const ShoppingCart = () => {
             </tr>
           </thead>
           <tbody>
-            {cart.map((i, index) => (
+            {cartItems.map((i, index) => (
               <tr key={i.id}>
                 <th scope="row">{index + 1}</th>
                 <th scope="row">
-                  <img src={i.url} style={{ width: "3rem", height: "3rem" }} />
+                  <img
+                    src={i.image}
+                    style={{ width: "3rem", height: "3rem" }}
+                  />
                 </th>
                 <td>{i.name}</td>
                 <td>{i.price}</td>
@@ -87,7 +105,7 @@ const ShoppingCart = () => {
 
                 <td>
                   <button
-                    onClick={() => removetocart(i)}
+                    onClick={() => removeFromCart(i.id)}
                     className="btn btn-danger"
                   >
                     Remove
@@ -100,6 +118,9 @@ const ShoppingCart = () => {
       </div>
       <div class="row">
         <div class="col text-center">
+          <h4>
+            <button onClick={clearCart}>Clear All Cart</button>
+          </h4>
           <h4>TOTAL: {total()}</h4>
           <h4>Total Item: {totalitems()}</h4>
         </div>
