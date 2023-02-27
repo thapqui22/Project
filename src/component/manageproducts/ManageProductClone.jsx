@@ -3,7 +3,7 @@ import React, { useState, useRef } from "react";
 import style from "./manageproduct.module.scss";
 import { toast } from "react-toastify";
 import ProductsList from "../listproduct/ProductsList";
-const ManageProducts = () => {
+const ManageProductClone = () => {
   const [itemId, setId] = useState("");
   const [itemName, setItemName] = useState("");
   const [itemDescription, setItemDescription] = useState("");
@@ -65,11 +65,11 @@ const ManageProducts = () => {
           quantity: 1,
         };
         await handleAddProduct(``, addedData);
-        setItemName("");
-        setItemPrice("");
-        setItemImage("");
-        setItemDescription("");
-        setItemTotal("");
+        itemNameRef.current = "";
+        itemPriceRef.current = "";
+        itemImageRef.current = "";
+        itemDescription.current = "";
+        itemTotalRef.current = "";
       } catch (error) {
         console.error("Error updating item:", error);
       }
@@ -198,4 +198,4 @@ const ManageProducts = () => {
   );
 };
 
-export default ManageProducts;
+export default ManageProductClone;

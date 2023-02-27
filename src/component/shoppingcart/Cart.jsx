@@ -41,16 +41,8 @@ const Cart = () => {
       0
     );
   };
-  const handleonClick = () => {
-    const addProduct = (newProduct) => {
-      setProducts([...products, newProduct]);
-    };
-    addProduct({ id: 4, name: "Product 4", price: 40 });
-  };
   return (
     <div>
-      <h2>Products</h2>
-      <button onClick={handleonClick}>Add product</button>
       <ul>
         {products &&
           products.length > 0 &&
