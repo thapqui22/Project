@@ -11,25 +11,12 @@ const ManageProductClone = () => {
   const [itemPrice, setItemPrice] = useState("");
   const [itemTotal, setItemTotal] = useState("");
 
-  const itemIdRef = useRef("");
   const itemNameRef = useRef("");
   const itemDescriptionRef = useRef("");
   const itemImageRef = useRef("");
   const itemPriceRef = useRef("");
   const itemTotalRef = useRef("");
 
-  const handleUpdate = () => {
-    const updatedItem = {
-      id: itemId,
-      name: itemNameRef.current.value,
-      description: itemDescriptionRef.current.value,
-      image: itemImageRef.current.value,
-      price: itemPriceRef.current.value,
-      total: itemTotalRef.current.value,
-    };
-    console.log(updatedItem);
-    // Do something with updatedItem...
-  };
   const handleChildClick = (data) => {
     setId(data.id);
     setItemName(data.name);
@@ -38,6 +25,7 @@ const ManageProductClone = () => {
     setItemPrice(data.price);
     setItemTotal(data.total);
   };
+
   const handleAddProduct = async (itemId, data) => {
     try {
       const url = `https://63f43c77864fb1d600247a6d.mockapi.io/Products/products/${itemId}`;
@@ -65,11 +53,6 @@ const ManageProductClone = () => {
           quantity: 1,
         };
         await handleAddProduct(``, addedData);
-        itemNameRef.current = "";
-        itemPriceRef.current = "";
-        itemImageRef.current = "";
-        itemDescription.current = "";
-        itemTotalRef.current = "";
       } catch (error) {
         console.error("Error updating item:", error);
       }
@@ -88,26 +71,22 @@ const ManageProductClone = () => {
   };
   const handleUpdateButtonClick = async () => {
     if (
-      itemName !== "" &&
-      itemPrice !== "" &&
-      itemImage !== "" &&
-      itemDescription !== "" &&
-      itemTotal !== ""
+      itemNameRef.current.value !== "" &&
+      itemDescriptionRef.current.value !== "" &&
+      itemImageRef.current.value !== "" &&
+      itemPriceRef.current.value !== "" &&
+      itemTotalRef.current.value !== ""
     ) {
       try {
         const updatedData = {
-          name: itemName,
-          description: itemDescription,
-          price: itemPrice,
-          image: itemImage,
-          total: itemTotal,
+          name: itemNameRef.current.value,
+          description: itemDescriptionRef.current.value,
+          image: itemImageRef.current.value,
+          price: itemPriceRef.current.value,
+          total: itemTotalRef.current.value,
         };
         await handleUpdateProduct(itemId, updatedData);
-        setItemName("");
-        setItemDescription("");
-        setItemImage("");
-        setItemPrice("");
-        setItemTotal("");
+        window.location.reload();
       } catch (error) {
         console.error("Error updating item:", error);
       }
@@ -128,10 +107,9 @@ const ManageProductClone = () => {
           <input
             placeholder="Name"
             class="form-control"
-            value={itemName}
+            defaultValue={itemName}
             ref={itemNameRef}
             type="text"
-            onChange={(e) => setItemName(e.target.value)}
           />
         </div>
 
@@ -140,9 +118,8 @@ const ManageProductClone = () => {
             placeholder="Price"
             class="form-control"
             type="number"
-            value={itemPrice}
+            defaultValue={itemPrice}
             ref={itemPriceRef}
-            onChange={(e) => setItemPrice(e.target.value)}
           />
         </div>
 
@@ -151,9 +128,8 @@ const ManageProductClone = () => {
             placeholder="Link URL Image"
             class="form-control"
             type="text"
-            value={itemImage}
+            defaultValue={itemImage}
             ref={itemImageRef}
-            onChange={(e) => setItemImage(e.target.value)}
           />
         </div>
         <div class="form-outline mb-2">
@@ -162,9 +138,8 @@ const ManageProductClone = () => {
             type="text"
             rows="4"
             placeholder=" Description"
-            value={itemDescription}
+            defaultValue={itemDescription}
             ref={itemDescriptionRef}
-            onChange={(e) => setItemDescription(e.target.value)}
           ></textarea>
         </div>
         <div class="form-outline mb-2">
@@ -173,9 +148,8 @@ const ManageProductClone = () => {
             rows="4"
             placeholder=" Total"
             type="number"
-            value={itemTotal}
+            defaultValue={itemTotal}
             ref={itemTotalRef}
-            onChange={(e) => setItemTotal(e.target.value)}
           />
         </div>
         <button
@@ -186,7 +160,7 @@ const ManageProductClone = () => {
         </button>
         <button
           class="btn btn-primary btn-block mb-2"
-          onClick={() => handleUpdate()}
+          onClick={handleUpdateButtonClick}
         >
           Update
         </button>
