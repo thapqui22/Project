@@ -4,43 +4,34 @@ import style from "./manageproduct.module.scss";
 import { toast } from "react-toastify";
 import ProductsList from "../listproduct/ProductsList";
 const ManageProducts = () => {
-  const [itemId, setId] = useState("");
-  const [itemName, setItemName] = useState("");
-  const [itemDescription, setItemDescription] = useState("");
-  const [itemImage, setItemImage] = useState("");
-  const [itemPrice, setItemPrice] = useState("");
-  const [itemTotal, setItemTotal] = useState("");
-
-  const itemIdRef = useRef("");
+  const [item, setItem] = useState({
+    id: null,
+    name: "",
+    description: "",
+    image: "",
+    price: null,
+    total: null,
+    quantity: 1,
+  });
   const itemNameRef = useRef("");
   const itemDescriptionRef = useRef("");
   const itemImageRef = useRef("");
   const itemPriceRef = useRef("");
   const itemTotalRef = useRef("");
 
-  const handleUpdate = () => {
-    const updatedItem = {
-      id: itemId,
-      name: itemNameRef.current.value,
-      description: itemDescriptionRef.current.value,
-      image: itemImageRef.current.value,
-      price: itemPriceRef.current.value,
-      total: itemTotalRef.current.value,
-    };
-    console.log(updatedItem);
-    // Do something with updatedItem...
-  };
   const handleChildClick = (data) => {
-    setId(data.id);
-    setItemName(data.name);
-    setItemDescription(data.description);
-    setItemImage(data.image);
-    setItemPrice(data.price);
-    setItemTotal(data.total);
+    setItem({
+      id: parseInt(data.id),
+      name: data.name,
+      description: data.description,
+      image: data.image,
+      price: parseInt(data.price),
+      total: parseInt(data.total),
+    });
   };
-  const handleAddProduct = async (itemId, data) => {
+  const handleAddProduct = async (item, data) => {
     try {
-      const url = `https://63f43c77864fb1d600247a6d.mockapi.io/Products/products/${itemId}`;
+      const url = `https://63f43c77864fb1d600247a6d.mockapi.io/Products/products/${item}`;
       const response = await axios.post(url, data);
       console.log("Item has added:", response.data);
     } catch (error) {
@@ -65,11 +56,6 @@ const ManageProducts = () => {
           quantity: 1,
         };
         await handleAddProduct(``, addedData);
-        setItemName("");
-        setItemPrice("");
-        setItemImage("");
-        setItemDescription("");
-        setItemTotal("");
       } catch (error) {
         console.error("Error updating item:", error);
       }
@@ -88,26 +74,22 @@ const ManageProducts = () => {
   };
   const handleUpdateButtonClick = async () => {
     if (
-      itemName !== "" &&
-      itemPrice !== "" &&
-      itemImage !== "" &&
-      itemDescription !== "" &&
-      itemTotal !== ""
+      itemNameRef.current.value !== "" &&
+      itemDescriptionRef.current.value !== "" &&
+      itemImageRef.current.value !== "" &&
+      itemPriceRef.current.value !== "" &&
+      itemTotalRef.current.value !== ""
     ) {
       try {
         const updatedData = {
-          name: itemName,
-          description: itemDescription,
-          price: itemPrice,
-          image: itemImage,
-          total: itemTotal,
+          name: itemNameRef.current.value,
+          description: itemDescriptionRef.current.value,
+          image: itemImageRef.current.value,
+          price: itemPriceRef.current.value,
+          total: itemTotalRef.current.value,
         };
-        await handleUpdateProduct(itemId, updatedData);
-        setItemName("");
-        setItemDescription("");
-        setItemImage("");
-        setItemPrice("");
-        setItemTotal("");
+        await handleUpdateProduct(item.id, updatedData);
+        window.location.reload();
       } catch (error) {
         console.error("Error updating item:", error);
       }
@@ -118,8 +100,8 @@ const ManageProducts = () => {
   return (
     <div className={style.containers}>
       <div className={style.containerList}>
-        {itemId ? (
-          <p>ID: {itemId}</p>
+        {item.id ? (
+          <p>ID: {item.id}</p>
         ) : (
           <p>ID:Choose item you want update...</p>
         )}
@@ -128,10 +110,9 @@ const ManageProducts = () => {
           <input
             placeholder="Name"
             class="form-control"
-            value={itemName}
+            defaultValue={item.name}
             ref={itemNameRef}
             type="text"
-            onChange={(e) => setItemName(e.target.value)}
           />
         </div>
 
@@ -140,9 +121,8 @@ const ManageProducts = () => {
             placeholder="Price"
             class="form-control"
             type="number"
-            value={itemPrice}
+            defaultValue={item.price}
             ref={itemPriceRef}
-            onChange={(e) => setItemPrice(e.target.value)}
           />
         </div>
 
@@ -151,9 +131,8 @@ const ManageProducts = () => {
             placeholder="Link URL Image"
             class="form-control"
             type="text"
-            value={itemImage}
+            defaultValue={item.image}
             ref={itemImageRef}
-            onChange={(e) => setItemImage(e.target.value)}
           />
         </div>
         <div class="form-outline mb-2">
@@ -162,9 +141,8 @@ const ManageProducts = () => {
             type="text"
             rows="4"
             placeholder=" Description"
-            value={itemDescription}
+            defaultValue={item.description}
             ref={itemDescriptionRef}
-            onChange={(e) => setItemDescription(e.target.value)}
           ></textarea>
         </div>
         <div class="form-outline mb-2">
@@ -173,9 +151,8 @@ const ManageProducts = () => {
             rows="4"
             placeholder=" Total"
             type="number"
-            value={itemTotal}
+            defaultValue={item.total}
             ref={itemTotalRef}
-            onChange={(e) => setItemTotal(e.target.value)}
           />
         </div>
         <button
@@ -186,7 +163,7 @@ const ManageProducts = () => {
         </button>
         <button
           class="btn btn-primary btn-block mb-2"
-          onClick={() => handleUpdate()}
+          onClick={handleUpdateButtonClick}
         >
           Update
         </button>

@@ -8,7 +8,6 @@ import SearchBar from "./component/SearchBar/SearchBar";
 import TankModel from "./component/tankmodel/TankModel";
 import ShoppingCart from "./component/shoppingcart/ShoppingCart";
 import ManageProducts from "./component/manageproducts/ManageProducts";
-import ManageProductClone from "./component/manageproducts/ManageProductClone";
 import Shopping from "./component/shopping/Shopping";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { ToastContainer } from "react-toastify";
@@ -37,7 +36,7 @@ function App() {
           element={<ShoppingCart data={data} onDataChange={handleDataChange} />}
         />
         <Route path="/tankmodel" element={<TankModel />} />
-        <Route path="/manage" element={<ManageProductClone />} />
+        <Route path="/manage" element={<ManageProducts />} />
       </Routes>
       <Footer />
     </>
