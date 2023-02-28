@@ -37,7 +37,7 @@ function App() {
           element={<ShoppingCart data={data} onDataChange={handleDataChange} />}
         />
         <Route path="/tankmodel" element={<TankModel />} />
-        <Route path="/manage" element={<ManageProductList />} />
+        <Route path="/manage" element={<ManageProducts />} />
       </Routes>
       <Footer />
     </>

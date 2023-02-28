@@ -3,6 +3,7 @@ import React, { useState, useRef } from "react";
 import style from "./manageproduct.module.scss";
 import { toast } from "react-toastify";
 import ProductsList from "../listproduct/ProductsList";
+import ManageProductList from "./ManageProductList";
 const ManageProducts = () => {
   const [item, setItem] = useState({
     id: Number,
@@ -189,7 +190,8 @@ const ManageProducts = () => {
         </button>
       </div>
       <div className={style.containerTable}>
-        <ProductsList onClick={handleChildClick} />
+        {/* <ProductsList onClick={handleChildClick} /> */}
+        <ManageProductList />
       </div>
     </div>
   );
