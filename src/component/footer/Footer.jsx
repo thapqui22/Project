@@ -4,6 +4,7 @@ const Footer = () => {
   return (
     <div>
       <div className="footer">
+        {" "}
         <div className="fLists">
           <ul className="fList">
             <li className="fListItemTitle">

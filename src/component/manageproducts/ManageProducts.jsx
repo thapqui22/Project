@@ -5,12 +5,12 @@ import { toast } from "react-toastify";
 import ProductsList from "../listproduct/ProductsList";
 const ManageProducts = () => {
   const [item, setItem] = useState({
-    id: null,
-    name: "",
-    description: "",
-    image: "",
-    price: null,
-    total: null,
+    id: Number,
+    name: String,
+    description: String,
+    image: String,
+    price: Number,
+    total: Number,
     quantity: 1,
   });
   const itemNameRef = useRef("");
@@ -123,6 +123,16 @@ const ManageProducts = () => {
             type="number"
             defaultValue={item.price}
             ref={itemPriceRef}
+            onKeyDown={(e) => {
+              if (
+                e.key === "e" ||
+                e.key === "." ||
+                e.key === "-" ||
+                e.key === "+"
+              ) {
+                e.preventDefault();
+              }
+            }}
           />
         </div>
 
@@ -153,6 +163,16 @@ const ManageProducts = () => {
             type="number"
             defaultValue={item.total}
             ref={itemTotalRef}
+            onKeyDown={(e) => {
+              if (
+                e.key === "e" ||
+                e.key === "." ||
+                e.key === "-" ||
+                e.key === "+"
+              ) {
+                e.preventDefault();
+              }
+            }}
           />
         </div>
         <button

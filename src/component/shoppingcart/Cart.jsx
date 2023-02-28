@@ -3,7 +3,7 @@ import { ProductList } from "../listproduct/ProductList";
 import { useStorage } from "../localstorage/LocalStorage";
 
 const Cart = () => {
-  const [products, setProducts] = useState(ProductList);
+  const [products] = useState(ProductList);
   const [cartItems, setCartItems] = useStorage("cartItems", []);
 
   useEffect(() => {
