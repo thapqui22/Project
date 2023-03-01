@@ -42,14 +42,7 @@ table {
   td {
     text-align: center;
     vertical-align: middle;
-
-    &:last-child {
-      font-size: 0.95em;
-      line-height: 1.4;
-      text-align: left;
-    }
   }
-
   th {
     background-color: lighten($baseColor, 50%);
     font-weight: 300;
@@ -65,7 +58,7 @@ table {
   }
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 500px) {
   table,
   tr,
   td {
@@ -94,19 +87,6 @@ table {
         left: 0;
         position: absolute;
       }
-    }
-
-    &:nth-child(2):before {
-      content: "Name:";
-    }
-    &:nth-child(3):before {
-      content: "Email:";
-    }
-    &:nth-child(4):before {
-      content: "Phone:";
-    }
-    &:nth-child(5):before {
-      content: "Comments:";
     }
   }
 
@@ -179,4 +159,7 @@ table {
     box-shadow: none;
     overflow: visible;
   }
+}
+.FontAwesomeIcon:hover {
+  cursor: pointer;
 }

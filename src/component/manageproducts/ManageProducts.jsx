@@ -2,8 +2,8 @@ import axios from "axios";
 import React, { useState, useRef } from "react";
 import style from "./manageproduct.module.scss";
 import { toast } from "react-toastify";
-import ProductsList from "../listproduct/ProductsList";
 import ManageProductList from "./ManageProductList";
+import ProductsList from "../listproduct/ProductsList";
 const ManageProducts = () => {
   const [item, setItem] = useState({
     id: Number,
@@ -34,6 +34,7 @@ const ManageProducts = () => {
     try {
       const url = `https://63f43c77864fb1d600247a6d.mockapi.io/Products/products/${item}`;
       const response = await axios.post(url, data);
+      toast.success("Item has added!");
       console.log("Item has added:", response.data);
     } catch (error) {
       console.error("Error adding item:", error);
@@ -68,6 +69,7 @@ const ManageProducts = () => {
     try {
       const url = `https://63f43c77864fb1d600247a6d.mockapi.io/Products/products/${itemId}`;
       const response = await axios.put(url, data);
+      toast.success("Item has updated!");
       console.log("Item updated:", response.data);
     } catch (error) {
       console.error("Error updating item:", error);
@@ -191,7 +193,7 @@ const ManageProducts = () => {
       </div>
       <div className={style.containerTable}>
         {/* <ProductsList onClick={handleChildClick} /> */}
-        <ManageProductList />
+        <ManageProductList onClickFixButton={handleChildClick} />
       </div>
     </div>
   );

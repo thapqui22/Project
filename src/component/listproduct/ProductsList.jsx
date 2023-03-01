@@ -29,7 +29,7 @@ const ProductsList = (props) => {
   const handleClick = async (itemId) => {
     const url = `https://63f43c77864fb1d600247a6d.mockapi.io/Products/products/${itemId}`;
     const response = await axios.get(url);
-    props.onClick(response.data);
+    props.onClickFixButton(response.data);
   };
 
   return (

@@ -1,129 +1,99 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 import "./manageproductlist.scss";
-import ProductsList from "../listproduct/ProductsList";
-const ManageProductList = () => {
+import Pagination from "./Pagination";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTrashCan, faWrench } from "@fortawesome/free-solid-svg-icons";
+
+const ManageProductList = (props) => {
+  let url = "https://63f43c77864fb1d600247a6d.mockapi.io/Products/products";
+  const [data, setData] = useState([]);
+
+  const [currentPage, setCurrentPage] = useState(1); // set current page as 1 by default
+  const itemsPerPage = 10;
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const endIndex = startIndex + itemsPerPage;
+  const currentItems = data.slice(startIndex, endIndex);
+
+  const handleClickChangePage = (data) => {
+    setCurrentPage(data);
+  };
+  useEffect(() => {
+    const fetchData = async () => {
+      const response = await axios.get(url);
+      setData(response.data);
+    };
+    fetchData();
+  }, []);
+  const handleReload = () => {
+    window.location.reload();
+  };
+
+  const handleRemoveButton = async (itemId) => {
+    try {
+      const url = `https://63f43c77864fb1d600247a6d.mockapi.io/Products/products/${itemId}`;
+      const response = await axios.delete(url);
+      console.log("Item deleted:", response.data);
+      handleReload();
+    } catch (error) {
+      console.error("Error deleting item:", error);
+    }
+  };
+
+  const handleClick = async (itemId) => {
+    const url = `https://63f43c77864fb1d600247a6d.mockapi.io/Products/products/${itemId}`;
+    const response = await axios.get(url);
+    props.onClick(response.data);
+  };
+
   return (
-    <div>
+    <>
       <div class="table-users">
         <div class="header">Manage Product List Item</div>
-
         <table cellspacing="0">
-          <tr>
-            <th>#</th>
-            <th>Picture</th>
-            <th>Name</th>
-            <th>Email</th>
-            <th>Phone</th>
-            <th width="230">Comments</th>
-          </tr>
-          <tr>
-            <td>
-              <img src="https://i.picsum.photos/id/1005/100/100.jpg" alt="" />
-            </td>
-            <td>Jane Doe</td>
-            <td>jane.doe@foo.com</td>
-            <td>jane.doe@foo.com</td>
-            <td>01 800 2000</td>
-            <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit. </td>
-          </tr>
-          <tr>
-            <td>
-              <img src="https://i.picsum.photos/id/1005/100/100.jpg" alt="" />
-            </td>
-            <td>Jane Doe</td>
-            <td>jane.doe@foo.com</td>
-            <td>jane.doe@foo.com</td>
-            <td>01 800 2000</td>
-            <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit. </td>
-          </tr>
-          <tr>
-            <td>
-              <img src="https://i.picsum.photos/id/1005/100/100.jpg" alt="" />
-            </td>
-            <td>Jane Doe</td>
-            <td>jane.doe@foo.com</td>
-            <td>jane.doe@foo.com</td>
-            <td>01 800 2000</td>
-            <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit. </td>
-          </tr>
-          <tr>
-            <td>
-              <img src="https://i.picsum.photos/id/1005/100/100.jpg" alt="" />
-            </td>
-            <td>Jane Doe</td>
-            <td>jane.doe@foo.com</td>
-            <td>jane.doe@foo.com</td>
-            <td>01 800 2000</td>
-            <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit. </td>
-          </tr>
-          <tr>
-            <td>
-              <img src="https://i.picsum.photos/id/1005/100/100.jpg" alt="" />
-            </td>
-            <td>Jane Doe</td>
-            <td>jane.doe@foo.com</td>
-            <td>jane.doe@foo.com</td>
-            <td>01 800 2000</td>
-            <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit. </td>
-          </tr>
-          <tr>
-            <td>
-              <img src="https://i.picsum.photos/id/1005/100/100.jpg" alt="" />
-            </td>
-            <td>Jane Doe</td>
-            <td>jane.doe@foo.com</td>
-            <td>jane.doe@foo.com</td>
-            <td>01 800 2000</td>
-            <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit. </td>
-          </tr>
-          <tr>
-            <td>
-              <img src="https://i.picsum.photos/id/1005/100/100.jpg" alt="" />
-            </td>
-            <td>Jane Doe</td>
-            <td>jane.doe@foo.com</td>
-            <td>jane.doe@foo.com</td>
-            <td>01 800 2000</td>
-            <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit. </td>
-          </tr>
-          <tr>
-            <td>
-              <img src="https://i.picsum.photos/id/1027/100/100.jpg" alt="" />
-            </td>
-            <td>John Doe</td>
-            <td>john.doe@foo.com</td>
-            <td>01 800 2000</td> <td>01 800 2000</td>
-            <td>
-              Blanditiis, aliquid numquam iure voluptatibus ut maiores explicabo
-              ducimus neque, nesciunt rerum perferendis, inventore.
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <img src="https://i.picsum.photos/id/64/100/100.jpg" alt="" />
-            </td>
-            <td>Jane Smith</td>
-            <td>jane.smith@foo.com</td> <td>01 800 2000</td>
-            <td>01 800 2000</td>
-            <td>
-              Culpa praesentium unde pariatur fugit eos recusandae voluptas.
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <img src="https://i.picsum.photos/id/1025/100/100.jpg" alt="" />
-            </td>
-            <td>John Smith</td>
-            <td>john.smith@foo.com</td> <td>01 800 2000</td>
-            <td>01 800 2000</td>
-            <td>
-              Aut voluptatum accusantium, eveniet, sapiente quaerat adipisci
-              consequatur maxime temporibus quas, dolorem impedit.
-            </td>
-          </tr>
+          <tbody>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Image</th>
+              <th scope="col">Name</th>
+              <th scope="col">Price</th>
+              <th scope="col">Total</th>
+              <th scope="col">Description</th>
+              <th scope="col">Fix</th>
+              <th scope="col">Remove</th>
+            </tr>
+            {currentItems.map((i, index) => (
+              <tr key={i.id}>
+                <td>{index + 1}</td>
+                <td>
+                  <img src={i.image} alt="" />
+                </td>
+                <td>{i.name}</td>
+                <td>{i.price} $</td>
+                <td>{i.total}</td>
+                <td>{i.description}</td>
+                <td>
+                  <FontAwesomeIcon
+                    className="FontAwesomeIcon"
+                    icon={faWrench}
+                    onClick={() => handleClick(i.id)}
+                  />
+                </td>
+                <td>
+                  <FontAwesomeIcon
+                    className="FontAwesomeIcon"
+                    icon={faTrashCan}
+                    onClick={() => handleRemoveButton(i.id)}
+                  />
+                </td>
+              </tr>
+            ))}
+          </tbody>
         </table>
       </div>
-    </div>
+
+      <Pagination onClickChangePage={handleClickChangePage} />
+    </>
   );
 };
 
