@@ -25,16 +25,12 @@ const ManageProductList = (props) => {
     };
     fetchData();
   }, []);
-  const handleReload = () => {
-    window.location.reload();
-  };
 
   const handleRemoveButton = async (itemId) => {
     try {
       const url = `https://63f43c77864fb1d600247a6d.mockapi.io/Products/products/${itemId}`;
       const response = await axios.delete(url);
       console.log("Item deleted:", response.data);
-      handleReload();
     } catch (error) {
       console.error("Error deleting item:", error);
     }

@@ -3,7 +3,7 @@ import React, { useState, useRef } from "react";
 import style from "./manageproduct.module.scss";
 import { toast } from "react-toastify";
 import ManageProductList from "./ManageProductList";
-import ProductsList from "../productlist/ProductsList";
+
 const ManageProducts = () => {
   const [item, setItem] = useState({
     id: Number,
@@ -83,6 +83,7 @@ const ManageProducts = () => {
       itemPriceRef.current.value !== "" &&
       itemTotalRef.current.value !== ""
     ) {
+      console.log(itemNameRef.current);
       try {
         const updatedData = {
           name: itemNameRef.current.value,
@@ -92,13 +93,20 @@ const ManageProducts = () => {
           total: itemTotalRef.current.value,
         };
         await handleUpdateProduct(item.id, updatedData);
-        window.location.reload();
       } catch (error) {
         console.error("Error updating item:", error);
       }
     } else {
       toast.error("The field is empty!");
     }
+  };
+  const handleButtonClear = () => {
+    console.log(itemNameRef.current.value);
+    itemNameRef.current = null;
+    itemDescriptionRef.current = null;
+    itemImageRef.current = null;
+    itemPriceRef.current = null;
+    itemTotalRef.current = null;
   };
   return (
     <div className={style.containers}>
@@ -189,6 +197,12 @@ const ManageProducts = () => {
           onClick={handleUpdateButtonClick}
         >
           Update
+        </button>
+        <button
+          class="btn btn-primary btn-block mb-2"
+          onClick={handleButtonClear}
+        >
+          Clear
         </button>
       </div>
       <div className={style.containerTable}>
