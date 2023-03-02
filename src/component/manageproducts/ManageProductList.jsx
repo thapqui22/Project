@@ -8,8 +8,7 @@ import { faTrashCan, faWrench } from "@fortawesome/free-solid-svg-icons";
 const ManageProductList = (props) => {
   let url = "https://63f43c77864fb1d600247a6d.mockapi.io/Products/products";
   const [data, setData] = useState([]);
-
-  const [currentPage, setCurrentPage] = useState(1); // set current page as 1 by default
+  const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 10;
   const startIndex = (currentPage - 1) * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
@@ -18,6 +17,7 @@ const ManageProductList = (props) => {
   const handleClickChangePage = (data) => {
     setCurrentPage(data);
   };
+
   useEffect(() => {
     const fetchData = async () => {
       const response = await axios.get(url);
