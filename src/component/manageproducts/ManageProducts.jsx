@@ -192,7 +192,6 @@ const ManageProducts = () => {
         </button>
       </div>
       <div className={style.containerTable}>
-        {/* <ProductsList onClick={handleChildClick} /> */}
         <ManageProductList onClickFixButton={handleChildClick} />
       </div>
     </div>
