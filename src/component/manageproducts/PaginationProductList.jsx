@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import "./pagination.scss";
-function Pagination(props) {
+import "./paginationproductlist.scss";
+function PaginationProductList(props) {
   let url = "https://63f43c77864fb1d600247a6d.mockapi.io/Products/products";
   const [data, setData] = useState([]);
 
@@ -104,4 +104,4 @@ function Pagination(props) {
   );
 }
 
-export default Pagination;
+export default PaginationProductList;

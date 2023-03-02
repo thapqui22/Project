@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { ProductList } from "../listproduct/ProductList";
+import { ProductList } from "../productlist/ProductList";
 import { useStorage } from "../localstorage/LocalStorage";
 
 const Cart = () => {

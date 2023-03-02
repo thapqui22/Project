@@ -9,7 +9,7 @@ import {
   MDBIcon,
 } from "mdb-react-ui-kit";
 import style from "./productitem.module.scss";
-import { ProductList } from "../listproduct/ProductList";
+import { ProductList } from "../productlist/ProductList";
 
 const ProductItem = () => {
   const [cart, setCart] = useState([]);

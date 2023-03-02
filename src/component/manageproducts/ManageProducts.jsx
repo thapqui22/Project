@@ -3,7 +3,7 @@ import React, { useState, useRef } from "react";
 import style from "./manageproduct.module.scss";
 import { toast } from "react-toastify";
 import ManageProductList from "./ManageProductList";
-import ProductsList from "../listproduct/ProductsList";
+import ProductsList from "../productlist/ProductsList";
 const ManageProducts = () => {
   const [item, setItem] = useState({
     id: Number,

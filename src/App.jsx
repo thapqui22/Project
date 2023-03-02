@@ -13,7 +13,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import React, { useState } from "react";
-import ManageProductList from "./component/manageproducts/ManageProductList";
+
 function App() {
   const [data, setData] = useState("initial value");
   const handleDataChange = (newData) => {

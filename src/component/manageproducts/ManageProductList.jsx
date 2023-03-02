@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./manageproductlist.scss";
-import Pagination from "./Pagination";
+import PaginationProductList from "./PaginationProductList";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrashCan, faWrench } from "@fortawesome/free-solid-svg-icons";
 
@@ -92,7 +92,7 @@ const ManageProductList = (props) => {
         </table>
       </div>
 
-      <Pagination onClickChangePage={handleClickChangePage} />
+      <PaginationProductList onClickChangePage={handleClickChangePage} />
     </>
   );
 };
