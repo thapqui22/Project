@@ -111,12 +111,15 @@ const ManageProducts = () => {
   return (
     <div className={style.containers}>
       <div className={style.containerList}>
-        {item.id ? (
-          <p>ID: {item.id}</p>
-        ) : (
-          <p>ID:Choose item you want update...</p>
-        )}
-
+        <div className="form-outline mb-2">
+          <input
+            placeholder="ID"
+            className="form-control"
+            defaultValue={item.id}
+            type="text"
+            disabled
+          />
+        </div>
         <div className="form-outline mb-2">
           <input
             placeholder="Name"
@@ -126,7 +129,6 @@ const ManageProducts = () => {
             type="text"
           />
         </div>
-
         <div className="form-outline mb-2">
           <input
             placeholder="Price"
@@ -146,7 +148,6 @@ const ManageProducts = () => {
             }}
           />
         </div>
-
         <div className="form-outline mb-2">
           <input
             placeholder="Link URL Image"
