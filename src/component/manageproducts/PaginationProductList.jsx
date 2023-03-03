@@ -16,13 +16,11 @@ function PaginationProductList(props) {
   const [currentPage, setCurrentPage] = useState(1); // set current page as 1 by default
   const totalPages = Math.ceil(data.length / 10);
   const pagesToShow = 10; // number of pages to show in pagination
-
+  // calculate the start and end pages to show based on the current page and the total number of pages
+  let startPage = Math.max(currentPage - Math.floor(pagesToShow / 2), 1);
+  let endPage = Math.min(startPage + pagesToShow - 1, totalPages);
   const getPages = () => {
     const pages = [];
-
-    // calculate the start and end pages to show based on the current page and the total number of pages
-    let startPage = Math.max(currentPage - Math.floor(pagesToShow / 2), 1);
-    let endPage = Math.min(startPage + pagesToShow - 1, totalPages);
 
     // if the total number of pages is less than the number of pages to show, adjust the start and end pages
     if (totalPages <= pagesToShow) {
@@ -50,6 +48,11 @@ function PaginationProductList(props) {
   const handlePageClick = (page) => {
     if (page === 0) {
       page = 1;
+      setCurrentPage(page);
+      props.onClickChangePage(page);
+    }
+    if (page > endPage) {
+      page = endPage;
       setCurrentPage(page);
       props.onClickChangePage(page);
     } else {

@@ -117,20 +117,20 @@ const ManageProducts = () => {
           <p>ID:Choose item you want update...</p>
         )}
 
-        <div class="form-outline mb-2">
+        <div className="form-outline mb-2">
           <input
             placeholder="Name"
-            class="form-control"
+            className="form-control"
             defaultValue={item.name}
             ref={itemNameRef}
             type="text"
           />
         </div>
 
-        <div class="form-outline mb-2">
+        <div className="form-outline mb-2">
           <input
             placeholder="Price"
-            class="form-control"
+            className="form-control"
             type="number"
             defaultValue={item.price}
             ref={itemPriceRef}
@@ -147,18 +147,18 @@ const ManageProducts = () => {
           />
         </div>
 
-        <div class="form-outline mb-2">
+        <div className="form-outline mb-2">
           <input
             placeholder="Link URL Image"
-            class="form-control"
+            className="form-control"
             type="text"
             defaultValue={item.image}
             ref={itemImageRef}
           />
         </div>
-        <div class="form-outline mb-2">
+        <div className="form-outline mb-2">
           <textarea
-            class="form-control"
+            className="form-control"
             type="text"
             rows="4"
             placeholder=" Description"
@@ -166,9 +166,9 @@ const ManageProducts = () => {
             ref={itemDescriptionRef}
           ></textarea>
         </div>
-        <div class="form-outline mb-2">
+        <div className="form-outline mb-2">
           <input
-            class="form-control"
+            className="form-control"
             rows="4"
             placeholder=" Total"
             type="number"
@@ -187,19 +187,19 @@ const ManageProducts = () => {
           />
         </div>
         <button
-          class="btn btn-primary btn-block mb-2"
+          className="btn btn-primary btn-block mb-2"
           onClick={handleAddButtonClick}
         >
           Add
         </button>
         <button
-          class="btn btn-primary btn-block mb-2"
+          className="btn btn-primary btn-block mb-2"
           onClick={handleUpdateButtonClick}
         >
           Update
         </button>
         <button
-          class="btn btn-primary btn-block mb-2"
+          className="btn btn-primary btn-block mb-2"
           onClick={handleButtonClear}
         >
           Clear

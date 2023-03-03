@@ -44,8 +44,8 @@ const ManageProductList = (props) => {
 
   return (
     <>
-      <div class="table-users">
-        <div class="header">Manage Product List Item</div>
+      <div className="table-users">
+        <div className="header">Manage Product List Item</div>
         <table cellspacing="0">
           <tbody>
             <tr>
@@ -65,7 +65,12 @@ const ManageProductList = (props) => {
                   <img src={i.image} alt="" />
                 </td>
                 <td>{i.name}</td>
-                <td>{i.price} $</td>
+                <td>
+                  {new Intl.NumberFormat("ja-JP", {
+                    style: "currency",
+                    currency: "USD",
+                  }).format(i.price)}
+                </td>
                 <td>{i.total}</td>
                 <td>{i.description}</td>
                 <td>
