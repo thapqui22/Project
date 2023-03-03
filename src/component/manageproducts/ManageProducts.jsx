@@ -14,7 +14,33 @@ const ManageProducts = () => {
     total: Number,
     quantity: 1,
   });
-  const itemNameRef = useRef("");
+
+  const [itemName, setItemName] = useState("");
+  const [itemDescription, setItemDescription] = useState("");
+  const [itemImage, setItemImage] = useState("");
+  const [itemPrice, setItemPrice] = useState("");
+  const [itemTotal, setItemTotal] = useState("");
+
+  const param = {
+    id: item.id,
+    name: itemName.trim() || String,
+    description: itemDescription.trim() || String,
+    image: itemImage.trim() || String,
+    price: parseInt(itemPrice) || Number,
+    total: parseInt(itemTotal) || Number,
+    quantity: 1,
+  };
+  const [itemChangeData, setItemChangeData] = useState({
+    id: item.id,
+    name: itemName,
+    description: itemDescription,
+    image: itemImage,
+    price: parseInt(itemPrice),
+    total: parseInt(itemTotal),
+    quantity: 1,
+  });
+
+  const itemNameRef = useRef(String);
   const itemDescriptionRef = useRef("");
   const itemImageRef = useRef("");
   const itemPriceRef = useRef("");
@@ -75,6 +101,7 @@ const ManageProducts = () => {
       console.error("Error updating item:", error);
     }
   };
+
   const handleUpdateButtonClick = async () => {
     if (
       itemNameRef.current.value !== "" &&
@@ -83,7 +110,6 @@ const ManageProducts = () => {
       itemPriceRef.current.value !== "" &&
       itemTotalRef.current.value !== ""
     ) {
-      console.log(itemNameRef.current);
       try {
         const updatedData = {
           name: itemNameRef.current.value,
@@ -100,16 +126,19 @@ const ManageProducts = () => {
       toast.error("The field is empty!");
     }
   };
+
   const handleButtonClear = () => {
-    console.log(itemNameRef.current.value);
-    itemNameRef.current = null;
-    itemDescriptionRef.current = null;
-    itemImageRef.current = null;
-    itemPriceRef.current = null;
-    itemTotalRef.current = null;
+    const isEqual = JSON.stringify(param) === JSON.stringify(item);
+    console.log(param, item);
+    if (isEqual === true) {
+      console.log("Nothing change");
+    } else {
+      console.log("Something changed,do you wanna save?");
+      setItem("");
+    }
   };
-  return (
-    <div className={style.containers}>
+  const renderData = () => {
+    return (
       <div className={style.containerList}>
         <div className="form-outline mb-2">
           <input
@@ -127,6 +156,9 @@ const ManageProducts = () => {
             defaultValue={item.name}
             ref={itemNameRef}
             type="text"
+            onChange={(e) => {
+              setItemName(e.target.value);
+            }}
           />
         </div>
         <div className="form-outline mb-2">
@@ -136,13 +168,11 @@ const ManageProducts = () => {
             type="number"
             defaultValue={item.price}
             ref={itemPriceRef}
+            onChange={(e) => {
+              setItemPrice(e.target.value);
+            }}
             onKeyDown={(e) => {
-              if (
-                e.key === "e" ||
-                e.key === "." ||
-                e.key === "-" ||
-                e.key === "+"
-              ) {
+              if (e.key === "e" || e.key === "-" || e.key === "+") {
                 e.preventDefault();
               }
             }}
@@ -155,6 +185,9 @@ const ManageProducts = () => {
             type="text"
             defaultValue={item.image}
             ref={itemImageRef}
+            onChange={(e) => {
+              setItemImage(e.target.value);
+            }}
           />
         </div>
         <div className="form-outline mb-2">
@@ -165,6 +198,9 @@ const ManageProducts = () => {
             placeholder=" Description"
             defaultValue={item.description}
             ref={itemDescriptionRef}
+            onChange={(e) => {
+              setItemDescription(e.target.value);
+            }}
           ></textarea>
         </div>
         <div className="form-outline mb-2">
@@ -175,13 +211,11 @@ const ManageProducts = () => {
             type="number"
             defaultValue={item.total}
             ref={itemTotalRef}
+            onChange={(e) => {
+              setItemTotal(e.target.value);
+            }}
             onKeyDown={(e) => {
-              if (
-                e.key === "e" ||
-                e.key === "." ||
-                e.key === "-" ||
-                e.key === "+"
-              ) {
+              if (e.key === "e" || e.key === "-" || e.key === "+") {
                 e.preventDefault();
               }
             }}
@@ -206,6 +240,11 @@ const ManageProducts = () => {
           Clear
         </button>
       </div>
+    );
+  };
+  return (
+    <div className={style.containers}>
+      {renderData()}
       <div className={style.containerTable}>
         <ManageProductList onClickFixButton={handleChildClick} />
       </div>
