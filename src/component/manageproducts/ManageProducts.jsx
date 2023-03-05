@@ -1,10 +1,20 @@
 import axios from "axios";
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import style from "./manageproduct.module.scss";
 import { toast } from "react-toastify";
 import ManageProductList from "./ManageProductList";
 
 const ManageProducts = () => {
+  const [itemName, setItemName] = useState("");
+  const [itemDescription, setItemDescription] = useState("");
+  const [itemImage, setItemImage] = useState("");
+  const [itemPrice, setItemPrice] = useState("");
+  const [itemTotal, setItemTotal] = useState("");
+  const itemNameRef = useRef("");
+  const itemDescriptionRef = useRef("");
+  const itemImageRef = useRef("");
+  const itemPriceRef = useRef("");
+  const itemTotalRef = useRef("");
   const [item, setItem] = useState({
     id: Number,
     name: String,
@@ -14,39 +24,22 @@ const ManageProducts = () => {
     total: Number,
     quantity: 1,
   });
-
-  const [itemName, setItemName] = useState("");
-  const [itemDescription, setItemDescription] = useState("");
-  const [itemImage, setItemImage] = useState("");
-  const [itemPrice, setItemPrice] = useState("");
-  const [itemTotal, setItemTotal] = useState("");
-
   const param = {
-    id: item.id,
-    name: itemName.trim() || String,
-    description: itemDescription.trim() || String,
-    image: itemImage.trim() || String,
-    price: parseInt(itemPrice) || Number,
-    total: parseInt(itemTotal) || Number,
+    id: item.id || Number,
+    name: itemName || String,
+    description: itemDescription || String,
+    image: itemImage || String,
+    price: itemPrice || Number,
+    total: itemTotal || Number,
     quantity: 1,
   };
-  const [itemChangeData, setItemChangeData] = useState({
-    id: item.id,
-    name: itemName,
-    description: itemDescription,
-    image: itemImage,
-    price: parseInt(itemPrice),
-    total: parseInt(itemTotal),
-    quantity: 1,
-  });
-
-  const itemNameRef = useRef(String);
-  const itemDescriptionRef = useRef("");
-  const itemImageRef = useRef("");
-  const itemPriceRef = useRef("");
-  const itemTotalRef = useRef("");
-
   const handleChildClick = (data) => {
+    setItemName(data.name);
+    setItemDescription(data.description);
+    setItemImage(data.image);
+    setItemPrice(data.price);
+    setItemTotal(data.total);
+
     setItem({
       id: parseInt(data.id),
       name: data.name,
@@ -101,7 +94,6 @@ const ManageProducts = () => {
       console.error("Error updating item:", error);
     }
   };
-
   const handleUpdateButtonClick = async () => {
     if (
       itemNameRef.current.value !== "" &&
@@ -126,16 +118,21 @@ const ManageProducts = () => {
       toast.error("The field is empty!");
     }
   };
-
   const handleButtonClear = () => {
-    const isEqual = JSON.stringify(param) === JSON.stringify(item);
+    // const isEqual = JSON.stringify(param) === JSON.stringify(item);
+
+    // if (isEqual === true) {
+    //   console.log("Nothing change");
+    // } else {
+    //   console.log("Something changed,do you wanna save?");
+    // }
+
     console.log(param, item);
-    if (isEqual === true) {
-      console.log("Nothing change");
-    } else {
-      console.log("Something changed,do you wanna save?");
-      setItem("");
-    }
+    setItemName("");
+    setItemDescription("");
+    setItemImage("");
+    setItemPrice("");
+    setItemTotal("");
   };
   const renderData = () => {
     return (
@@ -144,7 +141,7 @@ const ManageProducts = () => {
           <input
             placeholder="ID"
             className="form-control"
-            defaultValue={item.id}
+            value={param.id}
             type="text"
             disabled
           />
@@ -153,7 +150,8 @@ const ManageProducts = () => {
           <input
             placeholder="Name"
             className="form-control"
-            defaultValue={item.name}
+            value={param.name}
+            // value={itemName}
             ref={itemNameRef}
             type="text"
             onChange={(e) => {
@@ -166,7 +164,8 @@ const ManageProducts = () => {
             placeholder="Price"
             className="form-control"
             type="number"
-            defaultValue={item.price}
+            value={param.price}
+            // value={itemPrice}
             ref={itemPriceRef}
             onChange={(e) => {
               setItemPrice(e.target.value);
@@ -183,7 +182,8 @@ const ManageProducts = () => {
             placeholder="Link URL Image"
             className="form-control"
             type="text"
-            defaultValue={item.image}
+            value={param.image}
+            // value={itemImage}
             ref={itemImageRef}
             onChange={(e) => {
               setItemImage(e.target.value);
@@ -196,7 +196,8 @@ const ManageProducts = () => {
             type="text"
             rows="4"
             placeholder=" Description"
-            defaultValue={item.description}
+            value={param.description}
+            // value={itemDescription}
             ref={itemDescriptionRef}
             onChange={(e) => {
               setItemDescription(e.target.value);
@@ -209,7 +210,8 @@ const ManageProducts = () => {
             rows="4"
             placeholder=" Total"
             type="number"
-            defaultValue={item.total}
+            value={param.total}
+            // value={itemTotal}
             ref={itemTotalRef}
             onChange={(e) => {
               setItemTotal(e.target.value);
