@@ -5,49 +5,22 @@ import { toast } from "react-toastify";
 import ManageProductList from "./ManageProductList";
 
 const ManageProducts = () => {
-  const [itemName, setItemName] = useState("");
-  const [itemDescription, setItemDescription] = useState("");
-  const [itemImage, setItemImage] = useState("");
-  const [itemPrice, setItemPrice] = useState("");
-  const [itemTotal, setItemTotal] = useState("");
+  const itemIdRef = useRef("");
   const itemNameRef = useRef("");
   const itemDescriptionRef = useRef("");
   const itemImageRef = useRef("");
   const itemPriceRef = useRef("");
   const itemTotalRef = useRef("");
-  const [item, setItem] = useState({
-    id: Number,
-    name: String,
-    description: String,
-    image: String,
-    price: Number,
-    total: Number,
-    quantity: 1,
-  });
-  const param = {
-    id: item.id || Number,
-    name: itemName || String,
-    description: itemDescription || String,
-    image: itemImage || String,
-    price: itemPrice || Number,
-    total: itemTotal || Number,
-    quantity: 1,
-  };
-  const handleChildClick = (data) => {
-    setItemName(data.name);
-    setItemDescription(data.description);
-    setItemImage(data.image);
-    setItemPrice(data.price);
-    setItemTotal(data.total);
+  const [showImg, setShowImg] = useState();
 
-    setItem({
-      id: parseInt(data.id),
-      name: data.name,
-      description: data.description,
-      image: data.image,
-      price: parseInt(data.price),
-      total: parseInt(data.total),
-    });
+  const handleChildClick = ({ id, name, description, image, price, total }) => {
+    itemIdRef.current.value = id;
+    itemNameRef.current.value = name;
+    itemDescriptionRef.current.value = description;
+    itemImageRef.current.value = image;
+    itemPriceRef.current.value = price;
+    itemTotalRef.current.value = total;
+    setShowImg(image);
   };
   const handleAddProduct = async (item, data) => {
     try {
@@ -110,7 +83,7 @@ const ManageProducts = () => {
           price: itemPriceRef.current.value,
           total: itemTotalRef.current.value,
         };
-        await handleUpdateProduct(item.id, updatedData);
+        await handleUpdateProduct(itemIdRef.current.value, updatedData);
       } catch (error) {
         console.error("Error updating item:", error);
       }
@@ -126,14 +99,14 @@ const ManageProducts = () => {
     // } else {
     //   console.log("Something changed,do you wanna save?");
     // }
-
-    console.log(param, item);
-    setItemName("");
-    setItemDescription("");
-    setItemImage("");
-    setItemPrice("");
-    setItemTotal("");
+    itemIdRef.current.value = "";
+    itemNameRef.current.value = "";
+    itemDescriptionRef.current.value = "";
+    itemImageRef.current.value = "";
+    itemPriceRef.current.value = "";
+    itemTotalRef.current.value = "";
   };
+
   const renderData = () => {
     return (
       <div className={style.containerList}>
@@ -141,7 +114,7 @@ const ManageProducts = () => {
           <input
             placeholder="ID"
             className="form-control"
-            value={param.id}
+            ref={itemIdRef}
             type="text"
             disabled
           />
@@ -150,13 +123,8 @@ const ManageProducts = () => {
           <input
             placeholder="Name"
             className="form-control"
-            value={param.name}
-            // value={itemName}
             ref={itemNameRef}
             type="text"
-            onChange={(e) => {
-              setItemName(e.target.value);
-            }}
           />
         </div>
         <div className="form-outline mb-2">
@@ -164,12 +132,7 @@ const ManageProducts = () => {
             placeholder="Price"
             className="form-control"
             type="number"
-            value={param.price}
-            // value={itemPrice}
             ref={itemPriceRef}
-            onChange={(e) => {
-              setItemPrice(e.target.value);
-            }}
             onKeyDown={(e) => {
               if (e.key === "e" || e.key === "-" || e.key === "+") {
                 e.preventDefault();
@@ -182,13 +145,14 @@ const ManageProducts = () => {
             placeholder="Link URL Image"
             className="form-control"
             type="text"
-            value={param.image}
-            // value={itemImage}
             ref={itemImageRef}
             onChange={(e) => {
-              setItemImage(e.target.value);
+              setShowImg(e.target.value);
             }}
           />
+        </div>{" "}
+        <div className="form-outline mb-2">
+          <img src={showImg} />
         </div>
         <div className="form-outline mb-2">
           <textarea
@@ -196,12 +160,7 @@ const ManageProducts = () => {
             type="text"
             rows="4"
             placeholder=" Description"
-            value={param.description}
-            // value={itemDescription}
             ref={itemDescriptionRef}
-            onChange={(e) => {
-              setItemDescription(e.target.value);
-            }}
           ></textarea>
         </div>
         <div className="form-outline mb-2">
@@ -210,12 +169,7 @@ const ManageProducts = () => {
             rows="4"
             placeholder=" Total"
             type="number"
-            value={param.total}
-            // value={itemTotal}
             ref={itemTotalRef}
-            onChange={(e) => {
-              setItemTotal(e.target.value);
-            }}
             onKeyDown={(e) => {
               if (e.key === "e" || e.key === "-" || e.key === "+") {
                 e.preventDefault();
