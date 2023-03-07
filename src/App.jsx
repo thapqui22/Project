@@ -1,4 +1,6 @@
 import { Routes, Route } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
+import React, { useState } from "react";
 import Home from "./page/home/Home";
 import Knowledge from "./page/knowledge/Knowledge";
 import Footer from "./component/footer/Footer";
@@ -9,11 +11,11 @@ import TankModel from "./component/tankmodel/TankModel";
 import ShoppingCart from "./component/shoppingcart/ShoppingCart";
 import ManageProducts from "./component/manageproducts/ManageProducts";
 import Shopping from "./component/shopping/Shopping";
-import "bootstrap/dist/css/bootstrap.min.css";
-import { ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
-import React, { useState } from "react";
+import ReactQuillJs from "./component/reactquilljs/ReactQuillJs";
 
+import "bootstrap/dist/css/bootstrap.min.css";
+
+import "react-toastify/dist/ReactToastify.css";
 function App() {
   const [data, setData] = useState("initial value");
   const handleDataChange = (newData) => {
@@ -38,6 +40,7 @@ function App() {
         />
         <Route path="/tankmodel" element={<TankModel />} />
         <Route path="/manage" element={<ManageProducts />} />
+        <Route path="/createandeditblog" element={<ReactQuillJs />} />
       </Routes>
       <Footer />
     </>

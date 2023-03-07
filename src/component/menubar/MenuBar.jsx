@@ -30,7 +30,7 @@ const MenuBar = () => {
         </button>
         <button>
           <FontAwesomeIcon icon={faHome} />
-          <Link to="https://www.youtube.com/">Youtube</Link>
+          <Link to="/createandeditblog">Edit Blog</Link>
         </button>
       </div>
     </div>
