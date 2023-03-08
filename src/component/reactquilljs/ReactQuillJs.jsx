@@ -10,6 +10,7 @@ const ReactQuillJs = () => {
   const { quill, quillRef } = useQuill();
   Quill.register("modules/ImageResize", ImageResize);
   Quill.register("modules/imageCompress", ImageCompress);
+
   const modules = {
     toolbar: [
       [{ header: [1, 2, 3, 4, 5, 6, false] }],
@@ -24,6 +25,7 @@ const ReactQuillJs = () => {
     ImageResize: {
       modules: ["Resize", "DisplaySize"],
     },
+
     imageCompress: {
       quality: 0.7, // default
       maxWidth: 1000, // default
