@@ -65,7 +65,7 @@ const ManageProductList = (props) => {
               <tr key={i.id}>
                 <td>{index + 1}</td>
                 <td>
-                  <img src={i.image} alt="" />
+                  <img className="imageproduct" src={i.image} alt="" />
                 </td>
                 <td>{i.name}</td>
                 <td>
