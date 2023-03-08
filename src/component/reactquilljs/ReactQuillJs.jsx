@@ -59,7 +59,9 @@ const ReactQuillJs = () => {
       });
     }
   }, [quill]);
-
+  const handleDataChange = (data) => {
+    console.log(data);
+  };
   return (
     <div className="container">
       <ReactQuill
@@ -67,7 +69,7 @@ const ReactQuillJs = () => {
         modules={modules}
         formats={formats}
         value={""}
-        onChange={() => {}}
+        onChange={(e) => handleDataChange(e)}
       />
     </div>
   );
