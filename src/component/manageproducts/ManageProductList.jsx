@@ -48,7 +48,7 @@ const ManageProductList = (props) => {
     <>
       <div className="table-users">
         <div className="header">Manage Product List Item</div>
-        <table cellspacing="0">
+        <table cellSpacing="0">
           <tbody>
             <tr>
               <th scope="col">#</th>

@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import ReactQuill, { Quill } from "react-quill";
 import "./reactquilljs.scss";
 import ImageResize from "quill-image-resize-module-react";
@@ -6,6 +6,9 @@ import ImageCompress from "quill-image-compress";
 import QuillResize from "quill-resize-module";
 import { toast } from "react-toastify";
 import "quill/dist/quill.snow.css";
+Quill.register("modules/ImageResize", ImageResize);
+Quill.register("modules/imageCompress", ImageCompress);
+Quill.register("modules/resize", QuillResize);
 
 const ReactQuillJs = (props) => {
   const quillRef = useRef("");
@@ -14,9 +17,6 @@ const ReactQuillJs = (props) => {
   const descriptionRef = useRef();
   const [statusSave, setStatusSave] = useState(true);
   const [statusLinkURL, setStatusLinkURL] = useState("Link URL Image");
-  Quill.register("modules/ImageResize", ImageResize);
-  Quill.register("modules/imageCompress", ImageCompress);
-  Quill.register("modules/resize", QuillResize);
 
   const modules = {
     toolbar: [
@@ -34,10 +34,10 @@ const ReactQuillJs = (props) => {
     },
 
     imageCompress: {
-      quality: 0.7, // default
-      maxWidth: 1000, // default
-      maxHeight: 1000, // default
-      imageType: "image/jpeg", // default
+      quality: 0.7,
+      maxWidth: 1000,
+      maxHeight: 1000,
+      imageType: "image/jpeg",
       debug: true,
     },
     resize: {
@@ -174,45 +174,45 @@ const ReactQuillJs = (props) => {
         </div>
       </div>
       <div
-        class="modal fade"
+        className="modal fade"
         id="exampleModal"
-        tabindex="-1"
+        tabIndex="-1"
         role="dialog"
         aria-labelledby="exampleModalLabel"
         aria-hidden="true"
       >
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">
+        <div className="modal-dialog" role="document">
+          <div className="modal-content">
+            <div className="modal-header">
+              <h5 className="modal-title" id="exampleModalLabel">
                 Add Title and Title Image:
               </h5>
               <button
                 type="button"
-                class="close"
+                className="close"
                 data-dismiss="modal"
                 aria-label="Close"
               >
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
-            <div class="modal-body">
+            <div className="modal-body">
               <form>
-                <div class="form-group">
-                  <label for="recipient-name" class="col-form-label">
+                <div className="form-group">
+                  <label htmlFor="recipient-name" className="col-form-label">
                     Title:
                   </label>
                   <input
                     ref={titleRef}
                     type="text"
-                    class="form-control"
+                    className="form-control"
                     id="recipient-name"
                   />
                 </div>
-                <div class="form-group">
-                  <div class="dropdown">
+                <div className="form-group">
+                  <div className="dropdown">
                     <button
-                      class="btn btn-secondary dropdown-toggle"
+                      className="btn btn-secondary dropdown-toggle"
                       type="button"
                       id="dropdownMenuButton"
                       data-toggle="dropdown"
@@ -222,17 +222,17 @@ const ReactQuillJs = (props) => {
                       {statusLinkURL}
                     </button>
                     <div
-                      class="dropdown-menu"
+                      className="dropdown-menu"
                       aria-labelledby="dropdownMenuButton"
                     >
                       <div
-                        class="dropdown-item"
+                        className="dropdown-item"
                         onClick={handleLinkButtonDropDownList}
                       >
                         Link URL Image
                       </div>
                       <div
-                        class="dropdown-item"
+                        className="dropdown-item"
                         onClick={handleUploadButtonDropDownList}
                       >
                         Upload
@@ -240,40 +240,40 @@ const ReactQuillJs = (props) => {
                     </div>
                   </div>
                 </div>{" "}
-                <div class="form-group">
+                <div className="form-group">
                   {statusLinkURL === "Link URL Image" ? (
                     <input
                       placeholder="https://fastly.picsum.photos/id/0/5000/3333.jpg"
                       ref={titleimageRef}
                       type="text"
-                      class="form-control"
+                      className="form-control"
                       id="recipient-name"
                     />
                   ) : (
                     <input
                       ref={titleimageRef}
                       type="file"
-                      class="form-control-file"
+                      className="form-control-file"
                       id="exampleFormControlFile1"
                     />
                   )}
                 </div>
-                <div class="form-group">
-                  <label for="message-text" class="col-form-label">
+                <div className="form-group">
+                  <label htmlFor="message-text" className="col-form-label">
                     Description:
                   </label>
                   <textarea
                     ref={descriptionRef}
-                    class="form-control"
+                    className="form-control"
                     id="message-text"
                   ></textarea>
                 </div>
               </form>
             </div>
-            <div class="modal-footer">
+            <div className="modal-footer">
               <button
                 type="button"
-                class="btn btn-secondary"
+                className="btn btn-secondary"
                 data-dismiss="modal"
               >
                 Close
@@ -281,7 +281,7 @@ const ReactQuillJs = (props) => {
               {statusSave === true ? (
                 <button
                   type="button"
-                  class="btn btn-primary"
+                  className="btn btn-primary"
                   onClick={handlePublishButtonAlert}
                 >
                   Publish
@@ -289,7 +289,7 @@ const ReactQuillJs = (props) => {
               ) : (
                 <button
                   type="button"
-                  class="btn btn-primary"
+                  className="btn btn-primary"
                   onClick={handlePreviewButtonAlert}
                 >
                   Preview

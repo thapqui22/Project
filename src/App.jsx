@@ -17,7 +17,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 import "react-toastify/dist/ReactToastify.css";
 function App() {
-  const [dataQuill, setDataQuill] = useState("initial value");
+  const [dataQuill, setDataQuill] = useState({ data: "initial value" });
   const handleDataQuillChange = (newData) => {
     setDataQuill(newData);
   };

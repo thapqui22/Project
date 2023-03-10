@@ -26,7 +26,7 @@ const MenuBar = () => {
         </button>
         <button>
           <FontAwesomeIcon icon={faHome} />
-          <Link to="/manage">Add/Delect Item</Link>
+          <Link to="/manage">Manage Item</Link>
         </button>
         <button>
           <FontAwesomeIcon icon={faHome} />
