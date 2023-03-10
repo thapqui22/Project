@@ -12,14 +12,14 @@ import ShoppingCart from "./component/shoppingcart/ShoppingCart";
 import ManageProducts from "./component/manageproducts/ManageProducts";
 import Shopping from "./component/shopping/Shopping";
 import ReactQuillJs from "./component/reactquilljs/ReactQuillJs";
-
+import ReactQuillTest from "./component/reactquilljs/ReactQuillTest";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 import "react-toastify/dist/ReactToastify.css";
 function App() {
-  const [data, setData] = useState("initial value");
-  const handleDataChange = (newData) => {
-    setData(newData);
+  const [dataQuill, setDataQuill] = useState("initial value");
+  const handleDataQuillChange = (newData) => {
+    setDataQuill(newData);
   };
   return (
     <>
@@ -30,17 +30,18 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/knowledge" element={<Knowledge />} />
-        <Route
-          path="/shopping"
-          element={<Shopping data={data} onDataChange={handleDataChange} />}
-        />
-        <Route
-          path="/shoppingcart"
-          element={<ShoppingCart data={data} onDataChange={handleDataChange} />}
-        />
+        <Route path="/shopping" element={<Shopping />} />
+        <Route path="/shoppingcart" element={<ShoppingCart />} />
         <Route path="/tankmodel" element={<TankModel />} />
         <Route path="/manage" element={<ManageProducts />} />
-        <Route path="/createandeditblog" element={<ReactQuillJs />} />
+        <Route
+          path="/createandeditblog"
+          element={<ReactQuillJs onClickPreview={handleDataQuillChange} />}
+        />
+        <Route
+          path="/test"
+          element={<ReactQuillTest handleReceiveDataQuillChange={dataQuill} />}
+        />
       </Routes>
       <Footer />
     </>

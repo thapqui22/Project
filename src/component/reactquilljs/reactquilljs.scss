@@ -1,9 +1,7 @@
 .container {
   padding-top: 20px;
   width: 1140px;
-  height: 800px;
-  padding-bottom: 100px;
-  border-radius: 10% !important;
+  height: 850px;
 }
 .childeContainer {
   width: auto !important;
@@ -11,10 +9,25 @@
 }
 .ql-editor {
   height: 700px !important;
-  border-bottom-left-radius: 0.5em;
-  border-bottom-right-radius: 0.5em;
+  // border: 0.1px solid #ccc !important;
 }
 .ql-toolbar {
   border-top-left-radius: 0.5em;
   border-top-right-radius: 0.5em;
+}
+.ql-editor .ql-video {
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  height: 50%;
+}
+.containerbutton {
+  padding-top: 10px;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  button {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
 }
