@@ -83,23 +83,47 @@ const ReactQuillJs = (props) => {
     setStatusLinkURL("UpLoad Image");
   };
   const handlePreviewButtonAlert = () => {
-    if (
-      titleRef.current.value !== "" &&
-      titleimageRef.current.value !== "" &&
-      descriptionRef.current.value !== "" &&
-      quillRef.current.value !== ""
-    ) {
-      const data = {
-        title: titleRef.current.value,
-        description: descriptionRef.current.value,
-        image: titleimageRef.current.value,
-        data: quillRef.current.value,
-      };
-      console.log(data);
-      props.onClickPreview(data);
-    } else {
-      toast.error("Field is empty, please fill in");
+    switch (true) {
+      case titleRef.current.value === "":
+        toast.error("Title is empty, please fill in");
+        break;
+      case titleimageRef.current.value === "":
+        toast.error("Title Image is empty, please fill in");
+        break;
+      case descriptionRef.current.value === "":
+        toast.error("Description is empty, please fill in");
+        break;
+      case quillRef.current.value === "":
+        toast.error("Quill Field is empty, please fill in");
+        break;
+      default: {
+        const data = {
+          title: titleRef.current.value,
+          description: descriptionRef.current.value,
+          image: titleimageRef.current.value,
+          data: quillRef.current.value,
+        };
+        console.log(data);
+        props.onClickPreview(data);
+      }
     }
+    // if (
+    //   titleRef.current.value !== "" &&
+    //   titleimageRef.current.value !== "" &&
+    //   descriptionRef.current.value !== "" &&
+    //   quillRef.current.value !== ""
+    // ) {
+    //   const data = {
+    //     title: titleRef.current.value,
+    //     description: descriptionRef.current.value,
+    //     image: titleimageRef.current.value,
+    //     data: quillRef.current.value,
+    //   };
+    //   console.log(data);
+    //   props.onClickPreview(data);
+    // } else {
+    //   toast.error("Field is empty, please fill in");
+    // }
   };
   const handlePublishButtonAlert = () => {
     if (
