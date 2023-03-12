@@ -5,6 +5,7 @@ import ImageResize from "quill-image-resize-module-react";
 import ImageCompress from "quill-image-compress";
 import QuillResize from "quill-resize-module";
 import { toast } from "react-toastify";
+import axios from "axios";
 import "quill/dist/quill.snow.css";
 Quill.register("modules/ImageResize", ImageResize);
 Quill.register("modules/imageCompress", ImageCompress);
@@ -125,25 +126,48 @@ const ReactQuillJs = (props) => {
     //   toast.error("Field is empty, please fill in");
     // }
   };
-  const handlePublishButtonAlert = () => {
+
+  const handleAddProduct = async (item, data) => {
+    try {
+      const url = `https://63f43c77864fb1d600247a6d.mockapi.io/Products/manage/${item}`;
+      const response = await axios.post(url, data);
+      toast.success("Item has added!");
+      console.log("Item has added:", response.data);
+    } catch (error) {
+      console.error("Error adding item:", error);
+    }
+  };
+  const handleClick = async (itemId) => {
+    const url = `https://63f43c77864fb1d600247a6d.mockapi.io/Products/manage/${itemId}`;
+    const response = await axios.get(url);
+    console.log(response.data);
+  };
+  const handlePublishButtonAlert = async () => {
     if (
       titleRef.current.value !== "" &&
       titleimageRef.current.value !== "" &&
       descriptionRef.current.value !== "" &&
       quillRef.current.value !== ""
     ) {
-      const data = {
-        title: titleRef.current.value,
-        description: descriptionRef.current.value,
-        image: titleimageRef.current.value,
-        data: quillRef.current.value,
-      };
-      console.log(data);
-      props.onClickPreview(data);
+      try {
+        const data = {
+          title: titleRef.current.value,
+          description: descriptionRef.current.value,
+          image: titleimageRef.current.value,
+          content: quillRef.current.value,
+        };
+        console.log(data);
+        props.onClickPreview(data);
+        await handleClick(`1`);
+        // await handleAddProduct(``, data);
+      } catch (error) {
+        console.error("Error updating item:", error);
+      }
     } else {
       toast.error("Field is empty, please fill in");
     }
   };
+
   return (
     <>
       <div className="container">
