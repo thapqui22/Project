@@ -1,15 +1,10 @@
 .container {
   padding-top: 20px;
   width: 1140px;
-  height: 850px;
-}
-.childeContainer {
-  width: auto !important;
-  height: 800px;
+  height: 850px !important;
 }
 .ql-editor {
   height: 700px !important;
-  // border: 0.1px solid #ccc !important;
 }
 .ql-toolbar {
   border-top-left-radius: 0.5em;
@@ -20,6 +15,8 @@
   margin-right: auto;
   width: 50%;
   height: 50%;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 .containerbutton {
   padding-top: 10px;

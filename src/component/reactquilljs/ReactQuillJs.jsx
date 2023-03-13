@@ -6,7 +6,10 @@ import ImageCompress from "quill-image-compress";
 import QuillResize from "quill-resize-module";
 import { toast } from "react-toastify";
 import axios from "axios";
+import { Link, useNavigate } from "react-router-dom";
+
 import "quill/dist/quill.snow.css";
+
 Quill.register("modules/ImageResize", ImageResize);
 Quill.register("modules/imageCompress", ImageCompress);
 Quill.register("modules/resize", QuillResize);
@@ -18,6 +21,8 @@ const ReactQuillJs = (props) => {
   const descriptionRef = useRef();
   const [statusSave, setStatusSave] = useState(true);
   const [statusLinkURL, setStatusLinkURL] = useState("Link URL Image");
+  const dataReceived = props.handleReceiveDataQuillChange;
+  let navigate = useNavigate();
 
   const modules = {
     toolbar: [
@@ -83,8 +88,17 @@ const ReactQuillJs = (props) => {
   const handleUploadButtonDropDownList = () => {
     setStatusLinkURL("UpLoad Image");
   };
+  //change page
+  const routeChange = () => {
+    let path = `/test`;
+    navigate(path);
+  };
+
   const handlePreviewButtonAlert = () => {
     switch (true) {
+      case quillRef.current.value === "":
+        toast.error("Quill Field is empty, please fill in");
+        break;
       case titleRef.current.value === "":
         toast.error("Title is empty, please fill in");
         break;
@@ -94,18 +108,17 @@ const ReactQuillJs = (props) => {
       case descriptionRef.current.value === "":
         toast.error("Description is empty, please fill in");
         break;
-      case quillRef.current.value === "":
-        toast.error("Quill Field is empty, please fill in");
-        break;
+
       default: {
         const data = {
           title: titleRef.current.value,
           description: descriptionRef.current.value,
           image: titleimageRef.current.value,
-          data: quillRef.current.value,
+          content: quillRef.current.value,
         };
         console.log(data);
         props.onClickPreview(data);
+        routeChange();
       }
     }
     // if (
@@ -158,8 +171,8 @@ const ReactQuillJs = (props) => {
         };
         console.log(data);
         props.onClickPreview(data);
-        await handleClick(`1`);
-        // await handleAddProduct(``, data);
+        // await handleClick(`1`);
+        await handleAddProduct(``, data);
       } catch (error) {
         console.error("Error updating item:", error);
       }
@@ -306,6 +319,8 @@ const ReactQuillJs = (props) => {
                 <button
                   type="button"
                   className="btn btn-primary"
+                  data-dismiss="modal"
+                  id="Publish"
                   onClick={handlePublishButtonAlert}
                 >
                   Publish
@@ -314,6 +329,7 @@ const ReactQuillJs = (props) => {
                 <button
                   type="button"
                   className="btn btn-primary"
+                  data-dismiss="modal"
                   onClick={handlePreviewButtonAlert}
                 >
                   Preview

@@ -17,9 +17,15 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 import "react-toastify/dist/ReactToastify.css";
 function App() {
-  const [dataQuill, setDataQuill] = useState({ data: "initial value" });
+  const [dataQuill, setDataQuill] = useState({
+    title: "initial value",
+    description: "initial value",
+    image: "initial value",
+    content: "initial value",
+  });
   const handleDataQuillChange = (newData) => {
     setDataQuill(newData);
+    console.log(newData);
   };
   return (
     <>
@@ -36,11 +42,21 @@ function App() {
         <Route path="/manage" element={<ManageProducts />} />
         <Route
           path="/createandeditblog"
-          element={<ReactQuillJs onClickPreview={handleDataQuillChange} />}
+          element={
+            <ReactQuillJs
+              onClickPreview={handleDataQuillChange}
+              handleReceiveDataQuillChange={dataQuill}
+            />
+          }
         />
         <Route
           path="/test"
-          element={<ReactQuillTest handleReceiveDataQuillChange={dataQuill} />}
+          element={
+            <ReactQuillTest
+              onClickBacktoEdit={handleDataQuillChange}
+              handleReceiveDataQuillChange={dataQuill}
+            />
+          }
         />
       </Routes>
       <Footer />

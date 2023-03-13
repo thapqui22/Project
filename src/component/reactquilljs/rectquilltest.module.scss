@@ -1,0 +1,27 @@
+.containers {
+  margin: auto;
+  min-height: 750px;
+  height: auto;
+  width: 1140px;
+}
+.containerbutton {
+  padding-top: 10px;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  button {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+}
+.imageblog {
+  display: flex;
+  justify-content: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+.imageblog img {
+  object-fit: contain;
+  height: 400px;
+  width: 750px;
+}
