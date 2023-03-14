@@ -32,10 +32,6 @@ const ReactQuillJs = (props) => {
       props.handleReceiveDataQuillChange.description;
   }, [props]);
 
-  useEffect(() => {
-    console.log(statusSave);
-  }, []);
-
   const modules = {
     toolbar: [
       [{ header: [1, 2, 3, 4, 5, 6, false] }],
@@ -186,6 +182,7 @@ const ReactQuillJs = (props) => {
         titleRef.current.value = "";
         titleimageRef.current.value = "";
         descriptionRef.current.value = "";
+        console.log(quillRef.current);
       } catch (error) {
         console.error("Error updating item:", error);
       }
@@ -207,12 +204,13 @@ const ReactQuillJs = (props) => {
       console.error("Error updating item:", error);
     }
   };
+
   return (
     <>
       <div className="container">
         <ReactQuill
           ref={quillRef}
-          value={quillRef}
+          // value={quillRef}
           theme="snow"
           modules={modules}
           formats={formats}
@@ -344,7 +342,7 @@ const ReactQuillJs = (props) => {
               >
                 Close
               </button>
-              {statusSaveRef.current === true ? (
+              {statusSave === true ? (
                 <button
                   type="button"
                   className="btn btn-primary"
