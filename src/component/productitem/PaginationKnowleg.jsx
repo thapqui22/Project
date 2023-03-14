@@ -56,39 +56,35 @@ function PaginationTankModel(props) {
   const renderPagination = () => {
     const pages = getPages();
     return (
-      <>
-        <div className="pagination">
-          <a
-            className={`pagination-newer ${
-              currentPage === 1 ? "disabled" : ""
-            }`}
-            onClick={() => handlePageClick(currentPage - 1)}
-          >
-            PREV
-          </a>
-          <span className="pagination-inner">
-            {pages.map((page) => (
-              <a
-                key={page}
-                className={`pagination-page ${
-                  page === currentPage ? "pagination-active" : ""
-                }`}
-                onClick={() => handlePageClick(page)}
-              >
-                {page}
-              </a>
-            ))}
-          </span>
-          <a
-            className={`pagination-older ${
-              currentPage === totalPages ? "disabled" : ""
-            }`}
-            onClick={() => handlePageClick(currentPage + 1)}
-          >
-            NEXT
-          </a>
-        </div>
-      </>
+      <div className="pagination">
+        <a
+          className={`pagination-newer ${currentPage === 1 ? "disabled" : ""}`}
+          onClick={() => handlePageClick(currentPage - 1)}
+        >
+          PREV
+        </a>
+        <span className="pagination-inner">
+          {pages.map((page) => (
+            <a
+              key={page}
+              className={`pagination-page ${
+                page === currentPage ? "pagination-active" : ""
+              }`}
+              onClick={() => handlePageClick(page)}
+            >
+              {page}
+            </a>
+          ))}
+        </span>
+        <a
+          className={`pagination-older ${
+            currentPage === totalPages ? "disabled" : ""
+          }`}
+          onClick={() => handlePageClick(currentPage + 1)}
+        >
+          NEXT
+        </a>
+      </div>
     );
   };
 

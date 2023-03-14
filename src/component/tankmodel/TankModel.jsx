@@ -34,7 +34,7 @@ const TankModel = () => {
   }, []);
 
   return (
-    <div className={style.container}>
+    <div className={style.containers}>
       <MDBContainer fluid>
         {currentItems.map((item) => (
           <MDBRow className="justify-content-center mb-0" key={item.id}>

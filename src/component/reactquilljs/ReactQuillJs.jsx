@@ -15,18 +15,11 @@ Quill.register("modules/imageCompress", ImageCompress);
 Quill.register("modules/resize", QuillResize);
 
 const ReactQuillJs = (props) => {
-  const [data, setData] = useState({
-    title: String,
-    description: String,
-    image: String,
-    content: String,
-  });
-
   const quillRef = useRef("");
   const titleRef = useRef("");
   const titleimageRef = useRef("");
   const descriptionRef = useRef("");
-  const [status, setStatus] = useState(true);
+  const statusSaveRef = useRef(true);
   const [statusSave, setStatusSave] = useState(true);
   const [statusLinkURL, setStatusLinkURL] = useState("Link URL Image");
   let navigate = useNavigate();
@@ -38,6 +31,10 @@ const ReactQuillJs = (props) => {
     descriptionRef.current.value =
       props.handleReceiveDataQuillChange.description;
   }, [props]);
+
+  useEffect(() => {
+    console.log(statusSave);
+  }, []);
 
   const modules = {
     toolbar: [
@@ -347,7 +344,7 @@ const ReactQuillJs = (props) => {
               >
                 Close
               </button>
-              {statusSave === true ? (
+              {statusSaveRef.current === true ? (
                 <button
                   type="button"
                   className="btn btn-primary"
