@@ -9,9 +9,10 @@ import {
 import style from "./tankModel.module.scss";
 import axios from "axios";
 import PaginationTankModel from "./PaginationTankModel";
-
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPencil, faQuoteLeft } from "@fortawesome/free-solid-svg-icons";
 const TankModel = () => {
-  let url = "https://63f43c77864fb1d600247a6d.mockapi.io/Products/products";
+  let url = "https://63f43c77864fb1d600247a6d.mockapi.io/Products/manage";
   const [data, setData] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 10;
@@ -28,11 +29,12 @@ const TankModel = () => {
       const response = await axios.get(url);
       setData(response.data);
     };
+
     fetchData();
   }, []);
 
   return (
-    <div>
+    <div className={style.container}>
       <MDBContainer fluid>
         {currentItems.map((item) => (
           <MDBRow className="justify-content-center mb-0" key={item.id}>
@@ -59,29 +61,15 @@ const TankModel = () => {
                       </a>
                     </MDBCol>
                     <MDBCol md="8">
-                      <h5>{item.name}</h5>
-                      <h5>${item.price}</h5>
-                      <div className="mt-1 mb-0 text-muted small">
-                        <span>100% cotton</span>
-                        <span className="text-primary"> • </span>
-                        <span>Light weight</span>
-                        <span className="text-primary"> • </span>
-                        <span>
-                          Best finish
-                          <br />
-                        </span>
-                      </div>
-                      <div className="mb-2 text-muted small">
-                        <span>Unique design</span>
-                        <span className="text-primary"> • </span>
-                        <span>For men</span>
-                        <span className="text-primary"> • </span>
-                        <span>
-                          Casual
-                          <br />
-                        </span>
-                      </div>
-                      <p>{item.description}</p>
+                      <h5>{item.title}</h5>
+                      <p>
+                        <FontAwesomeIcon icon={faQuoteLeft} />
+                        {item.description}
+                      </p>
+                      <p>
+                        <FontAwesomeIcon icon={faPencil} />
+                        {item.author}
+                      </p>
                       <div>
                         <button className={style.detals}>Details</button>
                       </div>

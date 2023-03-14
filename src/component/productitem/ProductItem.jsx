@@ -23,7 +23,7 @@ const ProductItem = () => {
     setCurrentPage(data);
   };
   return (
-    <>
+    <div className={style.container}>
       <MDBContainer fluid>
         {currentItems.map((item) => (
           <MDBRow className="justify-content-center mb-0" key={item.id}>
@@ -82,7 +82,7 @@ const ProductItem = () => {
         ))}
       </MDBContainer>
       <PaginationKnowleg onClickChangePage={handleClickChangePage} />
-    </>
+    </div>
   );
 };
 

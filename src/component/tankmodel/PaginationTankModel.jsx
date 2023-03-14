@@ -3,9 +3,8 @@ import axios from "axios";
 import "./paginationtankmodel.scss";
 
 function PaginationTankModel(props) {
-  let url = "https://63f43c77864fb1d600247a6d.mockapi.io/Products/products";
+  let url = "https://63f43c77864fb1d600247a6d.mockapi.io/Products/manage";
   const [data, setData] = useState([]);
-
   useEffect(() => {
     const fetchData = async () => {
       const response = await axios.get(url);
@@ -65,7 +64,7 @@ function PaginationTankModel(props) {
   const renderPagination = () => {
     const pages = getPages();
     return (
-      <>
+      <div>
         <div className="pagination">
           <a
             className={`pagination-newer ${
@@ -97,7 +96,7 @@ function PaginationTankModel(props) {
             NEXT
           </a>
         </div>
-      </>
+      </div>
     );
   };
 

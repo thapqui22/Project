@@ -18,14 +18,13 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "react-toastify/dist/ReactToastify.css";
 function App() {
   const [dataQuill, setDataQuill] = useState({
-    title: "initial value",
-    description: "initial value",
-    image: "initial value",
-    content: "initial value",
+    title: "",
+    description: "",
+    image: "",
+    content: "",
   });
   const handleDataQuillChange = (newData) => {
     setDataQuill(newData);
-    console.log(newData);
   };
   return (
     <>
@@ -53,6 +52,7 @@ function App() {
           path="/test"
           element={
             <ReactQuillTest
+              onClickPublish={handleDataQuillChange}
               onClickBacktoEdit={handleDataQuillChange}
               handleReceiveDataQuillChange={dataQuill}
             />

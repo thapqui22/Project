@@ -4,6 +4,7 @@ import "./paginationknowleg.scss";
 
 function PaginationTankModel(props) {
   const [data] = useState(ProductList);
+
   const [currentPage, setCurrentPage] = useState(1); // set current page as 1 by default
   const totalPages = Math.ceil(data.length / 10);
   const pagesToShow = 10; // number of pages to show in pagination

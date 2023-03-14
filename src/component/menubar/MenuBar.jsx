@@ -32,10 +32,6 @@ const MenuBar = () => {
           <FontAwesomeIcon icon={faHome} />
           <Link to="/createandeditblog">Edit Blog</Link>
         </button>
-        <button>
-          <FontAwesomeIcon icon={faHome} />
-          <Link to="/test">Test Blog</Link>
-        </button>
       </div>
     </div>
   );

@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import ReactQuill, { Quill } from "react-quill";
 import "./reactquilljs.scss";
 import ImageResize from "quill-image-resize-module-react";
@@ -15,14 +15,29 @@ Quill.register("modules/imageCompress", ImageCompress);
 Quill.register("modules/resize", QuillResize);
 
 const ReactQuillJs = (props) => {
+  const [data, setData] = useState({
+    title: String,
+    description: String,
+    image: String,
+    content: String,
+  });
+
   const quillRef = useRef("");
   const titleRef = useRef("");
   const titleimageRef = useRef("");
-  const descriptionRef = useRef();
+  const descriptionRef = useRef("");
+  const [status, setStatus] = useState(true);
   const [statusSave, setStatusSave] = useState(true);
   const [statusLinkURL, setStatusLinkURL] = useState("Link URL Image");
-  const dataReceived = props.handleReceiveDataQuillChange;
   let navigate = useNavigate();
+
+  useEffect(() => {
+    quillRef.current.value = props.handleReceiveDataQuillChange.content;
+    titleRef.current.value = props.handleReceiveDataQuillChange.title;
+    titleimageRef.current.value = props.handleReceiveDataQuillChange.image;
+    descriptionRef.current.value =
+      props.handleReceiveDataQuillChange.description;
+  }, [props]);
 
   const modules = {
     toolbar: [
@@ -72,15 +87,9 @@ const ReactQuillJs = (props) => {
 
   const handleButtonPreview = () => {
     setStatusSave(false);
-    titleRef.current.value = "";
-    titleimageRef.current.value = "";
-    descriptionRef.current.value = "";
   };
   const handleButtonSave = () => {
     setStatusSave(true);
-    titleRef.current.value = "";
-    titleimageRef.current.value = "";
-    descriptionRef.current.value = "";
   };
   const handleLinkButtonDropDownList = () => {
     setStatusLinkURL("Link URL Image");
@@ -116,7 +125,6 @@ const ReactQuillJs = (props) => {
           image: titleimageRef.current.value,
           content: quillRef.current.value,
         };
-        console.log(data);
         props.onClickPreview(data);
         routeChange();
       }
@@ -169,10 +177,18 @@ const ReactQuillJs = (props) => {
           image: titleimageRef.current.value,
           content: quillRef.current.value,
         };
-        console.log(data);
-        props.onClickPreview(data);
-        // await handleClick(`1`);
         await handleAddProduct(``, data);
+        const emptyData = {
+          title: "",
+          description: "",
+          image: "",
+          content: "",
+        };
+        props.onClickPreview(emptyData);
+        quillRef.current.value = "";
+        titleRef.current.value = "";
+        titleimageRef.current.value = "";
+        descriptionRef.current.value = "";
       } catch (error) {
         console.error("Error updating item:", error);
       }
@@ -180,12 +196,26 @@ const ReactQuillJs = (props) => {
       toast.error("Field is empty, please fill in");
     }
   };
-
+  const handClearButton = () => {
+    try {
+      const emptyData = {
+        title: "",
+        description: "",
+        image: "",
+        content: "",
+      };
+      props.onClickPreview(emptyData);
+      toast.success("The Field are clear");
+    } catch (error) {
+      console.error("Error updating item:", error);
+    }
+  };
   return (
     <>
       <div className="container">
         <ReactQuill
           ref={quillRef}
+          value={quillRef}
           theme="snow"
           modules={modules}
           formats={formats}
@@ -207,7 +237,9 @@ const ReactQuillJs = (props) => {
           >
             Save
           </button>
-          <button className="btn btn-danger mb-2">Clear</button>
+          <button className="btn btn-danger mb-2" onClick={handClearButton}>
+            Clear
+          </button>
         </div>
       </div>
       <div
