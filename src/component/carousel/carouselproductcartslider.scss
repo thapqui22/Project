@@ -1,87 +1,59 @@
-@import url(http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css);
-.col-item {
-  border: 1px solid #e1e1e1;
-  border-radius: 5px;
-  background: #fff;
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap");
+
+body {
+  font-family: "Poppins", sans-serif;
 }
-.col-item .photo img {
-  margin: 0 auto;
-  width: 100%;
+.product-item {
+  border: 1px solid rgb(219, 219, 219);
+}
+.product-img {
+  position: relative;
+  overflow: hidden;
+}
+.btns {
+  position: absolute;
+  left: 0;
+  bottom: -100%;
+  font-size: 15px;
+  font-weight: 300;
+  transition: all 0.3s ease-in-out;
+}
+.btns button {
+  border: none;
+  background-color: rgb(39, 39, 39);
+  color: #fff;
+  transition: all 0.3s ease-in-out;
+}
+.btns button:hover {
+  color: #fcb941;
+}
+.product-img:hover .btns {
+  bottom: 0;
 }
 
-.col-item .info {
-  padding: 10px;
-  border-radius: 0 0 5px 5px;
-  margin-top: 1px;
+.heart-icon {
+  position: absolute;
+  top: 16px;
+  right: 15px;
+  font-size: 18px;
 }
 
-.col-item:hover .info {
-  background-color: #f5f5dc;
+.product-type {
+  font-size: 13px;
+  opacity: 0.8;
 }
-.col-item .price {
-  /*width: 50%;*/
-  float: left;
-  margin-top: 5px;
+.product-name {
+  transition: all 0.3s ease-in-out;
 }
-
-.col-item .price h5 {
-  line-height: 20px;
-  margin: 0;
+.product-name:hover {
+  color: #fcb941 !important;
 }
-
-.price-text-color {
-  color: #219fd1;
+.product-price {
+  color: #fcb941;
 }
-
-.col-item .info .rating {
-  color: #777;
+.rating {
+  font-size: 13px;
 }
-
-.col-item .rating {
-  /*width: 50%;*/
-  float: left;
-  font-size: 17px;
-  text-align: right;
-  line-height: 52px;
-  margin-bottom: 10px;
-  height: 52px;
-}
-
-.col-item .separator {
-  border-top: 1px solid #e1e1e1;
-}
-
-.clear-left {
-  clear: left;
-}
-
-.col-item .separator p {
-  line-height: 20px;
-  margin-bottom: 0;
-  margin-top: 10px;
-  text-align: center;
-}
-
-.col-item .separator p i {
-  margin-right: 5px;
-}
-.col-item .btn-add {
-  width: 50%;
-  float: left;
-}
-
-.col-item .btn-add {
-  border-right: 1px solid #e1e1e1;
-}
-
-.col-item .btn-details {
-  width: 50%;
-  float: left;
-  padding-left: 10px;
-}
-.controls {
-  margin-top: 20px;
-}
-[data-slide="prev"] {
-  margin-right: 10px;
+.product-item {
+  width: 300px;
 }
