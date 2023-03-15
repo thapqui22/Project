@@ -1,6 +1,6 @@
 .footer {
   width: 100%;
-  /* font-size: 12px; */
+  font-size: 12px;
   text-align: center;
   border-top: #cbcbcc 1px solid;
   display: flex;
@@ -36,7 +36,7 @@
 }
 .fText {
   width: 100%;
-  /* font-size: 12px; */
+  font-size: 12px;
   height: auto;
   display: flex;
   justify-content: center;
