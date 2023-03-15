@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import style from "./searchbar.module.scss";
 import { useStorage } from "../localstorage/LocalStorage";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPhone, faHome } from "@fortawesome/free-solid-svg-icons";
+import { faPhone, faCartShopping } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 const SearchBar = () => {
   const [cartItems, setCartItems] = useStorage("cartItems", []);
@@ -31,7 +31,7 @@ const SearchBar = () => {
         </div>
         <div className={style.iconBuy}>
           <Link to="/shoppingcart">
-            <FontAwesomeIcon icon={faHome} />
+            <FontAwesomeIcon icon={faCartShopping} />
             <span>{cartItems.length}</span>
           </Link>
         </div>

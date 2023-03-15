@@ -2,7 +2,15 @@ import React from "react";
 import style from "./menubar.module.scss";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHome } from "@fortawesome/free-solid-svg-icons";
+import {
+  faHome,
+  faBook,
+  faCartShopping,
+  faPencil,
+  faFish,
+  faServer,
+  faPenToSquare,
+} from "@fortawesome/free-solid-svg-icons";
 const MenuBar = () => {
   return (
     <div className={style.navbar}>
@@ -12,24 +20,24 @@ const MenuBar = () => {
           <Link to="/">Home</Link>
         </button>
         <button>
-          <FontAwesomeIcon icon={faHome} />
+          <FontAwesomeIcon icon={faBook} />
           <Link to="/knowledge">Knowledge</Link>
         </button>
 
         <button>
-          <FontAwesomeIcon icon={faHome} />
+          <FontAwesomeIcon icon={faCartShopping} />
           <Link to="/shopping">Shopping</Link>
         </button>
         <button>
-          <FontAwesomeIcon icon={faHome} />
+          <FontAwesomeIcon icon={faFish} />
           <Link to="/tankmodel">Tank model</Link>
         </button>
         <button>
-          <FontAwesomeIcon icon={faHome} />
+          <FontAwesomeIcon icon={faPenToSquare} />
           <Link to="/manage">Manage Item</Link>
         </button>
         <button>
-          <FontAwesomeIcon icon={faHome} />
+          <FontAwesomeIcon icon={faPencil} />
           <Link to="/createandeditblog">Edit Blog</Link>
         </button>
       </div>

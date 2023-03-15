@@ -20,6 +20,7 @@ const ReactQuillJs = (props) => {
   const titleimageRef = useRef("");
   const descriptionRef = useRef("");
   const statusSaveRef = useRef(true);
+  const emptyContent = { ops: [] }; // empty content with no operations
   const [statusSave, setStatusSave] = useState(true);
   const [statusLinkURL, setStatusLinkURL] = useState("Link URL Image");
   let navigate = useNavigate();
@@ -179,10 +180,10 @@ const ReactQuillJs = (props) => {
         };
         props.onClickPreview(emptyData);
         quillRef.current.value = "";
+        quillRef.current.getEditor().setContents(emptyContent);
         titleRef.current.value = "";
         titleimageRef.current.value = "";
         descriptionRef.current.value = "";
-        console.log(quillRef.current);
       } catch (error) {
         console.error("Error updating item:", error);
       }
@@ -199,6 +200,7 @@ const ReactQuillJs = (props) => {
         content: "",
       };
       props.onClickPreview(emptyData);
+      quillRef.current.getEditor().setContents(emptyContent);
       toast.success("The Field are clear");
     } catch (error) {
       console.error("Error updating item:", error);
