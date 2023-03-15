@@ -39,8 +39,8 @@ const Footer = () => {
             <li className="fListItem">Quy định và hình thức thanh toán</li>
           </ul>
         </div>
-        <div className="fText">Design by An Huynh</div>
-      </div>
+      </div>{" "}
+      <div className="fText">Design by An Huynh</div>
     </div>
   );
 };

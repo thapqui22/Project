@@ -6,7 +6,7 @@
   flex-wrap: wrap;
   height: auto;
   padding-top: 20px;
-  padding-bottom: 20px;
+  padding-bottom: 10px;
   height: auto;
   min-height: 800px;
   justify-content: center;
@@ -16,12 +16,13 @@
   justify-content: space-evenly;
 }
 .box {
-  width: 200px;
-  height: 350px;
+  width: 250px;
+  height: auto;
 }
 .Image {
   width: auto;
-  height: 300px;
+  width: auto;
+  height: 250px;
   object-fit: fill;
   border-top-right-radius: 5px;
   border-top-left-radius: 5px;
