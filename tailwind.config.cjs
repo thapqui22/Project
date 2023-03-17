@@ -6,6 +6,10 @@ module.exports = {
       width: {
         1140: "1140px",
       },
+      colors: {
+        "defaut-color": "#fd3d57",
+        "defaut-color-white": "#f3f3f3",
+      },
     },
   },
   plugins: [],
