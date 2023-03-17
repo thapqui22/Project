@@ -7,6 +7,7 @@ import QuillResize from "quill-resize-module";
 import { toast } from "react-toastify";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
+import CarouselProductCartSlider from "../carousel/CarouselProductCartSlider";
 
 import "quill/dist/quill.snow.css";
 

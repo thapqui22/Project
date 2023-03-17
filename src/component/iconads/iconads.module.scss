@@ -25,4 +25,10 @@
 }
 .navContainerIconAds {
   display: flex;
+  justify-content: center;
+}
+.imageADS {
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 10px;
 }

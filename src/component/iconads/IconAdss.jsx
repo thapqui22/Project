@@ -6,7 +6,7 @@ const Iconadss = () => {
     <div className={style.navbar}>
       <div className={style.navContainerMenu}>
         <div className={style.navContainerIconAds}>
-          <div>
+          <div className={style.imageADS}>
             <img
               src="//bizweb.dktcdn.net/100/344/954/themes/705100/assets/privacy_1_icon.png?1672232161194"
               alt=""
@@ -21,7 +21,7 @@ const Iconadss = () => {
         </div>
 
         <div className={style.navContainerIconAds}>
-          <div>
+          <div className={style.imageADS}>
             <img
               src="//bizweb.dktcdn.net/100/344/954/themes/705100/assets/privacy_2_icon.png?1672232161194"
               alt=""
@@ -36,7 +36,7 @@ const Iconadss = () => {
         </div>
 
         <div className={style.navContainerIconAds}>
-          <div>
+          <div className={style.imageADS}>
             <img
               src="//bizweb.dktcdn.net/100/344/954/themes/705100/assets/privacy_3_icon.png?1672232161194"
               alt=""
@@ -51,7 +51,7 @@ const Iconadss = () => {
         </div>
 
         <div className={style.navContainerIconAds}>
-          <div>
+          <div className={style.imageADS}>
             <img
               src="//bizweb.dktcdn.net/100/344/954/themes/705100/assets/privacy_4_icon.png?1672232161194"
               alt=""

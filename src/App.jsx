@@ -15,6 +15,7 @@ import ReactQuillJs from "./component/reactquilljs/ReactQuillJs";
 import ReactQuillTest from "./component/reactquilljs/ReactQuillTest";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "react-toastify/dist/ReactToastify.css";
+import "./index.css";
 
 function App() {
   const [dataQuill, setDataQuill] = useState({
