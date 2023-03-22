@@ -1,0 +1,22 @@
+@keyframes fade-in-up {
+  0% {
+    opacity: 0;
+    transform: translateY(50%);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  opacity: 0;
+  transform: translateY(50%);
+  animation: fade-in-up 0.4s forwards;
+}
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap");
+
+.title {
+  font-family: "Roboto", sans-serif;
+}

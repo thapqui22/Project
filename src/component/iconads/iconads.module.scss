@@ -9,13 +9,11 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  div {
-    flex: 1;
-  }
   img {
-    max-width: 45px;
+    padding-right: 10px;
   }
 }
+
 .navBarTextTitle {
   font-size: small;
   font-weight: 700;
@@ -27,8 +25,7 @@
   display: flex;
   justify-content: center;
 }
-.imageADS {
-  display: flex;
-  justify-content: flex-end;
-  padding-right: 10px;
+
+.navBarTitleContainer {
+  width: 10px;
 }

@@ -3,11 +3,21 @@ module.exports = {
   content: ["./index.html", "./src/**/*.{vue,js,ts,jsx,tsx}"],
   theme: {
     extend: {
+      padding: {
+        "10px": "10px",
+      },
       width: {
-        1140: "1140px",
+        1200: "1200px",
+        300: "300px",
+      },
+      height: {
+        400: "400px",
       },
       colors: {
         "defaut-color": "#fd3d57",
+        // "defaut-color-red": "#fd3d57",
+        "defaut-color-red": "#b90000",
+        "defaut-color-black": "#2B2D42",
         "defaut-color-white": "#f3f3f3",
       },
     },

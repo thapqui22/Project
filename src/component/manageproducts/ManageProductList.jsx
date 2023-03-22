@@ -102,7 +102,6 @@ const ManageProductList = (props) => {
           </tbody>
         </table>
       </div>
-
       <PaginationProductList onClickChangePage={handleClickChangePage} />
     </>
   );

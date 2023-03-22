@@ -16,7 +16,9 @@ const CarouselProductCartSlider = () => {
   return (
     <div className="flex justify-content-center ">
       <div className="relative w-1140">
-        <div className="text-center py-4  text-xl font-bold">Hot products</div>
+        <div className="text-center py-4  text-xl font-bold">
+          Recomended For You
+        </div>
         <div className="absolute right-0 top-5 ">
           <button onClick={scrollLeft} className="p-2 m-2 ">
             <FontAwesomeIcon icon={faChevronCircleLeft} />
