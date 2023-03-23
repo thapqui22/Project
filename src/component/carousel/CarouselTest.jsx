@@ -6,6 +6,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronRight, faStar } from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
 import "./Card.scss";
+import TopRankingCard from "../toprankingcard/TopRankingCard";
 const CarouselTest = () => {
   let url = "https://63f43c77864fb1d600247a6d.mockapi.io/Products/products";
   const [data, setData] = useState([]);
@@ -36,158 +37,10 @@ const CarouselTest = () => {
 
   return (
     <div className="container max-w-[1200px] h-auto">
-      <div>
-        <h4 className="title text-3xl font-bold p-[10px] pb-2 text-defaut-color-red hover:cursor-default">
-          Top Ranking
-        </h4>
-        <div className="cardcontainers max-w-[1200px] flex justify-around h-[400px]  ">
-          <div className="cardcontainer flex flex-col w-[300px]">
-            <h4 className="title text-xl font-bold p-[10px] pb-2 text-defaut-color-red hover:cursor-default">
-              FISH
-            </h4>
-            <div className="">
-              <div className="cardcontainer flex flex-row  w-[300px]">
-                <div className="topimage">
-                  <img
-                    className="image object-cover h-24 w-24 rounded"
-                    src="https://choicacanh.com/content/uploads/cms/2020/12/14/huong-dan-cham-soc-ca-neon-vua_600x400.jpg"
-                  />
-                </div>
-                <div className="bottom flex flex-col justify-center items-start p-3">
-                  <h4 className="title text-lg font-medium hover:text-defaut-color-red transition duration-150 ease-out hover:ease-in hover:cursor-pointer pb-1">
-                    123
-                  </h4>
-                  <>
-                    <div className="pricing flex items-center ">
-                      <div className="price text-defaut-color-red ">
-                        {new Intl.NumberFormat("ja-JP", {
-                          style: "currency",
-                          currency: "USD",
-                        }).format(1111)}
-                      </div>
-                      <div className="ml-2 text-xs ">
-                        $<del>1320</del>
-                      </div>
-                    </div>
-                    <div className="star">
-                      <span>
-                        <FontAwesomeIcon icon={faStar} />
-                      </span>
-                      <span>
-                        <FontAwesomeIcon icon={faStar} />
-                      </span>
-                      <span>
-                        <FontAwesomeIcon icon={faStar} />
-                      </span>
-                      <span>
-                        <FontAwesomeIcon icon={faStar} />
-                      </span>
-                      <span>
-                        <FontAwesomeIcon icon={faStar} />
-                      </span>
-                      <span>(150)</span>
-                    </div>
-                  </>
-                </div>{" "}
-              </div>
-              <div className="cardcontainer flex flex-row  w-[300px]">
-                <div className="topimage">
-                  <img
-                    className="image object-cover h-24 w-24 rounded"
-                    src="https://choicacanh.com/content/uploads/cms/2020/12/14/huong-dan-cham-soc-ca-neon-vua_600x400.jpg"
-                  />
-                </div>
-                <div className="bottom flex flex-col justify-center items-start p-3">
-                  <h4 className="title text-lg font-medium hover:text-defaut-color-red transition duration-150 ease-out hover:ease-in hover:cursor-pointer pb-1">
-                    123
-                  </h4>
-                  <>
-                    <div className="pricing flex items-center ">
-                      <div className="price text-defaut-color-red ">
-                        {new Intl.NumberFormat("ja-JP", {
-                          style: "currency",
-                          currency: "USD",
-                        }).format(1111)}
-                      </div>
-                      <div className="ml-2 text-xs ">
-                        $<del>1320</del>
-                      </div>
-                    </div>
-                    <div className="star">
-                      <span>
-                        <FontAwesomeIcon icon={faStar} />
-                      </span>
-                      <span>
-                        <FontAwesomeIcon icon={faStar} />
-                      </span>
-                      <span>
-                        <FontAwesomeIcon icon={faStar} />
-                      </span>
-                      <span>
-                        <FontAwesomeIcon icon={faStar} />
-                      </span>
-                      <span>
-                        <FontAwesomeIcon icon={faStar} />
-                      </span>
-                      <span>(150)</span>
-                    </div>
-                  </>
-                </div>{" "}
-              </div>
-              <div className="cardcontainer flex flex-row  w-[300px]">
-                <div className="topimage">
-                  <img
-                    className="image object-cover h-24 w-24 rounded"
-                    src="https://choicacanh.com/content/uploads/cms/2020/12/14/huong-dan-cham-soc-ca-neon-vua_600x400.jpg"
-                  />
-                </div>
-                <div className="bottom flex flex-col justify-center items-start p-3">
-                  <h4 className="title text-lg font-medium hover:text-defaut-color-red transition duration-150 ease-out hover:ease-in hover:cursor-pointer pb-1">
-                    123
-                  </h4>
-                  <>
-                    <div className="pricing flex items-center ">
-                      <div className="price text-defaut-color-red ">
-                        {new Intl.NumberFormat("ja-JP", {
-                          style: "currency",
-                          currency: "USD",
-                        }).format(1111)}
-                      </div>
-                      <div className="ml-2 text-xs ">
-                        $<del>1320</del>
-                      </div>
-                    </div>
-                    <div className="star">
-                      <span>
-                        <FontAwesomeIcon icon={faStar} />
-                      </span>
-                      <span>
-                        <FontAwesomeIcon icon={faStar} />
-                      </span>
-                      <span>
-                        <FontAwesomeIcon icon={faStar} />
-                      </span>
-                      <span>
-                        <FontAwesomeIcon icon={faStar} />
-                      </span>
-                      <span>
-                        <FontAwesomeIcon icon={faStar} />
-                      </span>
-                      <span>(150)</span>
-                    </div>
-                  </>
-                </div>{" "}
-              </div>
-            </div>
-          </div>
-          <div className="cardcontainer flex w-[300px]">123</div>
-          <div className="cardcontainer flex w-[300px]">123</div>
-          <div className="cardcontainer flex w-[300px]">123</div>
-        </div>
-      </div>
+      <TopRankingCard />
       <div className="cardcontainer max-w-[1200px]">
         <div className="containers flex items-center justify-between">
-          <h4 className="title text-3xl font-bold p-[10px] pb-2 text-defaut-color-red hover:cursor-default">
+          <h4 className="title text-3xl font-bold p-2  text-defaut-color-red hover:cursor-default">
             New Arrivals
           </h4>
           <a
@@ -213,7 +66,7 @@ const CarouselTest = () => {
           draggable
           focusOnSelect={false}
           infinite
-          itemClass="item flex justify-center"
+          itemClass="item"
           keyBoardControl
           minimumTouchDrag={80}
           pauseOnHover
@@ -238,7 +91,7 @@ const CarouselTest = () => {
 
       <div className="cardcontainer max-w-[1200px]">
         <div className="containers flex items-center justify-between">
-          <h4 className="title text-3xl font-bold p-[10px] pb-2 text-defaut-color-red hover:cursor-default">
+          <h4 className="title text-3xl font-bold p-2 text-defaut-color-red hover:cursor-default">
             Recomended For You
           </h4>
           <a
@@ -262,7 +115,7 @@ const CarouselTest = () => {
           draggable
           focusOnSelect={false}
           infinite
-          itemClass="item flex justify-center"
+          itemClass="item "
           keyBoardControl
           minimumTouchDrag={80}
           renderArrowsWhenDisabled={false}
@@ -292,7 +145,7 @@ const CarouselTest = () => {
           draggable
           focusOnSelect={false}
           infinite
-          itemClass="item flex justify-center"
+          itemClass="item"
           keyBoardControl
           minimumTouchDrag={80}
           responsive={responsive}

@@ -1,31 +1,13 @@
 .navbar {
   display: flex;
-  height: 70px;
+  height: auto;
   justify-content: center;
 }
 .navContainerMenu {
   width: 100%;
-  max-width: 1140px;
+  max-width: 1200px;
+  padding-top: 35px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  img {
-    padding-right: 10px;
-  }
-}
-
-.navBarTextTitle {
-  font-size: small;
-  font-weight: 700;
-}
-.navBarText {
-  font-size: x-small;
-}
-.navContainerIconAds {
-  display: flex;
   justify-content: center;
-}
-
-.navBarTitleContainer {
-  width: 10px;
 }

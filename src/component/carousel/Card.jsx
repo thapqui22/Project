@@ -26,7 +26,7 @@ function Card(props) {
       >
         <div className="relative flex items-center justify-center ">
           <img
-            className={`w-auto h-[240px] ${
+            className={`w-auto h-[240px] rounded-t ${
               showButton ? "opacity-80 transition duration-500" : ""
             }`}
             src={recieveData.image}
