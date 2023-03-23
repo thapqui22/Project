@@ -62,7 +62,7 @@ const Iconadss = () => {
     //   </div>
     // </div>
     <div className={style.navbar}>
-      <div className={style.navContainerMenu}></div>
+      <div className={style.navContainerMenu}>
         <div className="row flex justify-center w-1200">
           <div className="flex justify-around w-[1000px] flex-grow">
             <div className="flex flex-grow justify-center">
