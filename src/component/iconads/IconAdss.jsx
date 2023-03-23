@@ -68,7 +68,7 @@ const Iconadss = () => {
             <div className="flex flex-grow justify-center">
               <div className="border-solid border-2 border-defaut-color-red w-[333px] flex justify-center">
                 <div className="flex py-3 px-4">
-                  <div class="feature_icon p-2 flex items-center">
+                  <div className="feature_icon p-2 flex items-center">
                     <img
                       className="image object-cover"
                       loading="lazy"
@@ -76,7 +76,7 @@ const Iconadss = () => {
                       alt="icon"
                     />
                   </div>
-                  <div class="feature_content p-1 grid grid-rows-1">
+                  <div className="feature_content p-1 grid grid-rows-1">
                     <h4 className="title text-xl text-defaut-color-red hover:cursor-default">
                       Free shipping
                     </h4>
@@ -88,14 +88,14 @@ const Iconadss = () => {
             <div className="flex flex-grow justify-center">
               <div className="border-solid border-2 border-defaut-color-red w-[333px] flex justify-center">
                 <div className="flex py-3 px-4">
-                  <div class="feature_icon p-2">
+                  <div className="feature_icon p-2">
                     <img
                       loading="lazy"
                       src="https://themes.rslahmed.dev/rafcart/assets/images/svg/money-back.svg"
                       alt="icon"
                     />
                   </div>
-                  <div class="feature_content p-1 grid grid-rows-1">
+                  <div className="feature_content p-1 grid grid-rows-1">
                     <h4 className="title text-xl text-defaut-color-red hover:cursor-default">
                       Money Returns
                     </h4>
@@ -107,14 +107,14 @@ const Iconadss = () => {
             <div className="flex flex-grow justify-center">
               <div className="border-solid border-2 border-defaut-color-red w-[333px] flex justify-center">
                 <div className="flex py-3 px-4">
-                  <div class="feature_icon p-2">
+                  <div className="feature_icon p-2">
                     <img
                       loading="lazy"
                       src="https://themes.rslahmed.dev/rafcart/assets/images/svg/service-hours.svg"
                       alt="icon"
                     />
                   </div>
-                  <div class="feature_content p-1 grid grid-rows-1">
+                  <div className="feature_content p-1 grid grid-rows-1">
                     <h4 className="title text-xl text-defaut-color-red hover:cursor-default">
                       24/7 Support
                     </h4>

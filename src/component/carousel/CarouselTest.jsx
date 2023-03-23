@@ -3,11 +3,14 @@ import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import Card from "./Card";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faChevronRight, faStar } from "@fortawesome/free-solid-svg-icons";
+import { faChevronRight, faL } from "@fortawesome/free-solid-svg-icons";
+import Modal from "../modal/Modal";
 import axios from "axios";
 import "./Card.scss";
 import TopRankingCard from "../toprankingcard/TopRankingCard";
 const CarouselTest = () => {
+  const [showModal, setShowModal] = useState(false);
+  // const [changeData, setChangeData] = useState();
   let url = "https://63f43c77864fb1d600247a6d.mockapi.io/Products/products";
   const [data, setData] = useState([]);
   const responsive = {
@@ -35,8 +38,20 @@ const CarouselTest = () => {
     fetchData();
   }, []);
 
+  const handleChildClick = (data) => {
+    console.log(data);
+    setShowModal(true);
+  };
+  const handleChildClickCancel = (data) => {
+    setShowModal(false);
+  };
   return (
     <div className="container max-w-[1200px] h-auto">
+      {/* onClickFaMagnifyingGlass={showModal} */}
+      <Modal
+        onClickFaMagnifyingGlass={showModal}
+        onClickCancel={handleChildClickCancel}
+      />
       <TopRankingCard />
       <div className="cardcontainer max-w-[1200px]">
         <div className="containers flex items-center justify-between">
@@ -84,11 +99,14 @@ const CarouselTest = () => {
           swipeable
         >
           {data.map((i) => (
-            <Card onChangData={i} key={i.id} />
+            <Card
+              onChangData={i}
+              key={i.id}
+              onClickFaMagnifyingGlass={handleChildClick}
+            />
           ))}
         </Carousel>
       </div>
-
       <div className="cardcontainer max-w-[1200px]">
         <div className="containers flex items-center justify-between">
           <h4 className="title text-3xl font-bold p-2 text-defaut-color-red hover:cursor-default">

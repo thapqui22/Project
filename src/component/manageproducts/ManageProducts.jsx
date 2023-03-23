@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef } from "react";
 import style from "./manageproduct.module.scss";
 import { toast } from "react-toastify";
 import ManageProductList from "./ManageProductList";
@@ -92,6 +92,7 @@ const ManageProducts = () => {
     }
   };
   const handleButtonClear = () => {
+    //you did't handle compare data button
     // const isEqual = JSON.stringify(param) === JSON.stringify(item);
 
     // if (isEqual === true) {

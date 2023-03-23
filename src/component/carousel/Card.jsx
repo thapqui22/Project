@@ -17,6 +17,13 @@ function Card(props) {
   const handleMouseLeave = () => {
     setShowButton(false);
   };
+
+  const handleClickFaMagnifyingGlass = () => {
+    props.onClickFaMagnifyingGlass(recieveData);
+  };
+  const handleClickFaHeart = () => {
+    console.log(props);
+  };
   return (
     <>
       <div
@@ -24,7 +31,7 @@ function Card(props) {
         onMouseLeave={handleMouseLeave}
         className="card bg-white w-[275px] h-[350px] m-2 rounded-lg shadow-l"
       >
-        <div className="relative flex items-center justify-center ">
+        <div className="relative flex items-center justify-center">
           <img
             className={`w-auto h-[240px] rounded-t ${
               showButton ? "opacity-80 transition duration-500" : ""
@@ -36,6 +43,7 @@ function Card(props) {
             <div className="absolute flex gap-4 hover:opacity-100">
               <a className="bg-defaut-color-red hover:cursor-pointer px-2 py-1.5 rounded-full hover:bg-defaut-color-black transition duration-300  ">
                 <FontAwesomeIcon
+                  onClick={handleClickFaMagnifyingGlass}
                   icon={faMagnifyingGlass}
                   style={{ color: "#ffffff" }}
                 />
