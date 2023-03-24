@@ -9,7 +9,7 @@ import axios from "axios";
 import "./Card.scss";
 import TopRankingCard from "../toprankingcard/TopRankingCard";
 const CarouselTest = () => {
-  const [showModal, setShowModal] = useState(false);
+  const [showModal, setShowModal] = useState(true);
   const [changeData, setChangeData] = useState();
   let url = "https://63f43c77864fb1d600247a6d.mockapi.io/Products/products";
   const [data, setData] = useState([]);
@@ -39,10 +39,12 @@ const CarouselTest = () => {
   }, []);
 
   const handleChildClick = (dataReceive) => {
-    setChangeData(dataReceive);
+    setChangeData({ dataReceive, key: Date.now() });
+    setShowModal(false);
   };
-  const handleChildClickCancel = (data) => {
-    // setShowModal(false);
+
+  const handleChildClickCancel = (modalStatus) => {
+    setShowModal(modalStatus);
   };
   return (
     <div className="container max-w-[1200px] h-auto">
@@ -69,7 +71,7 @@ const CarouselTest = () => {
         </div>
         <Carousel
           additionalTransfrom={0}
-          arrows
+          arrows={showModal}
           autoPlay
           autoPlaySpeed={3000}
           centerMode={false}
@@ -105,7 +107,7 @@ const CarouselTest = () => {
           ))}
         </Carousel>
       </div>
-      {/* <div className="cardcontainer max-w-[1200px]">
+      <div className="cardcontainer max-w-[1200px]">
         <div className="containers flex items-center justify-between">
           <h4 className="title text-3xl font-bold p-2 text-defaut-color-red hover:cursor-default">
             Recomended For You
@@ -174,7 +176,7 @@ const CarouselTest = () => {
             <Card onChangData={i} key={i.id} />
           ))}
         </Carousel>
-      </div> */}
+      </div>
     </div>
   );
 };
