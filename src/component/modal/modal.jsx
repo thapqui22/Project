@@ -1,14 +1,19 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 
 export default function Modal(props) {
   const [showModal, setShowModal] = useState(false);
-  const recieveData = props.onClickFaMagnifyingGlass;
+  const [loading, setLoading] = useState(false);
+  const [data, setData] = useState("");
+  const dataRecieve = props.onClickFaMagnifyingGlass;
+
   useEffect(() => {
-    setShowModal(recieveData);
-  }, [props]);
+    if (dataRecieve !== undefined) {
+      console.log(dataRecieve);
+    }
+  }, [dataRecieve]);
 
   const handleCancelButton = () => {
-    props.onClickCancel(true);
+    setLoading(!loading);
     setShowModal(false);
   };
   return (
@@ -55,7 +60,7 @@ export default function Modal(props) {
                   <button
                     className="text-red-500 background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
                     type="button"
-                    onClick={() => handleCancelButton}
+                    onClick={handleCancelButton}
                   >
                     Close
                   </button>

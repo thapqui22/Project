@@ -41,9 +41,11 @@ function Card(props) {
           />
           {showButton && (
             <div className="absolute flex gap-4 hover:opacity-100">
-              <a className="bg-defaut-color-red hover:cursor-pointer px-2 py-1.5 rounded-full hover:bg-defaut-color-black transition duration-300  ">
+              <a
+                onClick={handleClickFaMagnifyingGlass}
+                className="bg-defaut-color-red hover:cursor-pointer px-2 py-1.5 rounded-full hover:bg-defaut-color-black transition duration-300  "
+              >
                 <FontAwesomeIcon
-                  onClick={handleClickFaMagnifyingGlass}
                   icon={faMagnifyingGlass}
                   style={{ color: "#ffffff" }}
                 />
