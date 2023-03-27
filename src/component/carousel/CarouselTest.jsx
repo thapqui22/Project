@@ -150,7 +150,11 @@ const CarouselTest = () => {
           swipeable
         >
           {data.slice(4, 8).map((i) => (
-            <Card onChangData={i} key={i.id} />
+            <Card
+              onChangData={i}
+              key={i.id}
+              onClickFaMagnifyingGlass={handleChildClick}
+            />
           ))}
         </Carousel>
         <Carousel
@@ -173,7 +177,11 @@ const CarouselTest = () => {
           swipeable
         >
           {data.slice(0, 4).map((i) => (
-            <Card onChangData={i} key={i.id} />
+            <Card
+              onChangData={i}
+              key={i.id}
+              onClickFaMagnifyingGlass={handleChildClick}
+            />
           ))}
         </Carousel>
       </div>

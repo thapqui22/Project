@@ -43,14 +43,14 @@ function Card(props) {
             <div className="absolute flex gap-4 hover:opacity-100">
               <a
                 onClick={handleClickFaMagnifyingGlass}
-                className="bg-defaut-color-red hover:cursor-pointer px-2 py-1.5 rounded-full hover:bg-defaut-color-black transition duration-300  "
+                className="bg-defaut-color-red hover:cursor-pointer px-[12px] py-2 rounded-full hover:bg-defaut-color-black transition duration-300  "
               >
                 <FontAwesomeIcon
                   icon={faMagnifyingGlass}
                   style={{ color: "#ffffff" }}
                 />
               </a>
-              <a className="bg-defaut-color-red hover:cursor-pointer px-2 py-1.5 rounded-full hover:bg-defaut-color-black transition duration-300 ">
+              <a className="bg-defaut-color-red hover:cursor-pointer  px-[12px] py-2  rounded-full hover:bg-defaut-color-black transition duration-300 ">
                 <FontAwesomeIcon icon={faHeart} style={{ color: "#ffffff" }} />
               </a>
             </div>
@@ -75,19 +75,19 @@ function Card(props) {
               </div>
               <div className="star">
                 <span>
-                  <FontAwesomeIcon icon={faStar} />
+                  <FontAwesomeIcon icon={faStar} style={{ color: "#f6bc3e" }} />
                 </span>
                 <span>
-                  <FontAwesomeIcon icon={faStar} />
+                  <FontAwesomeIcon icon={faStar} style={{ color: "#f6bc3e" }} />
                 </span>
                 <span>
-                  <FontAwesomeIcon icon={faStar} />
+                  <FontAwesomeIcon icon={faStar} style={{ color: "#f6bc3e" }} />
                 </span>
                 <span>
-                  <FontAwesomeIcon icon={faStar} />
+                  <FontAwesomeIcon icon={faStar} style={{ color: "#f6bc3e" }} />
                 </span>
                 <span>
-                  <FontAwesomeIcon icon={faStar} />
+                  <FontAwesomeIcon icon={faStar} style={{ color: "#f6bc3e" }} />
                 </span>
                 <span>(150)</span>
               </div>

@@ -21,6 +21,7 @@ module.exports = {
         "defaut-color-black": "#2B2D42",
         "defaut-color-white": "#f3f3f3",
       },
+      fontFamily: { "font-robo": ["Roboto", "sans-serif"] },
     },
   },
   plugins: [],
