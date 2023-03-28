@@ -1,30 +1,31 @@
 $defaut-color-black: black;
 $defaut-color-white: white;
+$defaut-color-pink: #fc3d57;
 .btnwishlist {
-  background-color: $defaut-color-black !important;
+  background-color: $defaut-color-pink !important;
   color: $defaut-color-white;
   padding: 8px 16px;
   border-radius: 5px;
-  border: 1px solid $defaut-color-black;
+  border: 1px solid $defaut-color-pink;
 }
 .btnwishlist:hover {
   padding: 8px 16px;
   background-color: $defaut-color-white !important;
-  color: black !important;
-  border: 1px solid $defaut-color-black;
+  color: $defaut-color-pink !important;
+  border: 1px solid $defaut-color-pink;
 }
 .btnadd {
-  color: $defaut-color-black;
+  color: $defaut-color-pink;
   padding: 8px 16px;
   border-radius: 5px;
-  border: 1px solid $defaut-color-black;
+  border: 1px solid $defaut-color-pink;
   margin: 0 16px 0 0;
 }
 .btnadd:hover {
   padding: 8px 16px;
-  background-color: $defaut-color-black !important;
+  background-color: $defaut-color-pink !important;
   color: $defaut-color-white !important;
-  border: 1px solid $defaut-color-black;
+  border: 1px solid $defaut-color-pink;
 }
 .text-semibold {
   //   font-family: "Poppins", sans-serif;
@@ -48,6 +49,54 @@ $defaut-color-white: white;
 }
 .iconfooter {
   a {
-    border: 1px solid $defaut-color-black;
+    border: 1px solid #e9e4e4;
   }
+}
+
+.radio-toolbar input[type="radio"] {
+  display: none;
+}
+
+.radio-toolbar label {
+  display: flex;
+  justify-content: center;
+  width: 23.5px !important;
+  border-radius: 3px;
+  border: 1px solid $defaut-color-black;
+  background-color: $defaut-color-white;
+  margin: 4px 12px 12px 0px;
+  font-family: Arial;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.radio-toolbar input[type="radio"]:checked + label {
+  background-color: $defaut-color-pink;
+  color: $defaut-color-white;
+  border: 1px solid $defaut-color-pink;
+}
+
+.radio-toolbar-color input[type="radio"] {
+  display: none;
+}
+
+.radio-toolbar-color label {
+  display: flex;
+  justify-content: center;
+  width: auto;
+  padding: 0px 5px 0px 5px;
+  height: 23.5px !important;
+  border-radius: 3px;
+  border: 1px solid $defaut-color-black;
+  background-color: $defaut-color-white;
+  margin: 4px 12px 12px 0px;
+  font-family: Arial;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.radio-toolbar-color input[type="radio"]:checked + label {
+  background-color: $defaut-color-pink;
+  color: $defaut-color-white;
+  border: 1px solid $defaut-color-pink;
 }

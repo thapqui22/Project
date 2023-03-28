@@ -9,23 +9,33 @@ import {
   faPlus,
   faHouse,
 } from "@fortawesome/free-solid-svg-icons";
+import axios from "axios";
 import "./modal.scss";
 
 export default function Modal(props) {
   const [showModal, setShowModal] = useState(false);
   const [count, setCount] = useState(1);
+  const [data, setData] = useState("");
+  let url = "https://63f43c77864fb1d600247a6d.mockapi.io/Products/products";
   const dataRecieveInModal = props.onClickFaMagnifyingGlass;
-
   useEffect(() => {
     if (dataRecieveInModal !== undefined) {
       console.log(dataRecieveInModal.dataReceive);
       setShowModal(true);
+      setData(dataRecieveInModal);
     }
   }, [dataRecieveInModal]);
 
   useEffect(() => {
     props.onClickCancel(!showModal);
   }, [showModal]);
+  useEffect(() => {
+    const fetchData = async () => {
+      const response = await axios.get(url);
+      setData(response.data);
+    };
+    fetchData();
+  }, []);
 
   const handlePlusButton = () => {
     setCount(count + 1);
@@ -53,21 +63,29 @@ export default function Modal(props) {
                     PRODUCT DESCRIPTION
                   </h3>
                   <button
-                    className="p-1 ml-auto bg-transparent border-0 text-black opacity-70 float-right text-3xl leading-none font-semibold outline-none focus:outline-none"
+                    className="p-1 ml-auto rounded-lg bg-defaut-color-pink text-xl leading-none "
                     onClick={() => setShowModal(false)}
                   >
-                    <FontAwesomeIcon icon={faXmark} />
+                    <FontAwesomeIcon
+                      icon={faXmark}
+                      className="text-white px-[4.25px]"
+                    />
                   </button>
                 </div>
                 {/*body*/}
                 <div className="p-3 flex flex-row">
                   <div className="flex ">
                     <div className="basis-1/2">
-                      <img
-                        className="card-img-top mb-5 mb-md-0 h-[552px]"
-                        src="https://choicacanh.com/content/uploads/cms/2020/12/14/huong-dan-cham-soc-ca-neon-vua-1_600x397.jpg"
-                        alt="..."
-                      />
+                      <div>
+                        <img
+                          className="card-img-top mb-5 mb-md-0 h-[552px]"
+                          src="https://choicacanh.com/content/uploads/cms/2020/12/14/huong-dan-cham-soc-ca-neon-vua-1_600x397.jpg"
+                          alt="..."
+                        />
+                      </div>
+                      <div className="flex w-28">
+                        <div className="w-48"></div>
+                      </div>
                     </div>
                     <div className="basis-1/2 px-3 flex-col">
                       <h1 className="display-6 flex font-normal font-font-robo">
@@ -134,7 +152,7 @@ export default function Modal(props) {
                             currency: "USD",
                           }).format(dataRecieveInModal.dataReceive.price * 1.2)}
                         </span>
-                        <span className="pl-2 font-font-robo text-defaut-color-red">
+                        <span className="pl-2 font-font-robo text-defaut-color-pink">
                           {new Intl.NumberFormat("ja-JP", {
                             style: "currency",
                             currency: "USD",
@@ -147,15 +165,96 @@ export default function Modal(props) {
                         blanditiis delectus minima ea iste laborum...
                         <a
                           href="#"
-                          className="detail hover:text-defaut-color-red hover:no-underline font-[600]"
+                          className="detail hover:text-defaut-color-pink hover:no-underline "
                         >
                           See more
                         </a>
                       </p>
+                      <div className="shop_filter border-bottom-0 pb-0">
+                        <div className="radio-toolbar">
+                          <h5>Size:</h5>
+                          <div className="flex w-52 justify-between items-center">
+                            <input
+                              type="radio"
+                              hidden=""
+                              name="size"
+                              className="size_inp "
+                              id="size-xs"
+                            />
+                            <label for="size-xs">XS</label>
+                            <input
+                              type="radio"
+                              hidden=""
+                              name="size"
+                              className="size_inp"
+                              id="size-s"
+                            />
+                            <label for="size-s">S</label>
+                            <input
+                              type="radio"
+                              hidden=""
+                              name="size"
+                              className="size_inp"
+                              id="size-m"
+                            />
+                            <label for="size-m">M</label>
+                            <input
+                              type="radio"
+                              hidden=""
+                              name="size"
+                              className="size_inp"
+                              id="size-l"
+                            />
+                            <label for="size-l">L</label>
+
+                            <input
+                              type="radio"
+                              hidden=""
+                              name="size"
+                              className="size_inp"
+                              id="size-xl"
+                            />
+                            <label for="size-xl">XL</label>
+                          </div>
+                        </div>
+                        <div className="shop_filter border-bottom-0 pb-0">
+                          <div className="radio-toolbar-color">
+                            <h5>Color:</h5>
+                            <div className="flex w-auto  items-center">
+                              <input
+                                type="radio"
+                                hidden=""
+                                name="color"
+                                className="size_inp-1"
+                                id="color-red"
+                              />
+                              <label for="color-red">RGB</label>
+
+                              <input
+                                type="radio"
+                                hidden=""
+                                name="color"
+                                className="size_inp-1"
+                                id="color-red-1"
+                              />
+                              <label for="color-red-1">WRGB</label>
+
+                              <input
+                                type="radio"
+                                hidden=""
+                                name="color"
+                                className="size_inp-1"
+                                id="color-red-2"
+                              />
+                              <label for="color-red-2">WRGB-UV</label>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                       <div className="">
                         <p className="pb-1 font-font-robo text-xl">Quantity</p>
                         <div className="quanlityContainer flex align-items-center w-auto">
-                          <button className="minus flex align-items-center justify-center">
+                          <button className="minus flex align-items-center justify-center hover:bg-slate-200">
                             <FontAwesomeIcon
                               className="p-2"
                               icon={faMinus}
@@ -169,7 +268,7 @@ export default function Modal(props) {
                               readOnly
                             />
                           </div>
-                          <button className="plus flex align-items-center justify-center">
+                          <button className="plus flex align-items-center justify-cente hover:bg-slate-200">
                             <FontAwesomeIcon
                               className="p-2 "
                               icon={faPlus}
@@ -178,9 +277,8 @@ export default function Modal(props) {
                           </button>
                         </div>
                       </div>
-                      <div className="d-flex pt-4 pb-3 ">
+                      <div className="d-flex pt-4 pb-3 border-b-2">
                         <button className="btnadd" type="button">
-                          {/* <i className="bi-cart-fill me-1"></i> */}
                           <FontAwesomeIcon
                             icon={faCartShopping}
                             className="pr-2 hover:text-white"
@@ -188,25 +286,31 @@ export default function Modal(props) {
                           ADD TO CART
                         </button>
                         <button className="btnwishlist " type="button">
-                          <i className="bi-cart-fill me-1 "></i>
                           <FontAwesomeIcon
                             icon={faHeart}
-                            className="pr-2 hover:text-black"
+                            className="pr-2 hover:text-defaut-color-pink"
                           />
                           WISHLIST
                         </button>
                       </div>
-                      <div className="iconfooter w-40 flex justify-around text-sm">
-                        <a href="#" className="py-2 px-[10px] rounded-full">
-                          <FontAwesomeIcon icon={faHouse} />
-                          {/* <FontAwesomeIcon icon={faFacebook} /> */}
+                      <div className="iconfooter w-44 flex justify-around text-sm pt-2">
+                        <a
+                          href="#"
+                          className="py-2 px-[11px] rounded-full transition ease-in-out  hover:bg-[#e9e4e4] hover:text-black"
+                        >
+                          <i className="lab la-facebook-f text-sm"></i>
                         </a>
-                        <a href="#" className="py-2 px-[10px] rounded-full">
-                          <FontAwesomeIcon icon={faHouse} />
-                          {/* <FontAwesomeIcon icon={faTwitter} /> */}
+                        <a
+                          href="#"
+                          className="py-2 px-[12px] rounded-full hover:bg-[#e9e4e4] hover:text-black"
+                        >
+                          <i className="fa-brands fa-instagram text-sm"></i>
                         </a>
-                        <a href="#" className="py-2 px-[10px] rounded-full">
-                          <FontAwesomeIcon icon={faHouse} />
+                        <a
+                          href="#"
+                          className="py-2 px-[11px] rounded-full hover:bg-[#e9e4e4] hover:text-black"
+                        >
+                          <i className="fa-brands fa-twitter text-sm"></i>
                           {/* <FontAwesomeIcon icon={faInstagram} /> */}
                         </a>
                       </div>

@@ -16,7 +16,7 @@ module.exports = {
       },
       colors: {
         "defaut-color": "#fd3d57",
-        // "defaut-color-red": "#fd3d57",
+        "defaut-color-pink": "#fd3d57",
         "defaut-color-red": "#b90000",
         "defaut-color-black": "#2B2D42",
         "defaut-color-white": "#f3f3f3",
