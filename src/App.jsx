@@ -13,6 +13,7 @@ import ManageProducts from "./component/manageproducts/ManageProducts";
 import Shopping from "./component/shopping/Shopping";
 import ReactQuillJs from "./component/reactquilljs/ReactQuillJs";
 import ReactQuillTest from "./component/reactquilljs/ReactQuillTest";
+import NewMenuBar from "./component/menubar/NewMenuBar";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "react-toastify/dist/ReactToastify.css";
 import "./index.css";
@@ -32,7 +33,8 @@ function App() {
       <ToastContainer />
       <Navbar />
       <SearchBar />
-      <MenuBar />
+      {/* <MenuBar /> */}
+      <NewMenuBar />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/knowledge" element={<Knowledge />} />

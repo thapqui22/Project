@@ -11,31 +11,87 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
 import "./modal.scss";
+import "react-image-gallery/styles/scss/image-gallery.scss";
+import ImageGallery from "react-image-gallery";
 
 export default function Modal(props) {
   const [showModal, setShowModal] = useState(false);
   const [count, setCount] = useState(1);
-  const [data, setData] = useState("");
+  const [selectedSize, setSelectedSize] = useState("M");
+  const images = [
+    {
+      original:
+        "https://thuysinhxanh.vn/wp-content/uploads/2021/07/ca-neon-1.jpg",
+      thumbnail:
+        "https://thuysinhxanh.vn/wp-content/uploads/2021/07/ca-neon-1.jpg",
+      originalClass: "custom-original-class",
+      thumbnailClass: "custom-thumbnail-class",
+      loading: "lazy",
+    },
+    {
+      original: "https://cacanhnho.com/wp-content/uploads/cakhacvn2.jpg",
+      thumbnail: "https://cacanhnho.com/wp-content/uploads/cakhacvn2.jpg",
+      originalClass: "custom-original-class",
+      thumbnailClass: "custom-thumbnail-class",
+    },
+    {
+      original:
+        "https://product.hstatic.net/200000416355/product/ca-neon-4_10a242b82b9046e693343108cf645e4c_master.jpg",
+      thumbnail:
+        "https://product.hstatic.net/200000416355/product/ca-neon-4_10a242b82b9046e693343108cf645e4c_master.jpg",
+      originalClass: "custom-original-class",
+      thumbnailClass: "custom-thumbnail-class",
+    },
+    {
+      original: "https://cacanhnho.com/wp-content/uploads/cakhacvn2.jpg",
+      thumbnail: "https://cacanhnho.com/wp-content/uploads/cakhacvn2.jpg",
+      originalClass: "custom-original-class",
+      thumbnailClass: "custom-thumbnail-class",
+    },
+    {
+      original:
+        "https://bizweb.dktcdn.net/thumb/1024x1024/100/344/954/products/ca-neon-vua.jpg?v=1632300654103",
+      thumbnail:
+        "https://bizweb.dktcdn.net/thumb/1024x1024/100/344/954/products/ca-neon-vua.jpg?v=1632300654103",
+      originalClass: "custom-original-class",
+      thumbnailClass: "custom-thumbnail-class",
+    },
+    {
+      original: "https://cacanhnho.com/wp-content/uploads/cakhacvn2.jpg",
+      thumbnail: "https://cacanhnho.com/wp-content/uploads/cakhacvn2.jpg",
+      originalClass: "custom-original-class",
+      thumbnailClass: "custom-thumbnail-class",
+    },
+    {
+      original:
+        "https://bizweb.dktcdn.net/100/424/759/products/b883b447-b381-495d-b11c-05c663380601-jpeg.jpg?v=1624550921120",
+      thumbnail:
+        "https://bizweb.dktcdn.net/100/424/759/products/b883b447-b381-495d-b11c-05c663380601-jpeg.jpg?v=1624550921120",
+      originalClass: "custom-original-class",
+      thumbnailClass: "custom-thumbnail-class",
+    },
+    {
+      original:
+        "https://choicacanh.com/content/uploads/cms/2020/12/14/huong-dan-cham-soc-ca-neon-vua_600x400.jpg",
+      thumbnail:
+        "https://choicacanh.com/content/uploads/cms/2020/12/14/huong-dan-cham-soc-ca-neon-vua_600x400.jpg",
+      description: "Cas neon vua",
+      originalClass: "custom-original-class",
+      thumbnailClass: "custom-thumbnail-class",
+    },
+  ];
   let url = "https://63f43c77864fb1d600247a6d.mockapi.io/Products/products";
   const dataRecieveInModal = props.onClickFaMagnifyingGlass;
   useEffect(() => {
     if (dataRecieveInModal !== undefined) {
       console.log(dataRecieveInModal.dataReceive);
       setShowModal(true);
-      setData(dataRecieveInModal);
     }
   }, [dataRecieveInModal]);
 
   useEffect(() => {
     props.onClickCancel(!showModal);
   }, [showModal]);
-  useEffect(() => {
-    const fetchData = async () => {
-      const response = await axios.get(url);
-      setData(response.data);
-    };
-    fetchData();
-  }, []);
 
   const handlePlusButton = () => {
     setCount(count + 1);
@@ -46,6 +102,13 @@ export default function Modal(props) {
     }
   };
 
+  const handleSizeChange = (e) => {
+    setSelectedSize(e.target.value);
+  };
+
+  const handleWishListButton = () => {
+    console.log(selectedSize);
+  };
   const handleCancelButton = () => {
     setShowModal(false);
   };
@@ -72,26 +135,21 @@ export default function Modal(props) {
                     />
                   </button>
                 </div>
-                {/*body*/}
+
                 <div className="p-3 flex flex-row">
                   <div className="flex ">
-                    <div className="basis-1/2">
-                      <div>
-                        <img
-                          className="card-img-top mb-5 mb-md-0 h-[552px]"
-                          src="https://choicacanh.com/content/uploads/cms/2020/12/14/huong-dan-cham-soc-ca-neon-vua-1_600x397.jpg"
-                          alt="..."
-                        />
-                      </div>
-                      <div className="flex w-28">
-                        <div className="w-48"></div>
-                      </div>
+                    <div className="basis-1/2 px-2">
+                      <ImageGallery
+                        items={images}
+                        showIndex
+                        additionalClass="ImageGalleryContainer"
+                      />
                     </div>
-                    <div className="basis-1/2 px-3 flex-col">
+                    <div className="basis-1/2 px-2 flex-col">
                       <h1 className="display-6 flex font-normal font-font-robo">
                         {dataRecieveInModal.dataReceive.name}
                       </h1>
-                      <div className="star py-3">
+                      <div className="star py-2">
                         <span>
                           <FontAwesomeIcon
                             className="pr-1"
@@ -132,14 +190,14 @@ export default function Modal(props) {
                       <div className="product_other_info">
                         <p>
                           <span className="text-semibold">Availability:</span>
-                          <span className="text-green">In Stock</span>
+                          <span className="text-[green]">In Stock</span>
                         </p>
                         <p>
-                          <span className="text-semibold">Brand:</span>Bata
+                          <span className="text-semibold">Brand:</span>Amazon
                         </p>
                         <p>
                           <span className="text-semibold ">Category:</span>
-                          Clothing
+                          Fish
                         </p>
                         <p>
                           <span className="text-semibold">SKU:</span>BE45VGRT
@@ -176,45 +234,58 @@ export default function Modal(props) {
                           <div className="flex w-52 justify-between items-center">
                             <input
                               type="radio"
-                              hidden=""
                               name="size"
-                              className="size_inp "
+                              value="XS"
+                              className="size_inp"
                               id="size-xs"
+                              onChange={handleSizeChange}
+                              checked={selectedSize === "XS"}
                             />
-                            <label for="size-xs">XS</label>
-                            <input
-                              type="radio"
-                              hidden=""
-                              name="size"
-                              className="size_inp"
-                              id="size-s"
-                            />
-                            <label for="size-s">S</label>
-                            <input
-                              type="radio"
-                              hidden=""
-                              name="size"
-                              className="size_inp"
-                              id="size-m"
-                            />
-                            <label for="size-m">M</label>
-                            <input
-                              type="radio"
-                              hidden=""
-                              name="size"
-                              className="size_inp"
-                              id="size-l"
-                            />
-                            <label for="size-l">L</label>
+                            <label htmlFor="size-xs">XS</label>
 
                             <input
                               type="radio"
-                              hidden=""
                               name="size"
+                              value="S"
+                              className="size_inp"
+                              id="size-s"
+                              onChange={handleSizeChange}
+                              checked={selectedSize === "S"}
+                            />
+                            <label htmlFor="size-s">S</label>
+
+                            <input
+                              type="radio"
+                              name="size"
+                              value="M"
+                              className="size_inp"
+                              id="size-m"
+                              onChange={handleSizeChange}
+                              checked={selectedSize === "M"}
+                            />
+                            <label htmlFor="size-m">M</label>
+
+                            <input
+                              type="radio"
+                              name="size"
+                              value="L"
+                              className="size_inp"
+                              id="size-l"
+                              onChange={handleSizeChange}
+                              checked={selectedSize === "L"}
+                            />
+                            <label htmlFor="size-l">L</label>
+
+                            <input
+                              type="radio"
+                              name="size"
+                              value="XL"
                               className="size_inp"
                               id="size-xl"
+                              onChange={handleSizeChange}
+                              checked={selectedSize === "XL"}
                             />
-                            <label for="size-xl">XL</label>
+                            <label htmlFor="size-xl">XL</label>
                           </div>
                         </div>
                         <div className="shop_filter border-bottom-0 pb-0">
@@ -285,7 +356,11 @@ export default function Modal(props) {
                           />
                           ADD TO CART
                         </button>
-                        <button className="btnwishlist " type="button">
+                        <button
+                          className="btnwishlist "
+                          type="button"
+                          onClick={handleWishListButton}
+                        >
                           <FontAwesomeIcon
                             icon={faHeart}
                             className="pr-2 hover:text-defaut-color-pink"

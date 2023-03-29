@@ -59,8 +59,9 @@ $defaut-color-pink: #fc3d57;
 
 .radio-toolbar label {
   display: flex;
+  padding-top: 1.5px;
   justify-content: center;
-  width: 23.5px !important;
+  width: 24.5px !important;
   border-radius: 3px;
   border: 1px solid $defaut-color-black;
   background-color: $defaut-color-white;
@@ -84,7 +85,7 @@ $defaut-color-pink: #fc3d57;
   display: flex;
   justify-content: center;
   width: auto;
-  padding: 0px 5px 0px 5px;
+  padding: 1.5px 5px 0px 5px;
   height: 23.5px !important;
   border-radius: 3px;
   border: 1px solid $defaut-color-black;
@@ -99,4 +100,30 @@ $defaut-color-pink: #fc3d57;
   background-color: $defaut-color-pink;
   color: $defaut-color-white;
   border: 1px solid $defaut-color-pink;
+}
+.custom-original-class {
+  height: 568px !important;
+  position: relative;
+  img {
+    object-fit: cover !important;
+    height: 568px !important;
+    max-height: 568px !important;
+  }
+}
+.custom-thumbnail-class {
+  // border: 4px solid $defaut-color-white !important;
+  img {
+    height: 75px;
+  }
+}
+// .custom-thumbnail-class:hover {
+//   border: 4px solid $defaut-color-black !important;
+// }
+
+.ImageGalleryContainer {
+  width: 568px !important;
+
+  img {
+    object-fit: fill;
+  }
 }

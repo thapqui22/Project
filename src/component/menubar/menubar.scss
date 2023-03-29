@@ -1,11 +1,12 @@
+$defaut-color-pink: #fc3d57;
 .navbar {
-  background-color: #b90000;
+  background-color: $defaut-color-pink;
   display: flex;
   justify-content: center;
   min-width: 1140px;
 }
 .navContainerMenu {
-  height: 40px;
+  height: 45px;
   width: 100%;
   max-width: 1140px;
   display: flex;
