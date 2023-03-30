@@ -1,0 +1,44 @@
+$defaut-color-black: black;
+$defaut-color-white: white;
+$defaut-color-pink: #fc3d57;
+.header {
+  background-color: $defaut-color-white;
+  display: flex !important;
+  justify-content: center !important;
+  min-width: 1140px;
+  color: black;
+  font-size: 14px;
+  padding: 12px;
+  overflow: hidden;
+  a {
+    text-decoration-line: none;
+  }
+  a:hover {
+    color: #fc3d57;
+  }
+}
+.headerContainer {
+  height: 45px;
+  width: 100%;
+  max-width: 1140px;
+}
+.headright {
+  width: 980px;
+  display: flex;
+  justify-content: space-between !important;
+}
+.homesubnav {
+  .subnav {
+    display: none;
+    position: absolute;
+    background-color: white;
+    width: 110px;
+    height: 170px;
+    z-index: 1;
+  }
+}
+.homesubnav:hover {
+  .subnav {
+    display: block;
+  }
+}

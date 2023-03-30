@@ -42,6 +42,9 @@ $defaut-color-pink: #fc3d57;
 .inputmp {
   border-top: 1px solid $defaut-color-black;
   border-bottom: 1px solid $defaut-color-black;
+  input {
+    outline: none;
+  }
 }
 
 .plus {

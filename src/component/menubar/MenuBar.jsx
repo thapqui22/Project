@@ -1,5 +1,5 @@
 import React from "react";
-import style from "./menubar.module.scss";
+
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -13,8 +13,8 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 const MenuBar = () => {
   return (
-    <div className={style.navbar}>
-      <div className={style.navContainerMenu}>
+    <div>
+      <div>
         <button>
           <FontAwesomeIcon icon={faHome} />
           <Link to="/">Home</Link>

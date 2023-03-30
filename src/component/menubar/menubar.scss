@@ -1,8 +1,8 @@
 $defaut-color-pink: #fc3d57;
 .navbar {
   background-color: $defaut-color-pink;
-  display: flex;
-  justify-content: center;
+  display: flex !important;
+  justify-content: center !important;
   min-width: 1140px;
 }
 .navContainerMenu {
@@ -12,21 +12,81 @@ $defaut-color-pink: #fc3d57;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  input {
+    border-left: 1px solid black;
+    outline: none;
+  }
+  select {
+    outline: none;
+  }
+}
+
+// .popscart {
+//   font-size: 8px;
+//   background: #2b2d42;
+//   border-radius: 99%;
+//   position: relative;
+//   left: 15px;
+//   top: 10px;
+//   opacity: 0.9;
+//   width: 12px;
+//   height: 12px;
+// }
+// .popsheart {
+//   font-size: 8px;
+//   background: #2b2d42;
+//   border-radius: 99%;
+//   position: relative;
+//   left: 25px;
+//   top: 14px;
+//   opacity: 0.9;
+//   width: 12px;
+//   height: 12px;
+// }
+.popscart {
+  position: absolute;
+  top: -2px;
+  right: 54px;
+  background-color: #2b2d42;
+  color: white;
+  font-size: 8px;
+  font-weight: bold;
+  border-radius: 50%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  height: 18px;
+  width: 18px;
+  z-index: 9999;
+}
+
+.containerNarbarIcon {
+  position: relative;
   a {
-    text-decoration: none;
+    text-decoration-line: none;
+  }
+  :hover {
+    i {
+      opacity: 0.8;
+    }
     color: white;
   }
-  button {
-    cursor: pointer;
-    justify-content: space-between;
-    background-color: #b90000;
-    border: none;
-    flex: 1;
-    &:hover {
-      opacity: 0.7;
-      border: 1px 1px;
-      border-radius: 100px;
-      background-color: #b82438c0;
-    }
-  }
+}
+.popsheart {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  height: 18px;
+  width: 18px;
+  position: absolute;
+  top: -2px;
+  right: 104px;
+  background-color: #2b2d42;
+  color: white;
+  font-size: 8px;
+  font-weight: bold;
+  border-radius: 50%;
+  z-index: 9999; /* set a high z-index value to make sure the badge appears on top of other elements */
 }

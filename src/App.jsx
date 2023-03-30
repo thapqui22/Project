@@ -14,6 +14,7 @@ import Shopping from "./component/shopping/Shopping";
 import ReactQuillJs from "./component/reactquilljs/ReactQuillJs";
 import ReactQuillTest from "./component/reactquilljs/ReactQuillTest";
 import NewMenuBar from "./component/menubar/NewMenuBar";
+import Header from "./component/header/Header";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "react-toastify/dist/ReactToastify.css";
 import "./index.css";
@@ -31,8 +32,8 @@ function App() {
   return (
     <>
       <ToastContainer />
-      <Navbar />
-      <SearchBar />
+      <Header />
+      {/* <SearchBar /> */}
       {/* <MenuBar /> */}
       <NewMenuBar />
       <Routes>
