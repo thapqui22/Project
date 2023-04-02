@@ -68,8 +68,8 @@ const Header = () => {
                 Register
               </a>
             </div>
-            <div className="p-2">
-              <select className="nice_select">
+            <div className="p-2 ">
+              <select className="nice_select hover:text-defaut-color-pink hover:cursor-pointer">
                 <option>Language</option>
                 <option>English</option>
                 <option>Franch</option>
