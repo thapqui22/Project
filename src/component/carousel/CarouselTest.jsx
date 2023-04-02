@@ -55,17 +55,17 @@ const CarouselTest = () => {
       <TopRankingCard />
       <div className="cardcontainer max-w-[1200px]">
         <div className="containers flex items-center justify-between">
-          <h4 className="title text-3xl font-bold p-2  text-defaut-color-red hover:cursor-default">
+          <h4 className="title text-3xl font-bold p-2  text-defaut-color-pink hover:cursor-default">
             New Arrivals
           </h4>
           <a
             href="#"
-            className="title hover:no-underline font-normal hover:text-defaut-color-red text-sm p-[10px] pb-2 text-defaut-color-red hover:cursor-pointer"
+            className="title hover:no-underline font-normal hover:text-defaut-color-pink text-sm p-[10px] pb-2 text-defaut-color-pink hover:cursor-pointer"
           >
             See more
             <FontAwesomeIcon
               icon={faChevronRight}
-              className="color-defaut-color-red pl-2"
+              className="color-defaut-color-pink pl-2"
             />
           </a>
         </div>
@@ -109,17 +109,17 @@ const CarouselTest = () => {
       </div>
       <div className="cardcontainer max-w-[1200px]">
         <div className="containers flex items-center justify-between">
-          <h4 className="title text-3xl font-bold p-2 text-defaut-color-red hover:cursor-default">
+          <h4 className="title text-3xl font-bold p-2 text-defaut-color-pink hover:cursor-default">
             Recomended For You
           </h4>
           <a
             href="#"
-            className="title hover:no-underline font-normal hover:text-defaut-color-red text-sm p-[10px] pb-2 text-defaut-color-red hover:cursor-pointer"
+            className="title hover:no-underline font-normal hover:text-defaut-color-pink text-sm p-[10px] pb-2 text-defaut-color-pink hover:cursor-pointer"
           >
             See more
             <FontAwesomeIcon
               icon={faChevronRight}
-              className="color-defaut-color-red pl-2"
+              className="color-defaut-color-pink pl-2"
             />
           </a>
         </div>

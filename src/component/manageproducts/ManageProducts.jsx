@@ -107,7 +107,22 @@ const ManageProducts = () => {
     itemPriceRef.current.value = "";
     itemTotalRef.current.value = "";
   };
+  const handleImageLoad = () => {
+    console.log("Image exists!");
+  };
 
+  const handleImageError = () => {
+    console.log("Image does not exist!");
+  };
+
+  const handleInputChange = (e) => {
+    setShowImg(e.target.value);
+
+    const img = new Image();
+    img.onload = handleImageLoad;
+    img.onerror = handleImageError;
+    img.src = e.target.value;
+  };
   const renderData = () => {
     return (
       <div className={style.containerList}>
@@ -147,9 +162,10 @@ const ManageProducts = () => {
             className="form-control"
             type="text"
             ref={itemImageRef}
-            onChange={(e) => {
-              setShowImg(e.target.value);
-            }}
+            // onChange={(e) => {
+            //   setShowImg(e.target.value);
+            // }}
+            onChange={handleInputChange}
           />
         </div>{" "}
         <div className="form-outline mb-2">

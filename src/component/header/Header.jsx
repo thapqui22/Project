@@ -12,9 +12,9 @@ const Header = () => {
             alt="logo"
           />
         </div>
-        <ul className="headright">
+        <ul className="headright ">
           <div className="flex ml-3">
-            <li className="homesubnav p-2">
+            <li className="homesubnav p-2 ">
               <a>
                 <Link to="/"> Home</Link>
                 <span>

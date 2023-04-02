@@ -43,27 +43,27 @@ function Card(props) {
             <div className="absolute flex gap-4 hover:opacity-100">
               <a
                 onClick={handleClickFaMagnifyingGlass}
-                className="bg-defaut-color-red hover:cursor-pointer px-[12px] py-2 rounded-full hover:bg-defaut-color-black transition duration-300  "
+                className="bg-defaut-color-pink hover:cursor-pointer px-[12px] py-2 rounded-full hover:bg-defaut-color-black transition duration-300  "
               >
                 <FontAwesomeIcon
                   icon={faMagnifyingGlass}
                   style={{ color: "#ffffff" }}
                 />
               </a>
-              <a className="bg-defaut-color-red hover:cursor-pointer  px-[12px] py-2  rounded-full hover:bg-defaut-color-black transition duration-300 ">
+              <a className="bg-defaut-color-pink hover:cursor-pointer  px-[12px] py-2  rounded-full hover:bg-defaut-color-black transition duration-300 ">
                 <FontAwesomeIcon icon={faHeart} style={{ color: "#ffffff" }} />
               </a>
             </div>
           )}
         </div>
         <div className="bottom flex flex-col justify-center items-start p-3">
-          <h4 className="title text-lg font-medium hover:text-defaut-color-red transition duration-150 ease-out hover:ease-in hover:cursor-pointer pb-1">
+          <h4 className="title text-lg font-medium hover:text-defaut-color-pink transition duration-150 ease-out hover:ease-in hover:cursor-pointer pb-1">
             {recieveData.name}
           </h4>
           {!showButton && (
             <>
               <div className="pricing flex items-center ">
-                <div className="price text-defaut-color-red ">
+                <div className="price text-defaut-color-pink ">
                   {new Intl.NumberFormat("ja-JP", {
                     style: "currency",
                     currency: "USD",
@@ -96,7 +96,7 @@ function Card(props) {
         </div>
         {showButton && (
           <div className="animate-fade-in-up text-white pl-3">
-            <button className="py-2 border-2 border-defaut-color-red rounded-sm -translate-y-3 px-3 text-base  bg-defaut-color-red hover:text-defaut-color-red hover:bg-white transition duration-300 ease-out hover:ease-in ">
+            <button className="py-2 border-2 border-defaut-color-pink rounded-sm -translate-y-3 px-3 text-base  bg-defaut-color-pink hover:text-defaut-color-pink hover:bg-white transition duration-300 ease-out hover:ease-in ">
               ADD TO CART
             </button>
           </div>

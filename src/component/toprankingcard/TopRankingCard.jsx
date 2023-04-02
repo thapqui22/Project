@@ -21,12 +21,12 @@ const TopRankingCard = () => {
   };
   return (
     <div className="toprankingcontainer">
-      <h4 className="title text-3xl font-bold p-[10px] pb-2 text-defaut-color-red hover:cursor-default">
+      <h4 className="title text-3xl font-bold p-[10px] pb-2 text-defaut-color-pink hover:cursor-default">
         Top Ranking
       </h4>
       <div className="cardcontainers max-w-[1200px] flex justify-around h-[400px]  ">
         <div className="cardcontainer grid grid-cols-1 w-[300px]">
-          <h4 className="title text-xl font-bold p-[10px] pb-2 text-defaut-color-red hover:cursor-default">
+          <h4 className="title text-xl font-bold p-[10px] pb-2 text-defaut-color-pink hover:cursor-default">
             FISH
           </h4>
           {data.slice(0, 3).map((i) => (
@@ -34,7 +34,7 @@ const TopRankingCard = () => {
           ))}
         </div>
         <div className="cardcontainer grid grid-cols-1 w-[300px]">
-          <h4 className="title text-xl font-bold p-[10px] pb-2 text-defaut-color-red hover:cursor-default">
+          <h4 className="title text-xl font-bold p-[10px] pb-2 text-defaut-color-pink hover:cursor-default">
             LIGHT
           </h4>
           {data.slice(6, 9).map((i) => (
@@ -42,7 +42,7 @@ const TopRankingCard = () => {
           ))}
         </div>{" "}
         <div className="cardcontainer grid grid-cols-1 w-[300px]">
-          <h4 className="title text-xl font-bold p-[10px] pb-2 text-defaut-color-red hover:cursor-default">
+          <h4 className="title text-xl font-bold p-[10px] pb-2 text-defaut-color-pink hover:cursor-default">
             TANK
           </h4>
           {data.slice(10, 13).map((i) => (
@@ -50,7 +50,7 @@ const TopRankingCard = () => {
           ))}
         </div>{" "}
         <div className="cardcontainer grid grid-cols-1 w-[300px]">
-          <h4 className="title text-xl font-bold p-[10px] pb-2 text-defaut-color-red hover:cursor-default">
+          <h4 className="title text-xl font-bold p-[10px] pb-2 text-defaut-color-pink hover:cursor-default">
             MEDICILLIN
           </h4>
           {data.slice(20, 23).map((i) => (

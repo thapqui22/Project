@@ -37,13 +37,13 @@ const TopRankingCardChild = (props) => {
         <div className="bottom flex flex-col justify-center items-start p-2">
           <h4
             onClick={onClickDetail}
-            className="title text-lg font-medium hover:text-defaut-color-red transition duration-150 ease-out hover:ease-in hover:cursor-pointer"
+            className="title text-lg font-medium hover:text-defaut-color-pink transition duration-150 ease-out hover:ease-in hover:cursor-pointer"
           >
             {dataRecieve.name}
           </h4>
           <>
             <div className="pricing flex items-center ">
-              <div className="price text-defaut-color-red ">
+              <div className="price text-defaut-color-pink ">
                 {new Intl.NumberFormat("ja-JP", {
                   style: "currency",
                   currency: "USD",
