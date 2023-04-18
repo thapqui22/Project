@@ -1,0 +1,39 @@
+$defaut-color-pink: #fc3d57;
+.divImg {
+  display: flex;
+  justify-content: center;
+  height: 400px;
+  // width: 1140px;
+
+  img {
+    height: 400px;
+    width: 1200px;
+    border-radius: 0% !important;
+    display: none;
+  }
+}
+.divImgContainer {
+  height: 400px;
+  width: 82.3%;
+}
+.sub_categories {
+  height: auto;
+  a {
+    text-decoration-line: none;
+    height: 45px;
+    padding: 10px 15px 10px 25px;
+  }
+
+  div {
+    text-decoration-line: none;
+    height: 45px;
+    padding: 10px 15px 10px 25px;
+  }
+  span {
+    padding-left: 10px;
+  }
+  :hover {
+    color: black;
+    background-color: #efeeeed5;
+  }
+}
