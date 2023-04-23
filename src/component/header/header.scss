@@ -42,40 +42,4 @@ $defaut-color-pink: #fc3d57;
     display: block;
   }
 }
-// .nice_select {
-//   // -webkit-appearance: none;
-//   // -moz-appearance: none;
-//   // appearance: none;
-//   /* Add a background image to use as the custom arrow */
-//   background: url("path/to/custom-arrow.png") no-repeat;
-//   background-size: 10px 5px; /* set the size of the arrow image */
-//   background-position: right center; /* position the arrow image */
-//   padding-right: 20px; /* add some padding to make room for the arrow */
-// }
-
-// /* Style the options */
-// .nice_select option {
-//   background-color: #fff; /* set the background color */
-//   color: #000; /* set the text color */
-// }
-
-// /* Style the selected option */
-// .nice_select option:checked {
-//   background-color: #000; /* set the background color */
-//   color: #fff; /* set the text color */
-// }
-@keyframes dropdown-animation {
-  from {
-    transform: scaleY(0);
-    opacity: 0;
-  }
-  to {
-    transform: scaleY(1);
-    opacity: 1;
-  }
-}
-
-/* Apply the animation to the dropdown menu */
-.nice_select select {
-  animation: dropdown-animation 0.5s ease-out;
-}
+/* Define the arrow icon */
