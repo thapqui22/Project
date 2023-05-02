@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faXmark,
@@ -17,7 +17,8 @@ import ImageGallery from "react-image-gallery";
 export default function Modal(props) {
   const [showModal, setShowModal] = useState(false);
   const [count, setCount] = useState(1);
-  const [selectedSize, setSelectedSize] = useState("M");
+  const [selectedSize, setSelectedSize] = useState("XS");
+  const [selectedColor, setSelectedColor] = useState("RGB");
   const images = [
     {
       original:
@@ -105,9 +106,14 @@ export default function Modal(props) {
   const handleSizeChange = (e) => {
     setSelectedSize(e.target.value);
   };
-
+  const handleColorChange = (e) => {
+    setSelectedColor(e.target.value);
+  };
   const handleWishListButton = () => {
-    console.log(selectedSize);
+    // console.log(selectedSize + "..." + selectedColor);
+  };
+  const handleAddToCartButton = () => {
+    console.log(selectedSize + "..." + selectedColor);
   };
   const handleCancelButton = () => {
     setShowModal(false);
@@ -296,28 +302,37 @@ export default function Modal(props) {
                                 type="radio"
                                 hidden=""
                                 name="color"
+                                value="RGB"
                                 className="size_inp-1"
-                                id="color-red"
+                                id="color-RGB"
+                                onChange={handleColorChange}
+                                checked={selectedColor === "RGB"}
                               />
-                              <label for="color-red">RGB</label>
+                              <label className="color-RGB">RGB</label>
 
                               <input
                                 type="radio"
                                 hidden=""
                                 name="color"
+                                value="WRGB"
                                 className="size_inp-1"
-                                id="color-red-1"
+                                id="color-WRGB"
+                                onChange={handleColorChange}
+                                checked={selectedColor === "WRGB"}
                               />
-                              <label for="color-red-1">WRGB</label>
+                              <label className="color-WRGB">WRGB</label>
 
                               <input
                                 type="radio"
                                 hidden=""
                                 name="color"
+                                value="WRGB-UV"
                                 className="size_inp-1"
-                                id="color-red-2"
+                                id="color-WRGB-UV"
+                                onChange={handleColorChange}
+                                checked={selectedColor === "WRGB-UV"}
                               />
-                              <label for="color-red-2">WRGB-UV</label>
+                              <label className="color-WRGB-UV">WRGB-UV</label>
                             </div>
                           </div>
                         </div>
@@ -349,7 +364,11 @@ export default function Modal(props) {
                         </div>
                       </div>
                       <div className="d-flex pt-4 pb-3 border-b-2">
-                        <button className="btnadd" type="button">
+                        <button
+                          className="btnadd"
+                          type="button"
+                          onClick={handleAddToCartButton}
+                        >
                           <FontAwesomeIcon
                             icon={faCartShopping}
                             className="pr-2 hover:text-white"

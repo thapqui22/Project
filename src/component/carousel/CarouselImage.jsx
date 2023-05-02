@@ -7,60 +7,60 @@ const CarouselImage = () => {
     <div className="divImg w-[100%]">
       <div className="w-[1140px] flex">
         <div className="sub_categories w-[200px] max-w-[200px] flex flex-col shadow-md">
-          <a href="#" class="singlecats">
-            <span class="img_wrp">
-              <i class="las la-shoe-prints"></i>
+          <a href="#" className="singlecats">
+            <span className="img_wrp">
+              <i className="las la-shoe-prints"></i>
             </span>
-            <span class="txt">Shoes</span>
+            <span className="txt">Shoes</span>
           </a>
-          <a href="#" class="singlecats">
-            <span class="img_wrp">
-              <i class="las la-female"></i>
+          <a href="#" className="singlecats">
+            <span className="img_wrp">
+              <i className="las la-female"></i>
             </span>
-            <span class="txt">Women</span>
+            <span className="txt">Women</span>
           </a>
-          <a href="#" class="singlecats">
-            <span class="img_wrp">
-              <i class="las la-plug"></i>
+          <a href="#" className="singlecats">
+            <span className="img_wrp">
+              <i className="las la-plug"></i>
             </span>
-            <span class="txt">Electronisc</span>
+            <span className="txt">Electronisc</span>
           </a>
-          <a href="#" class="singlecats">
-            <span class="img_wrp">
-              <i class="las la-headphones"></i>
+          <a href="#" className="singlecats">
+            <span className="img_wrp">
+              <i className="las la-headphones"></i>
             </span>
-            <span class="txt">Headphones</span>
+            <span className="txt">Headphones</span>
           </a>
-          <a href="#" class="singlecats">
-            <span class="img_wrp">
-              <i class="las la-mobile"></i>
+          <a href="#" className="singlecats">
+            <span className="img_wrp">
+              <i className="las la-mobile"></i>
             </span>
-            <span class="txt">Mobile</span>
+            <span className="txt">Mobile</span>
           </a>
-          <a href="#" class="singlecats">
-            <span class="img_wrp">
-              <i class="las la-mobile"></i>
+          <a href="#" className="singlecats">
+            <span className="img_wrp">
+              <i className="las la-mobile"></i>
             </span>
-            <span class="txt">Mobile</span>
+            <span className="txt">Mobile</span>
           </a>
-          <div href="#" class="singlecats">
-            <span class="img_wrp">
-              <i class="las la-plug"></i>
+          <div href="#" className="singlecats">
+            <span className="img_wrp">
+              <i className="las la-plug"></i>
             </span>
-            <span class="txt">Electronisc</span>
+            <span className="txt">Electronisc</span>
           </div>
 
-          <a href="#" class="singlecats">
-            <span class="img_wrp">
-              <i class="las la-plug"></i>
+          <a href="#" className="singlecats">
+            <span className="img_wrp">
+              <i className="las la-plug"></i>
             </span>
-            <span class="txt">Electronisc</span>
+            <span className="txt">Electronisc</span>
           </a>
-          <a href="#" class="singlecats">
-            <span class="img_wrp">
-              <i class="las la-headphones"></i>
+          <a href="#" className="singlecats">
+            <span className="img_wrp">
+              <i className="las la-headphones"></i>
             </span>
-            <span class="txt">Headphones</span>
+            <span className="txt">Headphones</span>
           </a>
         </div>
         <div className="divImgContainer pl-2">

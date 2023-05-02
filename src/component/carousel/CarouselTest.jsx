@@ -76,12 +76,12 @@ const CarouselTest = () => {
           autoPlaySpeed={3000}
           centerMode={false}
           className=""
-          containerClass="container-with-dots"
-          dotListClass=""
+          containerclassName="container-with-dots"
+          dotListclassName=""
           draggable
           focusOnSelect={false}
           infinite
-          itemClass="item"
+          itemclassName="item"
           keyBoardControl
           minimumTouchDrag={80}
           pauseOnHover
@@ -94,7 +94,7 @@ const CarouselTest = () => {
           rtl={false}
           shouldResetAutoplay
           showDots={false}
-          sliderClass=""
+          sliderclassName=""
           slidesToSlide={4}
           swipeable
         >
@@ -128,12 +128,12 @@ const CarouselTest = () => {
           additionalTransfrom={0}
           centerMode={false}
           className=""
-          containerClass="container-with-dots"
-          dotListClass=""
+          containerclassName="container-with-dots"
+          dotListclassName=""
           draggable
           focusOnSelect={false}
           infinite
-          itemClass="item "
+          itemclassName="item "
           keyBoardControl
           minimumTouchDrag={80}
           renderArrowsWhenDisabled={false}
@@ -145,7 +145,7 @@ const CarouselTest = () => {
           rtl={false}
           shouldResetAutoplay
           showDots={false}
-          sliderClass=""
+          sliderclassName=""
           slidesToSlide={4}
           swipeable
         >
@@ -162,17 +162,17 @@ const CarouselTest = () => {
           additionalTransfrom={0}
           centerMode={false}
           className=""
-          containerClass="container-with-dots"
-          dotListClass=""
+          containerclassName="container-with-dots"
+          dotListclassName=""
           draggable
           focusOnSelect={false}
           infinite
-          itemClass="item"
+          itemclassName="item"
           keyBoardControl
           minimumTouchDrag={80}
           responsive={responsive}
           shouldResetAutoplay
-          sliderClass=""
+          sliderclassName=""
           slidesToSlide={4}
           swipeable
         >

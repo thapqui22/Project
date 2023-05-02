@@ -41,7 +41,7 @@ const NewMenuBar = () => {
             <span className="icon_text text-[12px]">Wish List</span>
           </a>
           <a href="/shoppingcart" className="icon_wrp grid">
-            <span class="popscart ">{cartItems.length}</span>
+            <span className="popscart ">{cartItems.length}</span>
             <span className="icon text-[20px] ">
               <i className="fa-solid fa-cart-shopping"></i>
             </span>

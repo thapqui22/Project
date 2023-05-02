@@ -116,8 +116,8 @@ const ShoppingCart = () => {
           </tbody>
         </table>
       </div>
-      <div class="row">
-        <div class="col text-center">
+      <div className="row">
+        <div className="col text-center">
           <h4>
             <button onClick={clearCart}>Clear All Cart</button>
           </h4>
