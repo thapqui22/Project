@@ -4,128 +4,11 @@ import "./header.scss";
 const Header = () => {
   return (
     <>
-      {/* <div className="header ">
-        <div className="headerContainer flex items-center">
-          <div>
-            <img
-              className=" w-[180px]"
-              src="//bizweb.dktcdn.net/100/344/954/themes/705100/assets/logo.png?1672232161194"
-              alt="logo"
-            />
-          </div>
-          <ul className="headright ">
-            <div className="flex ml-3">
-              <li className="homesubnav p-2 ">
-                <a>
-                  <Link to="/"> Home</Link>
-                  <span>
-                    <i className="las la-angle-down p-1"></i>
-                  </span>
-                </a>
-                <div className="subnav">
-                  <ul>
-                    <li>
-                      <a href="index-1.html">Home page 1</a>
-                    </li>
-                    <li>
-                      <a href="index-2.html">Home page 2</a>
-                    </li>
-                    <li>
-                      <a href="index-3.html">Home page 3</a>
-                    </li>
-                  </ul>
-                </div>
-              </li>
-              <li className="p-2">
-                <a>
-                  <Link to="/shopping">Shop</Link>
-                  <span>
-                    <i className="las la-angle-down p-1"></i>
-                  </span>
-                </a>
-              </li>
-              <li className="relative parent">
-                <a
-                  href="#"
-                  className="flex justify-between md:inline-flex p-4 items-center hover:bg-gray-50 space-x-2"
-                >
-                  <span>Service</span>
-   <i className="las la-angle-down p-1"></i>
-                </a>
-                <ul className="child transition duration-300 md:absolute top-full right-0 md:w-48 bg-white md:shadow-lg md:rounded-b ">
-                  <li>
-                 <a href="#" className="flex hover:text-defaut-color">
-                      Web development
-                    </a>
-                  </li>
-                  <li>
-                 <a href="#" className="flex hover:text-defaut-color">
-                      Web development
-                    </a>
-                  </li>
-                  <li>
-                 <a href="#" className="flex hover:text-defaut-color">
-                      Web Design
-                    </a>
-                  </li>
-                  <li>
-                 <a href="#" className="flex hover:text-defaut-color">
-                      Machine Learning
-                    </a>
-                  </li>
-                </ul>
-              </li>
-              <li className="p-2">
-                <a>
-                  Pages
-                  <span>
-                    <i className="las la-angle-down p-1"></i>
-                  </span>
-                </a>
-              </li>
-              <li className="p-2">
-                <a>
-                  Contact
-                  <span>
-                    <i className="las la-angle-down p-1"></i>
-                  </span>
-                </a>
-              </li>
-            </div>
-            <li className="flex">
-              <div className="p-2">
-                <a className="text-semibold " href="login.html">
-                  Login
-                </a>
-                <span className="text_xs">/</span>
-                <a className="text-semibold" href="register.html">
-                  Register
-                </a>
-              </div>
-              <div className="p-2 ">
-                <select className="nice_select  hover:cursor-pointer">
-                  <option>Language</option>
-                  <option>English</option>
-                  <option>Franch</option>
-                </select>
-              </div>
-              <div className="p-2">
-                <select className="nice_select  hover:cursor-pointer">
-                  <option>Currency</option>
-                  <option>Dollar</option>
-                  <option>Euro</option>
-                </select>
-              </div>
-            </li>
-          </ul>
-        </div>
-      </div> */}
       <div className="containernavbar  bg-white flex justify-center">
         <div className="w-[1140px]">
           <nav className="headernavbar flex  items-center relative">
             <div className="[&>img]:w-[180px]">
               <img
-                // className=" w-[180px]"
                 src="//bizweb.dktcdn.net/100/344/954/themes/705100/assets/logo.png?1672232161194"
                 alt="logo"
               />
@@ -133,19 +16,55 @@ const Header = () => {
             <ul className=" md:flex md:space-x-2 absolute md:relative top-full left-0 right-0 pl-3">
               <li>
                 <a
-                  href="#"
+                  href="/"
                   className="flex md:inline-flex py-3 px-2 items-center "
                 >
                   <span>Home</span>
                 </a>
               </li>
-              <li>
+              <li className="relative parent">
                 <a
                   href="#"
                   className="flex md:inline-flex py-3 px-2 items-center "
                 >
-                  <span>Shop</span>
+                  <span>
+                    Shop <i className="las la-angle-down"></i>
+                  </span>
                 </a>
+                <ul className="child flex transition p-3 duration-300 md:absolute top-full left-0  md:w-[auto] bg-white md:shadow-inner md:rounded-b ">
+                  <div className="divchild text-sm text-nowrap pr-3">
+                    <li>
+                      <h5 href="#" className="flex">
+                        Other pages
+                      </h5>
+                    </li>
+                    <li>
+                      <a href="#" className="flex hover:text-defaut-color">
+                        <Link to="/knowledge">Knowledge</Link>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#" className="flex hover:text-defaut-color">
+                        <Link to="/shopping">Shopping</Link>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#" className="flex hover:text-defaut-color">
+                        <Link to="/tankmodel">Tank model</Link>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#" className="flex hover:text-defaut-color">
+                        <Link to="/manage">Manage Item</Link>
+                      </a>
+                    </li>{" "}
+                    <li>
+                      <a href="#" className="flex hover:text-defaut-color">
+                        <Link to="/createandeditblog">Edit Blog</Link>
+                      </a>
+                    </li>
+                  </div>
+                </ul>
               </li>
               <li className="relative parent">
                 <a

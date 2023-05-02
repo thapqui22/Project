@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import style from "./searchbar.module.scss";
 import { useStorage } from "../localstorage/LocalStorage";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";

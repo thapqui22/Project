@@ -4,9 +4,6 @@ import React, { useState } from "react";
 import Home from "./page/home/Home";
 import Knowledge from "./page/knowledge/Knowledge";
 import Footer from "./component/footer/Footer";
-import Navbar from "./component/navbar/Navbar";
-import MenuBar from "./component/menubar/MenuBar";
-import SearchBar from "./component/SearchBar/SearchBar";
 import TankModel from "./component/tankmodel/TankModel";
 import ShoppingCart from "./component/shoppingcart/ShoppingCart";
 import ManageProducts from "./component/manageproducts/ManageProducts";
@@ -33,8 +30,6 @@ function App() {
     <>
       <ToastContainer />
       <Header />
-      {/* <SearchBar /> */}
-      {/* <MenuBar /> */}
       <NewMenuBar />
       <Routes>
         <Route path="/" element={<Home />} />

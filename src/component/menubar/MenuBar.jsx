@@ -23,7 +23,6 @@ const MenuBar = () => {
           <FontAwesomeIcon icon={faBook} />
           <Link to="/knowledge">Knowledge</Link>
         </button>
-
         <button>
           <FontAwesomeIcon icon={faCartShopping} />
           <Link to="/shopping">Shopping</Link>

@@ -61,7 +61,7 @@ const ShoppingCart = () => {
     return a;
   }
   return (
-    <div>
+    <div className="h-[1000px]">
       <div className="row mt-3">
         <table className="table  text-center">
           <thead>
