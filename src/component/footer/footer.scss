@@ -1,0 +1,34 @@
+.footer {
+  width: 100%;
+  font-size: 12px;
+  text-align: center;
+  border-top: #cbcbcc 1px solid;
+  display: flex;
+  justify-content: center;
+  a {
+    text-decoration-line: none;
+  }
+  a:hover {
+    color: #fc3d57;
+  }
+}
+.subscribe_form_footer {
+  display: flex;
+  padding-bottom: 20px;
+  width: 250px;
+  input {
+    height: 35px;
+    width: 400px !important;
+    outline: none;
+    background-color: white;
+  }
+
+  button {
+    height: 35px;
+    background-color: #fc3d57;
+    color: white;
+
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+}

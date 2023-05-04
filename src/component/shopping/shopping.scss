@@ -1,0 +1,22 @@
+.containershop {
+  width: 100%;
+  max-width: 1140px;
+  display: flex;
+  gap: 1em;
+  flex-wrap: wrap;
+  padding-top: 20px;
+  padding-bottom: 10px;
+  height: auto;
+  min-height: 800px;
+  justify-content: center;
+  input {
+    padding-bottom: 5px;
+  }
+}
+.containers {
+  display: flex;
+  justify-content: space-evenly;
+}
+.custom_check {
+  display: flex;
+}

@@ -6,12 +6,16 @@ import {
   MDBCardText,
   MDBCardImage,
 } from "mdb-react-ui-kit";
-import style from "./shopping.module.scss";
+import "./shopping.scss";
 import { useStorage } from "../localstorage/LocalStorage";
 import axios from "axios";
 import { toast } from "react-toastify";
+import Card from "../carousel/Card";
+import Modal from "../modal/Modal";
 import PaginationShopping from "./PaginationShopping";
 const Shopping = () => {
+  const [showModal, setShowModal] = useState(true);
+  const [changeData, setChangeData] = useState();
   const [cartItems, setCartItems] = useStorage("cartItems", []);
   let url = "https://63f43c77864fb1d600247a6d.mockapi.io/Products/products";
   const [data, setData] = useState([]);
@@ -48,56 +52,124 @@ const Shopping = () => {
     }
   }
 
+  const handleChildClick = (dataReceive) => {
+    setChangeData({ dataReceive, key: Date.now() });
+    setShowModal(false);
+  };
+
+  const handleChildClickCancel = (modalStatus) => {
+    setShowModal(modalStatus);
+  };
   return (
-    <div>
-      <div className={style.containers}>
-        <div className={style.container}>
-          {currentItems.map((item) => (
-            <MDBCard className={style.box} key={item.id}>
-              {item.image ? (
-                <MDBCardImage src={item.image} className={style.Image} />
-              ) : (
-                <MDBCardImage
-                  src="https://media.istockphoto.com/id/1368239780/photo/clown-fish.jpg?b=1&s=170667a&w=0&k=20&c=mBdC45x6navTxLRmA7_k7srPFGvbQmaBf6HINhwkE-Q="
-                  className={style.Image}
-                />
-              )}
-              <MDBCardBody>
-                <MDBCardTitle className={style.textname}>
-                  {item.name}
-                </MDBCardTitle>
-                <div className="d-flex flex-row align-items-center mb-1">
-                  <h4 className="mb-1 me-1">${item.price}</h4>
-                  <span className="text-danger">
-                    <s>$25.99</s>
-                  </span>
-                </div>
-                <MDBCardText className={style.textdes}>
-                  {item.description}
-                </MDBCardText>
-                {item.cart == false && (
-                  <button
-                    className="btn btn-primary"
-                    onClick={() => addtocart(item)}
-                  >
-                    Add to cart
-                  </button>
-                )}
-                {item.cart == true && (
-                  <button
-                    disabled="true"
-                    className="btn btn-success"
-                    onClick={() => addtocart(item)}
-                  >
-                    Added
-                  </button>
-                )}
-              </MDBCardBody>
-            </MDBCard>
-          ))}
+    <div className="flex justify-center">
+      <div className="containersbox">
+        <h4>CATEGORIES</h4>
+        <div className="filter_list">
+          <div className="custom_check ">
+            <input
+              type="checkbox"
+              className="check_inp"
+              hidden=""
+              id="cat-women"
+              checked=""
+            />
+            <label for="cat-women">Women</label>
+            <p className="mb-0 ms-auto">(16)</p>
+          </div>
+          <div className="custom_check ">
+            <input
+              type="checkbox"
+              className="check_inp"
+              hidden=""
+              id="cat-men"
+            />
+            <label for="cat-men">Men</label>
+            <p className="mb-0 ms-auto">(9)</p>
+          </div>
+          <div className="custom_check ">
+            <input
+              type="checkbox"
+              className="check_inp"
+              hidden=""
+              id="cat-shoes"
+            />
+            <label for="cat-shoes">Shoes</label>
+            <p className="mb-0 ms-auto">(19)</p>
+          </div>
+          <div className="custom_check ">
+            <input
+              type="checkbox"
+              className="check_inp"
+              hidden=""
+              id="cat-computer"
+            />
+            <label for="cat-computer">Computer</label>
+            <p className="mb-0 ms-auto">(35)</p>
+          </div>
+        </div>
+        <div className="shop_filter">
+          <h4 className="filter_title">Brands</h4>
+          <div className="filter_list">
+            <div className="custom_check ">
+              <input
+                type="checkbox"
+                className="check_inp"
+                hidden=""
+                id="bnd-adidas"
+                checked=""
+              />
+              <label for="bnd-adidas">Adidas</label>
+            </div>
+            <div className="custom_check ">
+              <input
+                type="checkbox"
+                className="check_inp"
+                hidden=""
+                id="bnd-nike"
+              />
+              <label for="bnd-nike">Nike</label>
+            </div>
+            <div className="custom_check ">
+              <input
+                type="checkbox"
+                className="check_inp"
+                hidden=""
+                id="bnd-easy"
+              />
+              <label for="bnd-easy">Easy</label>
+            </div>
+            <div className="custom_check ">
+              <input
+                type="checkbox"
+                className="check_inp"
+                hidden=""
+                id="bnd-arong"
+              />
+              <label for="bnd-arong">Arong</label>
+            </div>
+          </div>
         </div>
       </div>
-      <PaginationShopping onClickChangePage={handleClickChangePage} />
+      <div>
+        <Modal
+          onClickFaMagnifyingGlass={changeData}
+          onClickCancel={handleChildClickCancel}
+        />
+        {/* <div>
+          <div> */}
+        <div className="containers">
+          <div className="containershop">
+            {currentItems.map((item) => (
+              <Card
+                onChangData={item}
+                key={item.id}
+                onClickFaMagnifyingGlass={handleChildClick}
+              />
+            ))}
+          </div>
+        </div>
+        <PaginationShopping onClickChangePage={handleClickChangePage} />
+      </div>
     </div>
   );
 };

@@ -107,6 +107,15 @@ const CarouselTest = () => {
           ))}
         </Carousel>
       </div>
+      <div className="cardcontainer max-w-[1200px] py-[30px]">
+        <a href="/">
+          <img
+            className="hover:cursor-pointer px-2"
+            src="https://themes.rslahmed.dev/rafcart/assets/images/offer-3.jpg"
+            alt="imgads"
+          />
+        </a>
+      </div>
       <div className="cardcontainer max-w-[1200px]">
         <div className="containers flex items-center justify-between">
           <h4 className="title text-3xl font-bold p-2 text-defaut-color-pink hover:cursor-default">
@@ -184,6 +193,59 @@ const CarouselTest = () => {
             />
           ))}
         </Carousel>
+      </div>
+      <div className="max-w-[1200px] w-[100%] py-[30px]">
+        <div className="cardcontainer max-w-[1200px] w-[100%] flex bg-[#f3f3f3]">
+          <div className="flex-1 flex justify-center">
+            <a href="/">
+              <img
+                className="hover:cursor-pointer px-2  h-[500px]"
+                src="https://themes.rslahmed.dev/rafcart/assets/images/mobile-view.png"
+                alt="imgads"
+              />
+            </a>
+          </div>
+          <div className="flex-1 flex items-center">
+            <div className="h-[250px]">
+              <h2 className="text-2xl pb-3 font-semibold">
+                Download RAFCART App Now!
+              </h2>
+              <p className="pb-3 text-sm">
+                Shopping fastly and easily more with our app. Get a link to
+                <br className="" /> download the app on your phone
+              </p>
+              <form className="subscribe_form">
+                <input
+                  type="text"
+                  placeholder="Email Address"
+                  className="border-2 border-defaut-color-pink border-r-0 rounded-l-lg px-3"
+                />
+                <button className="rounded-r-lg border-2 border-defaut-color-pink text-base  bg-defaut-color-pink hover:text-defaut-color-pink hover:bg-white transition duration-300 ease-out hover:ease-in ">
+                  Subscribe
+                </button>
+              </form>
+
+              <div className="flex">
+                <a href="/">
+                  <img
+                    className="rounded h-[40px] pr-3"
+                    loading="lazy"
+                    src="https://themes.rslahmed.dev/rafcart/assets/images/download-1.png"
+                    alt="download"
+                  />
+                </a>
+                <a href="#">
+                  <img
+                    className="rounded h-[40px]"
+                    loading="lazy"
+                    src="https://themes.rslahmed.dev/rafcart/assets/images/download-2.png"
+                    alt="download"
+                  />
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );

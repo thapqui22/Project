@@ -130,3 +130,29 @@ $defaut-color-pink: #fc3d57;
     object-fit: fill;
   }
 }
+
+.subscribe_form {
+  display: flex;
+  padding-bottom: 20px;
+  width: 450px;
+  input {
+    height: 50px;
+    width: 400px !important;
+    outline: none;
+    background-color: white;
+  }
+
+  button {
+    height: 50px;
+    background-color: #fc3d57;
+    color: white;
+
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+  // button:hover {
+  //   background-color: white;
+  //   color: #fc3d57;
+  //   border-radius: 1px solid $defaut-color-pink;
+  // }
+}
