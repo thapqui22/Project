@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faXmark,
@@ -19,6 +19,8 @@ export default function Modal(props) {
   const [count, setCount] = useState(1);
   const [selectedSize, setSelectedSize] = useState("XS");
   const [selectedColor, setSelectedColor] = useState("RGB");
+  const refParamSearch = useRef();
+  const param = {};
   const images = [
     {
       original:
@@ -91,6 +93,8 @@ export default function Modal(props) {
   }, [dataRecieveInModal]);
 
   useEffect(() => {
+    setSelectedColor("RGB");
+    setSelectedSize("XS");
     props.onClickCancel(!showModal);
   }, [showModal]);
 
