@@ -1,11 +1,5 @@
-import React, { useState, useEffect } from "react";
-import {
-  MDBCard,
-  MDBCardBody,
-  MDBCardTitle,
-  MDBCardText,
-  MDBCardImage,
-} from "mdb-react-ui-kit";
+import React, { useState, useEffect, useRef } from "react";
+import MultiRangeSlider from "../multiRangeSlider/MultiRangeSlider";
 import "./shopping.scss";
 import { useStorage } from "../localstorage/LocalStorage";
 import axios from "axios";
@@ -24,6 +18,9 @@ const Shopping = () => {
   const startIndex = (currentPage - 1) * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
   const currentItems = data.slice(startIndex, endIndex);
+  const refPrice = useRef({ min: null, max: null });
+  const [selectedSize, setSelectedSize] = useState("");
+  const [selectedColor, setSelectedColor] = useState("");
 
   useEffect(() => {
     const fetchData = async () => {
@@ -34,6 +31,12 @@ const Shopping = () => {
   }, []);
   const handleClickChangePage = (data) => {
     setCurrentPage(data);
+  };
+  const handleSizeChange = (e) => {
+    setSelectedSize(e.target.value);
+  };
+  const handleColorChange = (e) => {
+    setSelectedColor(e.target.value);
   };
   function addtocart(product) {
     const existingCartItem = cartItems.find((item) => item.id === product.id);
@@ -56,25 +59,33 @@ const Shopping = () => {
     setChangeData({ dataReceive, key: Date.now() });
     setShowModal(false);
   };
-
+  const handlesaveminmax = (min, max) => {
+    refPrice.min = min;
+    refPrice.max = max;
+  };
   const handleChildClickCancel = (modalStatus) => {
     setShowModal(modalStatus);
   };
+  const handleSearched = (dataReceive) => {
+    console.log(selectedSize + selectedColor);
+  };
   return (
     <div className="flex justify-center">
-      <div className="containersbox">
-        <h4>CATEGORIES</h4>
-        <div className="filter_list">
-          <div className="custom_check ">
+      <div className="containersbox divide-y [&>div]:py-2">
+        <div className="filter_list [&>div]:py-1">
+          <h4 className="">CATEGORIES</h4>
+          <div className="custom_check [&>div]:accent-inherit	">
             <input
               type="checkbox"
               className="check_inp"
               hidden=""
               id="cat-women"
-              checked=""
+              // checked=""
             />
-            <label for="cat-women">Women</label>
-            <p className="mb-0 ms-auto">(16)</p>
+            <label className="" htmlFor="cat-women">
+              Women
+            </label>
+            <p className="">(16)</p>
           </div>
           <div className="custom_check ">
             <input
@@ -83,8 +94,8 @@ const Shopping = () => {
               hidden=""
               id="cat-men"
             />
-            <label for="cat-men">Men</label>
-            <p className="mb-0 ms-auto">(9)</p>
+            <label htmlFor="cat-men">Men</label>
+            <p className="">(9)</p>
           </div>
           <div className="custom_check ">
             <input
@@ -93,8 +104,8 @@ const Shopping = () => {
               hidden=""
               id="cat-shoes"
             />
-            <label for="cat-shoes">Shoes</label>
-            <p className="mb-0 ms-auto">(19)</p>
+            <label htmlFor="cat-shoes">Shoes</label>
+            <p className="">(19)</p>
           </div>
           <div className="custom_check ">
             <input
@@ -103,12 +114,12 @@ const Shopping = () => {
               hidden=""
               id="cat-computer"
             />
-            <label for="cat-computer">Computer</label>
-            <p className="mb-0 ms-auto">(35)</p>
+            <label htmlFor="cat-computer">Computer</label>
+            <p className="">(35)</p>
           </div>
         </div>
-        <div className="shop_filter">
-          <h4 className="filter_title">Brands</h4>
+        <div className="shop_filter [&>div]:py-1">
+          <h4 className="filter_title">BRANDS</h4>
           <div className="filter_list">
             <div className="custom_check ">
               <input
@@ -116,9 +127,9 @@ const Shopping = () => {
                 className="check_inp"
                 hidden=""
                 id="bnd-adidas"
-                checked=""
+                // checked=""
               />
-              <label for="bnd-adidas">Adidas</label>
+              <label htmlFor="bnd-adidas">Adidas</label>
             </div>
             <div className="custom_check ">
               <input
@@ -127,7 +138,7 @@ const Shopping = () => {
                 hidden=""
                 id="bnd-nike"
               />
-              <label for="bnd-nike">Nike</label>
+              <label htmlFor="bnd-nike">Nike</label>
             </div>
             <div className="custom_check ">
               <input
@@ -136,7 +147,7 @@ const Shopping = () => {
                 hidden=""
                 id="bnd-easy"
               />
-              <label for="bnd-easy">Easy</label>
+              <label htmlFor="bnd-easy">Easy</label>
             </div>
             <div className="custom_check ">
               <input
@@ -145,18 +156,131 @@ const Shopping = () => {
                 hidden=""
                 id="bnd-arong"
               />
-              <label for="bnd-arong">Arong</label>
+              <label htmlFor="bnd-arong">Arong</label>
+            </div>
+          </div>
+        </div>{" "}
+        <div className="price_filter [&>div]:py-1">
+          <h4>PRICE</h4>
+          <MultiRangeSlider
+            min={0}
+            max={1000}
+            onChange={({ min, max }) => handlesaveminmax(min, max)}
+          />
+        </div>
+        <div className="shop_filter border-bottom-0 pb-0">
+          <div className="radio-toolbar">
+            <h5>Size:</h5>
+            <div className="flex w-52 justify-between items-center">
+              <input
+                type="radio"
+                name="size"
+                value="XS"
+                className="size_inp"
+                id="size-xs"
+                onChange={handleSizeChange}
+                checked={selectedSize === "XS"}
+              />
+              <label htmlFor="size-xs">XS</label>
+
+              <input
+                type="radio"
+                name="size"
+                value="S"
+                className="size_inp"
+                id="size-s"
+                onChange={handleSizeChange}
+                checked={selectedSize === "S"}
+              />
+              <label htmlFor="size-s">S</label>
+
+              <input
+                type="radio"
+                name="size"
+                value="M"
+                className="size_inp"
+                id="size-m"
+                onChange={handleSizeChange}
+                checked={selectedSize === "M"}
+              />
+              <label htmlFor="size-m">M</label>
+
+              <input
+                type="radio"
+                name="size"
+                value="L"
+                className="size_inp"
+                id="size-l"
+                onChange={handleSizeChange}
+                checked={selectedSize === "L"}
+              />
+              <label htmlFor="size-l">L</label>
+
+              <input
+                type="radio"
+                name="size"
+                value="XL"
+                className="size_inp"
+                id="size-xl"
+                onChange={handleSizeChange}
+                checked={selectedSize === "XL"}
+              />
+              <label htmlFor="size-xl">XL</label>
+            </div>
+          </div>
+          <div className="shop_filter border-bottom-0 pb-0">
+            <div className="radio-toolbar-color">
+              <h5>Color:</h5>
+              <div className="flex w-auto  items-center">
+                <input
+                  type="radio"
+                  hidden=""
+                  name="color"
+                  value="RGB"
+                  className="size_inp-1"
+                  id="color-RGB"
+                  onChange={handleColorChange}
+                  checked={selectedColor === "RGB"}
+                />
+                <label htmlFor="color-RGB">RGB</label>
+
+                <input
+                  type="radio"
+                  hidden=""
+                  name="color"
+                  value="WRGB"
+                  className="size_inp-1"
+                  id="color-WRGB"
+                  onChange={handleColorChange}
+                  checked={selectedColor === "WRGB"}
+                />
+                <label htmlFor="color-WRGB">WRGB</label>
+
+                <input
+                  type="radio"
+                  hidden=""
+                  name="color"
+                  value="WRGB-UV"
+                  className="size_inp-1"
+                  id="color-WRGB-UV"
+                  onChange={handleColorChange}
+                  checked={selectedColor === "WRGB-UV"}
+                />
+                <label htmlFor="color-WRGB-UV">WRGB-UV</label>
+              </div>
             </div>
           </div>
         </div>
+        <div>
+          <button onClick={() => handleSearched(123)}>Search</button>
+        </div>
       </div>
+
       <div>
         <Modal
           onClickFaMagnifyingGlass={changeData}
           onClickCancel={handleChildClickCancel}
         />
-        {/* <div>
-          <div> */}
         <div className="containers">
           <div className="containershop">
             {currentItems.map((item) => (

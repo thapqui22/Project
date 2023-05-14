@@ -1,6 +1,9 @@
+$defaut-color-black: black;
+$defaut-color-white: white;
+$defaut-color-pink: #fc3d57;
 .containershop {
   width: 100%;
-  max-width: 1140px;
+  max-width: 940px;
   display: flex;
   gap: 1em;
   flex-wrap: wrap;
@@ -9,9 +12,6 @@
   height: auto;
   min-height: 800px;
   justify-content: center;
-  input {
-    padding-bottom: 5px;
-  }
 }
 .containers {
   display: flex;
@@ -19,4 +19,36 @@
 }
 .custom_check {
   display: flex;
+  width: 200px;
+
+  label {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0px;
+    padding-left: 5px;
+  }
+  label:hover {
+    cursor: pointer;
+  }
+  p {
+    display: flex;
+    flex-grow: 1;
+    align-items: center;
+    justify-content: flex-end;
+  }
+  input[type="checkbox"] {
+    accent-color: $defaut-color-pink !important;
+  }
+}
+.containersbox {
+  padding: 20px 10px 10px 10px;
+  height: 100%;
+  box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1),
+    0 8px 10px -6px rgb(0 0 0 / 0.1);
+  h4 {
+    font-family: Roboto, sans-serif;
+    font-size: 1rem /* 16px */;
+    line-height: 1.5rem /* 24px */;
+    font-weight: 800;
+  }
 }

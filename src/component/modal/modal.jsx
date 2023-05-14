@@ -308,7 +308,7 @@ export default function Modal(props) {
                                 onChange={handleColorChange}
                                 checked={selectedColor === "RGB"}
                               />
-                              <label className="color-RGB">RGB</label>
+                              <label htmlFor="color-RGB">RGB</label>
 
                               <input
                                 type="radio"
@@ -320,7 +320,7 @@ export default function Modal(props) {
                                 onChange={handleColorChange}
                                 checked={selectedColor === "WRGB"}
                               />
-                              <label className="color-WRGB">WRGB</label>
+                              <label htmlFor="color-WRGB">WRGB</label>
 
                               <input
                                 type="radio"
@@ -332,7 +332,7 @@ export default function Modal(props) {
                                 onChange={handleColorChange}
                                 checked={selectedColor === "WRGB-UV"}
                               />
-                              <label className="color-WRGB-UV">WRGB-UV</label>
+                              <label htmlFor="color-WRGB-UV">WRGB-UV</label>
                             </div>
                           </div>
                         </div>
