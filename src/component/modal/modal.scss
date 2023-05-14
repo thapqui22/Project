@@ -114,14 +114,10 @@ $defaut-color-pink: #fc3d57;
   }
 }
 .custom-thumbnail-class {
-  // border: 4px solid $defaut-color-white !important;
   img {
     height: 75px;
   }
 }
-// .custom-thumbnail-class:hover {
-//   border: 4px solid $defaut-color-black !important;
-// }
 
 .ImageGalleryContainer {
   width: 568px !important;
@@ -150,9 +146,4 @@ $defaut-color-pink: #fc3d57;
     padding-right: 15px;
     padding-left: 15px;
   }
-  // button:hover {
-  //   background-color: white;
-  //   color: #fc3d57;
-  //   border-radius: 1px solid $defaut-color-pink;
-  // }
 }

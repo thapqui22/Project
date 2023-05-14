@@ -52,3 +52,27 @@ $defaut-color-pink: #fc3d57;
     font-weight: 800;
   }
 }
+
+.radio-toolbar-search input[type="radio"] {
+  display: none;
+}
+
+.radio-toolbar-search label {
+  display: flex;
+  padding-top: 1.5px;
+  justify-content: center;
+  width: 24.5px !important;
+  border-radius: 3px;
+  border: 1px solid $defaut-color-black;
+  background-color: $defaut-color-white;
+  margin: 4px 12px 12px 0px;
+  font-family: Arial;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.radio-toolbar-search input[type="radio"]:checked + label {
+  background-color: $defaut-color-pink;
+  color: $defaut-color-white;
+  border: 1px solid $defaut-color-pink;
+}

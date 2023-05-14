@@ -19,8 +19,7 @@ export default function Modal(props) {
   const [count, setCount] = useState(1);
   const [selectedSize, setSelectedSize] = useState("XS");
   const [selectedColor, setSelectedColor] = useState("RGB");
-  const refParamSearch = useRef();
-  const param = {};
+
   const images = [
     {
       original:

@@ -12,6 +12,13 @@ const Shopping = () => {
   const [changeData, setChangeData] = useState();
   const [cartItems, setCartItems] = useStorage("cartItems", []);
   let url = "https://63f43c77864fb1d600247a6d.mockapi.io/Products/products";
+  const param = {
+    categories: String,
+    brands: String,
+    price: { min: Number, max: Number },
+    size: String,
+    color: String,
+  };
   const [data, setData] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 16;
@@ -19,9 +26,11 @@ const Shopping = () => {
   const endIndex = startIndex + itemsPerPage;
   const currentItems = data.slice(startIndex, endIndex);
   const refPrice = useRef({ min: null, max: null });
-  const [selectedSize, setSelectedSize] = useState("");
-  const [selectedColor, setSelectedColor] = useState("");
-
+  const [selectedSizeSearch, setSelectedSizeSearch] = useState("");
+  const [selectedColorSearch, setSelectedColorSearch] = useState("");
+  const refSizeSearch = useRef("");
+  const refColorSearch = useRef("");
+  const refParamSearch = useRef(param);
   useEffect(() => {
     const fetchData = async () => {
       const response = await axios.get(url);
@@ -33,10 +42,11 @@ const Shopping = () => {
     setCurrentPage(data);
   };
   const handleSizeChange = (e) => {
-    setSelectedSize(e.target.value);
+    // refSizeSearch.current = e.target.value;
+    setSelectedSizeSearch(e.target.value);
   };
   const handleColorChange = (e) => {
-    setSelectedColor(e.target.value);
+    setSelectedColorSearch(e.target.value);
   };
   function addtocart(product) {
     const existingCartItem = cartItems.find((item) => item.id === product.id);
@@ -67,7 +77,7 @@ const Shopping = () => {
     setShowModal(modalStatus);
   };
   const handleSearched = (dataReceive) => {
-    console.log(selectedSize + selectedColor);
+    console.log(refSizeSearch.current + selectedSizeSearch);
   };
   return (
     <div className="flex justify-center">
@@ -79,10 +89,10 @@ const Shopping = () => {
               type="checkbox"
               className="check_inp"
               hidden=""
-              id="cat-women"
+              id="cat-women-search"
               // checked=""
             />
-            <label className="" htmlFor="cat-women">
+            <label className="" htmlFor="cat-women-search">
               Women
             </label>
             <p className="">(16)</p>
@@ -92,9 +102,9 @@ const Shopping = () => {
               type="checkbox"
               className="check_inp"
               hidden=""
-              id="cat-men"
+              id="cat-men-search"
             />
-            <label htmlFor="cat-men">Men</label>
+            <label htmlFor="cat-men-search">Men</label>
             <p className="">(9)</p>
           </div>
           <div className="custom_check ">
@@ -102,9 +112,9 @@ const Shopping = () => {
               type="checkbox"
               className="check_inp"
               hidden=""
-              id="cat-shoes"
+              id="cat-shoes-search"
             />
-            <label htmlFor="cat-shoes">Shoes</label>
+            <label htmlFor="cat-shoes-search">Shoes</label>
             <p className="">(19)</p>
           </div>
           <div className="custom_check ">
@@ -112,9 +122,9 @@ const Shopping = () => {
               type="checkbox"
               className="check_inp"
               hidden=""
-              id="cat-computer"
+              id="cat-computer-search"
             />
-            <label htmlFor="cat-computer">Computer</label>
+            <label htmlFor="cat-computer-search">Computer</label>
             <p className="">(35)</p>
           </div>
         </div>
@@ -126,37 +136,37 @@ const Shopping = () => {
                 type="checkbox"
                 className="check_inp"
                 hidden=""
-                id="bnd-adidas"
+                id="bnd-adidas-search"
                 // checked=""
               />
-              <label htmlFor="bnd-adidas">Adidas</label>
+              <label htmlFor="bnd-adidas-search">Adidas</label>
             </div>
             <div className="custom_check ">
               <input
                 type="checkbox"
                 className="check_inp"
                 hidden=""
-                id="bnd-nike"
+                id="bnd-nike-search"
               />
-              <label htmlFor="bnd-nike">Nike</label>
+              <label htmlFor="bnd-nike-search">Nike</label>
             </div>
             <div className="custom_check ">
               <input
                 type="checkbox"
                 className="check_inp"
                 hidden=""
-                id="bnd-easy"
+                id="bnd-easy-search"
               />
-              <label htmlFor="bnd-easy">Easy</label>
+              <label htmlFor="bnd-easy-search">Easy</label>
             </div>
             <div className="custom_check ">
               <input
                 type="checkbox"
                 className="check_inp"
                 hidden=""
-                id="bnd-arong"
+                id="bnd-arong-search"
               />
-              <label htmlFor="bnd-arong">Arong</label>
+              <label htmlFor="bnd-arong-search">Arong</label>
             </div>
           </div>
         </div>{" "}
@@ -169,7 +179,7 @@ const Shopping = () => {
           />
         </div>
         <div className="shop_filter border-bottom-0 pb-0">
-          <div className="radio-toolbar">
+          <div className="radio-toolbar-search">
             <h5>Size:</h5>
             <div className="flex w-52 justify-between items-center">
               <input
@@ -177,55 +187,55 @@ const Shopping = () => {
                 name="size"
                 value="XS"
                 className="size_inp"
-                id="size-xs"
+                id="size-xs-search"
                 onChange={handleSizeChange}
-                checked={selectedSize === "XS"}
+                checked={selectedSizeSearch === "XS"}
               />
-              <label htmlFor="size-xs">XS</label>
+              <label htmlFor="size-xs-search">XS</label>
 
               <input
                 type="radio"
                 name="size"
                 value="S"
                 className="size_inp"
-                id="size-s"
+                id="size-s-search"
                 onChange={handleSizeChange}
-                checked={selectedSize === "S"}
+                checked={selectedSizeSearch === "S"}
               />
-              <label htmlFor="size-s">S</label>
+              <label htmlFor="size-s-search">S</label>
 
               <input
                 type="radio"
                 name="size"
                 value="M"
                 className="size_inp"
-                id="size-m"
+                id="size-m-search"
                 onChange={handleSizeChange}
-                checked={selectedSize === "M"}
+                checked={selectedSizeSearch === "M"}
               />
-              <label htmlFor="size-m">M</label>
+              <label htmlFor="size-m-search">M</label>
 
               <input
                 type="radio"
                 name="size"
                 value="L"
                 className="size_inp"
-                id="size-l"
+                id="size-l-search"
                 onChange={handleSizeChange}
-                checked={selectedSize === "L"}
+                checked={selectedSizeSearch === "L"}
               />
-              <label htmlFor="size-l">L</label>
+              <label htmlFor="size-l-search">L</label>
 
               <input
                 type="radio"
                 name="size"
                 value="XL"
                 className="size_inp"
-                id="size-xl"
+                id="size-xl-search"
                 onChange={handleSizeChange}
-                checked={selectedSize === "XL"}
+                checked={selectedSizeSearch === "XL"}
               />
-              <label htmlFor="size-xl">XL</label>
+              <label htmlFor="size-xl-search">XL</label>
             </div>
           </div>
           <div className="shop_filter border-bottom-0 pb-0">
@@ -238,11 +248,11 @@ const Shopping = () => {
                   name="color"
                   value="RGB"
                   className="size_inp-1"
-                  id="color-RGB"
+                  id="color-RGB-search"
                   onChange={handleColorChange}
-                  checked={selectedColor === "RGB"}
+                  checked={selectedColorSearch === "RGB"}
                 />
-                <label htmlFor="color-RGB">RGB</label>
+                <label htmlFor="color-RGB-search">RGB</label>
 
                 <input
                   type="radio"
@@ -250,11 +260,11 @@ const Shopping = () => {
                   name="color"
                   value="WRGB"
                   className="size_inp-1"
-                  id="color-WRGB"
+                  id="color-WRGB-search"
                   onChange={handleColorChange}
-                  checked={selectedColor === "WRGB"}
+                  checked={selectedColorSearch === "WRGB"}
                 />
-                <label htmlFor="color-WRGB">WRGB</label>
+                <label htmlFor="color-WRGB-search">WRGB</label>
 
                 <input
                   type="radio"
@@ -262,11 +272,11 @@ const Shopping = () => {
                   name="color"
                   value="WRGB-UV"
                   className="size_inp-1"
-                  id="color-WRGB-UV"
+                  id="color-WRGB-UV-search"
                   onChange={handleColorChange}
-                  checked={selectedColor === "WRGB-UV"}
+                  checked={selectedColorSearch === "WRGB-UV"}
                 />
-                <label htmlFor="color-WRGB-UV">WRGB-UV</label>
+                <label htmlFor="color-WRGB-UV-search">WRGB-UV</label>
               </div>
             </div>
           </div>
