@@ -42,7 +42,6 @@ const Shopping = () => {
     setCurrentPage(data);
   };
   const handleSizeChange = (e) => {
-    // refSizeSearch.current = e.target.value;
     setSelectedSizeSearch(e.target.value);
   };
   const handleColorChange = (e) => {
@@ -64,7 +63,6 @@ const Shopping = () => {
       toast.success("Has adding to cart");
     }
   }
-
   const handleChildClick = (dataReceive) => {
     setChangeData({ dataReceive, key: Date.now() });
     setShowModal(false);
@@ -77,7 +75,7 @@ const Shopping = () => {
     setShowModal(modalStatus);
   };
   const handleSearched = (dataReceive) => {
-    console.log(refSizeSearch.current + selectedSizeSearch);
+    console.log(selectedColorSearch + selectedSizeSearch);
   };
   return (
     <div className="flex justify-center">
@@ -184,7 +182,7 @@ const Shopping = () => {
             <div className="flex w-52 justify-between items-center">
               <input
                 type="radio"
-                name="size"
+                name="size-search"
                 value="XS"
                 className="size_inp"
                 id="size-xs-search"
@@ -195,7 +193,7 @@ const Shopping = () => {
 
               <input
                 type="radio"
-                name="size"
+                name="size-search"
                 value="S"
                 className="size_inp"
                 id="size-s-search"
@@ -206,7 +204,7 @@ const Shopping = () => {
 
               <input
                 type="radio"
-                name="size"
+                name="size-search"
                 value="M"
                 className="size_inp"
                 id="size-m-search"
@@ -217,7 +215,7 @@ const Shopping = () => {
 
               <input
                 type="radio"
-                name="size"
+                name="size-search"
                 value="L"
                 className="size_inp"
                 id="size-l-search"
@@ -228,7 +226,7 @@ const Shopping = () => {
 
               <input
                 type="radio"
-                name="size"
+                name="size-search"
                 value="XL"
                 className="size_inp"
                 id="size-xl-search"
@@ -245,7 +243,7 @@ const Shopping = () => {
                 <input
                   type="radio"
                   hidden=""
-                  name="color"
+                  name="color-search"
                   value="RGB"
                   className="size_inp-1"
                   id="color-RGB-search"
@@ -257,7 +255,7 @@ const Shopping = () => {
                 <input
                   type="radio"
                   hidden=""
-                  name="color"
+                  name="color-search"
                   value="WRGB"
                   className="size_inp-1"
                   id="color-WRGB-search"
@@ -269,7 +267,7 @@ const Shopping = () => {
                 <input
                   type="radio"
                   hidden=""
-                  name="color"
+                  name="color-search"
                   value="WRGB-UV"
                   className="size_inp-1"
                   id="color-WRGB-UV-search"

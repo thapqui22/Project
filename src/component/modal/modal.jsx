@@ -16,10 +16,17 @@ import ImageGallery from "react-image-gallery";
 
 export default function Modal(props) {
   const [showModal, setShowModal] = useState(false);
-  const [count, setCount] = useState(1);
+  const [quantity, setQuantity] = useState(1);
+  const refQuantity = useRef(1);
   const [selectedSize, setSelectedSize] = useState("XS");
   const [selectedColor, setSelectedColor] = useState("RGB");
-
+  const param = {
+    id: Number,
+    name: String,
+    quantity: Number,
+    color: String,
+    size: String,
+  };
   const images = [
     {
       original:
@@ -98,11 +105,13 @@ export default function Modal(props) {
   }, [showModal]);
 
   const handlePlusButton = () => {
-    setCount(count + 1);
+    setQuantity(quantity + 1);
+    refQuantity.current += 1;
   };
   const handleMinusButton = () => {
-    if (count > 1) {
-      setCount(count - 1);
+    if (quantity > 1) {
+      setQuantity(quantity - 1);
+      refQuantity.current -= 1;
     }
   };
 
@@ -116,7 +125,12 @@ export default function Modal(props) {
     // console.log(selectedSize + "..." + selectedColor);
   };
   const handleAddToCartButton = () => {
-    console.log(selectedSize + "..." + selectedColor);
+    param.color = selectedColor;
+    param.size = selectedSize;
+    param.name = dataRecieveInModal.dataReceive.name;
+    param.id = dataRecieveInModal.dataReceive.id;
+    param.quantity = quantity;
+    console.log(refQuantity.current);
   };
   const handleCancelButton = () => {
     setShowModal(false);
@@ -353,7 +367,7 @@ export default function Modal(props) {
                           <div className="inputmp flex align-items-center justify-center p-1">
                             <input
                               className="text-center max-w-[50px] "
-                              value={count}
+                              value={quantity}
                               readOnly
                             />
                           </div>
