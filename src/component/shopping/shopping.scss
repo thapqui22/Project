@@ -20,7 +20,6 @@ $defaut-color-pink: #fc3d57;
 .custom_check {
   display: flex;
   width: 200px;
-
   label {
     display: flex;
     align-items: center;
@@ -31,6 +30,12 @@ $defaut-color-pink: #fc3d57;
     cursor: pointer;
   }
   p {
+    display: flex;
+    flex-grow: 1;
+    align-items: center;
+    justify-content: flex-end;
+  }
+  i {
     display: flex;
     flex-grow: 1;
     align-items: center;

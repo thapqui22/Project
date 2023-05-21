@@ -130,7 +130,7 @@ export default function Modal(props) {
     param.name = dataRecieveInModal.dataReceive.name;
     param.id = dataRecieveInModal.dataReceive.id;
     param.quantity = quantity;
-    console.log(refQuantity.current);
+    console.log(param);
   };
   const handleCancelButton = () => {
     setShowModal(false);

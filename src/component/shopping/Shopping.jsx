@@ -12,12 +12,12 @@ const Shopping = () => {
   const [changeData, setChangeData] = useState();
   const [cartItems, setCartItems] = useStorage("cartItems", []);
   let url = "https://63f43c77864fb1d600247a6d.mockapi.io/Products/products";
-  const param = {
-    categories: String,
-    brands: String,
+  const paramSearch = {
+    categories: {},
+    brands: {},
     price: { min: Number, max: Number },
-    size: String,
-    color: String,
+    size: {},
+    color: {},
   };
   const [data, setData] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
@@ -30,7 +30,7 @@ const Shopping = () => {
   const [selectedColorSearch, setSelectedColorSearch] = useState("");
   const refSizeSearch = useRef("");
   const refColorSearch = useRef("");
-  const refParamSearch = useRef(param);
+  const refParamSearch = useRef(paramSearch);
   useEffect(() => {
     const fetchData = async () => {
       const response = await axios.get(url);
@@ -91,7 +91,7 @@ const Shopping = () => {
               // checked=""
             />
             <label className="" htmlFor="cat-women-search">
-              Women
+              PHONE
             </label>
             <p className="">(16)</p>
           </div>
@@ -102,7 +102,7 @@ const Shopping = () => {
               hidden=""
               id="cat-men-search"
             />
-            <label htmlFor="cat-men-search">Men</label>
+            <label htmlFor="cat-men-search">LAPTOP</label>
             <p className="">(9)</p>
           </div>
           <div className="custom_check ">
@@ -112,7 +112,7 @@ const Shopping = () => {
               hidden=""
               id="cat-shoes-search"
             />
-            <label htmlFor="cat-shoes-search">Shoes</label>
+            <label htmlFor="cat-shoes-search">TABLET</label>
             <p className="">(19)</p>
           </div>
           <div className="custom_check ">
@@ -122,13 +122,15 @@ const Shopping = () => {
               hidden=""
               id="cat-computer-search"
             />
-            <label htmlFor="cat-computer-search">Computer</label>
+            <label htmlFor="cat-computer-search">PC</label>
             <p className="">(35)</p>
           </div>
         </div>
         <div className="shop_filter [&>div]:py-1">
-          <h4 className="filter_title">BRANDS</h4>
-          <div className="filter_list">
+          <h4 className="custom_check">
+            BRANDS <i className="las la-angle-down"></i>
+          </h4>
+          {/* <div className="filter_list">
             <div className="custom_check ">
               <input
                 type="checkbox"
@@ -137,7 +139,7 @@ const Shopping = () => {
                 id="bnd-adidas-search"
                 // checked=""
               />
-              <label htmlFor="bnd-adidas-search">Adidas</label>
+              <label htmlFor="bnd-adidas-search">IPHONE</label>
             </div>
             <div className="custom_check ">
               <input
@@ -146,7 +148,7 @@ const Shopping = () => {
                 hidden=""
                 id="bnd-nike-search"
               />
-              <label htmlFor="bnd-nike-search">Nike</label>
+              <label htmlFor="bnd-nike-search">SAMSUNG</label>
             </div>
             <div className="custom_check ">
               <input
@@ -155,7 +157,7 @@ const Shopping = () => {
                 hidden=""
                 id="bnd-easy-search"
               />
-              <label htmlFor="bnd-easy-search">Easy</label>
+              <label htmlFor="bnd-easy-search">HUAWEI</label>
             </div>
             <div className="custom_check ">
               <input
@@ -164,10 +166,10 @@ const Shopping = () => {
                 hidden=""
                 id="bnd-arong-search"
               />
-              <label htmlFor="bnd-arong-search">Arong</label>
+              <label htmlFor="bnd-arong-search">OPPO</label>
             </div>
-          </div>
-        </div>{" "}
+          </div> */}
+        </div>
         <div className="price_filter [&>div]:py-1">
           <h4>PRICE</h4>
           <MultiRangeSlider
