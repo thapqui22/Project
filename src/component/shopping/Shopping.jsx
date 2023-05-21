@@ -12,6 +12,7 @@ const Shopping = () => {
   const [changeData, setChangeData] = useState();
   const [cartItems, setCartItems] = useStorage("cartItems", []);
   let url = "https://63f43c77864fb1d600247a6d.mockapi.io/Products/products";
+  const [dropdownVisible, setDropdownVisible] = useState(false);
   const paramSearch = {
     categories: {},
     brands: {},
@@ -29,8 +30,19 @@ const Shopping = () => {
   const [selectedSizeSearch, setSelectedSizeSearch] = useState("");
   const [selectedColorSearch, setSelectedColorSearch] = useState("");
   const refSizeSearch = useRef("");
+  const refSelectedCategory = useRef("");
   const refColorSearch = useRef("");
   const refParamSearch = useRef(paramSearch);
+  const [selectedCategory, setSelectedCategory] = useState("");
+
+  const handleCategoryChange = (category) => {
+    refSelectedCategory.current = category;
+    if (selectedCategory !== category) {
+      setSelectedCategory(category);
+      setDropdownVisible(true);
+      console.log(refSelectedCategory.current);
+    }
+  };
   useEffect(() => {
     const fetchData = async () => {
       const response = await axios.get(url);
@@ -77,60 +89,95 @@ const Shopping = () => {
   const handleSearched = (dataReceive) => {
     console.log(selectedColorSearch + selectedSizeSearch);
   };
+  const handleMouseEnter = () => {
+    setDropdownVisible(true);
+  };
+  const handleMouseLeave = () => {
+    setDropdownVisible(false);
+  };
   return (
     <div className="flex justify-center">
       <div className="containersbox divide-y [&>div]:py-2">
-        <div className="filter_list [&>div]:py-1">
+        <div className="filter_list py-1">
           <h4 className="">CATEGORIES</h4>
-          <div className="custom_check [&>div]:accent-inherit	">
+          <div
+            className={`custom_check ${
+              selectedCategory === "phone" ? "active" : ""
+            }`}
+            onClick={() => handleCategoryChange("phone")}
+          >
             <input
               type="checkbox"
               className="check_inp"
               hidden=""
               id="cat-women-search"
-              // checked=""
+              checked={selectedCategory === "phone"}
+              readOnly
             />
             <label className="" htmlFor="cat-women-search">
               PHONE
             </label>
             <p className="">(16)</p>
           </div>
-          <div className="custom_check ">
+          <div
+            className={`custom_check ${
+              selectedCategory === "laptop" ? "active" : ""
+            }`}
+            onClick={() => handleCategoryChange("laptop")}
+          >
             <input
               type="checkbox"
               className="check_inp"
               hidden=""
               id="cat-men-search"
+              checked={selectedCategory === "laptop"}
+              readOnly
             />
             <label htmlFor="cat-men-search">LAPTOP</label>
             <p className="">(9)</p>
           </div>
-          <div className="custom_check ">
+          <div
+            className={`custom_check ${
+              selectedCategory === "tablet" ? "active" : ""
+            }`}
+            onClick={() => handleCategoryChange("tablet")}
+          >
             <input
               type="checkbox"
               className="check_inp"
               hidden=""
               id="cat-shoes-search"
+              checked={selectedCategory === "tablet"}
+              readOnly
             />
             <label htmlFor="cat-shoes-search">TABLET</label>
             <p className="">(19)</p>
           </div>
-          <div className="custom_check ">
+          <div
+            className={`custom_check ${
+              selectedCategory === "pc" ? "active" : ""
+            }`}
+            onClick={() => handleCategoryChange("pc")}
+          >
             <input
               type="checkbox"
               className="check_inp"
               hidden=""
               id="cat-computer-search"
+              checked={selectedCategory === "pc"}
+              readOnly
             />
             <label htmlFor="cat-computer-search">PC</label>
             <p className="">(35)</p>
           </div>
         </div>
         <div className="shop_filter [&>div]:py-1">
-          <h4 className="custom_check">
+          <h4 className="custom_check" onMouseEnter={handleMouseEnter}>
             BRANDS <i className="las la-angle-down"></i>
           </h4>
-          {/* <div className="filter_list">
+          <div
+            className={`filter_list_brands ${dropdownVisible ? "show" : ""}`}
+          >
             <div className="custom_check ">
               <input
                 type="checkbox"
@@ -168,7 +215,7 @@ const Shopping = () => {
               />
               <label htmlFor="bnd-arong-search">OPPO</label>
             </div>
-          </div> */}
+          </div>
         </div>
         <div className="price_filter [&>div]:py-1">
           <h4>PRICE</h4>
