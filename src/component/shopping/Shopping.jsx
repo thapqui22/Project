@@ -95,7 +95,7 @@ const Shopping = () => {
   };
   const handleSearched = (dataReceive) => {
     const categoryNames = Object.keys(paramCategory);
-    console.log(categoryNames);
+    console.log(paramCategory.laptop.length);
     // const categoryNames = Object.keys(paramCategory);
     // console.log(categoryNames[1]);
     // console.log(paramCategory[categoryNames[1]]);
@@ -121,13 +121,18 @@ const Shopping = () => {
                 onClick={() => handleCategoryChange(item)}
               />
               <label htmlFor={`cat-${item}`}>{item.toUpperCase()}</label>
-              <p>(16)</p>
+              <p>{paramCategory[item].length}</p>
             </div>
           ))}
         </div>
         <div className="shop_filter [&>div]:py-1">
-          <h4 className="custom_check">
-            BRANDS <i className="las la-angle-down"></i>
+          <h4 className="custom_check ">
+            BRANDS{" "}
+            {selectedCategory ? (
+              <i className="las la-angle-down"></i>
+            ) : (
+              <i className="las la-angle-up"></i>
+            )}
           </h4>
           <div
             className={`filter_list_brands ${dropdownVisible ? "show" : ""}`}
