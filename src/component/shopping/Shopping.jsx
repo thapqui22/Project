@@ -217,7 +217,7 @@ const Shopping = () => {
             </div>
           </div>
         </div>
-        <div className="price_filter [&>div]:py-1">
+        <div className="price_filter [&>div]:py-2">
           <h4>PRICE</h4>
           <MultiRangeSlider
             min={0}
