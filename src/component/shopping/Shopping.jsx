@@ -132,43 +132,20 @@ const Shopping = () => {
           <div
             className={`filter_list_brands ${dropdownVisible ? "show" : ""}`}
           >
-            <div className="custom_check ">
-              <input
-                type="checkbox"
-                className="check_inp"
-                hidden=""
-                id="bnd-adidas-search"
-                // checked=""
-              />
-              <label htmlFor="bnd-adidas-search">IPHONE</label>
-            </div>
-            <div className="custom_check ">
-              <input
-                type="checkbox"
-                className="check_inp"
-                hidden=""
-                id="bnd-nike-search"
-              />
-              <label htmlFor="bnd-nike-search">SAMSUNG</label>
-            </div>
-            <div className="custom_check ">
-              <input
-                type="checkbox"
-                className="check_inp"
-                hidden=""
-                id="bnd-easy-search"
-              />
-              <label htmlFor="bnd-easy-search">HUAWEI</label>
-            </div>
-            <div className="custom_check ">
-              <input
-                type="checkbox"
-                className="check_inp"
-                hidden=""
-                id="bnd-arong-search"
-              />
-              <label htmlFor="bnd-arong-search">OPPO</label>
-            </div>
+            {selectedCategory !== ""
+              ? paramCategory[selectedCategory].map((item) => (
+                  <div className="custom_check ">
+                    <input
+                      type="checkbox"
+                      className="check_inp"
+                      hidden=""
+                      id={`bnd-${item}`}
+                      // checked=""
+                    />
+                    <label htmlFor={`bnd-${item}`}>{item}</label>
+                  </div>
+                ))
+              : null}
           </div>
         </div>
         <div className="price_filter [&>div]:py-2">
