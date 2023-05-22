@@ -161,7 +161,7 @@ const Shopping = () => {
             onChange={({ min, max }) => handlesaveminmax(min, max)}
           />
         </div>
-        <div className="shop_filter border-bottom-0 pb-0">
+        {/* <div className="shop_filter border-bottom-0 pb-0">
           <div className="radio-toolbar-search">
             <h5>Size:</h5>
             <div className="flex w-52 justify-between items-center">
@@ -263,9 +263,14 @@ const Shopping = () => {
               </div>
             </div>
           </div>
+        </div> */}
+        <div>
+          <input type="text" placeholder="Search by name" />
         </div>
         <div>
-          <button onClick={() => handleSearched(123)}>Search</button>
+          <button className="btnsearch" onClick={() => handleSearched(123)}>
+            Search
+          </button>
         </div>
       </div>
 
