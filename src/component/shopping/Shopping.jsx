@@ -34,13 +34,20 @@ const Shopping = () => {
   const refColorSearch = useRef("");
   const refParamSearch = useRef(paramSearch);
   const [selectedCategory, setSelectedCategory] = useState("");
-
+  const paramCategory = {
+    phone: ["IPHONE", "SAMSUNG", "HUAWEI", "OPPO"],
+    laptop: ["ACER", "LENOVO", "HP", "DELL", "ASUS"],
+    tablet: ["SAMSUNG", "XIAOMI"],
+    watch: ["SAMSUNG", "XIAOMI", "HUAWEI"],
+  };
   const handleCategoryChange = (category) => {
-    refSelectedCategory.current = category;
+    console.log(category);
     if (selectedCategory !== category) {
       setSelectedCategory(category);
       setDropdownVisible(true);
-      console.log(refSelectedCategory.current);
+    } else {
+      setSelectedCategory("");
+      setDropdownVisible(false);
     }
   };
   useEffect(() => {
@@ -87,92 +94,39 @@ const Shopping = () => {
     setShowModal(modalStatus);
   };
   const handleSearched = (dataReceive) => {
-    console.log(selectedColorSearch + selectedSizeSearch);
-  };
-  const handleMouseEnter = () => {
-    setDropdownVisible(true);
-  };
-  const handleMouseLeave = () => {
-    setDropdownVisible(false);
+    const categoryNames = Object.keys(paramCategory);
+    console.log(categoryNames);
+    // const categoryNames = Object.keys(paramCategory);
+    // console.log(categoryNames[1]);
+    // console.log(paramCategory[categoryNames[1]]);
   };
   return (
     <div className="flex justify-center">
       <div className="containersbox divide-y [&>div]:py-2">
         <div className="filter_list py-1">
-          <h4 className="">CATEGORIES</h4>
-          <div
-            className={`custom_check ${
-              selectedCategory === "phone" ? "active" : ""
-            }`}
-            onClick={() => handleCategoryChange("phone")}
-          >
-            <input
-              type="checkbox"
-              className="check_inp"
-              hidden=""
-              id="cat-women-search"
-              checked={selectedCategory === "phone"}
-              readOnly
-            />
-            <label className="" htmlFor="cat-women-search">
-              PHONE
-            </label>
-            <p className="">(16)</p>
-          </div>
-          <div
-            className={`custom_check ${
-              selectedCategory === "laptop" ? "active" : ""
-            }`}
-            onClick={() => handleCategoryChange("laptop")}
-          >
-            <input
-              type="checkbox"
-              className="check_inp"
-              hidden=""
-              id="cat-men-search"
-              checked={selectedCategory === "laptop"}
-              readOnly
-            />
-            <label htmlFor="cat-men-search">LAPTOP</label>
-            <p className="">(9)</p>
-          </div>
-          <div
-            className={`custom_check ${
-              selectedCategory === "tablet" ? "active" : ""
-            }`}
-            onClick={() => handleCategoryChange("tablet")}
-          >
-            <input
-              type="checkbox"
-              className="check_inp"
-              hidden=""
-              id="cat-shoes-search"
-              checked={selectedCategory === "tablet"}
-              readOnly
-            />
-            <label htmlFor="cat-shoes-search">TABLET</label>
-            <p className="">(19)</p>
-          </div>
-          <div
-            className={`custom_check ${
-              selectedCategory === "pc" ? "active" : ""
-            }`}
-            onClick={() => handleCategoryChange("pc")}
-          >
-            <input
-              type="checkbox"
-              className="check_inp"
-              hidden=""
-              id="cat-computer-search"
-              checked={selectedCategory === "pc"}
-              readOnly
-            />
-            <label htmlFor="cat-computer-search">PC</label>
-            <p className="">(35)</p>
-          </div>
+          <h4>CATEGORIES</h4>
+          {Object.keys(paramCategory).map((item) => (
+            <div
+              className={`custom_check ${
+                selectedCategory === "phone" ? "active" : ""
+              }`}
+            >
+              <input
+                type="checkbox"
+                className="check_inp"
+                hidden=""
+                id={`cat-${item}`}
+                checked={selectedCategory === item}
+                readOnly
+                onClick={() => handleCategoryChange(item)}
+              />
+              <label htmlFor={`cat-${item}`}>{item.toUpperCase()}</label>
+              <p>(16)</p>
+            </div>
+          ))}
         </div>
         <div className="shop_filter [&>div]:py-1">
-          <h4 className="custom_check" onMouseEnter={handleMouseEnter}>
+          <h4 className="custom_check">
             BRANDS <i className="las la-angle-down"></i>
           </h4>
           <div
