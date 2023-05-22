@@ -6,10 +6,11 @@ import {
   faMagnifyingGlass,
 } from "@fortawesome/free-solid-svg-icons";
 import "./card.scss";
+import { useStorage } from "../localstorage/LocalStorage";
 function Card(props) {
   const recieveData = props.onChangData;
   const [showButton, setShowButton] = useState(false);
-
+  const [cartItems, setCartItems] = useStorage("cartItems", []);
   const handleMouseEnter = () => {
     setShowButton(true);
   };
@@ -24,6 +25,10 @@ function Card(props) {
   const handleClickFaHeart = () => {
     console.log(props);
   };
+  const handleClickAddtoCartButton = () => {
+    props.onClickAddtoCartButton(recieveData);
+  };
+
   return (
     <>
       <div
@@ -96,7 +101,10 @@ function Card(props) {
         </div>
         {showButton && (
           <div className="animate-fade-in-up text-white pl-3">
-            <button className="py-2 border-2 border-defaut-color-pink rounded-sm -translate-y-3 px-3 text-base  bg-defaut-color-pink hover:text-defaut-color-pink hover:bg-white transition duration-300 ease-out hover:ease-in ">
+            <button
+              onClick={handleClickAddtoCartButton}
+              className="py-2 border-2 border-defaut-color-pink rounded-sm -translate-y-3 px-3 text-base  bg-defaut-color-pink hover:text-defaut-color-pink hover:bg-white transition duration-300 ease-out hover:ease-in "
+            >
               ADD TO CART
             </button>
           </div>
