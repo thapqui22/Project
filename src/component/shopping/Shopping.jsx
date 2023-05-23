@@ -161,12 +161,13 @@ const Shopping = () => {
             onChange={({ min, max }) => handlesaveminmax(min, max)}
           />
         </div>
-        {/* <div className="shop_filter border-bottom-0 pb-0">
+        <div className="shop_filter border-bottom-0 pb-0">
           <div className="radio-toolbar-search">
             <h5>Size:</h5>
             <div className="flex w-52 justify-between items-center">
               <input
                 type="radio"
+                disabled
                 name="size-search"
                 value="XS"
                 className="size_inp"
@@ -178,6 +179,7 @@ const Shopping = () => {
 
               <input
                 type="radio"
+                disabled
                 name="size-search"
                 value="S"
                 className="size_inp"
@@ -189,6 +191,7 @@ const Shopping = () => {
 
               <input
                 type="radio"
+                disabled
                 name="size-search"
                 value="M"
                 className="size_inp"
@@ -200,6 +203,7 @@ const Shopping = () => {
 
               <input
                 type="radio"
+                disabled
                 name="size-search"
                 value="L"
                 className="size_inp"
@@ -211,6 +215,7 @@ const Shopping = () => {
 
               <input
                 type="radio"
+                disabled
                 name="size-search"
                 value="XL"
                 className="size_inp"
@@ -227,6 +232,7 @@ const Shopping = () => {
               <div className="flex w-auto  items-center">
                 <input
                   type="radio"
+                  disabled
                   hidden=""
                   name="color-search"
                   value="RGB"
@@ -239,6 +245,7 @@ const Shopping = () => {
 
                 <input
                   type="radio"
+                  disabled
                   hidden=""
                   name="color-search"
                   value="WRGB"
@@ -251,6 +258,7 @@ const Shopping = () => {
 
                 <input
                   type="radio"
+                  disabled
                   hidden=""
                   name="color-search"
                   value="WRGB-UV"
@@ -263,7 +271,7 @@ const Shopping = () => {
               </div>
             </div>
           </div>
-        </div> */}
+        </div>
         <div>
           <input type="text" placeholder="Search by name" />
         </div>
@@ -286,6 +294,7 @@ const Shopping = () => {
                 onChangData={item}
                 key={item.id}
                 onClickFaMagnifyingGlass={handleChildClick}
+                onClickAddtoCartButton={(e) => addtocart(e)}
               />
             ))}
           </div>
