@@ -8,7 +8,7 @@ import Card from "../carousel/Card";
 import Modal from "../modal/Modal";
 import PaginationShopping from "./PaginationShopping";
 const Shopping = () => {
-  const [showModal, setShowModal] = useState(true);
+  const [, setShowModal] = useState(true);
   const [changeData, setChangeData] = useState();
   const [cartItems, setCartItems] = useStorage("cartItems", []);
   let url = "https://63f43c77864fb1d600247a6d.mockapi.io/Products/products";
@@ -17,8 +17,6 @@ const Shopping = () => {
     categories: {},
     brands: {},
     price: { min: Number, max: Number },
-    size: {},
-    color: {},
   };
   const [data, setData] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
@@ -29,19 +27,18 @@ const Shopping = () => {
   const refPrice = useRef({ min: null, max: null });
   const [selectedSizeSearch, setSelectedSizeSearch] = useState("");
   const [selectedColorSearch, setSelectedColorSearch] = useState("");
-  const refSizeSearch = useRef("");
-  const refSelectedCategory = useRef("");
-  const refColorSearch = useRef("");
-  const refParamSearch = useRef(paramSearch);
   const [selectedCategory, setSelectedCategory] = useState("");
+  const [selectedBrands, setSelectedBrands] = useState([]);
+
   const paramCategory = {
-    phone: ["IPHONE", "SAMSUNG", "HUAWEI", "OPPO"],
-    laptop: ["ACER", "LENOVO", "HP", "DELL", "ASUS"],
+    phone: ["IPHONE", "SAMSUNG", "HUAWEI", "OPPO", "VIVO", "REALME"],
+    laptop: ["ACER", "LENOVO", "HP", "DELL", "ASUS", "SAMSUNG", "XIAOMI"],
     tablet: ["SAMSUNG", "XIAOMI"],
     watch: ["SAMSUNG", "XIAOMI", "HUAWEI"],
   };
   const handleCategoryChange = (category) => {
-    console.log(category);
+    setSelectedBrands([]);
+    setSelectedCategory("");
     if (selectedCategory !== category) {
       setSelectedCategory(category);
       setDropdownVisible(true);
@@ -82,24 +79,68 @@ const Shopping = () => {
       toast.success("Has adding to cart");
     }
   }
+  const handleChildClickeee = (dataReceive) => {
+    setChangeData({ dataReceive, key: Date.now() });
+    setShowModal(false);
+  };
   const handleChildClick = (dataReceive) => {
     setChangeData({ dataReceive, key: Date.now() });
     setShowModal(false);
   };
   const handlesaveminmax = (min, max) => {
-    refPrice.min = min;
-    refPrice.max = max;
+    refPrice.current.min = min;
+    refPrice.current.max = max;
   };
   const handleChildClickCancel = (modalStatus) => {
     setShowModal(modalStatus);
   };
-  const handleSearched = (dataReceive) => {
-    const categoryNames = Object.keys(paramCategory);
-    console.log(paramCategory.laptop.length);
-    // const categoryNames = Object.keys(paramCategory);
-    // console.log(categoryNames[1]);
-    // console.log(paramCategory[categoryNames[1]]);
+  const handleOnClickCheckBoxBrands = (input) => {
+    if (selectedBrands.includes(input)) {
+      // If the brand is already selected, remove it from the array
+      setSelectedBrands(selectedBrands.filter((brand) => brand !== input));
+    } else {
+      // If the brand is not selected, add it to the array
+      setSelectedBrands([...selectedBrands, input]);
+    }
   };
+
+  const handleSearched = (dataReceive) => {
+    paramSearch.categories = selectedCategory;
+    paramSearch.brands = selectedBrands;
+    paramSearch.price.min = refPrice.current.min;
+    paramSearch.price.max = refPrice.current.max;
+    callHandleSearched(data);
+  };
+  const callHandleSearched = (dataReceive) => {
+    const filteredData = dataReceive.filter((item) => {
+      if (item.category == paramSearch.categories.toUpperCase()) {
+        if (paramSearch.brands.length === 0) {
+          if (item.price <= paramSearch.price.min) {
+            return false;
+          }
+          if (item.price >= paramSearch.price.max) {
+            return false;
+          }
+          return true;
+        } else {
+          if (paramSearch.brands.includes(item.brand)) {
+            if (item.price <= paramSearch.price.min) {
+              return false;
+            }
+            if (item.price >= paramSearch.price.max) {
+              return false;
+            }
+            return true;
+          }
+        }
+        return false;
+      }
+      return false; // Item matches all selected search parameters
+    });
+    console.log(filteredData);
+    setData(filteredData);
+  };
+
   return (
     <div className="flex justify-center">
       <div className="containersbox divide-y [&>div]:py-2">
@@ -108,7 +149,7 @@ const Shopping = () => {
           {Object.keys(paramCategory).map((item) => (
             <div
               className={`custom_check ${
-                selectedCategory === "phone" ? "active" : ""
+                selectedCategory === "" ? "" : "active"
               }`}
             >
               <input
@@ -131,7 +172,7 @@ const Shopping = () => {
             {selectedCategory ? (
               <i className="las la-angle-down"></i>
             ) : (
-              <i className="las la-angle-up"></i>
+              <i className="las la-angle-up "></i>
             )}
           </h4>
           <div
@@ -145,7 +186,9 @@ const Shopping = () => {
                       className="check_inp"
                       hidden=""
                       id={`bnd-${item}`}
-                      // checked=""
+                      checked={selectedBrands.includes(item)}
+                      readOnly
+                      onClick={() => handleOnClickCheckBoxBrands(item)}
                     />
                     <label htmlFor={`bnd-${item}`}>{item}</label>
                   </div>
@@ -272,16 +315,15 @@ const Shopping = () => {
             </div>
           </div>
         </div>
-        <div>
+        {/* <div>
           <input type="text" placeholder="Search by name" />
-        </div>
+        </div> */}
         <div>
           <button className="btnsearch" onClick={() => handleSearched(123)}>
             Search
           </button>
         </div>
       </div>
-
       <div>
         <Modal
           onClickFaMagnifyingGlass={changeData}
