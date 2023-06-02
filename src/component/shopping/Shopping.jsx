@@ -7,7 +7,7 @@ import { toast } from "react-toastify";
 import Card from "../carousel/Card";
 import Modal from "../modal/Modal";
 import PaginationShopping from "./PaginationShopping";
-const Shopping = () => {
+const Shopping = (props) => {
   const [, setShowModal] = useState(true);
   const [changeData, setChangeData] = useState();
   const [cartItems, setCartItems] = useStorage("cartItems", []);
@@ -20,7 +20,7 @@ const Shopping = () => {
   };
   const [data, setData] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 16;
+  const itemsPerPage = 12;
   const startIndex = (currentPage - 1) * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
   const currentItems = data.slice(startIndex, endIndex);
@@ -29,7 +29,7 @@ const Shopping = () => {
   const [selectedColorSearch, setSelectedColorSearch] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("");
   const [selectedBrands, setSelectedBrands] = useState([]);
-
+  const [dataStatus, setDataStatus] = useState(true);
   const paramCategory = {
     phone: ["IPHONE", "SAMSUNG", "HUAWEI", "OPPO", "VIVO", "REALME"],
     laptop: ["ACER", "LENOVO", "HP", "DELL", "ASUS", "SAMSUNG", "XIAOMI"],
@@ -38,7 +38,6 @@ const Shopping = () => {
   };
   const handleCategoryChange = (category) => {
     setSelectedBrands([]);
-    setSelectedCategory("");
     if (selectedCategory !== category) {
       setSelectedCategory(category);
       setDropdownVisible(true);
@@ -50,10 +49,14 @@ const Shopping = () => {
   useEffect(() => {
     const fetchData = async () => {
       const response = await axios.get(url);
-      setData(response.data);
+      const filteredData = handleSearched(response.data);
+      setData(filteredData);
+
+      props.onChangeRefresh = true;
+      console.log(props);
     };
     fetchData();
-  }, []);
+  }, [dataStatus]);
   const handleClickChangePage = (data) => {
     setCurrentPage(data);
   };
@@ -79,15 +82,11 @@ const Shopping = () => {
       toast.success("Has adding to cart");
     }
   }
-  const handleChildClickeee = (dataReceive) => {
-    setChangeData({ dataReceive, key: Date.now() });
-    setShowModal(false);
-  };
   const handleChildClick = (dataReceive) => {
     setChangeData({ dataReceive, key: Date.now() });
     setShowModal(false);
   };
-  const handlesaveminmax = (min, max) => {
+  const handleSaveMinMax = (min, max) => {
     refPrice.current.min = min;
     refPrice.current.max = max;
   };
@@ -109,21 +108,11 @@ const Shopping = () => {
     paramSearch.brands = selectedBrands;
     paramSearch.price.min = refPrice.current.min;
     paramSearch.price.max = refPrice.current.max;
-    callHandleSearched(data);
-  };
-  const callHandleSearched = (dataReceive) => {
+
     const filteredData = dataReceive.filter((item) => {
-      if (item.category == paramSearch.categories.toUpperCase()) {
-        if (paramSearch.brands.length === 0) {
-          if (item.price <= paramSearch.price.min) {
-            return false;
-          }
-          if (item.price >= paramSearch.price.max) {
-            return false;
-          }
-          return true;
-        } else {
-          if (paramSearch.brands.includes(item.brand)) {
+      if (paramSearch.categories !== "") {
+        if (item.category == paramSearch.categories.toUpperCase()) {
+          if (paramSearch.brands.length === 0) {
             if (item.price <= paramSearch.price.min) {
               return false;
             }
@@ -131,14 +120,24 @@ const Shopping = () => {
               return false;
             }
             return true;
+          } else {
+            if (paramSearch.brands.includes(item.brand)) {
+              if (item.price <= paramSearch.price.min) {
+                return false;
+              }
+              if (item.price >= paramSearch.price.max) {
+                return false;
+              }
+              return true;
+            }
           }
+          return false;
         }
-        return false;
+        return false; // Item matches all selected search parameters
       }
-      return false; // Item matches all selected search parameters
+      return true;
     });
-    console.log(filteredData);
-    setData(filteredData);
+    return filteredData;
   };
 
   return (
@@ -201,7 +200,7 @@ const Shopping = () => {
           <MultiRangeSlider
             min={0}
             max={1000}
-            onChange={({ min, max }) => handlesaveminmax(min, max)}
+            onChange={({ min, max }) => handleSaveMinMax(min, max)}
           />
         </div>
         <div className="shop_filter border-bottom-0 pb-0">
@@ -319,7 +318,10 @@ const Shopping = () => {
           <input type="text" placeholder="Search by name" />
         </div> */}
         <div>
-          <button className="btnsearch" onClick={() => handleSearched(123)}>
+          <button
+            className="btnsearch"
+            onClick={() => setDataStatus(!dataStatus)}
+          >
             Search
           </button>
         </div>
@@ -341,7 +343,11 @@ const Shopping = () => {
             ))}
           </div>
         </div>
-        <PaginationShopping onClickChangePage={handleClickChangePage} />
+        <PaginationShopping
+          onClickChangePage={handleClickChangePage}
+          onChangeData={data}
+          onChangeDataToShowItem={data}
+        />
       </div>
     </div>
   );

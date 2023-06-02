@@ -1,22 +1,21 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
 import "./paginationshopping.scss";
 
 function PaginationShopping(props) {
-  let url = "https://63f43c77864fb1d600247a6d.mockapi.io/Products/products";
   const [data, setData] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = await axios.get(url);
-      setData(response.data);
+      const data = props.onChangeData;
+      setData(data);
     };
     fetchData();
-  }, []);
+  }, [props.onChangeData]);
 
   const [currentPage, setCurrentPage] = useState(1); // set current page as 1 by default
-  const totalPages = Math.ceil(data.length / 16);
-  const pagesToShow = 16; // number of pages to show in pagination
+  const pagesToShow = props.onChangeDataToShowItem;
+  const totalPages = Math.ceil(data.length / pagesToShow);
+  // number of pages to show in pagination
   // calculate the start and end pages to show based on the current page and the total number of pages
   let startPage = Math.max(currentPage - Math.floor(pagesToShow / 2), 1);
   let endPage = Math.min(startPage + pagesToShow - 1, totalPages);

@@ -17,6 +17,7 @@ import "react-toastify/dist/ReactToastify.css";
 import "./index.css";
 
 function App() {
+  const [refreshCountCart, setRefreshCountCart] = useState(true);
   const [dataQuill, setDataQuill] = useState({
     title: "",
     description: "",
@@ -26,6 +27,14 @@ function App() {
   const handleDataQuillChange = (newData) => {
     setDataQuill(newData);
   };
+  const handleChangeRefresh = (newData) => {
+    console.log(newData);
+    // if (newData !== refreshCountCart) {
+    //   setRefreshCountCart(newData);
+    // } else {
+    //   setRefreshCountCart(!newData);
+    // }
+  };
   return (
     <>
       <ToastContainer />
@@ -34,8 +43,16 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/knowledge" element={<Knowledge />} />
-        <Route path="/shopping" element={<Shopping />} />
-        <Route path="/shoppingcart" element={<ShoppingCart />} />
+        <Route
+          path="/shopping"
+          element={<Shopping />}
+          onChangeRefresh={handleChangeRefresh}
+        />
+        <Route
+          path="/shoppingcart"
+          element={<ShoppingCart />}
+          // onChangeRefresh={refreshCountCart}
+        />
         <Route path="/tankmodel" element={<TankModel />} />
         <Route path="/manage" element={<ManageProducts />} />
         <Route

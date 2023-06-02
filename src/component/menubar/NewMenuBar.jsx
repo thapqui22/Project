@@ -1,9 +1,15 @@
-import React from "react";
+import React, { useState, useEffect, useRef } from "react";
 import "./menubar.scss";
 import { useStorage } from "../localstorage/LocalStorage";
 
-const NewMenuBar = () => {
+const NewMenuBar = (props) => {
   const [cartItems, setCartItems] = useStorage("cartItems", []);
+  useEffect(() => {
+    const fetchData = async () => {
+      setCartItems(cartItems);
+    };
+    fetchData();
+  }, [props.onChangeRefresh]);
   return (
     <div className="navbar">
       <div className="navContainerMenu">
