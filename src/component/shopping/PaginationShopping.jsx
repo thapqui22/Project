@@ -13,7 +13,7 @@ function PaginationShopping(props) {
   }, [props.onChangeData]);
 
   const [currentPage, setCurrentPage] = useState(1); // set current page as 1 by default
-  const pagesToShow = props.onChangeDataToShowItem;
+  const pagesToShow = props.onChangeDataItemToShow;
   const totalPages = Math.ceil(data.length / pagesToShow);
   // number of pages to show in pagination
   // calculate the start and end pages to show based on the current page and the total number of pages

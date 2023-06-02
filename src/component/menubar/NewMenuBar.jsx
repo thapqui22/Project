@@ -7,9 +7,10 @@ const NewMenuBar = (props) => {
   useEffect(() => {
     const fetchData = async () => {
       setCartItems(cartItems);
+      console.log("test cart");
     };
     fetchData();
-  }, [props.onChangeRefresh]);
+  }, [props.onChangeDataRefresh]);
   return (
     <div className="navbar">
       <div className="navContainerMenu">

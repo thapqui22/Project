@@ -7,7 +7,7 @@ import { toast } from "react-toastify";
 import Card from "../carousel/Card";
 import Modal from "../modal/Modal";
 import PaginationShopping from "./PaginationShopping";
-const Shopping = (props) => {
+const Shopping = () => {
   const [, setShowModal] = useState(true);
   const [changeData, setChangeData] = useState();
   const [cartItems, setCartItems] = useStorage("cartItems", []);
@@ -51,9 +51,6 @@ const Shopping = (props) => {
       const response = await axios.get(url);
       const filteredData = handleSearched(response.data);
       setData(filteredData);
-
-      props.onChangeRefresh = true;
-      console.log(props);
     };
     fetchData();
   }, [dataStatus]);
@@ -346,7 +343,7 @@ const Shopping = (props) => {
         <PaginationShopping
           onClickChangePage={handleClickChangePage}
           onChangeData={data}
-          onChangeDataToShowItem={data}
+          onChangeDataItemToShow={itemsPerPage}
         />
       </div>
     </div>
