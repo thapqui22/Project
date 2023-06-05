@@ -3,14 +3,14 @@ import "./menubar.scss";
 import { useStorage } from "../localstorage/LocalStorage";
 
 const NewMenuBar = (props) => {
-  const [cartItems, setCartItems] = useStorage("cartItems", []);
+  const [data, setData] = useState(null);
   useEffect(() => {
     const fetchData = async () => {
-      setCartItems(cartItems);
-      console.log("test cart");
+      setData(props.onChangeDataRefresh);
     };
     fetchData();
   }, [props.onChangeDataRefresh]);
+
   return (
     <div className="navbar">
       <div className="navContainerMenu">
@@ -48,7 +48,7 @@ const NewMenuBar = (props) => {
             <span className="icon_text text-[12px]">Wish List</span>
           </a>
           <a href="/shoppingcart" className="icon_wrp grid">
-            <span className="popscart ">{cartItems.length}</span>
+            <span className="popscart ">{data}</span>
             <span className="icon text-[20px] ">
               <i className="fa-solid fa-cart-shopping"></i>
             </span>

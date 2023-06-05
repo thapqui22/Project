@@ -1,8 +1,18 @@
 import { useStorage } from "../localstorage/LocalStorage";
 import { toast } from "react-toastify";
 
-const ShoppingCart = () => {
+const ShoppingCart = (props) => {
   const [cartItems, setCartItems] = useStorage("cartItems", []);
+
+  const handleOnClickClearAll = (data) => {
+    props.onClickClearAll(0);
+    // setData(0);
+  };
+  const handleOnClickRemove = (data) => {
+    // setData(data - 1);
+    props.onClickRemove(cartItems.length - 1);
+    // console.log(data);
+  };
 
   const increase = (product) => {
     if (product !== null) {
@@ -13,17 +23,19 @@ const ShoppingCart = () => {
             : item
         )
       );
-      toast.success(`Increasing successful`);
+      toast.success(`Increasing successful`, {
+        autoClose: 200,
+      });
     } else {
       toast.error(`Error: Can't increasing product`);
     }
   };
   const clearCart = () => {
     setCartItems([]);
+    handleOnClickClearAll();
   };
   const decrease = (product) => {
     const existingCartItem = cartItems.find((item) => item.id === product.id);
-
     if (existingCartItem) {
       const updatedCartItem = {
         ...existingCartItem,
@@ -31,7 +43,9 @@ const ShoppingCart = () => {
       };
       if (updatedCartItem.quantity === 0) {
         setCartItems(cartItems.filter((item) => item.id !== product.id));
-        toast.success(`Delete successful`);
+        toast.success(`Delete successful`, {
+          autoClose: 200,
+        });
       } else {
         setCartItems(
           cartItems.map((item) =>
@@ -53,7 +67,10 @@ const ShoppingCart = () => {
   }
   const removeFromCart = (productId) => {
     setCartItems(cartItems.filter((item) => item.id !== productId));
-    toast.success(`Removing successful`);
+    toast.success(`Removing successful`, {
+      autoClose: 1000, // Set the duration to 1 second (1000 milliseconds)
+    });
+    handleOnClickRemove();
   };
   function totalitems() {
     let a = 0;

@@ -1,6 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Home from "./page/home/Home";
 import Knowledge from "./page/knowledge/Knowledge";
 import Footer from "./component/footer/Footer";
@@ -15,38 +15,59 @@ import Header from "./component/header/Header";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "react-toastify/dist/ReactToastify.css";
 import "./index.css";
+import { useStorage } from "./component/localstorage/LocalStorage";
 
 function App() {
-  const [data, setData] = useState(true);
+  const [cartItems] = useStorage("cartItems", []);
+  const [data, setData] = useState(cartItems.length);
+  const [checkRefresh, setCheckRefresh] = useState(true);
   const [dataQuill, setDataQuill] = useState({
     title: "",
     description: "",
     image: "",
     content: "",
   });
+  useEffect(() => {
+    const fetchData = async () => {
+      setCheckRefresh(!checkRefresh);
+    };
+    fetchData();
+  }, []);
+
   const handleDataQuillChange = (newData) => {
     setDataQuill(newData);
   };
-  const handleOnClick = (newData) => {
-    if (newData !== data) {
-      setData(newData);
-      console.log("if change");
-    } else {
-      setData(!newData);
-      console.log("else change");
-    }
+
+  const handleAddToCart = (data) => {
+    setData(data);
+  };
+  const handleOnClickClearAll = (data) => {
+    setData(data);
+  };
+  const handleOnClickRemove = (data) => {
+    setData(data);
   };
   return (
     <>
-      <button onClick={() => handleOnClick(true)}>Check</button>
       <ToastContainer />
       <Header />
       <NewMenuBar onChangeDataRefresh={data} />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/knowledge" element={<Knowledge />} />
-        <Route path="/shopping" element={<Shopping />} />
-        <Route path="/shoppingcart" element={<ShoppingCart />} />
+        <Route
+          path="/shopping"
+          element={<Shopping onClickAddToCart={handleAddToCart} />}
+        />
+        <Route
+          path="/shoppingcart"
+          element={
+            <ShoppingCart
+              onClickClearAll={handleOnClickClearAll}
+              onClickRemove={handleOnClickRemove}
+            />
+          }
+        />
         <Route path="/tankmodel" element={<TankModel />} />
         <Route path="/manage" element={<ManageProducts />} />
         <Route
