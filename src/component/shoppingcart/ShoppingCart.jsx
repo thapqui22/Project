@@ -27,7 +27,9 @@ const ShoppingCart = (props) => {
         autoClose: 200,
       });
     } else {
-      toast.error(`Error: Can't increasing product`);
+      toast.error(`Error: Can't increasing product`, {
+        autoClose: 200, // Set the duration to 1 second (1000 milliseconds)
+      });
     }
   };
   const clearCart = () => {
@@ -52,7 +54,9 @@ const ShoppingCart = (props) => {
             item.id === product.id ? updatedCartItem : item
           )
         );
-        toast.success(`Decreasing successful`);
+        toast.success(`Decreasing successful`, {
+          autoClose: 200, // Set the duration to 1 second (1000 milliseconds)
+        });
       }
     } else {
       setCartItems([...cartItems, { ...product, quantity: 1 }]);
@@ -68,7 +72,7 @@ const ShoppingCart = (props) => {
   const removeFromCart = (productId) => {
     setCartItems(cartItems.filter((item) => item.id !== productId));
     toast.success(`Removing successful`, {
-      autoClose: 1000, // Set the duration to 1 second (1000 milliseconds)
+      autoClose: 200, // Set the duration to 1 second (1000 milliseconds)
     });
     handleOnClickRemove();
   };
@@ -83,9 +87,9 @@ const ShoppingCart = (props) => {
         <table className="table  text-center">
           <thead>
             <tr>
-              <th scope="col">#</th>
+              {/* <th scope="col">#</th> */}
               <th scope="col">Product</th>
-              <th scope="col">Product Name</th>
+              {/* <th scope="col">Product Name</th> */}
               <th scope="col">Price</th>
               <th scope="col">Quantity</th>
               <th scope="col">Remove</th>
@@ -94,14 +98,14 @@ const ShoppingCart = (props) => {
           <tbody>
             {cartItems.map((i, index) => (
               <tr key={i.id}>
-                <th scope="row">{index + 1}</th>
+                {/* <th scope="row">{index + 1}</th> */}
                 <th scope="row">
                   <img
                     src={i.image}
-                    style={{ width: "3rem", height: "3rem" }}
+                    // style={{ width: "3rem", height: "3rem" }}
                   />
                 </th>
-                <td>{i.name}</td>
+                {/* <td>{i.name}</td> */}
                 <td>{i.price}</td>
                 <td>
                   <button
@@ -121,12 +125,16 @@ const ShoppingCart = (props) => {
                 </td>
 
                 <td>
-                  <button
+                  <i
+                    class="fa-solid fa-trash"
+                    onClick={() => removeFromCart(i.id)}
+                  ></i>
+                  {/* <button
                     onClick={() => removeFromCart(i.id)}
                     className="btn btn-danger"
                   >
                     Remove
-                  </button>
+                  </button> */}
                 </td>
               </tr>
             ))}
