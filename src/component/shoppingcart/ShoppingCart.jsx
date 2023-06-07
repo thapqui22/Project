@@ -1,5 +1,6 @@
 import { useStorage } from "../localstorage/LocalStorage";
 import { toast } from "react-toastify";
+import "./shoppingcart.scss";
 
 const ShoppingCart = (props) => {
   const [cartItems, setCartItems] = useStorage("cartItems", []);
@@ -82,67 +83,17 @@ const ShoppingCart = (props) => {
     return a;
   }
   return (
-    <div className="h-[1000px]">
-      <div className="row mt-3">
-        <table className="table  text-center">
-          <thead>
-            <tr>
-              {/* <th scope="col">#</th> */}
-              <th scope="col">Product</th>
-              {/* <th scope="col">Product Name</th> */}
-              <th scope="col">Price</th>
-              <th scope="col">Quantity</th>
-              <th scope="col">Remove</th>
-            </tr>
-          </thead>
-          <tbody>
-            {cartItems.map((i, index) => (
-              <tr key={i.id}>
-                {/* <th scope="row">{index + 1}</th> */}
-                <th scope="row">
-                  <img
-                    src={i.image}
-                    // style={{ width: "3rem", height: "3rem" }}
-                  />
-                </th>
-                {/* <td>{i.name}</td> */}
-                <td>{i.price}</td>
-                <td>
-                  <button
-                    onClick={() => decrease(i)}
-                    className="btn btn-primary btn-sm"
-                  >
-                    -
-                  </button>
-                  {i.quantity}
-                  <button
-                    onClick={() => increase(i)}
-                    className="btn btn-primary btn-sm"
-                    size="sm"
-                  >
-                    +
-                  </button>
-                </td>
-
-                <td>
-                  <i
-                    class="fa-solid fa-trash"
-                    onClick={() => removeFromCart(i.id)}
-                  ></i>
-                  {/* <button
-                    onClick={() => removeFromCart(i.id)}
-                    className="btn btn-danger"
-                  >
-                    Remove
-                  </button> */}
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+    <div className="flex justify-center flex-col">
+      <div className="flex justify-center">
+        <h4 className="flex h-8 w-[900px] justify-center bg-[#E9E4E4] items-center [&>span]:text-center">
+          <span className="basis-1/2">Product</span>
+          <span className="basis-1/4">Quantity</span>
+          <span className="basis-1/4">Total Price</span>
+        </h4>
+        <div className="w-[300px]">ORDER SUMMARY</div>
       </div>
-      <div className="row">
-        <div className="col text-center">
+      <div className="">
+        <div className="text-center">
           <h4>
             <button onClick={clearCart}>Clear All Cart</button>
           </h4>
