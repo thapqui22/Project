@@ -52,6 +52,17 @@ function App() {
       <ToastContainer />
       <Header />
       <NewMenuBar onChangeDataRefresh={data} />
+      <div className="py-3  flex justify-center items-center">
+        <div className="flex w-[1140px] items-center [&>*]:pr-1">
+          <img
+            src="https://img.icons8.com/material-outlined/24/home--v2.png"
+            alt="home--v2"
+            className="h-[20px] flex"
+          />
+          <i className="las la-angle-right "></i>
+          <span className="ml-1 text-xl">Home</span>
+        </div>
+      </div>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/knowledge" element={<Knowledge />} />
