@@ -63,9 +63,12 @@ const Shopping = (props) => {
   const handleColorChange = (e) => {
     setSelectedColorSearch(e.target.value);
   };
-  const handleAddToCart = () => {
-    const data = cartItems.length + 1; // Replace with the actual data to be passed
+  const handleAddToCart = (newData) => {
+    const data = newData.length + 1; // Replace with the actual data to be passed
     props.onClickAddToCart(data); // Call the callback function with the data
+  };
+  const handleOnClickChangePath = (data) => {
+    props.handleOnClickChangePath(data);
   };
   function addtocart(product) {
     const existingCartItem = cartItems.find((item) => item.id === product.id);
@@ -77,11 +80,11 @@ const Shopping = (props) => {
             : item
         )
       );
-      toast.success("This product is in the cart, the quantity has increased");
+      toast.success("The quantity has increased");
     } else {
-      handleAddToCart();
       toast.success("Has adding to cart");
       setCartItems([...cartItems, { ...product, quantity: 1 }]);
+      handleAddToCart(cartItems);
     }
   }
   const handleChildClick = (dataReceive) => {
@@ -170,7 +173,7 @@ const Shopping = (props) => {
         </div>
         <div className="shop_filter [&>div]:py-1">
           <h4 className="custom_check ">
-            BRANDS{" "}
+            BRANDS
             {selectedCategory ? (
               <i className="las la-angle-down"></i>
             ) : (
@@ -337,6 +340,7 @@ const Shopping = (props) => {
               <Card
                 onChangData={item}
                 key={item.id}
+                onChangePathData={(e) => handleOnClickChangePath(e)}
                 onClickFaMagnifyingGlass={handleChildClick}
                 onClickAddtoCartButton={(e) => addtocart(e)}
               />

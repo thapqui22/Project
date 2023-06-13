@@ -4,7 +4,7 @@ import "./header.scss";
 const Header = () => {
   return (
     <>
-      <div className="containernavbar  bg-white flex justify-center">
+      <div className="containernavbar bg-white flex justify-center">
         <div className="w-[1140px]">
           <nav className="headernavbar flex  items-center relative">
             <div className="[&>img]:w-[180px]">
@@ -39,29 +39,34 @@ const Header = () => {
                       </h5>
                     </li>
                     <li>
-                      <a href="#" className="flex hover:text-defaut-color">
+                      <div className="flex hover:text-defaut-color">
                         <Link to="/knowledge">Knowledge</Link>
-                      </a>
+                      </div>
                     </li>
                     <li>
-                      <a href="#" className="flex hover:text-defaut-color">
+                      <div className="flex hover:text-defaut-color">
                         <Link to="/shopping">Shopping</Link>
-                      </a>
+                      </div>
                     </li>
                     <li>
-                      <a href="#" className="flex hover:text-defaut-color">
+                      <div className="flex hover:text-defaut-color">
                         <Link to="/tankmodel">Tank model</Link>
-                      </a>
+                      </div>
                     </li>
                     <li>
-                      <a href="#" className="flex hover:text-defaut-color">
+                      <div className="flex hover:text-defaut-color">
                         <Link to="/manage">Manage Item</Link>
-                      </a>
+                      </div>
                     </li>{" "}
                     <li>
-                      <a href="#" className="flex hover:text-defaut-color">
+                      <div className="flex hover:text-defaut-color">
                         <Link to="/createandeditblog">Edit Blog</Link>
-                      </a>
+                      </div>
+                    </li>
+                    <li>
+                      <div className="flex hover:text-defaut-color">
+                        <Link to="/productreview">Product Review</Link>
+                      </div>
                     </li>
                   </div>
                 </ul>

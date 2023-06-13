@@ -1,15 +1,28 @@
 import React, { useState, useEffect, useRef } from "react";
 import "./menubar.scss";
 import { useStorage } from "../localstorage/LocalStorage";
+import axios from "axios";
 
 const NewMenuBar = (props) => {
   const [data, setData] = useState(null);
+  const [cartItems, setCartItems] = useStorage("cartItems", []);
+  let url = "https://63f43c77864fb1d600247a6d.mockapi.io/Products/products";
+
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     const response = await axios.get(url);
+  //     setData(response.data.length);
+  //   };
+  //   fetchData();
+  // }, [props]);
+
   useEffect(() => {
     const fetchData = async () => {
+      // console.log(cartItems);
       setData(props.onChangeDataRefresh);
     };
     fetchData();
-  }, [props.onChangeDataRefresh]);
+  }, [props]);
 
   return (
     <div className="navbar">

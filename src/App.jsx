@@ -12,6 +12,7 @@ import ReactQuillJs from "./component/reactquilljs/ReactQuillJs";
 import ReactQuillTest from "./component/reactquilljs/ReactQuillTest";
 import NewMenuBar from "./component/menubar/NewMenuBar";
 import Header from "./component/header/Header";
+import ProductReview from "./component/productreview/ProductReview";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "react-toastify/dist/ReactToastify.css";
 import "./index.css";
@@ -19,33 +20,23 @@ import { useStorage } from "./component/localstorage/LocalStorage";
 
 function App() {
   const [cartItems] = useStorage("cartItems", []);
+  const [dataForPreview, setDataForPreview] = useState(null);
   const [data, setData] = useState(cartItems.length);
-  const [checkRefresh, setCheckRefresh] = useState(true);
   const [dataQuill, setDataQuill] = useState({
     title: "",
     description: "",
     image: "",
     content: "",
   });
-  useEffect(() => {
-    const fetchData = async () => {
-      setCheckRefresh(!checkRefresh);
-    };
-    fetchData();
-  }, []);
 
   const handleDataQuillChange = (newData) => {
     setDataQuill(newData);
   };
-
-  const handleAddToCart = (data) => {
-    setData(data);
+  const undateCartNumber = (newData) => {
+    setData(newData);
   };
-  const handleOnClickClearAll = (data) => {
-    setData(data);
-  };
-  const handleOnClickRemove = (data) => {
-    setData(data);
+  const handleOnClickChangePathCard = (newData) => {
+    setDataForPreview(newData);
   };
   return (
     <>
@@ -60,27 +51,40 @@ function App() {
             className="h-[20px] flex"
           />
           <i className="las la-angle-right "></i>
-          <span className="ml-1 text-xl">Home</span>
+          <span className="ml-1 text-lg">Home</span>
         </div>
       </div>
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route
+          path="/"
+          element={<Home onChangeData={handleOnClickChangePathCard} />}
+        />
         <Route path="/knowledge" element={<Knowledge />} />
         <Route
           path="/shopping"
-          element={<Shopping onClickAddToCart={handleAddToCart} />}
+          element={
+            <Shopping
+              onClickAddToCart={undateCartNumber}
+              handleOnClickChangePath={handleOnClickChangePathCard}
+            />
+          }
         />
         <Route
           path="/shoppingcart"
           element={
             <ShoppingCart
-              onClickClearAll={handleOnClickClearAll}
-              onClickRemove={handleOnClickRemove}
+              onClickClearAll={undateCartNumber}
+              onClickRemove={undateCartNumber}
             />
           }
         />
         <Route path="/tankmodel" element={<TankModel />} />
         <Route path="/manage" element={<ManageProducts />} />
+        <Route
+          path="/productreview/"
+          // path={`/productreview/${dataForPreview.name}`}
+          element={<ProductReview onChangeData={dataForPreview} />}
+        />
         <Route
           path="/createandeditblog"
           element={

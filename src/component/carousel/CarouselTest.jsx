@@ -8,7 +8,7 @@ import Modal from "../modal/Modal";
 import axios from "axios";
 import "./Card.scss";
 import TopRankingCard from "../toprankingcard/TopRankingCard";
-const CarouselTest = () => {
+const CarouselTest = (props) => {
   const [showModal, setShowModal] = useState(true);
   const [changeData, setChangeData] = useState();
   let url = "https://63f43c77864fb1d600247a6d.mockapi.io/Products/products";
@@ -37,6 +37,10 @@ const CarouselTest = () => {
     };
     fetchData();
   }, []);
+
+  const handleOnClickChangePath = (data) => {
+    props.handleOnClickChangePath(data);
+  };
 
   const handleChildClick = (dataReceive) => {
     setChangeData({ dataReceive, key: Date.now() });
@@ -100,6 +104,7 @@ const CarouselTest = () => {
         >
           {data.map((i) => (
             <Card
+              onChangePathData={(e) => handleOnClickChangePath(e)}
               onChangData={i}
               key={i.id}
               onClickFaMagnifyingGlass={handleChildClick}
@@ -160,6 +165,7 @@ const CarouselTest = () => {
         >
           {data.slice(4, 8).map((i) => (
             <Card
+              onChangePathData={(e) => handleOnClickChangePath(e)}
               onChangData={i}
               key={i.id}
               onClickFaMagnifyingGlass={handleChildClick}
@@ -187,6 +193,7 @@ const CarouselTest = () => {
         >
           {data.slice(0, 4).map((i) => (
             <Card
+              onChangePathData={(e) => handleOnClickChangePath(e)}
               onChangData={i}
               key={i.id}
               onClickFaMagnifyingGlass={handleChildClick}

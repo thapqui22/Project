@@ -14,24 +14,12 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 const ShoppingCart = (props) => {
   const [cartItems, setCartItems] = useStorage("cartItems", []);
-  const refQuantity = useRef(1);
-  const [quantity, setQuantity] = useState(1);
   const handleOnClickClearAll = (data) => {
     props.onClickClearAll(0);
     // setData(0);
   };
   const handleOnClickRemove = (data) => {
-    // setData(data - 1);
     props.onClickRemove(cartItems.length - 1);
-    // console.log(data);
-  };
-  const handlePlusButton = () => {
-    setQuantity(quantity + 1);
-  };
-  const handleMinusButton = () => {
-    if (quantity > 1) {
-      setQuantity(quantity - 1);
-    }
   };
   const increase = (product) => {
     if (product !== null) {
@@ -114,14 +102,13 @@ const ShoppingCart = (props) => {
               <div className="shopcartwrap block text-center border rounded-lg border-gray-300">
                 <div className="flex p-[20px]">
                   <div className="flex basis-1/2 ">
-                    <img
-                      className="w-[200px] h-[150px]"
-                      src="https://themes.rslahmed.dev/rafcart/assets/images/headphone-4.png"
-                    />
-                    <div className="[&>h4]:pb-3 pt-4">
+                    <img className="w-[200px] h-[150px]" src={i.image} />
+                    <div className="[&>h4]:pb-3 pt-4 pl-2">
                       <h4 className="text-start font-semibold">{i.name}</h4>
-                      <p className="text-start font-medium">${i.price}</p>
-                      <p className="text-start">Size: M</p>
+                      <p className="text-start font-semibold text-defaut-color">
+                        ${i.price}
+                      </p>
+                      <p className="text-start ">Model: 128G</p>
                     </div>
                   </div>
                   <div className="basis-1/4 flex justify-center">
@@ -130,13 +117,13 @@ const ShoppingCart = (props) => {
                         <FontAwesomeIcon
                           className="p-2"
                           icon={faMinus}
-                          onClick={handleMinusButton}
+                          onClick={() => decrease(i)}
                         />
                       </button>
                       <div className="inputmp flex align-items-center justify-center p-1 px-0">
                         <input
                           className="text-center max-w-[50px] "
-                          value={quantity}
+                          value={i.quantity}
                           readOnly
                         />
                       </div>
@@ -144,7 +131,7 @@ const ShoppingCart = (props) => {
                         <FontAwesomeIcon
                           className="p-2 "
                           icon={faPlus}
-                          onClick={handlePlusButton}
+                          onClick={() => increase(i)}
                         />
                       </button>
                     </div>
@@ -152,10 +139,13 @@ const ShoppingCart = (props) => {
                   <div className="basis-1/4 flex justify-between ">
                     <div className="quanlityContainer basis-1/3  flex align-items-center w-auto"></div>
                     <div className="quanlityContainer basis-1/3  flex justify-center align-items-center  w-auto">
-                      ${i.price * quantity}
+                      ${i.price * i.quantity}
                     </div>
                     <div className="icon flex basis-1/3 justify-end align-items-center">
-                      <i class="fa-solid fa-trash mr-3 hover:text-defaut-color hover:cursor-pointer text-xl"></i>
+                      <i
+                        onClick={() => removeFromCart(i.id)}
+                        class="fa-solid fa-trash mr-3 hover:text-defaut-color hover:cursor-pointer text-xl"
+                      ></i>
                     </div>
                   </div>
                 </div>
@@ -168,19 +158,19 @@ const ShoppingCart = (props) => {
           <h4 className="font-extrabold pb-3">ORDER SUMMARY</h4>
           <div className="font-semibold">
             <span>Subtotal</span>
-            <span>$45.00</span>
+            <span>${(45).toFixed(2)}</span>
           </div>
           <div>
             <span>Delivery</span>
-            <span>Free</span>
+            <span>${5}</span>
           </div>
           <div>
             <span>Tax</span>
-            <span>Free</span>
+            <span>${(total() * 0.1).toFixed(2)}</span>
           </div>
           <div className="border-t pt-2 font-bold">
             <span>TOTAL</span>
-            <span>$45.00</span>
+            <span> ${(total() + total() * 0.1 + 5).toFixed(2)}</span>
           </div>
           <div className="coupon_form_footer">
             <input
@@ -193,7 +183,10 @@ const ShoppingCart = (props) => {
             </button>
           </div>
           <div className="coupon_form_footer justify-center">
-            <button className="proccesstocheckoutbtn rounded w-full hover:border-defaut-color-pink   font-medium text-base hover:text-defaut-color-pink hover:bg-white transition duration-300 ease-out hover:ease-in ">
+            <button
+              onClick={clearCart}
+              className="proccesstocheckoutbtn rounded w-full hover:border-defaut-color-pink   font-medium text-base hover:text-defaut-color-pink hover:bg-white transition duration-300 ease-out hover:ease-in "
+            >
               PROCCEES TO CHECKOUT
             </button>
           </div>
