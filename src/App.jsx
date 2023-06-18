@@ -38,7 +38,7 @@ function App() {
   };
   return (
     <>
-      <button onClick={() => handleOnClick(true)}>Check</button>
+      {/* <button onClick={() => handleOnClick(true)}>Check</button> */}
       <ToastContainer />
       <Header />
       <NewMenuBar onChangeDataRefresh={data} />
