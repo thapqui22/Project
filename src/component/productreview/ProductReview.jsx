@@ -605,8 +605,8 @@ const ProductReview = (props) => {
                       <i className="las la-star"></i>
                     </span>
                   </div>
-                  <div className="rating_pbox">
-                    <span className="width: 70%;"></span>
+                  <div className="rating_pbox w-[150px] bg-[#EFF0F5] h-[8px] mx-3 ">
+                    <span className="block w-[100px] bg-[#FACA51] h-[8px]"></span>
                   </div>
                   <p className="rating_count">18</p>
                 </div>
@@ -651,8 +651,8 @@ const ProductReview = (props) => {
                       <i className="lar la-star"></i>
                     </span>
                   </div>
-                  <div className="rating_pbox">
-                    <span className="width: 0%;"></span>
+                  <div className="rating_pbox w-[150px] bg-[#EFF0F5] h-[8px] mx-3 ">
+                    <span className="block w-[145px] bg-[#FACA51] h-[8px]"></span>
                   </div>
                   <p className="rating_count">0</p>
                 </div>
@@ -674,8 +674,8 @@ const ProductReview = (props) => {
                       <i className="lar la-star"></i>
                     </span>
                   </div>
-                  <div className="rating_pbox">
-                    <span className="width: 0%;"></span>
+                  <div className="rating_pbox w-[150px] bg-[#EFF0F5] h-[8px] mx-3 ">
+                    <span className="block w-[100px] bg-[#FACA51] h-[8px]"></span>
                   </div>
                   <p className="rating_count">0</p>
                 </div>
@@ -697,8 +697,8 @@ const ProductReview = (props) => {
                       <i className="lar la-star"></i>
                     </span>
                   </div>
-                  <div className="rating_pbox">
-                    <span className="width: 0%;"></span>
+                  <div className="rating_pbox w-[150px] bg-[#EFF0F5] h-[8px] mx-3 ">
+                    <span className="block w-[100px] bg-[#FACA51] h-[8px]"></span>
                   </div>
                   <p className="rating_count">0</p>
                 </div>
@@ -774,16 +774,41 @@ const ProductReview = (props) => {
             </div>
           </div>
         </div>
-        {/* <div className="h-[400px]">
-          {data.slice(0, 4).map((i) => (
-            <Card
-              // onChangePathData={(e) => handleOnClickChangePath(e)}
-              onChangData={i}
-              key={i.id}
-              // onClickFaMagnifyingGlass={handleChildClick}
-            />
-          ))}
-        </div> */}
+        {/* <Carousel
+          arrows={false}
+          additionalTransfrom={0}
+          centerMode={false}
+          className=""
+          containerclassName="container-with-dots"
+          dotListclassName=""
+          draggable
+          focusOnSelect={false}
+          infinite
+          itemclassName="item "
+          keyBoardControl
+          minimumTouchDrag={80}
+          renderArrowsWhenDisabled={false}
+          renderButtonGroupOutside={false}
+          renderDotsOutside={false}
+          responsive={responsive}
+          rewind={false}
+          rewindWithAnimation={false}
+          rtl={false}
+          shouldResetAutoplay
+          showDots={false}
+          sliderclassName=""
+          slidesToSlide={4}
+          swipeable
+        > */}
+        {/* {data.slice(4, 8).map((i) => (
+          <Card
+            onChangePathData={(e) => handleOnClickChangePath(e)}
+            onChangData={i}
+            key={i.id}
+            onClickFaMagnifyingGlass={handleChildClick}
+          />
+        ))} */}
+        {/* </Carousel> */}
       </div>
     </div>
   );
