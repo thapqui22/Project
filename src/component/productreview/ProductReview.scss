@@ -58,3 +58,12 @@
   border-radius: 5px;
   border: solid 1px black;
 }
+.pbqna_content {
+  font-size: 0.75rem /* 12px */;
+  line-height: 1rem /* 16px */;
+}
+.rating_star {
+  font-size: 18px;
+  --tw-text-opacity: 1;
+  color: rgb(234 179 8 / var(--tw-text-opacity));
+}
