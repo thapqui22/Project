@@ -8,16 +8,15 @@ import {
   faMinus,
   faPlus,
 } from "@fortawesome/free-solid-svg-icons";
-import axios from "axios";
-import "./modal.scss";
 import "react-image-gallery/styles/scss/image-gallery.scss";
 import ImageGallery from "react-image-gallery";
 
-export default function Modal(props) {
-  const [showModal, setShowModal] = useState(false);
+const ProductReview = (props) => {
+  //   const [showModal, setShowModal] = useState(false);
   const [quantity, setQuantity] = useState(1);
   const refQuantity = useRef(1);
   const [selectedSize, setSelectedSize] = useState("XS");
+  const [showDetail, setShowDetail] = useState("Product Info");
   const [selectedColor, setSelectedColor] = useState("RGB");
   const param = {
     id: Number,
@@ -89,19 +88,24 @@ export default function Modal(props) {
     },
   ];
   let url = "https://63f43c77864fb1d600247a6d.mockapi.io/Products/products";
-  const dataRecieveInModal = props.onClickFaMagnifyingGlass;
-  useEffect(() => {
-    if (dataRecieveInModal !== undefined) {
-      console.log(dataRecieveInModal.dataReceive);
-      setShowModal(true);
-    }
-  }, [dataRecieveInModal]);
+  //   const dataRecieveInModal = props.onClickFaMagnifyingGlass;
+  //   useEffect(() => {
+  //     if (dataRecieveInModal !== undefined) {
+  //       console.log(dataRecieveInModal.dataReceive);
+  //       setShowModal(true);
+  //     }
+  //   }, [dataRecieveInModal]);
 
   useEffect(() => {
     setSelectedColor("RGB");
     setSelectedSize("XS");
-    props.onClickCancel(!showModal);
-  }, [showModal]);
+    // props.onClickCancel(!showModal);
+    // console.log(props);
+  }, [props]);
+
+  const onClickShowDetail = (name) => {
+    setShowDetail(name);
+  };
 
   const handlePlusButton = () => {
     setQuantity(quantity + 1);
@@ -129,47 +133,29 @@ export default function Modal(props) {
     param.name = dataRecieveInModal.dataReceive.name;
     param.id = dataRecieveInModal.dataReceive.id;
     param.quantity = quantity;
-    console.log(param);
-  };
-  const handleCancelButton = () => {
-    setShowModal(false);
   };
   return (
-    <>
-      {showModal ? (
-        <>
-          <div className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none">
-            <div className="relative w-auto my-6 mx-auto max-w-[1200px]">
+    <div className="flex justify-center">
+      <div>
+        <div className="flex justify-center w-[1200px] h-[auto] min-h-[700px]">
+          {props.onChangeData !== null ? (
+            <>
+              {/* <div className="relative w-auto my-6 mx-auto max-w-[1200px]"> */}
               {/*content*/}
-              <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
-                {/*header*/}
-                <div className="flex items-start justify-between p-3 border-b border-solid border-slate-200 rounded-t">
-                  <h3 className="text-3xl font-font-robo">
-                    PRODUCT DESCRIPTION
-                  </h3>
-                  <button
-                    className="p-1 ml-auto rounded-lg bg-defaut-color-pink text-xl leading-none "
-                    onClick={() => setShowModal(false)}
-                  >
-                    <FontAwesomeIcon
-                      icon={faXmark}
-                      className="text-white px-[4.25px]"
-                    />
-                  </button>
-                </div>
-
+              <div className="">
                 <div className="p-3 flex flex-row">
                   <div className="flex ">
                     <div className="basis-1/2 px-2">
                       <ImageGallery
                         items={images}
                         showIndex
-                        additionalClass="ImageGalleryContainer"
+                        additionalclassName="ImageGalleryContainer"
                       />
                     </div>
                     <div className="basis-1/2 px-2 flex-col">
                       <h1 className="display-6 flex font-normal font-font-robo">
-                        {dataRecieveInModal.dataReceive.name}
+                        {props.onChangeData.name}
+                        {/* NAME */}
                       </h1>
                       <div className="star py-2">
                         <span>
@@ -230,13 +216,13 @@ export default function Modal(props) {
                           {new Intl.NumberFormat("ja-JP", {
                             style: "currency",
                             currency: "USD",
-                          }).format(dataRecieveInModal.dataReceive.price * 1.2)}
+                          }).format(props.onChangeData.price * 1.2)}
                         </span>
                         <span className="pl-2 font-font-robo text-defaut-color-pink">
                           {new Intl.NumberFormat("ja-JP", {
                             style: "currency",
                             currency: "USD",
-                          }).format(dataRecieveInModal.dataReceive.price)}
+                          }).format(props.onChangeData.price)}
                         </span>
                       </div>
                       <p className="lead pb-2">
@@ -428,11 +414,39 @@ export default function Modal(props) {
                   </div>
                 </div>
               </div>
+            </>
+          ) : (
+            <div>No data to display</div>
+          )}
+        </div>
+        <div>
+          <div className="flex border-b-2 [&>div]:hover:cursor-pointer [&>div]:font-semibold [&>div]:h-[40px] [&>div]:border-b-0 [&>div]:flex [&>div]:items-center  [&>div]:px-4 [&>div]:mr-2 [&>div]:border-solid [&>div]:border-2 [&>div]:border-defaut-color-pink [&>div]:rounded-t-lg ">
+            <div
+              className="pbt_single_btn"
+              onClick={() => onClickShowDetail("Product Info")}
+            >
+              Product Info
+            </div>
+            <div
+              className="pbt_single_btn"
+              onClick={() => onClickShowDetail("Question")}
+            >
+              Question &amp; Answer
+            </div>
+            <div
+              className="pbt_single_btn"
+              onClick={() => onClickShowDetail("Review")}
+            >
+              Review (10)
             </div>
           </div>
-          <div className="opacity-25 fixed inset-0 z-40 bg-black" />
-        </>
-      ) : null}
-    </>
+          <div hidden={showDetail !== "Product Info"}>Product Info</div>
+          <div hidden={showDetail !== "Question"}>Question &amp; Answer</div>
+          <div hidden={showDetail !== "Review"}>Review (10)</div>
+        </div>
+      </div>
+    </div>
   );
-}
+};
+
+export default ProductReview;

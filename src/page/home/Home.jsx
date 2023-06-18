@@ -1,15 +1,18 @@
 import CarouselImage from "../../component/carousel/CarouselImage";
 import Iconadss from "../../component/iconads/IconAdss";
-import React from "react";
+import React, { useState } from "react";
 
 import CarouselTest from "../../component/carousel/CarouselTest";
 
-const Home = () => {
+const Home = (props) => {
+  const onClickChangeData = (data) => {
+    props.onChangeData(data);
+  };
   return (
     <div>
       <CarouselImage />
       <Iconadss />
-      <CarouselTest />
+      <CarouselTest handleOnClickChangePath={onClickChangeData} />
     </div>
   );
 };

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faStar,
@@ -6,11 +7,10 @@ import {
   faMagnifyingGlass,
 } from "@fortawesome/free-solid-svg-icons";
 import "./card.scss";
-import { useStorage } from "../localstorage/LocalStorage";
+
 function Card(props) {
   const recieveData = props.onChangData;
   const [showButton, setShowButton] = useState(false);
-  const [cartItems, setCartItems] = useStorage("cartItems", []);
   const handleMouseEnter = () => {
     setShowButton(true);
   };
@@ -18,7 +18,10 @@ function Card(props) {
   const handleMouseLeave = () => {
     setShowButton(false);
   };
-
+  const onClickCardName = (data) => {
+    props.onChangePathData(data);
+    // console.log(data);
+  };
   const handleClickFaMagnifyingGlass = () => {
     props.onClickFaMagnifyingGlass(recieveData);
   };
@@ -62,8 +65,13 @@ function Card(props) {
           )}
         </div>
         <div className="bottom flex flex-col justify-center items-start p-3">
-          <h4 className="title text-lg font-medium hover:text-defaut-color-pink transition duration-150 ease-out hover:ease-in hover:cursor-pointer pb-1">
-            {recieveData.name}
+          <h4 onClick={() => onClickCardName(recieveData)}>
+            <Link
+              className="title text-lg font-medium hover:text-defaut-color-pink transition duration-150 ease-out hover:ease-in hover:cursor-pointer pb-1 hover:no-underline "
+              to="/productreview"
+            >
+              {recieveData.name}
+            </Link>
           </h4>
           {!showButton && (
             <>

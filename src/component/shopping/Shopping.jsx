@@ -7,7 +7,7 @@ import { toast } from "react-toastify";
 import Card from "../carousel/Card";
 import Modal from "../modal/modal";
 import PaginationShopping from "./PaginationShopping";
-const Shopping = () => {
+const Shopping = (props) => {
   const [, setShowModal] = useState(true);
   const [changeData, setChangeData] = useState();
   const [cartItems, setCartItems] = useStorage("cartItems", []);
@@ -63,6 +63,13 @@ const Shopping = () => {
   const handleColorChange = (e) => {
     setSelectedColorSearch(e.target.value);
   };
+  const handleAddToCart = (newData) => {
+    const data = newData.length + 1; // Replace with the actual data to be passed
+    props.onClickAddToCart(data); // Call the callback function with the data
+  };
+  const handleOnClickChangePath = (data) => {
+    props.handleOnClickChangePath(data);
+  };
   function addtocart(product) {
     const existingCartItem = cartItems.find((item) => item.id === product.id);
     if (existingCartItem) {
@@ -73,16 +80,18 @@ const Shopping = () => {
             : item
         )
       );
-      toast.success("Has adding to cart");
+      toast.success("The quantity has increased");
     } else {
-      setCartItems([...cartItems, { ...product, quantity: 1 }]);
       toast.success("Has adding to cart");
+      setCartItems([...cartItems, { ...product, quantity: 1 }]);
+      handleAddToCart(cartItems);
     }
   }
   const handleChildClick = (dataReceive) => {
     setChangeData({ dataReceive, key: Date.now() });
     setShowModal(false);
   };
+
   const handleSaveMinMax = (min, max) => {
     refPrice.current.min = min;
     refPrice.current.max = max;
@@ -164,7 +173,7 @@ const Shopping = () => {
         </div>
         <div className="shop_filter [&>div]:py-1">
           <h4 className="custom_check ">
-            BRANDS{" "}
+            BRANDS
             {selectedCategory ? (
               <i className="las la-angle-down"></i>
             ) : (
@@ -311,9 +320,6 @@ const Shopping = () => {
             </div>
           </div>
         </div>
-        {/* <div>
-          <input type="text" placeholder="Search by name" />
-        </div> */}
         <div>
           <button
             className="btnsearch"
@@ -334,6 +340,7 @@ const Shopping = () => {
               <Card
                 onChangData={item}
                 key={item.id}
+                onChangePathData={(e) => handleOnClickChangePath(e)}
                 onClickFaMagnifyingGlass={handleChildClick}
                 onClickAddtoCartButton={(e) => addtocart(e)}
               />
