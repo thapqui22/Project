@@ -40,10 +40,6 @@ function App() {
   };
   return (
     <>
-<<<<<<< HEAD
-      {/* <button onClick={() => handleOnClick(true)}>Check</button> */}
-=======
->>>>>>> e94cc801049226d309f61f85e3abfcf347b83af0
       <ToastContainer />
       <Header />
       <NewMenuBar onChangeDataRefresh={data} />
