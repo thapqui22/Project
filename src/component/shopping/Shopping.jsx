@@ -8,7 +8,7 @@ import Card from "../carousel/Card";
 import Modal from "../modal/modal";
 import PaginationShopping from "./PaginationShopping";
 const Shopping = (props) => {
-  const [, setShowModal] = useState(true);
+  const [showModal, setShowModal] = useState(true);
   const [changeData, setChangeData] = useState();
   const [cartItems, setCartItems] = useStorage("cartItems", []);
   let url = "https://63f43c77864fb1d600247a6d.mockapi.io/Products/products";

@@ -182,6 +182,41 @@ const CarouselTest = (props) => {
           draggable
           focusOnSelect={false}
           infinite
+          itemclassName="item "
+          keyBoardControl
+          minimumTouchDrag={80}
+          renderArrowsWhenDisabled={false}
+          renderButtonGroupOutside={false}
+          renderDotsOutside={false}
+          responsive={responsive}
+          rewind={false}
+          rewindWithAnimation={false}
+          rtl={false}
+          shouldResetAutoplay
+          showDots={false}
+          sliderclassName=""
+          slidesToSlide={4}
+          swipeable
+        >
+          {data.slice(4, 8).map((i) => (
+            <Card
+              onChangePathData={(e) => handleOnClickChangePath(e)}
+              onChangData={i}
+              key={i.id}
+              onClickFaMagnifyingGlass={handleChildClick}
+            />
+          ))}
+        </Carousel>
+        <Carousel
+          arrows={false}
+          additionalTransfrom={0}
+          centerMode={false}
+          className=""
+          containerclassName="container-with-dots"
+          dotListclassName=""
+          draggable
+          focusOnSelect={false}
+          infinite
           itemclassName="item"
           keyBoardControl
           minimumTouchDrag={80}

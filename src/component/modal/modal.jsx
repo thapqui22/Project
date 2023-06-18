@@ -159,271 +159,269 @@ export default function Modal(props) {
                 </div>
 
                 <div className="p-3 flex flex-row">
-                  <div className="flex ">
-                    <div className="basis-1/2 px-2">
-                      <ImageGallery
-                        items={images}
-                        showIndex
-                        additionalClass="ImageGalleryContainer"
-                      />
+                  <div className="basis-1/2 px-2">
+                    <ImageGallery
+                      items={images}
+                      showIndex
+                      additionalClass="ImageGalleryContainer"
+                    />
+                  </div>
+                  <div className="basis-1/2 px-2 flex-col">
+                    <h1 className="display-6 flex font-normal font-font-robo">
+                      {dataRecieveInModal.dataReceive.name}
+                    </h1>
+                    <div className="star py-2">
+                      <span>
+                        <FontAwesomeIcon
+                          className="pr-1"
+                          icon={faStar}
+                          style={{ color: "#f6bc3e" }}
+                        />
+                      </span>
+                      <span>
+                        <FontAwesomeIcon
+                          className="pr-1"
+                          icon={faStar}
+                          style={{ color: "#f6bc3e" }}
+                        />
+                      </span>
+                      <span>
+                        <FontAwesomeIcon
+                          icon={faStar}
+                          className="pr-1"
+                          style={{ color: "#f6bc3e" }}
+                        />
+                      </span>
+                      <span>
+                        <FontAwesomeIcon
+                          icon={faStar}
+                          className="pr-1"
+                          style={{ color: "#f6bc3e" }}
+                        />
+                      </span>
+                      <span>
+                        <FontAwesomeIcon
+                          icon={faStar}
+                          className="pr-1"
+                          style={{ color: "#f6bc3e" }}
+                        />
+                      </span>
+                      <span>(150 Review)</span>
                     </div>
-                    <div className="basis-1/2 px-2 flex-col">
-                      <h1 className="display-6 flex font-normal font-font-robo">
-                        {dataRecieveInModal.dataReceive.name}
-                      </h1>
-                      <div className="star py-2">
-                        <span>
-                          <FontAwesomeIcon
-                            className="pr-1"
-                            icon={faStar}
-                            style={{ color: "#f6bc3e" }}
-                          />
-                        </span>
-                        <span>
-                          <FontAwesomeIcon
-                            className="pr-1"
-                            icon={faStar}
-                            style={{ color: "#f6bc3e" }}
-                          />
-                        </span>
-                        <span>
-                          <FontAwesomeIcon
-                            icon={faStar}
-                            className="pr-1"
-                            style={{ color: "#f6bc3e" }}
-                          />
-                        </span>
-                        <span>
-                          <FontAwesomeIcon
-                            icon={faStar}
-                            className="pr-1"
-                            style={{ color: "#f6bc3e" }}
-                          />
-                        </span>
-                        <span>
-                          <FontAwesomeIcon
-                            icon={faStar}
-                            className="pr-1"
-                            style={{ color: "#f6bc3e" }}
-                          />
-                        </span>
-                        <span>(150 Review)</span>
-                      </div>
-                      <div className="product_other_info">
-                        <p>
-                          <span className="text-semibold">Availability:</span>
-                          <span className="text-[green]">In Stock</span>
-                        </p>
-                        <p>
-                          <span className="text-semibold">Brand:</span>Amazon
-                        </p>
-                        <p>
-                          <span className="text-semibold ">Category:</span>
-                          Fish
-                        </p>
-                        <p>
-                          <span className="text-semibold">SKU:</span>BE45VGRT
-                        </p>
-                      </div>
-                      <div className="fs-5 pb-2">
-                        <span className="text-decoration-line-through text-sm">
-                          {new Intl.NumberFormat("ja-JP", {
-                            style: "currency",
-                            currency: "USD",
-                          }).format(dataRecieveInModal.dataReceive.price * 1.2)}
-                        </span>
-                        <span className="pl-2 font-font-robo text-defaut-color-pink">
-                          {new Intl.NumberFormat("ja-JP", {
-                            style: "currency",
-                            currency: "USD",
-                          }).format(dataRecieveInModal.dataReceive.price)}
-                        </span>
-                      </div>
-                      <p className="lead pb-2">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Praesentium at dolorem quidem modi. Nam sequi vero? eius
-                        blanditiis delectus minima ea iste laborum...
-                        <a
-                          href="#"
-                          className="detail hover:text-defaut-color-pink hover:no-underline "
-                        >
-                          See more
-                        </a>
+                    <div className="product_other_info">
+                      <p>
+                        <span className="text-semibold">Availability:</span>
+                        <span className="text-[green]">In Stock</span>
                       </p>
+                      <p>
+                        <span className="text-semibold">Brand:</span>Amazon
+                      </p>
+                      <p>
+                        <span className="text-semibold ">Category:</span>
+                        Fish
+                      </p>
+                      <p>
+                        <span className="text-semibold">SKU:</span>BE45VGRT
+                      </p>
+                    </div>
+                    <div className="fs-5 pb-2">
+                      <span className="text-decoration-line-through text-sm">
+                        {new Intl.NumberFormat("ja-JP", {
+                          style: "currency",
+                          currency: "USD",
+                        }).format(dataRecieveInModal.dataReceive.price * 1.2)}
+                      </span>
+                      <span className="pl-2 font-font-robo text-defaut-color-pink">
+                        {new Intl.NumberFormat("ja-JP", {
+                          style: "currency",
+                          currency: "USD",
+                        }).format(dataRecieveInModal.dataReceive.price)}
+                      </span>
+                    </div>
+                    <p className="lead pb-2">
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                      Praesentium at dolorem quidem modi. Nam sequi vero? eius
+                      blanditiis delectus minima ea iste laborum...
+                      <a
+                        href="#"
+                        className="detail hover:text-defaut-color-pink hover:no-underline "
+                      >
+                        See more
+                      </a>
+                    </p>
+                    <div className="shop_filter border-bottom-0 pb-0">
+                      <div className="radio-toolbar">
+                        <h5>Size:</h5>
+                        <div className="flex w-52 justify-between items-center">
+                          <input
+                            type="radio"
+                            name="size"
+                            value="XS"
+                            className="size_inp"
+                            id="size-xs"
+                            onChange={handleSizeChange}
+                            checked={selectedSize === "XS"}
+                          />
+                          <label htmlFor="size-xs">XS</label>
+
+                          <input
+                            type="radio"
+                            name="size"
+                            value="S"
+                            className="size_inp"
+                            id="size-s"
+                            onChange={handleSizeChange}
+                            checked={selectedSize === "S"}
+                          />
+                          <label htmlFor="size-s">S</label>
+
+                          <input
+                            type="radio"
+                            name="size"
+                            value="M"
+                            className="size_inp"
+                            id="size-m"
+                            onChange={handleSizeChange}
+                            checked={selectedSize === "M"}
+                          />
+                          <label htmlFor="size-m">M</label>
+
+                          <input
+                            type="radio"
+                            name="size"
+                            value="L"
+                            className="size_inp"
+                            id="size-l"
+                            onChange={handleSizeChange}
+                            checked={selectedSize === "L"}
+                          />
+                          <label htmlFor="size-l">L</label>
+
+                          <input
+                            type="radio"
+                            name="size"
+                            value="XL"
+                            className="size_inp"
+                            id="size-xl"
+                            onChange={handleSizeChange}
+                            checked={selectedSize === "XL"}
+                          />
+                          <label htmlFor="size-xl">XL</label>
+                        </div>
+                      </div>
                       <div className="shop_filter border-bottom-0 pb-0">
-                        <div className="radio-toolbar">
-                          <h5>Size:</h5>
-                          <div className="flex w-52 justify-between items-center">
+                        <div className="radio-toolbar-color">
+                          <h5>Color:</h5>
+                          <div className="flex w-auto  items-center">
                             <input
                               type="radio"
-                              name="size"
-                              value="XS"
-                              className="size_inp"
-                              id="size-xs"
-                              onChange={handleSizeChange}
-                              checked={selectedSize === "XS"}
+                              hidden=""
+                              name="color"
+                              value="RGB"
+                              className="size_inp-1"
+                              id="color-RGB"
+                              onChange={handleColorChange}
+                              checked={selectedColor === "RGB"}
                             />
-                            <label htmlFor="size-xs">XS</label>
-
-                            <input
-                              type="radio"
-                              name="size"
-                              value="S"
-                              className="size_inp"
-                              id="size-s"
-                              onChange={handleSizeChange}
-                              checked={selectedSize === "S"}
-                            />
-                            <label htmlFor="size-s">S</label>
+                            <label htmlFor="color-RGB">RGB</label>
 
                             <input
                               type="radio"
-                              name="size"
-                              value="M"
-                              className="size_inp"
-                              id="size-m"
-                              onChange={handleSizeChange}
-                              checked={selectedSize === "M"}
+                              hidden=""
+                              name="color"
+                              value="WRGB"
+                              className="size_inp-1"
+                              id="color-WRGB"
+                              onChange={handleColorChange}
+                              checked={selectedColor === "WRGB"}
                             />
-                            <label htmlFor="size-m">M</label>
+                            <label htmlFor="color-WRGB">WRGB</label>
 
                             <input
                               type="radio"
-                              name="size"
-                              value="L"
-                              className="size_inp"
-                              id="size-l"
-                              onChange={handleSizeChange}
-                              checked={selectedSize === "L"}
+                              hidden=""
+                              name="color"
+                              value="WRGB-UV"
+                              className="size_inp-1"
+                              id="color-WRGB-UV"
+                              onChange={handleColorChange}
+                              checked={selectedColor === "WRGB-UV"}
                             />
-                            <label htmlFor="size-l">L</label>
-
-                            <input
-                              type="radio"
-                              name="size"
-                              value="XL"
-                              className="size_inp"
-                              id="size-xl"
-                              onChange={handleSizeChange}
-                              checked={selectedSize === "XL"}
-                            />
-                            <label htmlFor="size-xl">XL</label>
-                          </div>
-                        </div>
-                        <div className="shop_filter border-bottom-0 pb-0">
-                          <div className="radio-toolbar-color">
-                            <h5>Color:</h5>
-                            <div className="flex w-auto  items-center">
-                              <input
-                                type="radio"
-                                hidden=""
-                                name="color"
-                                value="RGB"
-                                className="size_inp-1"
-                                id="color-RGB"
-                                onChange={handleColorChange}
-                                checked={selectedColor === "RGB"}
-                              />
-                              <label htmlFor="color-RGB">RGB</label>
-
-                              <input
-                                type="radio"
-                                hidden=""
-                                name="color"
-                                value="WRGB"
-                                className="size_inp-1"
-                                id="color-WRGB"
-                                onChange={handleColorChange}
-                                checked={selectedColor === "WRGB"}
-                              />
-                              <label htmlFor="color-WRGB">WRGB</label>
-
-                              <input
-                                type="radio"
-                                hidden=""
-                                name="color"
-                                value="WRGB-UV"
-                                className="size_inp-1"
-                                id="color-WRGB-UV"
-                                onChange={handleColorChange}
-                                checked={selectedColor === "WRGB-UV"}
-                              />
-                              <label htmlFor="color-WRGB-UV">WRGB-UV</label>
-                            </div>
+                            <label htmlFor="color-WRGB-UV">WRGB-UV</label>
                           </div>
                         </div>
                       </div>
-                      <div className="">
-                        <p className="pb-1 font-font-robo text-xl">Quantity</p>
-                        <div className="quanlityContainer flex align-items-center w-auto">
-                          <button className="minus flex align-items-center justify-center hover:bg-slate-200">
-                            <FontAwesomeIcon
-                              className="p-2"
-                              icon={faMinus}
-                              onClick={handleMinusButton}
-                            />
-                          </button>
-                          <div className="inputmp flex align-items-center justify-center p-1">
-                            <input
-                              className="text-center max-w-[50px] "
-                              value={quantity}
-                              readOnly
-                            />
-                          </div>
-                          <button className="plus flex align-items-center justify-cente hover:bg-slate-200">
-                            <FontAwesomeIcon
-                              className="p-2 "
-                              icon={faPlus}
-                              onClick={handlePlusButton}
-                            />
-                          </button>
-                        </div>
-                      </div>
-                      <div className="d-flex pt-4 pb-3 border-b-2">
-                        <button
-                          className="btnadd"
-                          type="button"
-                          onClick={handleAddToCartButton}
-                        >
+                    </div>
+                    <div className="">
+                      <p className="pb-1 font-font-robo text-xl">Quantity</p>
+                      <div className="quanlityContainer flex align-items-center w-auto">
+                        <button className="minus flex align-items-center justify-center hover:bg-slate-200">
                           <FontAwesomeIcon
-                            icon={faCartShopping}
-                            className="pr-2 hover:text-white"
+                            className="p-2"
+                            icon={faMinus}
+                            onClick={handleMinusButton}
                           />
-                          ADD TO CART
                         </button>
-                        <button
-                          className="btnwishlist "
-                          type="button"
-                          onClick={handleWishListButton}
-                        >
-                          <FontAwesomeIcon
-                            icon={faHeart}
-                            className="pr-2 hover:text-defaut-color-pink"
+                        <div className="inputmp flex align-items-center justify-center p-1">
+                          <input
+                            className="text-center max-w-[50px] "
+                            value={quantity}
+                            readOnly
                           />
-                          WISHLIST
+                        </div>
+                        <button className="plus flex align-items-center justify-cente hover:bg-slate-200">
+                          <FontAwesomeIcon
+                            className="p-2 "
+                            icon={faPlus}
+                            onClick={handlePlusButton}
+                          />
                         </button>
                       </div>
-                      <div className="iconfooter w-44 flex justify-around text-sm pt-2">
-                        <a
-                          href="#"
-                          className="py-2 px-[11px] rounded-full transition ease-in-out  hover:bg-[#e9e4e4] hover:text-black"
-                        >
-                          <i className="lab la-facebook-f text-sm"></i>
-                        </a>
-                        <a
-                          href="#"
-                          className="py-2 px-[12px] rounded-full hover:bg-[#e9e4e4] hover:text-black"
-                        >
-                          <i className="fa-brands fa-instagram text-sm"></i>
-                        </a>
-                        <a
-                          href="#"
-                          className="py-2 px-[11px] rounded-full hover:bg-[#e9e4e4] hover:text-black"
-                        >
-                          <i className="fa-brands fa-twitter text-sm"></i>
-                          {/* <FontAwesomeIcon icon={faInstagram} /> */}
-                        </a>
-                      </div>
+                    </div>
+                    <div className="d-flex pt-4 pb-3 border-b-2">
+                      <button
+                        className="btnadd"
+                        type="button"
+                        onClick={handleAddToCartButton}
+                      >
+                        <FontAwesomeIcon
+                          icon={faCartShopping}
+                          className="pr-2 hover:text-white"
+                        />
+                        ADD TO CART
+                      </button>
+                      <button
+                        className="btnwishlist "
+                        type="button"
+                        onClick={handleWishListButton}
+                      >
+                        <FontAwesomeIcon
+                          icon={faHeart}
+                          className="pr-2 hover:text-defaut-color-pink"
+                        />
+                        WISHLIST
+                      </button>
+                    </div>
+                    <div className="iconfooter w-44 flex justify-around text-sm pt-2">
+                      <a
+                        href="#"
+                        className="py-2 px-[11px] rounded-full transition ease-in-out  hover:bg-[#e9e4e4] hover:text-black"
+                      >
+                        <i className="lab la-facebook-f text-sm"></i>
+                      </a>
+                      <a
+                        href="#"
+                        className="py-2 px-[12px] rounded-full hover:bg-[#e9e4e4] hover:text-black"
+                      >
+                        <i className="fa-brands fa-instagram text-sm"></i>
+                      </a>
+                      <a
+                        href="#"
+                        className="py-2 px-[11px] rounded-full hover:bg-[#e9e4e4] hover:text-black"
+                      >
+                        <i className="fa-brands fa-twitter text-sm"></i>
+                        {/* <FontAwesomeIcon icon={faInstagram} /> */}
+                      </a>
                     </div>
                   </div>
                 </div>
