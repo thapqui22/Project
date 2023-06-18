@@ -43,8 +43,8 @@ function App() {
       <ToastContainer />
       <Header />
       <NewMenuBar onChangeDataRefresh={data} />
-      <div className="py-3  flex justify-center items-center">
-        <div className="flex w-[1140px] items-center [&>*]:pr-1">
+      <div className="py-3 flex justify-center items-center">
+        <div className="flex w-[1200px] items-center [&>*]:pr-1">
           <img
             src="https://img.icons8.com/material-outlined/24/home--v2.png"
             alt="home--v2"
