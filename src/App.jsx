@@ -13,6 +13,7 @@ import ReactQuillTest from "./component/reactquilljs/ReactQuillTest";
 import NewMenuBar from "./component/menubar/NewMenuBar";
 import Header from "./component/header/Header";
 import ProductReview from "./component/productreview/ProductReview";
+import TestPage from "./component/testpage/TestPage";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "react-toastify/dist/ReactToastify.css";
 import "./index.css";
@@ -104,6 +105,7 @@ function App() {
             />
           }
         />
+        <Route path="/testpage" element={<TestPage />} />
       </Routes>
       <Footer />
     </>

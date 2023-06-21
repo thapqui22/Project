@@ -68,6 +68,11 @@ const Header = () => {
                         <Link to="/productreview">Product Review</Link>
                       </div>
                     </li>
+                    <li>
+                      <div className="flex hover:text-defaut-color">
+                        <Link to="/testpage">Test Page</Link>
+                      </div>
+                    </li>
                   </div>
                 </ul>
               </li>

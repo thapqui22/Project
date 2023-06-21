@@ -9,11 +9,13 @@ import {
   faPlus,
 } from "@fortawesome/free-solid-svg-icons";
 import "react-image-gallery/styles/scss/image-gallery.scss";
+import TestPage from "../testpage/TestPage";
 import ImageGallery from "react-image-gallery";
 import "./ProductReview.scss";
 import Card from "../carousel/Card";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
+import axios from "axios";
 import TopRankingCard from "../toprankingcard/TopRankingCard";
 const ProductReview = (props) => {
   //   const [showModal, setShowModal] = useState(false);
@@ -110,16 +112,17 @@ const ProductReview = (props) => {
     },
   ];
   let url = "https://63f43c77864fb1d600247a6d.mockapi.io/Products/products";
-
   useEffect(() => {
-    setSelectedColor("RGB");
-    setSelectedSize("XS");
     const fetchData = async () => {
       const response = await axios.get(url);
       setData(response.data);
     };
     fetchData();
-  }, [props]);
+  }, []);
+  useEffect(() => {
+    setSelectedColor("RGB");
+    setSelectedSize("XS");
+  }, []);
   // useEffect(() => {
   //   const fetchData = async () => {
   //     const response = await axios.get(url);
@@ -419,7 +422,9 @@ const ProductReview = (props) => {
           <div className="flex border-b-[1px] [&>div]:hover:cursor-pointer [&>div]:font-semibold [&>div]:h-[40px] [&>div]:border-b-0 [&>div]:flex [&>div]:items-center  [&>div]:px-4 [&>div]:mr-2 [&>div]:border-solid [&>div]:border-2 [&>div]:border-defaut-color-pink [&>div]:rounded-t-lg ">
             <div
               className={
-                showDetail === "Product Info" ? "text-defaut-color-pink" : false
+                showDetail === "Product Info"
+                  ? "text-defaut-color-pink"
+                  : undefined
               }
               onClick={() => onClickShowDetail("Product Info")}
             >
@@ -427,7 +432,7 @@ const ProductReview = (props) => {
             </div>
             <div
               className={
-                showDetail === "Question" ? "text-defaut-color-pink" : false
+                showDetail === "Question" ? "text-defaut-color-pink" : undefined
               }
               onClick={() => onClickShowDetail("Question")}
             >
@@ -435,7 +440,7 @@ const ProductReview = (props) => {
             </div>
             <div
               className={
-                showDetail === "Review" ? "text-defaut-color-pink" : false
+                showDetail === "Review" ? "text-defaut-color-pink" : undefined
               }
               onClick={() => onClickShowDetail("Review")}
             >
@@ -774,41 +779,6 @@ const ProductReview = (props) => {
             </div>
           </div>
         </div>
-        {/* <Carousel
-          arrows={false}
-          additionalTransfrom={0}
-          centerMode={false}
-          className=""
-          containerclassName="container-with-dots"
-          dotListclassName=""
-          draggable
-          focusOnSelect={false}
-          infinite
-          itemclassName="item "
-          keyBoardControl
-          minimumTouchDrag={80}
-          renderArrowsWhenDisabled={false}
-          renderButtonGroupOutside={false}
-          renderDotsOutside={false}
-          responsive={responsive}
-          rewind={false}
-          rewindWithAnimation={false}
-          rtl={false}
-          shouldResetAutoplay
-          showDots={false}
-          sliderclassName=""
-          slidesToSlide={4}
-          swipeable
-        > */}
-        {/* {data.slice(4, 8).map((i) => (
-          <Card
-            onChangePathData={(e) => handleOnClickChangePath(e)}
-            onChangData={i}
-            key={i.id}
-            onClickFaMagnifyingGlass={handleChildClick}
-          />
-        ))} */}
-        {/* </Carousel> */}
       </div>
     </div>
   );
