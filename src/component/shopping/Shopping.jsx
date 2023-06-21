@@ -5,7 +5,7 @@ import { useStorage } from "../localstorage/LocalStorage";
 import axios from "axios";
 import { toast } from "react-toastify";
 import Card from "../carousel/Card";
-import Modal from "../modal/modal";
+import Modal from "../modal/Modal";
 import PaginationShopping from "./PaginationShopping";
 import LoadingModal from "../loadingmodal/LoadingModal";
 const Shopping = (props) => {
