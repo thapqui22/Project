@@ -103,7 +103,7 @@ const Header = () => {
                       </a>
                     </li>
                     <li>
-                      <a href="#" className="flex hover:text-defaut-color">
+                      <a href="/faq" className="flex hover:text-defaut-color">
                         FAQ
                       </a>
                     </li>{" "}
