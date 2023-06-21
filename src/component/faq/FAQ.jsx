@@ -2,7 +2,7 @@ import React from "react";
 
 const FAQ = () => {
   return (
-    <div className="flex justify-center pb-5">
+    <div className="flex justify-center pb-4">
       <div className="w-[1200px]">
         <h2 className="section_title_2 mb-2">F.A.Q</h2>
         <p className="mb-4 pb-2">
