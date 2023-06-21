@@ -108,7 +108,10 @@ const Header = () => {
                       </a>
                     </li>{" "}
                     <li>
-                      <a href="#" className="flex hover:text-defaut-color">
+                      <a
+                        href="/404pagenotfound"
+                        className="flex hover:text-defaut-color"
+                      >
                         404
                       </a>
                     </li>
