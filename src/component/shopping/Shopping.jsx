@@ -7,6 +7,7 @@ import { toast } from "react-toastify";
 import Card from "../carousel/Card";
 import Modal from "../modal/modal";
 import PaginationShopping from "./PaginationShopping";
+import LoadingModal from "../loadingmodal/LoadingModal";
 const Shopping = (props) => {
   const [showModal, setShowModal] = useState(true);
   const [changeData, setChangeData] = useState();
@@ -30,6 +31,8 @@ const Shopping = (props) => {
   const [selectedCategory, setSelectedCategory] = useState("");
   const [selectedBrands, setSelectedBrands] = useState([]);
   const [dataStatus, setDataStatus] = useState(true);
+  const [loadingTime, setLoadingTime] = useState(0);
+  const [isLoading, setIsLoading] = useState(true);
   const paramCategory = {
     phone: ["IPHONE", "SAMSUNG", "HUAWEI", "OPPO", "VIVO", "REALME"],
     laptop: ["ACER", "LENOVO", "HP", "DELL", "ASUS", "SAMSUNG", "XIAOMI"],
@@ -46,12 +49,26 @@ const Shopping = (props) => {
       setDropdownVisible(false);
     }
   };
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     const response = await axios.get(url);
+  //     const filteredData = handleSearched(response.data);
+  //     setData(filteredData);
+  //   };
+  //   fetchData();
+  // }, [dataStatus]);
   useEffect(() => {
     const fetchData = async () => {
+      const startTime = Date.now(); // Store the start time
       const response = await axios.get(url);
       const filteredData = handleSearched(response.data);
       setData(filteredData);
+      const endTime = Date.now(); // Calculate the end time
+      const timeDiff = endTime - startTime; // Calculate the loading time
+      setLoadingTime(timeDiff);
+      setIsLoading(false);
     };
+
     fetchData();
   }, [dataStatus]);
   const handleClickChangePage = (data) => {
@@ -336,6 +353,7 @@ const Shopping = (props) => {
         />
         <div className="containers">
           <div className="containershop">
+            {isLoading ? <LoadingModal /> : <div />}
             {currentItems.map((item) => (
               <Card
                 onChangData={item}
