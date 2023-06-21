@@ -14,10 +14,12 @@ import NewMenuBar from "./component/menubar/NewMenuBar";
 import Header from "./component/header/Header";
 import ProductReview from "./component/productreview/ProductReview";
 import TestPage from "./component/testpage/TestPage";
+import PageNotFound from "./component/404pagenotfound/PageNotFound";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "react-toastify/dist/ReactToastify.css";
 import "./index.css";
 import { useStorage } from "./component/localstorage/LocalStorage";
+import FAQ from "./component/faq/FAQ";
 
 function App() {
   const [cartItems] = useStorage("cartItems", []);
@@ -81,9 +83,10 @@ function App() {
         />
         <Route path="/tankmodel" element={<TankModel />} />
         <Route path="/manage" element={<ManageProducts />} />
+        <Route path="/404pagenotfound" element={<PageNotFound />} />
+        <Route path="/faq" element={<FAQ />} />
         <Route
           path="/productreview/"
-          // path={`/productreview/${dataForPreview.name}`}
           element={<ProductReview onChangeData={dataForPreview} />}
         />
         <Route

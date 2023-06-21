@@ -101,14 +101,22 @@ const ShoppingCart = (props) => {
             <div className="pb-3">
               <div className="shopcartwrap block text-center border rounded-lg border-gray-300">
                 <div className="flex p-[20px]">
-                  <div className="flex basis-1/2 ">
-                    <img className="w-[200px] h-[150px]" src={i.image} />
-                    <div className="[&>h4]:pb-3 pt-4 pl-2">
-                      <h4 className="text-start font-semibold">{i.name}</h4>
-                      <p className="text-start font-semibold text-defaut-color">
-                        ${i.price}
-                      </p>
-                      <p className="text-start ">Model: 128G</p>
+                  <div className="flex basis-1/2">
+                    {/* <img className="w-[150px] h-[100px]" src={i.image} /> */}
+                    <img
+                      className="w-[150px] h-[125px]"
+                      src="https://vtv1.mediacdn.vn/zoom/640_400/2022/9/8/apple-iphone-14-pro-iphone-14-pro-max-hero-220907full-bleed-imagejpglarge-16625918306101560026184.jpg"
+                    />
+                    <div className="flex ">
+                      <div className="flex items-center">
+                        <div className="[&>h4]:pb-3 pl-2">
+                          <h4 className="text-start font-semibold">{i.name}</h4>
+                          <p className="text-start font-semibold text-defaut-color">
+                            ${i.price}
+                          </p>
+                          <p className="text-start">Model: 128G</p>
+                        </div>
+                      </div>
                     </div>
                   </div>
                   <div className="basis-1/4 flex justify-center">
