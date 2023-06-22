@@ -7,7 +7,7 @@ $defaut-color-pink: #fc3d57;
 }
 .navContainerMenu {
   height: 45px;
-  max-width: 1140px;
+  max-width: 1200px;
   width: 100%;
   min-width: 1000px;
   display: flex;
@@ -68,4 +68,49 @@ $defaut-color-pink: #fc3d57;
   font-weight: bold;
   border-radius: 50%;
   z-index: 9; /* set a high z-index value to make sure the badge appears on top of other elements */
+}
+
+$defaut-color-black: black;
+$defaut-color-white: white;
+$defaut-color-pink: #fc3d57;
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+// @media only screen and (min-width: 768px) {
+@media only screen {
+  .parent:hover .child {
+    opacity: 1;
+    height: auto;
+    overflow: none;
+    transform: translateY(0);
+    z-index: 10;
+    box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1),
+      0 8px 10px -6px rgb(0 0 0 / 0.1);
+  }
+  .child {
+    z-index: 0;
+    opacity: 0;
+    height: 0;
+    overflow: hidden;
+    transform: translateY(-10%);
+  }
+}
+.headernavbar {
+  // width: 1200px !important;
+  width: 100% !important;
+  height: auto;
+  a .las {
+    transition: transform 0.3s;
+  }
+  a:hover .las {
+    transform: rotate(180deg);
+  }
+  a:hover {
+    color: #fc3d57;
+    text-decoration-line: none;
+  }
+  span {
+    font-family: "Poppins", sans-serif !important;
+  }
+  span:hover {
+    cursor: pointer;
+  }
 }

@@ -2,7 +2,8 @@ $defaut-color-black: black;
 $defaut-color-white: white;
 $defaut-color-pink: #fc3d57;
 @import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
-@media only screen and (min-width: 768px) {
+// @media only screen and (min-width: 768px) {
+@media only screen {
   .parent:hover .child {
     opacity: 1;
     height: auto;
@@ -17,11 +18,8 @@ $defaut-color-pink: #fc3d57;
     transform: translateY(-10%);
   }
 }
-// .containernavbar {
-//   font-family: "Poppins", sans-serif !important;
-// }
 .headernavbar {
-  width: 1140px !important;
+  // width: 1200px !important;
   width: 100% !important;
   height: auto;
   a .las {
@@ -41,17 +39,17 @@ $defaut-color-pink: #fc3d57;
     cursor: pointer;
   }
 }
-@keyframes dropdown-animation {
-  from {
-    transform: scaleY(0);
-    opacity: 0;
-  }
-  to {
-    transform: scaleY(1);
-    opacity: 1;
-  }
-}
+// @keyframes dropdown-animation {
+//   from {
+//     transform: scaleY(0);
+//     opacity: 0;
+//   }
+//   to {
+//     transform: scaleY(1);
+//     opacity: 1;
+//   }
+// }
 
-.nice_select select {
-  animation: dropdown-animation 0.5s ease-out;
-}
+// .nice_select select {
+//   animation: dropdown-animation 0.5s ease-out;
+// }

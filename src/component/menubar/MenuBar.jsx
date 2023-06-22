@@ -5,8 +5,8 @@ const MenuBar = () => {
   return (
     <>
       <div className="containernavbar bg-white flex justify-center">
-        <div className="w-[1140px]">
-          <nav className="headernavbar flex  items-center relative">
+        <div className="w-[1200px]">
+          <nav className="headernavbar flex items-center relative">
             <div className="[&>img]:w-[180px]">
               <img
                 src="//bizweb.dktcdn.net/100/344/954/themes/705100/assets/logo.png?1672232161194"
