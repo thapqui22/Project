@@ -10,8 +10,8 @@ import ManageProducts from "./component/manageproducts/ManageProducts";
 import Shopping from "./component/shopping/Shopping";
 import ReactQuillJs from "./component/reactquilljs/ReactQuillJs";
 import ReactQuillTest from "./component/reactquilljs/ReactQuillTest";
-import NewMenuBar from "./component/menubar/NewMenuBar";
-import Header from "./component/header/Header";
+import SearchBar from "./component/searchbar/SearchBar";
+import MenuBar from "./component/menubar/MenuBar";
 import ProductReview from "./component/productreview/ProductReview";
 import TestPage from "./component/testpage/TestPage";
 import PageNotFound from "./component/404pagenotfound/PageNotFound";
@@ -44,8 +44,8 @@ function App() {
   return (
     <>
       <ToastContainer />
-      <Header />
-      <NewMenuBar onChangeDataRefresh={data} />
+      <MenuBar />
+      <SearchBar onChangeDataRefresh={data} />
       <div className="py-3 flex justify-center items-center">
         <div className="flex w-[1200px] items-center [&>*]:pr-1">
           <img
@@ -110,7 +110,9 @@ function App() {
         />
         <Route path="/testpage" element={<TestPage />} />
       </Routes>
-      <Footer />
+      <div className="mt-2">
+        <Footer />
+      </div>
     </>
   );
 }

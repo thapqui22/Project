@@ -266,7 +266,6 @@ const CarouselTest = (props) => {
                   Subscribe
                 </button>
               </form>
-
               <div className="flex">
                 <a href="/">
                   <img

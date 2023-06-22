@@ -1,0 +1,71 @@
+$defaut-color-pink: #fc3d57;
+.navbar {
+  background-color: $defaut-color-pink;
+  display: flex !important;
+  justify-content: center !important;
+  max-width: 100%;
+}
+.navContainerMenu {
+  height: 45px;
+  max-width: 1140px;
+  width: 100%;
+  min-width: 1000px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  input {
+    border-left: 1px solid black;
+    outline: none;
+  }
+  select {
+    outline: none;
+  }
+}
+
+.popscart {
+  position: absolute;
+  top: -2px;
+  right: 54px;
+  background-color: #2b2d42;
+  color: white;
+  font-size: 8px;
+  font-weight: bold;
+  border-radius: 50%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  height: 18px;
+  width: 18px;
+  z-index: 9;
+}
+
+.containerNarbarIcon {
+  position: relative;
+  a {
+    text-decoration-line: none;
+  }
+  :hover {
+    i {
+      opacity: 0.8;
+    }
+    color: white;
+  }
+}
+.popsheart {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  height: 18px;
+  width: 18px;
+  position: absolute;
+  top: -2px;
+  right: 104px;
+  background-color: #2b2d42;
+  color: white;
+  font-size: 8px;
+  font-weight: bold;
+  border-radius: 50%;
+  z-index: 9; /* set a high z-index value to make sure the badge appears on top of other elements */
+}

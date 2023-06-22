@@ -5,7 +5,7 @@ const Footer = () => {
     <div>
       <div className="footer bg-[#f3f3f3]">
         <div className="w-[1200px]">
-          <div className="flex h-[250px] w-[100%]  [&>div]:flex-1 py-10 px-2">
+          <div className="flex h-[250px] w-[100%]  [&>div]:flex-1 py-10 ">
             <div className="">
               <div className="">
                 <div className="">

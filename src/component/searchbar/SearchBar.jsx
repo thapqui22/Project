@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useRef } from "react";
-import "./menubar.scss";
+import "./searchbar.scss";
 import { useStorage } from "../localstorage/LocalStorage";
 import axios from "axios";
 
-const NewMenuBar = (props) => {
+const SearchBar = (props) => {
   const [data, setData] = useState(null);
   const [cartItems, setCartItems] = useStorage("cartItems", []);
   let url = "https://63f43c77864fb1d600247a6d.mockapi.io/Products/products";
@@ -79,4 +79,4 @@ const NewMenuBar = (props) => {
   );
 };
 
-export default NewMenuBar;
+export default SearchBar;
