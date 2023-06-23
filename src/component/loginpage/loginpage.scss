@@ -1,0 +1,12 @@
+.single_billing_inp {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 10px;
+  input {
+    // border-width: 2px;
+    // border-color: #fc3d57;
+    border: 1px solid #e9e4e4;
+    border-radius: 0.25rem;
+    padding: 8px 16px;
+  }
+}

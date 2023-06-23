@@ -1,11 +1,15 @@
 import React, { useState, useEffect, useRef } from "react";
 import "./searchbar.scss";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faStar } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 import { useStorage } from "../localstorage/LocalStorage";
 import axios from "axios";
 
 const SearchBar = (props) => {
   const [data, setData] = useState(null);
+  const [hoverIconCart, setHoverIconCart] = useState(false);
+  const [hoverIconAccount, setHoverIconAccount] = useState(false);
   const [cartItems, setCartItems] = useStorage("cartItems", []);
   let url = "https://63f43c77864fb1d600247a6d.mockapi.io/Products/products";
 
@@ -25,7 +29,7 @@ const SearchBar = (props) => {
   }, [props]);
 
   return (
-    <div className="navbar">
+    <div className="navbar py-0">
       <div className="navContainerMenu">
         <div className="containerNarbarCategories w-[200px] rounded bg-[#2b2d42] px-[10px] py-[10px] h-[45px]">
           <div className="bars text-white flex text-center justify-center ">
@@ -52,7 +56,7 @@ const SearchBar = (props) => {
             <span className="">Search</span>
           </button>
         </div>
-        <div className="containerNarbarIcon w-[150px] flex text-center justify-between text-white">
+        <div className="containerNarbarIcon w-[150px] flex text-center justify-between [&>a]:text-white">
           <a href="#" className="icon_wrp grid">
             <span className="popsheart">77</span>
             <span className="icon text-[20px]">
@@ -60,66 +64,127 @@ const SearchBar = (props) => {
             </span>
             <span className="icon_text text-[12px]">Wish List</span>
           </a>
-          <a href="/shoppingcart" className="icon_wrp grid">
-            <span className="popscart ">{data}</span>
-            <span className="icon text-[20px] ">
-              <i className="fa-solid fa-cart-shopping"></i>
-            </span>
-            <span className="icon_text text-[12px]">Cart</span>
-          </a>
-
-          <div className="relative parent">
-            <a href="#" className="icon_wrp grid ">
+          <div className="parent relative ">
+            <a
+              href="/shoppingcart"
+              className="icon_wrp grid text-white"
+              onMouseEnter={() => setHoverIconCart(true)}
+              onMouseLeave={() => setHoverIconCart(false)}
+            >
+              <span className="popscart ">{data}</span>
+              <span className="icon text-[20px] ">
+                <i className="fa-solid fa-cart-shopping"></i>
+              </span>
+              <span className="icon_text text-[12px]">Cart</span>
+            </a>
+            <nav
+              className={
+                hoverIconCart === true
+                  ? "text-black hover:bg-black items-center relative"
+                  : "hidden text-black hover:bg-black items-center relative"
+              }
+            >
+              <div
+                className="child flex transition p-3 duration-300 md:absolute top-full right-0  md:w-[auto] bg-white md:shadow-inner md:rounded-b"
+                onMouseEnter={() => setHoverIconCart(true)}
+                onMouseLeave={() => setHoverIconCart(false)}
+              >
+                <div className="divchild text-nowrap flex flex-col ">
+                  <h4 className="text-base font-semibold flex justify-start border-b-2">
+                    2 Items
+                  </h4>
+                  <a
+                    href="product-view.html"
+                    class="single_cartdrop mb-3 flex mt-3"
+                  >
+                    <div className="cardcontainer flex justify-between  w-[250px] px-2 ">
+                      <div className="flex flex-row">
+                        <div className="topimage grid grid-cols-1 content-center">
+                          <img
+                            className="image object-cover h-20 w-20 rounded hover:cursor-pointer hover:opacity-80"
+                            src="https://choicacanh.com/content/uploads/cms/2020/12/14/huong-dan-cham-soc-ca-neon-vua_600x400.jpg"
+                          />
+                        </div>
+                        <div className="flex flex-col  items-start px-2">
+                          <h4 className="title text-lg font-medium hover:text-defaut-color-pink transition duration-150 ease-out hover:ease-in hover:cursor-pointer">
+                            Informations
+                          </h4>
+                          <div>
+                            <span class="pl-1">$450</span>
+                            <span class="pl-2 text-xs">x1</span>
+                          </div>
+                        </div>
+                      </div>{" "}
+                      <i class="fa-solid fa-xmark text-black"></i>
+                    </div>
+                  </a>
+                  <div class="total_cartdrop flex justify-between border-t-2 py-2">
+                    <h4 class="text_lg text-uppercase mb-0">Sub Total:</h4>
+                    <h4 class="text_lg mb-0 ms-2">$980.00</h4>
+                  </div>
+                  <div className="buttonaccount flex justify-between ">
+                    <button className="btnjoin h-[35px]">VIEW CART</button>
+                    <button className="btnlogin h-[35px]">CHECKOUT</button>
+                  </div>
+                </div>
+              </div>
+            </nav>
+          </div>
+          <div className="parent relative ">
+            <a
+              href="#"
+              className="icon_wrp grid text-white"
+              onMouseEnter={() => setHoverIconAccount(true)}
+              onMouseLeave={() => setHoverIconAccount(false)}
+            >
               <span className="icon text-[20px]">
                 <i className="fa-regular fa-user"></i>
               </span>
               <span className="icon_text text-[12px]">Account</span>
             </a>
-            <nav className="headernavbar flex items-center relative">
-              <ul className="child flex transition p-3 duration-300 md:absolute top-full left-0  md:w-[auto] bg-white md:shadow-inner md:rounded-b ">
-                <div className="divchild text-sm text-nowrap pr-3">
-                  <li>
-                    <h5 href="#" className="flex">
-                      Other pages
-                    </h5>
-                  </li>
-                  <li>
-                    <div className="flex hover:text-defaut-color">
-                      <Link to="/knowledge">Knowledge</Link>
+            <nav
+              className="text-black hover:bg-black flex items-center relative"
+              onMouseEnter={() => setHoverIconAccount(true)}
+              onMouseLeave={() => setHoverIconAccount(false)}
+            >
+              <div
+                hidden={hoverIconAccount === true ? false : true}
+                className="child flex transition p-3 duration-300 md:absolute top-full right-0  md:w-[auto] bg-white md:shadow-inner md:rounded-b"
+              >
+                <div className="divchild text-nowrap flex flex-col ">
+                  <h4 className="text-base font-semibold">
+                    Welcome to RAFCART Shop
+                  </h4>
+                  <div className="buttonaccount flex justify-between  mt-2">
+                    <button className="btnjoin ">JOIN</button>
+                    <button className="btnlogin">LOGIN</button>
+                  </div>
+                  <div class="flex text-lg pt-3">
+                    <div className="ac_links grid justify-items-stretch [&>div]:justify-self-start [&>a]:pl-2">
+                      <div className="divitemaccount flex justify-center items-center">
+                        <i class="lar la-id-card"></i>
+                        <a href="account.html">My Account</a>{" "}
+                      </div>{" "}
+                      <div className="divitemaccount flex justify-center items-center">
+                        <i class="las la-gift"></i>{" "}
+                        <a href="account-order-history.html">My Order</a>{" "}
+                      </div>{" "}
+                      <div className="divitemaccount flex justify-center items-center">
+                        <i class="lar la-heart"></i>{" "}
+                        <a href="wish-list.html">My Wishlist</a>{" "}
+                      </div>{" "}
+                      <div className="divitemaccount flex justify-center items-center">
+                        <i class="lar la-heart"></i>{" "}
+                        <a href="shopping-cart.html">My Cart</a>{" "}
+                      </div>{" "}
+                      <div className="divitemaccount flex justify-center items-center">
+                        <i class="las la-power-off"></i>{" "}
+                        <a href="login.html">Log out</a>{" "}
+                      </div>
                     </div>
-                  </li>
-                  <li>
-                    <div className="flex hover:text-defaut-color">
-                      <Link to="/shopping">Shopping</Link>
-                    </div>
-                  </li>
-                  <li>
-                    <div className="flex hover:text-defaut-color">
-                      <Link to="/tankmodel">Tank model</Link>
-                    </div>
-                  </li>
-                  <li>
-                    <div className="flex hover:text-defaut-color">
-                      <Link to="/manage">Manage Item</Link>
-                    </div>
-                  </li>{" "}
-                  <li>
-                    <div className="flex hover:text-defaut-color">
-                      <Link to="/createandeditblog">Edit Blog</Link>
-                    </div>
-                  </li>
-                  <li>
-                    <div className="flex hover:text-defaut-color">
-                      <Link to="/productreview">Product Review</Link>
-                    </div>
-                  </li>
-                  <li>
-                    <div className="flex hover:text-defaut-color">
-                      <Link to="/testpage">Test Page</Link>
-                    </div>
-                  </li>
+                  </div>
                 </div>
-              </ul>
+              </div>
             </nav>
           </div>
         </div>
