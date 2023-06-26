@@ -35,7 +35,7 @@ const MenuBar = () => {
                 <ul className="child flex transition p-3 duration-300 md:absolute top-full left-0  md:w-[auto] bg-white md:shadow-inner md:rounded-b ">
                   <div className="divchild text-sm text-nowrap pr-3">
                     <li>
-                      <h5 href="#" className="flex">
+                      <h5 href="#" className="flex pb-1 font-semibold">
                         Other pages
                       </h5>
                     </li>
@@ -89,7 +89,7 @@ const MenuBar = () => {
                 <ul className="child flex transition p-3 duration-300 md:absolute top-full left-0  md:w-[auto] bg-white md:shadow-inner md:rounded-b ">
                   <div className="divchild text-sm text-nowrap pr-3">
                     <li>
-                      <h5 href="#" className="flex">
+                      <h5 href="#" className="flex font-bold pb-1">
                         Other pages
                       </h5>
                     </li>
@@ -124,7 +124,7 @@ const MenuBar = () => {
                   </div>
                   <div className="divchild text-sm text-nowrap px-1">
                     <li>
-                      <h5 href="#" className="flex ">
+                      <h5 href="#" className="flex font-bold pb-1">
                         Account pages
                       </h5>
                     </li>
@@ -142,19 +142,25 @@ const MenuBar = () => {
                       </a>
                     </li>
                     <li>
-                      <a href="#" className="flex hover:text-defaut-color">
+                      <a
+                        href="/registerpage"
+                        className="flex hover:text-defaut-color"
+                      >
                         Register
                       </a>
                     </li>
                     <li>
-                      <a href="#" className="flex hover:text-defaut-color">
+                      <a
+                        href="/forgotpasswordpage"
+                        className="flex hover:text-defaut-color"
+                      >
                         Forgot pass
                       </a>
                     </li>
                   </div>
                   <div className="divchild text-sm text-nowrap pl-3">
                     <li>
-                      <h5 href="#" className="flex ">
+                      <h5 href="#" className="flex font-bold pb-1">
                         Checkout pages
                       </h5>
                     </li>

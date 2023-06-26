@@ -10,3 +10,83 @@
     padding: 8px 16px;
   }
 }
+.btnviewcart {
+  font-size: 14px;
+  width: 100%;
+  padding: 3px 15px;
+  border-radius: 0.25rem;
+  color: white;
+  border-width: 2px;
+  border-color: #fc3d57;
+  background-color: #fc3d57;
+  &:hover {
+    font-size: 14px;
+    width: 100%;
+    padding: 3px 15px 3px 15px;
+    border-radius: 0.25rem;
+    color: #fc3d57;
+    border-width: 2px;
+    background-color: white;
+    border-color: #fc3d57;
+  }
+}
+.dif_regway {
+  //   border-bottom: 2px;
+}
+.btnfg {
+  .btnf {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    width: 48%;
+    padding: 3px 15px;
+    border-radius: 0.25rem;
+    color: white;
+    border-width: 2px;
+    border-color: #3b5999;
+    background-color: #3b5999;
+    &:hover {
+      font-size: 14px;
+      width: 48%;
+      padding: 3px 15px 3px 15px;
+      border-radius: 0.25rem;
+      color: #3b5999;
+      border-width: 2px;
+      background-color: white;
+      border-color: #3b5999;
+    }
+  }
+  .btng {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    width: 48%;
+    padding: 3px 15px;
+    border-radius: 0.25rem;
+    color: white;
+    border-width: 2px;
+    border-color: #d85040;
+    background-color: #d85040;
+    &:hover {
+      font-size: 14px;
+      width: 48%;
+      padding: 3px 15px 3px 15px;
+      border-radius: 0.25rem;
+      color: #d85040;
+      border-width: 2px;
+      background-color: white;
+      border-color: #d85040;
+    }
+  }
+}
+
+.custom_check {
+  span {
+    cursor: pointer;
+  }
+  input {
+    cursor: pointer;
+  }
+}

@@ -110,11 +110,12 @@ const SearchBar = (props) => {
                             Informations
                           </h4>
                           <div>
-                            <span class="pl-1">$450</span>
+                            <span class="pl-1 text-defaut-color">$450</span>
                             <span class="pl-2 text-xs">x1</span>
                           </div>
+                          <span class="pl-1 text-sm">Size: XXL</span>
                         </div>
-                      </div>{" "}
+                      </div>
                       <i class="fa-solid fa-xmark text-black"></i>
                     </div>
                   </a>
@@ -163,23 +164,23 @@ const SearchBar = (props) => {
                     <div className="ac_links grid justify-items-stretch [&>div]:justify-self-start [&>a]:pl-2">
                       <div className="divitemaccount flex justify-center items-center">
                         <i class="lar la-id-card"></i>
-                        <a href="account.html">My Account</a>{" "}
-                      </div>{" "}
+                        <a href="account.html">My Account</a>
+                      </div>
                       <div className="divitemaccount flex justify-center items-center">
-                        <i class="las la-gift"></i>{" "}
-                        <a href="account-order-history.html">My Order</a>{" "}
-                      </div>{" "}
+                        <i class="las la-gift"></i>
+                        <a href="account-order-history.html">My Order</a>
+                      </div>
                       <div className="divitemaccount flex justify-center items-center">
-                        <i class="lar la-heart"></i>{" "}
-                        <a href="wish-list.html">My Wishlist</a>{" "}
-                      </div>{" "}
+                        <i class="lar la-heart"></i>
+                        <a href="wish-list.html">My Wishlist</a>
+                      </div>
                       <div className="divitemaccount flex justify-center items-center">
-                        <i class="lar la-heart"></i>{" "}
-                        <a href="shopping-cart.html">My Cart</a>{" "}
-                      </div>{" "}
+                        <i class="lar la-heart"></i>
+                        <a href="shopping-cart.html">My Cart</a>
+                      </div>
                       <div className="divitemaccount flex justify-center items-center">
-                        <i class="las la-power-off"></i>{" "}
-                        <a href="login.html">Log out</a>{" "}
+                        <i class="las la-power-off"></i>
+                        <a href="login.html">Log out</a>
                       </div>
                     </div>
                   </div>

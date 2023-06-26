@@ -126,7 +126,8 @@ $defaut-color-pink: #fc3d57;
 }
 .buttonaccount {
   .btnjoin {
-    font-size: 15px;
+    font-size: 12px;
+    font-weight: 700;
     width: 48%;
     padding: 3px 15px;
     border-radius: 0.25rem;
@@ -135,7 +136,8 @@ $defaut-color-pink: #fc3d57;
     border-color: #fc3d57;
     background-color: #fc3d57;
     &:hover {
-      font-size: 15px;
+      font-size: 12px;
+      font-weight: 600;
       width: 48%;
       padding: 3px 15px 3px 15px;
       border-radius: 0.25rem;
@@ -146,7 +148,8 @@ $defaut-color-pink: #fc3d57;
     }
   }
   .btnlogin {
-    font-size: 15px;
+    font-size: 12px;
+    font-weight: 700;
     width: 48%;
     padding: 3px 15px;
     border-radius: 0.25rem;
@@ -154,7 +157,8 @@ $defaut-color-pink: #fc3d57;
     border-width: 2px;
     border-color: #fc3d57;
     &:hover {
-      font-size: 15px;
+      font-size: 12px;
+      font-weight: 600;
       width: 48%;
       padding: 3px 15px 3px 15px;
       border-radius: 0.25rem;

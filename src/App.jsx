@@ -16,6 +16,8 @@ import ProductReview from "./component/productreview/ProductReview";
 import TestPage from "./component/testpage/TestPage";
 import PageNotFound from "./component/404pagenotfound/PageNotFound";
 import LoginPage from "./component/loginpage/LoginPage";
+import ForgotPasswordPage from "./component/forgotpasswordpage/ForgotPasswordPage";
+import Registerpage from "./component/registerpage/RegisterPage";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "react-toastify/dist/ReactToastify.css";
 import "./index.css";
@@ -110,6 +112,9 @@ function App() {
           }
         />
         <Route path="/loginpage" element={<LoginPage />} />
+        <Route path="/forgotpasswordpage" element={<ForgotPasswordPage />} />
+        <Route path="/registerpage" element={<Registerpage />} />
+
         <Route path="/testpage" element={<TestPage />} />
       </Routes>
       <div className="mt-2">
