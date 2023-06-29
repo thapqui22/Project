@@ -1,0 +1,131 @@
+$defaut-color-black: black;
+$defaut-color-white: white;
+$defaut-color-pink: #fc3d57;
+.containercenter {
+  display: flex;
+  justify-content: center;
+  .childcontainercenter {
+    width: 1200px;
+  }
+}
+.acprof_img {
+  width: 50px;
+  padding: 5px;
+  border: 1px solid #e9e4e4;
+  border-radius: 50%;
+}
+.acprof_links {
+  display: flex;
+  flex-direction: column;
+  padding-left: 15px;
+  padding-bottom: 16px;
+  margin-bottom: 16px;
+  border-bottom: 1px solid #e9e4e4;
+  a:hover {
+    color: $defaut-color-pink;
+    transition: 0.3s;
+  }
+  a {
+    padding-left: 3px;
+    font-size: 14px;
+    text-decoration: none;
+    line-height: 22px;
+    color: #2b2d42;
+    position: relative;
+    margin-bottom: 8px;
+  }
+}
+.acprof_links a h4 i {
+  top: -15%;
+  left: -10%;
+  position: absolute;
+  width: 17px;
+  font-size: 22px;
+}
+.acprof_link_title {
+  font-weight: 600;
+}
+.single_shop_cart {
+  align-items: center;
+  border: 1px solid #e9e4e4;
+  border-radius: 5px;
+  width: 100%;
+  padding: 20px 15px;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+.btnaddtocart {
+  font-size: 13px;
+  min-width: 50%;
+  padding: 6px 15px;
+  border-radius: 0.25rem;
+  color: white;
+  border-width: 2px;
+  border-color: #fc3d57;
+  background-color: #fc3d57;
+  &:hover {
+    font-size: 13px;
+    color: #fc3d57;
+    background-color: white;
+    border-color: #fc3d57;
+  }
+}
+.btnaddtocartoutstock {
+  font-size: 13px;
+  min-width: 50%;
+  padding: 6px 15px;
+  opacity: 0.7;
+  border-radius: 0.25rem;
+  color: white;
+  border-width: 2px;
+  border-color: #fc3d57;
+  background-color: #fc3d57;
+
+  &:hover {
+    cursor: not-allowed;
+  }
+}
+.single_shop_cart_out_stock {
+  align-items: center;
+  border: 1px solid #e9e4e4;
+  border-radius: 5px;
+  width: 100%;
+  padding: 20px 15px;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  div .instock span {
+    color: #fc3d57;
+  }
+  div button {
+    opacity: 0.7;
+    &:hover {
+      cursor: not-allowed;
+    }
+  }
+}
+// .instock {
+//   span {
+//     color: #fc3d57;
+//   }
+// }
+.cart_price {
+  font-size: 13px;
+  font-weight: 600;
+  color: #fc3d57;
+}
+.cart_cont {
+  a {
+    font-size: 15px;
+    font-weight: 600;
+    text-decoration-line: none;
+  }
+  a:hover {
+    color: #fc3d57;
+  }
+  p {
+    padding: 5px 0;
+    font-size: 12px;
+  }
+}

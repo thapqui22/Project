@@ -129,7 +129,10 @@ const MenuBar = () => {
                       </h5>
                     </li>
                     <li>
-                      <a href="#" className="flex hover:text-defaut-color">
+                      <a
+                        href="/managemyaccount"
+                        className="flex hover:text-defaut-color"
+                      >
                         My Account
                       </a>
                     </li>

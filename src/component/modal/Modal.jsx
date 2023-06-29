@@ -162,7 +162,7 @@ export default function Modal(props) {
                     <ImageGallery
                       items={images}
                       showIndex
-                      additionalClass="ImageGalleryContainer"
+                      additionalclassName="ImageGalleryContainer"
                     />
                   </div>
                   <div className="basis-1/2 px-2 flex-col">

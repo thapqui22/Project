@@ -152,7 +152,7 @@ const ShoppingCart = (props) => {
                     <div className="icon flex basis-1/3 justify-end align-items-center">
                       <i
                         onClick={() => removeFromCart(i.id)}
-                        class="fa-solid fa-trash mr-3 hover:text-defaut-color hover:cursor-pointer text-xl"
+                        className="fa-solid fa-trash mr-3 hover:text-defaut-color hover:cursor-pointer text-xl"
                       ></i>
                     </div>
                   </div>

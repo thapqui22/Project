@@ -45,9 +45,9 @@ const FAQ = () => {
                       How will my parcel be deliverd?
                       {shippingInformation ===
                       "How will my parcel be deliverd?" ? (
-                        <i class="fa-solid fa-minus "></i>
+                        <i className="fa-solid fa-minus "></i>
                       ) : (
-                        <i class="fa-solid fa-plus"></i>
+                        <i className="fa-solid fa-plus"></i>
                       )}
                     </button>
                   </h2>
@@ -84,9 +84,9 @@ const FAQ = () => {
                     >
                       Do I pay for delivery?
                       {shippingInformation === "Do I pay for delivery?" ? (
-                        <i class="fa-solid fa-minus "></i>
+                        <i className="fa-solid fa-minus "></i>
                       ) : (
-                        <i class="fa-solid fa-plus"></i>
+                        <i className="fa-solid fa-plus"></i>
                       )}
                     </button>
                   </h2>
@@ -111,7 +111,7 @@ const FAQ = () => {
                   <h2 className="accordion-header" id="headingThree">
                     <button className="titlefaq">
                       How will my parcel be deliverd?
-                      <i class="fa-solid fa-plus"></i>
+                      <i className="fa-solid fa-plus"></i>
                     </button>
                   </h2>
                   <div
@@ -131,7 +131,7 @@ const FAQ = () => {
                   <h2 className="accordion-header" id="headingFour">
                     <button className="titlefaq">
                       How will my parcel be deliverd?
-                      <i class="fa-solid fa-plus"></i>
+                      <i className="fa-solid fa-plus"></i>
                     </button>
                   </h2>
                   <div
@@ -158,7 +158,7 @@ const FAQ = () => {
                 <div className="accordion-item">
                   <h2 className="accordion-header" id="headingOne1">
                     <button className="titlefaq">
-                      Tracking my order <i class="fa-solid fa-plus "></i>
+                      Tracking my order <i className="fa-solid fa-plus "></i>
                     </button>
                   </h2>
                   <div
@@ -178,7 +178,7 @@ const FAQ = () => {
                   <h2 className="accordion-header" id="headingTwo1">
                     <button className="titlefaq">
                       I haven’t recived my order
-                      <i class="fa-solid fa-plus "></i>
+                      <i className="fa-solid fa-plus "></i>
                     </button>
                   </h2>
                   <div
@@ -198,7 +198,7 @@ const FAQ = () => {
                   <h2 className="accordion-header" id="headingThree1">
                     <button className="titlefaq">
                       How can I return on item?
-                      <i class="fa-solid fa-plus "></i>
+                      <i className="fa-solid fa-plus "></i>
                     </button>
                   </h2>
                   <div
@@ -218,7 +218,7 @@ const FAQ = () => {
                   <h2 className="accordion-header" id="headingFour1">
                     <button className="titlefaq">
                       How will my parcel be deliverd?
-                      <i class="fa-solid fa-plus "></i>
+                      <i className="fa-solid fa-plus "></i>
                     </button>
                   </h2>
                   <div
@@ -246,7 +246,7 @@ const FAQ = () => {
                   <h2 className="accordion-header" id="headingOne2">
                     <button className="titlefaq">
                       What payment types can i use?
-                      <i class="fa-solid fa-plus "></i>
+                      <i className="fa-solid fa-plus "></i>
                     </button>
                   </h2>
                   <div
@@ -266,7 +266,7 @@ const FAQ = () => {
                   <h2 className="accordion-header" id="headingTwo2">
                     <button className="titlefaq">
                       Can I pay by gift Card?
-                      <i class="fa-solid fa-plus "></i>
+                      <i className="fa-solid fa-plus "></i>
                     </button>
                   </h2>
                   <div
@@ -286,7 +286,7 @@ const FAQ = () => {
                   <h2 className="accordion-header" id="headingThree2">
                     <button className="titlefaq">
                       I can’t make a payment
-                      <i class="fa-solid fa-plus "></i>
+                      <i className="fa-solid fa-plus "></i>
                     </button>
                   </h2>
                   <div
@@ -306,7 +306,7 @@ const FAQ = () => {
                   <h2 className="accordion-header" id="headingFour2">
                     <button className="titlefaq">
                       Has my payment gone though?
-                      <i class="fa-solid fa-plus "></i>
+                      <i className="fa-solid fa-plus "></i>
                     </button>
                   </h2>
                   <div
