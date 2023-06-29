@@ -53,7 +53,7 @@ const RegisterPage = () => {
               <label className="whitespace-nowrap">
                 I have read and agree to the
                 <a
-                  href="terms-condition.html"
+                  href="/termandconditionspage"
                   className="text-defaut-color-pink pl-1 hover:no-underline hover:text-defaut-color-pink"
                 >
                   terms &amp; conditions

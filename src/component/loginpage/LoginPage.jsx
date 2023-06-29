@@ -37,7 +37,7 @@ const LoginPage = () => {
               <span className="pl-2">Remember Me</span>
             </label>
             <a
-              href="terms-condition.html"
+              href="/forgotpasswordpage"
               className="text-defaut-color-pink pl-1 hover:no-underline hover:text-defaut-color-pink"
             >
               Forgot Password?

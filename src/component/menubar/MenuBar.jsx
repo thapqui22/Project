@@ -180,7 +180,10 @@ const MenuBar = () => {
                       </a>
                     </li>
                     <li>
-                      <a href="#" className="flex hover:text-defaut-color">
+                      <a
+                        href="/ordercompeted"
+                        className="flex hover:text-defaut-color"
+                      >
                         Order complete
                       </a>
                     </li>

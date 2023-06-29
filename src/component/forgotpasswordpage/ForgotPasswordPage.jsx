@@ -21,7 +21,7 @@ const ForgotPasswordPage = (props) => {
             </div>
           </div>
           <div className="col-12 mt-3">
-            <button className="btnviewcart h-[40px] w-[50%] uppercase">
+            <button className="btnviewcart h-[40px] w-[50%] hover:w-[50%] uppercase">
               reset my password
             </button>
           </div>

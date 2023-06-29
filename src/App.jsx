@@ -18,6 +18,8 @@ import PageNotFound from "./component/404pagenotfound/PageNotFound";
 import LoginPage from "./component/loginpage/LoginPage";
 import ForgotPasswordPage from "./component/forgotpasswordpage/ForgotPasswordPage";
 import Registerpage from "./component/registerpage/RegisterPage";
+import TermAndConditionsPage from "./component/registerpage/TermAndConditionsPage";
+import OrderCompeted from "./component/ordercompeted/OrderCompeted";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "react-toastify/dist/ReactToastify.css";
 import "./index.css";
@@ -114,6 +116,11 @@ function App() {
         <Route path="/loginpage" element={<LoginPage />} />
         <Route path="/forgotpasswordpage" element={<ForgotPasswordPage />} />
         <Route path="/registerpage" element={<Registerpage />} />
+        <Route
+          path="/termandconditionspage"
+          element={<TermAndConditionsPage />}
+        />
+        <Route path="/ordercompeted" element={<OrderCompeted />} />
 
         <Route path="/testpage" element={<TestPage />} />
       </Routes>
