@@ -25,18 +25,18 @@ const ChangePassWord = () => {
   return (
     <div className="acprof_info_wrap">
       <h4 className="text_xl mb-3 font-bold">Change Password</h4>
-      <div className="row flex-column">
+      <div className="acprof_info_wrap_password row flex-column">
         <div className="col-md-6">
           <div className="single_billing_inp">
             <label>Current Password</label>
             <div className="position-relative">
               <input
-                type={hideCurrentPassword === true ? "password" : ""}
+                type={hideCurrentPassword ? "password" : "text"}
                 placeholder="Enter current password"
               />
               <span className="icon">
                 <i
-                  className="las la-eye-slash"
+                  className="las la-eye-slash hover:text-defaut-color-pink"
                   onClick={() => handleHidePassword("Current Password")}
                 ></i>
               </span>
@@ -48,12 +48,12 @@ const ChangePassWord = () => {
             <label>New Password</label>
             <div className="position-relative">
               <input
-                type={hideNewPassword === true ? "password" : ""}
+                type={hideNewPassword ? "password" : "text"}
                 placeholder="Enter new password"
               />
               <span className="icon">
                 <i
-                  className="las la-eye-slash"
+                  className="las la-eye-slash hover:text-defaut-color-pink"
                   onClick={() => handleHidePassword("New Password")}
                 ></i>
               </span>
@@ -65,12 +65,13 @@ const ChangePassWord = () => {
             <label>Retype Password</label>
             <div className="position-relative">
               <input
-                type={hideRetypePassword === true ? "password" : ""}
+                // type="password"
+                type={hideRetypePassword ? "password" : "text"}
                 placeholder="Repeat your password"
               />
               <span className="icon">
                 <i
-                  className="las la-eye-slash"
+                  className="las la-eye-slash hover:text-defaut-color-pink"
                   onClick={() => handleHidePassword("Retype Password")}
                 ></i>
               </span>

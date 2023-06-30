@@ -6,13 +6,21 @@ $defaut-color-pink: #fc3d57;
     width: 80%;
   }
 }
+.acprof_info_wrap_password {
+  .single_billing_inp {
+    span {
+      position: absolute;
+      right: 23%;
+      top: 9px;
+      font-size: 14px;
+      color: black;
+    }
+  }
+}
 .single_billing_inp {
   white-space: nowrap;
   span {
-    position: absolute;
-    right: 23%;
-    top: 9px;
-    font-size: 14px;
+    color: #fc3d57;
   }
   label {
     font-size: 14px;
@@ -22,7 +30,7 @@ $defaut-color-pink: #fc3d57;
     //   width: 80%;
     min-width: 30%;
     font-size: 12px;
-    outline: none;
+    outline-color: #e2e8f0;
   }
   i {
     cursor: pointer;

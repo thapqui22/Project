@@ -18,7 +18,7 @@ import PageNotFound from "./component/404pagenotfound/PageNotFound";
 import LoginPage from "./component/loginpage/LoginPage";
 import ForgotPasswordPage from "./component/forgotpasswordpage/ForgotPasswordPage";
 import Registerpage from "./component/registerpage/RegisterPage";
-
+import CheckOutPage from "./component/checkoutpage/CheckOutPage";
 import TermAndConditionsPage from "./component/registerpage/TermAndConditionsPage";
 import OrderCompeted from "./component/ordercompeted/OrderCompeted";
 
@@ -120,7 +120,7 @@ function App() {
         <Route path="/loginpage" element={<LoginPage />} />
         <Route path="/forgotpasswordpage" element={<ForgotPasswordPage />} />
         <Route path="/registerpage" element={<Registerpage />} />
-
+        <Route path="/checkoutpages" element={<CheckOutPage />} />
         <Route
           path="/termandconditionspage"
           element={<TermAndConditionsPage />}

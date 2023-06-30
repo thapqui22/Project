@@ -101,12 +101,12 @@ const MyAccountPage = () => {
                 </div>
               </div>
               <div className="acprof_links border-0">
-                <a href="">
+                <div href="">
                   <h4 className="acprof_link_title">
                     <i className="las la-power-off"></i>
                     Log Out
                   </h4>
-                </a>
+                </div>
               </div>
             </div>
           </div>{" "}
