@@ -29,6 +29,7 @@ import "react-toastify/dist/ReactToastify.css";
 import "./index.css";
 import { useStorage } from "./component/localstorage/LocalStorage";
 import FAQ from "./component/faq/FAQ";
+import Payment from "./component/payment/Payment";
 
 function App() {
   const [cartItems] = useStorage("cartItems", []);
@@ -121,6 +122,8 @@ function App() {
         <Route path="/forgotpasswordpage" element={<ForgotPasswordPage />} />
         <Route path="/registerpage" element={<Registerpage />} />
         <Route path="/checkoutpages" element={<CheckOutPage />} />
+        <Route path="/paymentpage" element={<Payment />} />
+
         <Route
           path="/termandconditionspage"
           element={<TermAndConditionsPage />}

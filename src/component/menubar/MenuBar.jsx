@@ -176,7 +176,10 @@ const MenuBar = () => {
                       </a>
                     </li>
                     <li>
-                      <a href="#" className="flex hover:text-defaut-color">
+                      <a
+                        href="/paymentpage"
+                        className="flex hover:text-defaut-color"
+                      >
                         Payment
                       </a>
                     </li>
