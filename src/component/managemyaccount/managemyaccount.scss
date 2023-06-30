@@ -6,13 +6,21 @@ $defaut-color-pink: #fc3d57;
     width: 80%;
   }
 }
+.acprof_info_wrap_password {
+  .single_billing_inp {
+    span {
+      position: absolute;
+      right: 23%;
+      top: 9px;
+      font-size: 14px;
+      color: black;
+    }
+  }
+}
 .single_billing_inp {
   white-space: nowrap;
   span {
-    position: absolute;
-    right: 23%;
-    top: 9px;
-    font-size: 14px;
+    color: #fc3d57;
   }
   label {
     font-size: 14px;
@@ -22,7 +30,7 @@ $defaut-color-pink: #fc3d57;
     //   width: 80%;
     min-width: 30%;
     font-size: 12px;
-    outline: none;
+    outline-color: #e2e8f0;
   }
   i {
     cursor: pointer;
@@ -45,6 +53,9 @@ $defaut-color-pink: #fc3d57;
   height: 35px;
   background-color: $defaut-color-pink;
   color: white;
+}
+.acprof_links {
+  cursor: pointer;
 }
 .position-relative {
   position: relative !important;
@@ -142,3 +153,83 @@ $defaut-color-pink: #fc3d57;
 //     background-color: $defaut-color-pink !important;
 //   }
 // }
+
+.order_prodetails {
+  .orderprod_img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .orderdet_btn {
+    width: 20%;
+    white-space: nowrap;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .single_orderdet_1 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 25%;
+    h5 {
+      font-size: 15px;
+      // height: 35px;
+      font-weight: 600;
+      padding-bottom: 5px;
+    }
+    p {
+      font-size: 13px;
+    }
+  }
+  .single_orderdet {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 20px;
+    width: 25%;
+    h5 {
+      font-size: 15px;
+      // height: 35px;
+      font-weight: 600;
+      padding-bottom: 5px;
+    }
+    p {
+      font-size: 13px;
+    }
+  }
+}
+.single_paymethod {
+  .orderprod_img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .orderdet_btn {
+    width: 25%;
+    white-space: nowrap;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    a {
+      width: 48%;
+    }
+  }
+
+  .single_orderdet {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 20px;
+    width: 20%;
+    h5 {
+      font-size: 13px;
+      // height: 35px;
+      font-weight: 600;
+      padding-bottom: 5px;
+    }
+    p {
+      font-size: 11px;
+    }
+  }
+}

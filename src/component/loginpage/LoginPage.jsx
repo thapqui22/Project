@@ -38,7 +38,7 @@ const LoginPage = () => {
             </label>
             <a
               href="/forgotpasswordpage"
-              className="text-defaut-color-pink pl-1 hover:no-underline hover:text-defaut-color-pink"
+              className="text-defaut-color-pink mb-2 pl-1 hover:no-underline hover:text-defaut-color-pink"
             >
               Forgot Password?
             </a>

@@ -18,7 +18,11 @@ import PageNotFound from "./component/404pagenotfound/PageNotFound";
 import LoginPage from "./component/loginpage/LoginPage";
 import ForgotPasswordPage from "./component/forgotpasswordpage/ForgotPasswordPage";
 import Registerpage from "./component/registerpage/RegisterPage";
+<<<<<<< HEAD
 
+=======
+import CheckOutPage from "./component/checkoutpage/CheckOutPage";
+>>>>>>> fdfe55c4fd3b098a78058dc7c1ed47f785c4f143
 import TermAndConditionsPage from "./component/registerpage/TermAndConditionsPage";
 import OrderCompeted from "./component/ordercompeted/OrderCompeted";
 
@@ -29,6 +33,7 @@ import "react-toastify/dist/ReactToastify.css";
 import "./index.css";
 import { useStorage } from "./component/localstorage/LocalStorage";
 import FAQ from "./component/faq/FAQ";
+import Payment from "./component/payment/Payment";
 
 function App() {
   const [cartItems] = useStorage("cartItems", []);
@@ -120,12 +125,21 @@ function App() {
         <Route path="/loginpage" element={<LoginPage />} />
         <Route path="/forgotpasswordpage" element={<ForgotPasswordPage />} />
         <Route path="/registerpage" element={<Registerpage />} />
+<<<<<<< HEAD
+=======
+        <Route path="/checkoutpages" element={<CheckOutPage />} />
+        <Route path="/paymentpage" element={<Payment />} />
+
+>>>>>>> fdfe55c4fd3b098a78058dc7c1ed47f785c4f143
         <Route
           path="/termandconditionspage"
           element={<TermAndConditionsPage />}
         />
         <Route path="/ordercompeted" element={<OrderCompeted />} />
+<<<<<<< HEAD
 
+=======
+>>>>>>> fdfe55c4fd3b098a78058dc7c1ed47f785c4f143
         <Route path="/testpage" element={<TestPage />} />
         <Route path="/managemyaccount" element={<MyAccountPage />} />
       </Routes>
