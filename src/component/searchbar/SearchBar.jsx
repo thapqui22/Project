@@ -10,16 +10,25 @@ const SearchBar = (props) => {
   const [data, setData] = useState(null);
   const [hoverIconCart, setHoverIconCart] = useState(false);
   const [hoverIconAccount, setHoverIconAccount] = useState(false);
-  const [cartItems, setCartItems] = useStorage("cartItems", []);
+  const currentUrl = window.location.pathname;
+  // const [pathManageMyAccount, setPathManageMyAccount] = useStorage(
+  //   "pathManageMyAccount",
+  //   []
+  // );
   let url = "https://63f43c77864fb1d600247a6d.mockapi.io/Products/products";
-
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     const response = await axios.get(url);
-  //     setData(response.data.length);
-  //   };
-  //   fetchData();
-  // }, [props]);
+  const param = [
+    { id: 0, name: "ManageMyAccount" },
+    { id: 1, name: "ProfileInformation" },
+    { id: 2, name: "ManageMyAddress" },
+    { id: 3, name: "ChangePassword" },
+    { id: 4, name: "MyOrderHistory" },
+    { id: 5, name: "MyReturns" },
+    { id: 6, name: "MyCancellations" },
+    { id: 7, name: "MyReviews" },
+    { id: 8, name: "PayMentsMethods" },
+    { id: 9, name: "Voucher" },
+    { id: 10, name: "MyWishList" },
+  ];
 
   useEffect(() => {
     const fetchData = async () => {
@@ -27,7 +36,10 @@ const SearchBar = (props) => {
     };
     fetchData();
   }, [props]);
-
+  const handleOnClickChangePath = (number) => {
+    props.handleOnClickChangePath(param[number].name);
+    // console.log(currentUrl);
+  };
   return (
     <div className="navbar py-0">
       <div className="navContainerMenu">
@@ -168,23 +180,57 @@ const SearchBar = (props) => {
                     <div className="ac_links grid justify-items-stretch [&>div]:justify-self-start [&>a]:pl-2">
                       <div className="divitemaccount flex justify-center items-center">
                         <i className="lar la-id-card"></i>
-                        <a href="account.html">My Account</a>
+                        <div>
+                          <a
+                            href={
+                              currentUrl === "/managemyaccount"
+                                ? "#"
+                                : "/managemyaccount"
+                            }
+                            onClick={() => handleOnClickChangePath(0)}
+                          >
+                            My Account
+                          </a>
+                        </div>
                       </div>
                       <div className="divitemaccount flex justify-center items-center">
                         <i className="las la-gift"></i>
-                        <a href="account-order-history.html">My Order</a>
+                        <div>
+                          <a
+                            href={
+                              currentUrl === "/managemyaccount"
+                                ? "#"
+                                : "/managemyaccount"
+                            }
+                            onClick={() => handleOnClickChangePath(4)}
+                          >
+                            My Order
+                          </a>
+                        </div>
                       </div>
                       <div className="divitemaccount flex justify-center items-center">
                         <i className="lar la-heart"></i>
-                        <a href="wish-list.html">My Wishlist</a>
+                        <div onClick={() => handleOnClickChangePath(10)}>
+                          <a
+                            href={
+                              currentUrl === "/managemyaccount"
+                                ? "#"
+                                : "/managemyaccount"
+                            }
+                          >
+                            My Wishlist
+                          </a>
+                        </div>
                       </div>
                       <div className="divitemaccount flex justify-center items-center">
                         <i className="lar la-heart"></i>
-                        <a href="shopping-cart.html">My Cart</a>
+
+                        <a href="/shoppingcart">My Cart</a>
                       </div>
                       <div className="divitemaccount flex justify-center items-center">
                         <i className="las la-power-off"></i>
-                        <a href="login.html">Log out</a>
+
+                        <a href="/loginpage">Log out</a>
                       </div>
                     </div>
                   </div>

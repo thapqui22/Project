@@ -11,10 +11,14 @@ import MyReturns from "./MyReturns";
 import MyReviews from "./MyReviews";
 import PayMentsMethods from "./PayMentsMethods";
 import Voucher from "./Voucher";
-
-const MyAccountPage = () => {
+import { useStorage } from "../localstorage/LocalStorage";
+const MyAccountPage = (props) => {
   const [actice, setActice] = useState(true);
-  const [pageActive, setPageActive] = useState("ManageMyAccount");
+  const [pageActive, setPageActive] = useState(null);
+  // const [pathManageMyAccount, setPathManageMyAccount] = useStorage(
+  //   "pathManageMyAccount",
+  //   []
+  // );
   const param = [
     { id: 0, name: "ManageMyAccount" },
     { id: 1, name: "ProfileInformation" },
@@ -28,9 +32,11 @@ const MyAccountPage = () => {
     { id: 9, name: "Voucher" },
     { id: 10, name: "MyWishList" },
   ];
+  useEffect(() => {
+    setPageActive(props.onChangeData);
+  }, [props.onChangeData]);
   const handlePageChange = (pagenumber) => {
     setPageActive(param[pagenumber].name);
-    // console.log(param[pagenumber].name);
   };
   return (
     <div className="containercenter ">

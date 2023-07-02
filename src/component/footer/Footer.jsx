@@ -49,7 +49,7 @@ const Footer = () => {
                       My Account
                     </h4>
                     <a href="account-order-history.html">Orders</a>
-                    <a href="wish-list.html">Wishlist</a>
+                    <a>Wishlist</a>
                     <a href="track-order.html">Track Order</a>
                     <a href="#">Manage Account</a>
                     <a href="return-order.html">Return Order</a>

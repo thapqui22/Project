@@ -18,11 +18,7 @@ import PageNotFound from "./component/404pagenotfound/PageNotFound";
 import LoginPage from "./component/loginpage/LoginPage";
 import ForgotPasswordPage from "./component/forgotpasswordpage/ForgotPasswordPage";
 import Registerpage from "./component/registerpage/RegisterPage";
-<<<<<<< HEAD
 
-=======
-import CheckOutPage from "./component/checkoutpage/CheckOutPage";
->>>>>>> fdfe55c4fd3b098a78058dc7c1ed47f785c4f143
 import TermAndConditionsPage from "./component/registerpage/TermAndConditionsPage";
 import OrderCompeted from "./component/ordercompeted/OrderCompeted";
 
@@ -33,12 +29,17 @@ import "react-toastify/dist/ReactToastify.css";
 import "./index.css";
 import { useStorage } from "./component/localstorage/LocalStorage";
 import FAQ from "./component/faq/FAQ";
-import Payment from "./component/payment/Payment";
 
 function App() {
   const [cartItems] = useStorage("cartItems", []);
   const [dataForPreview, setDataForPreview] = useState(null);
   const [data, setData] = useState(cartItems.length);
+  const [pathManageMyAccount, setPathManageMyAccount] =
+    useState("ManageMyAccount");
+  const [pathManageMyAccount1, setPathManageMyAccount1] = useStorage(
+    "pathManageMyAccount",
+    []
+  );
   const [dataQuill, setDataQuill] = useState({
     title: "",
     description: "",
@@ -55,11 +56,17 @@ function App() {
   const handleOnClickChangePathCard = (newData) => {
     setDataForPreview(newData);
   };
+  const handleOnClickChangePath = (path) => {
+    setPathManageMyAccount1(path);
+  };
   return (
     <>
       <ToastContainer />
       <MenuBar />
-      <SearchBar onChangeDataRefresh={data} />
+      <SearchBar
+        onChangeDataRefresh={data}
+        handleOnClickChangePath={handleOnClickChangePath}
+      />
       <div className="py-3 flex justify-center items-center">
         <div className="flex w-[1200px] items-center [&>*]:pr-1">
           <img
@@ -125,23 +132,16 @@ function App() {
         <Route path="/loginpage" element={<LoginPage />} />
         <Route path="/forgotpasswordpage" element={<ForgotPasswordPage />} />
         <Route path="/registerpage" element={<Registerpage />} />
-<<<<<<< HEAD
-=======
-        <Route path="/checkoutpages" element={<CheckOutPage />} />
-        <Route path="/paymentpage" element={<Payment />} />
-
->>>>>>> fdfe55c4fd3b098a78058dc7c1ed47f785c4f143
         <Route
           path="/termandconditionspage"
           element={<TermAndConditionsPage />}
         />
         <Route path="/ordercompeted" element={<OrderCompeted />} />
-<<<<<<< HEAD
-
-=======
->>>>>>> fdfe55c4fd3b098a78058dc7c1ed47f785c4f143
         <Route path="/testpage" element={<TestPage />} />
-        <Route path="/managemyaccount" element={<MyAccountPage />} />
+        <Route
+          path="/managemyaccount"
+          element={<MyAccountPage onChangeData={pathManageMyAccount1} />}
+        />
       </Routes>
       <div className="mt-2">
         <Footer />
