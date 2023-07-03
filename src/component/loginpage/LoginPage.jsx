@@ -27,7 +27,7 @@ const LoginPage = (props) => {
       const password = refPassword.current.value;
       const validationMessage = validatePassword(password);
       if (validationMessage === "valid") {
-        console.log("Valid password:", password, refPassword.current.value);
+        console.log("Valid password:", password);
         paramAccount.Password = refPassword.current.value;
       } else {
         console.log("Invalid password:", validationMessage);
@@ -58,18 +58,16 @@ const LoginPage = (props) => {
     if (!/[a-z]/.test(password)) {
       return "Password should contain at least one downcase letter.";
     }
-
     // Check for numeric digit
     if (!/\d/.test(password)) {
       return "Password should contain at least one numeric digit.";
     }
-
     // Check for special character
     if (!/[!@#$%^&*()]/.test(password)) {
       return "Password should contain at least one special character.";
     }
 
-    return "Valid";
+    return "valid";
   };
   const handleHidePassword = (type) => {
     if (type === "Current Password") {
