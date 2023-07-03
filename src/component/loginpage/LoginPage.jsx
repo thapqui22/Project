@@ -7,6 +7,18 @@ const LoginPage = (props) => {
     Password: String,
     RememberMe: false,
   };
+  // useEffect(() => {
+  //   const userAgent = navigator.userAgent.toLowerCase();
+  //   if (userAgent.indexOf("chrome") > -1) {
+  //     console.log("Running on Google Chrome");
+  //   } else if (userAgent.indexOf("opera") > -1) {
+  //     console.log("Running on Opera");
+  //   } else if (userAgent.indexOf("firefox") > -1) {
+  //     console.log("Running on Mozilla Firefox");
+  //   } else {
+  //     console.log("Running on an unknown browser");
+  //   }
+  // }, []);
   const refParamAccount = useRef(paramAccount);
   const refEmailAddress = useRef(null);
   const refPassword = useRef(null);
@@ -32,6 +44,8 @@ const LoginPage = (props) => {
       } else {
         console.log("Invalid password:", validationMessage);
       }
+      const browserName = navigator.userAgent;
+      console.log(browserName);
       console.log(paramAccount);
     } else {
       console.log("Invalid value");
@@ -143,7 +157,7 @@ const LoginPage = (props) => {
         </div>
 
         <div className="dif_regway my-3 text-center">
-          <span className="txt uppercase bg-white px-2 relative z-10 bg-white">
+          <span className="txt uppercase bg-white px-2 relative z-10">
             OR LOGIN IN WITH
           </span>
           <div className="relative border-b-[1px] w-[100%] top-[-13px]"></div>
@@ -164,7 +178,7 @@ const LoginPage = (props) => {
             href="login.html"
             className="text-color text-defaut-color hover:no-underline hover:text-defaut-color"
           >
-            Login Now
+            Register Now
           </a>
         </p>
       </div>
