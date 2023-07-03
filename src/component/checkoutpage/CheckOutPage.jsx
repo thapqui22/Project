@@ -2,16 +2,6 @@ import { useStorage } from "../localstorage/LocalStorage";
 import React, { useState, useEffect, useRef } from "react";
 import { toast } from "react-toastify";
 import "../shoppingcart/shoppingcart.scss";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faXmark,
-  faCartShopping,
-  faHeart,
-  faStar,
-  faMinus,
-  faPlus,
-  faHouse,
-} from "@fortawesome/free-solid-svg-icons";
 
 const CheckOutPage = () => {
   const [cartItems, setCartItems] = useStorage("cartItems", []);
@@ -84,84 +74,79 @@ const CheckOutPage = () => {
     });
     handleOnClickRemove();
   };
-  function totalitems() {
-    let a = 0;
-    a = cartItems.length;
-    return a;
-  }
   return (
     <div className="flex justify-center">
       <div className="flex justify-center w-[1200px] h-[auto] min-h-1000px">
-        <div className="w-2/3 px-3 pb-3">
+        <div className="w-2/3 pr-3 pb-3">
           <h4 className="flex h-8  justify-start bg-[#E9E4E4] items-center [&>span]:text-center mb-4  p-[20px]">
             <span className="font-bold">Billing Details</span>
           </h4>
-          <div class="row">
-            <div class="col-lg-6">
-              <div class="single_billing_inp">
-                <label for="first_name">
+          <div className="row">
+            <div className="col-lg-6">
+              <div className="single_billing_inp">
+                <label htmlFor="first_name">
                   First Name <span className="top-[75%]">*</span>
                 </label>
                 <input type="text" id="first_name" />
               </div>
             </div>
-            <div class="col-lg-6">
-              <div class="single_billing_inp">
-                <label for="last_name">
+            <div className="col-lg-6">
+              <div className="single_billing_inp">
+                <label htmlFor="last_name">
                   Last Name <span>*</span>
                 </label>
                 <input type="text" id="last_name" />
               </div>
             </div>
-            <div class="col-12">
-              <div class="single_billing_inp">
-                <label for="company_name">Company Name</label>
+            <div className="col-12">
+              <div className="single_billing_inp">
+                <label htmlFor="company_name">Company Name</label>
                 <input type="text" id="company_name" />
               </div>
             </div>
-            <div class="col-12">
-              <div class="single_billing_inp">
-                <label for="county_region">
+            <div className="col-12">
+              <div className="single_billing_inp">
+                <label htmlFor="county_region">
                   County/Region <span>*</span>
                 </label>
                 <input type="text" id="county_region" />
               </div>
             </div>
-            <div class="col-12">
-              <div class="single_billing_inp">
-                <label for="street_addr">
+            <div className="col-12">
+              <div className="single_billing_inp">
+                <label htmlFor="street_addr">
                   Street Address <span>*</span>
                 </label>
                 <input type="text" id="street_addr" />
               </div>
             </div>
-            <div class="col-12">
-              <div class="single_billing_inp">
-                <label for="town_city">
+            <div className="col-12">
+              <div className="single_billing_inp">
+                <label htmlFor="town_city">
                   Town/City <span>*</span>
                 </label>
                 <input type="text" id="town_city" />
               </div>
             </div>
-            <div class="col-12">
-              <div class="single_billing_inp">
-                <label for="zip_code">
+            <div className="col-12">
+              <div className="single_billing_inp">
+                <label htmlFor="zip_code">
                   Zip Code <span>*</span>
                 </label>
                 <input type="text" id="zip_code" />
               </div>
             </div>
-            <div class="col-12">
-              <div class="single_billing_inp">
-                <label for="phone_number">
+            <div className="col-12">
+              <div className="single_billing_inp">
+                <label htmlFor="phone_number">
                   Phone Number <span>*</span>
                 </label>
                 <input type="text" id="phone_number" />
               </div>
             </div>
-            <div class="col-12">
-              <div class="single_billing_inp">
-                <label for="email_addr">
+            <div className="col-12">
+              <div className="single_billing_inp">
+                <label htmlFor="email_addr">
                   Email Address <span>*</span>
                 </label>
                 <input type="text" id="email_addr" />

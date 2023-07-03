@@ -1,6 +1,24 @@
+import React, { useState, useEffect, useRef } from "react";
 import "./footer.scss";
-
-const Footer = () => {
+const Footer = (props) => {
+  const currentUrl = window.location.pathname;
+  const param = [
+    { id: 0, name: "ManageMyAccount" },
+    { id: 1, name: "ProfileInformation" },
+    { id: 2, name: "ManageMyAddress" },
+    { id: 3, name: "ChangePassword" },
+    { id: 4, name: "MyOrderHistory" },
+    { id: 5, name: "MyReturns" },
+    { id: 6, name: "MyCancellations" },
+    { id: 7, name: "MyReviews" },
+    { id: 8, name: "PayMentsMethods" },
+    { id: 9, name: "Voucher" },
+    { id: 10, name: "MyWishList" },
+  ];
+  const handleOnClickChangePath = (number) => {
+    props.handleOnClickChangePath(param[number].name);
+    // console.log(param[number].name);
+  };
   return (
     <div>
       <div className="footer bg-[#f3f3f3]">
@@ -33,7 +51,7 @@ const Footer = () => {
                         placeholder="Your Email Address"
                         className="border-2 border-[#6c757] border-r-0 rounded-l px-3"
                       />
-                      <button className="rounded-r border-2 text-sm font-medium border-defaut-color-pink text-base  bg-defaut-color-pink hover:text-defaut-color-pink hover:bg-white transition duration-300 ease-out hover:ease-in ">
+                      <button className="rounded-r border-2 text-sm font-medium border-defaut-color-pink bg-defaut-color-pink hover:text-defaut-color-pink hover:bg-white transition duration-300 ease-out hover:ease-in ">
                         SUBSCRIBE
                       </button>
                     </form>
@@ -45,26 +63,58 @@ const Footer = () => {
               <div className="flex [&>div]:flex-1 [&>div]:text-left">
                 <div className="">
                   <div className="footer_menu flex flex-col [&>a]:py-2 [&>a]:text-sm ">
-                    <h4 className="footer_title text-lg font-medium pb-2">
+                    <h4 className="footer_title text-lg font-bold pb-2">
                       My Account
                     </h4>
-                    <a href="account-order-history.html">Orders</a>
-                    <a>Wishlist</a>
+                    <a href="#" onClick={() => handleOnClickChangePath(4)}>
+                      Orders
+                    </a>
+                    <a
+                      href={
+                        currentUrl === "/managemyaccount"
+                          ? "#"
+                          : "/managemyaccount"
+                      }
+                      className="icon_wrp grid"
+                      onClick={() => handleOnClickChangePath(10)}
+                    >
+                      Wishlist
+                    </a>
                     <a href="track-order.html">Track Order</a>
-                    <a href="#">Manage Account</a>
-                    <a href="return-order.html">Return Order</a>
+                    <a
+                      href={
+                        currentUrl === "/managemyaccount"
+                          ? "#"
+                          : "/managemyaccount"
+                      }
+                      className="icon_wrp grid"
+                      onClick={() => handleOnClickChangePath(0)}
+                    >
+                      Manage Account
+                    </a>
+                    <a
+                      href={
+                        currentUrl === "/managemyaccount"
+                          ? "#"
+                          : "/managemyaccount"
+                      }
+                      className="icon_wrp grid"
+                      onClick={() => handleOnClickChangePath(5)}
+                    >
+                      Return Order
+                    </a>
                   </div>
                 </div>
                 <div className="">
                   <div className="footer_menu flex flex-col [&>a]:py-2 [&>a]:text-sm ">
-                    <h4 className="footer_title text-lg font-medium pb-2">
+                    <h4 className="footer_title text-lg font-bold pb-2">
                       Information
                     </h4>
                     <a href="about-us.html">About Us</a>
                     <a href="return-policy.html">Return Policy</a>
-                    <a href="terms-condition.html">Terms &amp; condition</a>
-                    <a href="privacy-policy.html">Privacy Policy</a>
-                    <a href="faq.html">FAQ</a>
+                    <a href="/termandconditionpage">Terms &amp; condition</a>
+                    <a href="/privacypolicy">Privacy Policy</a>
+                    <a href="/faq">FAQ</a>
                   </div>
                 </div>
               </div>
@@ -73,7 +123,7 @@ const Footer = () => {
               <div className="footer_download">
                 <div className=" text-left">
                   <div className="">
-                    <h4 className="footer_title text-lg font-medium pb-2">
+                    <h4 className="footer_title text-lg font-bold pb-2">
                       Contact
                     </h4>
                     <div className="footer_contact [&>p]:py-2">

@@ -38,7 +38,7 @@ const ChangePassWord = () => {
                 <i
                   className="las la-eye-slash hover:text-defaut-color-pink"
                   onClick={() => handleHidePassword("Current Password")}
-                ></i>
+                />
               </span>
             </div>
           </div>

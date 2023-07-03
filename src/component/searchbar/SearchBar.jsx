@@ -1,21 +1,11 @@
 import React, { useState, useEffect, useRef } from "react";
 import "./searchbar.scss";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faStar } from "@fortawesome/free-solid-svg-icons";
-import { Link } from "react-router-dom";
-import { useStorage } from "../localstorage/LocalStorage";
-import axios from "axios";
 
 const SearchBar = (props) => {
   const [data, setData] = useState(null);
   const [hoverIconCart, setHoverIconCart] = useState(false);
   const [hoverIconAccount, setHoverIconAccount] = useState(false);
   const currentUrl = window.location.pathname;
-  // const [pathManageMyAccount, setPathManageMyAccount] = useStorage(
-  //   "pathManageMyAccount",
-  //   []
-  // );
-  let url = "https://63f43c77864fb1d600247a6d.mockapi.io/Products/products";
   const param = [
     { id: 0, name: "ManageMyAccount" },
     { id: 1, name: "ProfileInformation" },
@@ -69,7 +59,11 @@ const SearchBar = (props) => {
           </button>
         </div>
         <div className="containerNarbarIcon w-[150px] flex text-center justify-between [&>a]:text-white">
-          <a href="/managemyaccount" className="icon_wrp grid">
+          <a
+            href={currentUrl === "/managemyaccount" ? "#" : "/managemyaccount"}
+            className="icon_wrp grid"
+            onClick={() => handleOnClickChangePath(10)}
+          >
             <span className="popsheart">77</span>
             <span className="icon text-[20px]">
               <i className="fa-solid fa-heart"></i>

@@ -18,25 +18,22 @@ import PageNotFound from "./component/404pagenotfound/PageNotFound";
 import LoginPage from "./component/loginpage/LoginPage";
 import ForgotPasswordPage from "./component/forgotpasswordpage/ForgotPasswordPage";
 import Registerpage from "./component/registerpage/RegisterPage";
-
 import TermAndConditionsPage from "./component/registerpage/TermAndConditionsPage";
 import OrderCompeted from "./component/ordercompeted/OrderCompeted";
-
 import MyAccountPage from "./component/managemyaccount/MyAccountPage";
-
 import "bootstrap/dist/css/bootstrap.min.css";
 import "react-toastify/dist/ReactToastify.css";
 import "./index.css";
 import { useStorage } from "./component/localstorage/LocalStorage";
 import FAQ from "./component/faq/FAQ";
+import CheckOutPage from "./component/checkoutpage/CheckOutPage";
+import PrivacyPolicy from "./component/registerpage/PrivacyPolicy";
 
 function App() {
   const [cartItems] = useStorage("cartItems", []);
   const [dataForPreview, setDataForPreview] = useState(null);
   const [data, setData] = useState(cartItems.length);
-  const [pathManageMyAccount, setPathManageMyAccount] =
-    useState("ManageMyAccount");
-  const [pathManageMyAccount1, setPathManageMyAccount1] = useStorage(
+  const [pathManageMyAccount1, setPathManageMyAccount] = useStorage(
     "pathManageMyAccount",
     []
   );
@@ -57,12 +54,16 @@ function App() {
     setDataForPreview(newData);
   };
   const handleOnClickChangePath = (path) => {
-    setPathManageMyAccount1(path);
+    setPathManageMyAccount(path);
+    console.log(path);
+  };
+  const handleonclicktestbutton = (newData) => {
+    console.log(123);
   };
   return (
     <>
       <ToastContainer />
-      <MenuBar />
+      <MenuBar handleOnClickChangePath={handleOnClickChangePath} />
       <SearchBar
         onChangeDataRefresh={data}
         handleOnClickChangePath={handleOnClickChangePath}
@@ -77,6 +78,7 @@ function App() {
           <i className="las la-angle-right "></i>
           <span className="ml-1 text-lg">Home</span>
         </div>
+        <button onClick={handleonclicktestbutton}>Test</button>
       </div>
       <Routes>
         <Route
@@ -141,10 +143,17 @@ function App() {
         <Route
           path="/managemyaccount"
           element={<MyAccountPage onChangeData={pathManageMyAccount1} />}
-        />
+        />{" "}
+        <Route path="/checkoutpage" element={<CheckOutPage />} />
+        <Route path="/faq" element={<FAQ />} />
+        <Route
+          path="/termandconditionpage"
+          element={<TermAndConditionsPage />}
+        />{" "}
+        <Route path="/privacypolicy" element={<PrivacyPolicy />} />
       </Routes>
       <div className="mt-2">
-        <Footer />
+        <Footer handleOnClickChangePath={handleOnClickChangePath} />
       </div>
     </>
   );

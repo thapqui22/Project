@@ -2,16 +2,6 @@ import { useStorage } from "../localstorage/LocalStorage";
 import React, { useState, useEffect, useRef } from "react";
 import { toast } from "react-toastify";
 import "../shoppingcart/shoppingcart.scss";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faXmark,
-  faCartShopping,
-  faHeart,
-  faStar,
-  faMinus,
-  faPlus,
-  faHouse,
-} from "@fortawesome/free-solid-svg-icons";
 
 const Payment = () => {
   const [cartItems, setCartItems] = useStorage("cartItems", []);
@@ -96,12 +86,12 @@ const Payment = () => {
           <h4 className="flex h-8  justify-start bg-[#E9E4E4] items-center [&>span]:text-center mb-4  p-[20px]">
             <span className="font-bold">Select Payment Method</span>
           </h4>
-          <div class="row">
-            <div class="payment_methods credit_card active">
-              <div class="payment_method_title">
+          <div className="row">
+            <div className="payment_methods credit_card active">
+              <div className="payment_method_title">
                 <h4>Credit Card</h4>
-                <div class="payment_method_img">
-                  <div class="d-flex credit_crd">
+                <div className="payment_method_img">
+                  <div className="d-flex credit_crd">
                     <img
                       loading="lazy"
                       src="assets/images/payment-visa.png"
@@ -120,46 +110,46 @@ const Payment = () => {
                   </div>
                 </div>
               </div>
-              <div class="row">
-                <div class="col-12">
-                  <div class="single_billing_inp">
-                    <label for="company_name">
+              <div className="row">
+                <div className="col-12">
+                  <div className="single_billing_inp">
+                    <label htmlFor="company_name">
                       Card Number <span>*</span>
                     </label>
                     <input type="text" id="company_name" />
                   </div>
                 </div>
-                <div class="col-12">
-                  <div class="single_billing_inp">
-                    <label for="county_region">
+                <div className="col-12">
+                  <div className="single_billing_inp">
+                    <label htmlFor="county_region">
                       Name on Card <span>*</span>
                     </label>
                     <input type="text" id="county_region" />
                   </div>
                 </div>
-                <div class="col-lg-6">
-                  <div class="single_billing_inp">
-                    <label for="first_name">
+                <div className="col-lg-6">
+                  <div className="single_billing_inp">
+                    <label htmlFor="first_name">
                       Expiration Date <span>*</span>
                     </label>
                     <input
                       type="text"
-                      class=""
+                      className=""
                       id="first_name"
                       placeholder="MM/YY"
                     />
                   </div>
                 </div>
-                <div class="col-lg-6">
-                  <div class="single_billing_inp">
-                    <label for="last_name">
+                <div className="col-lg-6">
+                  <div className="single_billing_inp">
+                    <label htmlFor="last_name">
                       CVV <span>*</span>
                     </label>
-                    <input type="text" class="" id="last_name" />
+                    <input type="text" className="" id="last_name" />
                   </div>
                 </div>
-                <div class="col-12 mt-4">
-                  <button class="proccesstocheckoutbtn uppercase rounded w-[18%] bg-defaut-color-pink text-white hover:border-defaut-color-pink font-medium text-base hover:text-defaut-color-pink hover:bg-white transition duration-300 ease-out hover:ease-in ">
+                <div className="col-12 mt-4">
+                  <button className="proccesstocheckoutbtn uppercase rounded w-[18%] bg-defaut-color-pink text-white hover:border-defaut-color-pink font-medium text-base hover:text-defaut-color-pink hover:bg-white transition duration-300 ease-out hover:ease-in ">
                     Pay Now
                   </button>
                 </div>

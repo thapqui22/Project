@@ -90,3 +90,27 @@
     cursor: pointer;
   }
 }
+
+.inputpassword {
+  position: relative;
+  span {
+    position: absolute;
+    right: 5%;
+    top: 9px;
+    font-size: 14px;
+    color: black;
+  }
+  input {
+    height: 50%;
+    width: 100% !important;
+    // min-width: 30%;
+    font-size: 12px;
+    outline-color: #e2e8f0;
+  }
+  i {
+    color: black;
+  }
+  i:hover {
+    color: #fc3d57;
+  }
+}
