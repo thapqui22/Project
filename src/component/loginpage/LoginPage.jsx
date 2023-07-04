@@ -1,63 +1,125 @@
 import React, { useState, useEffect, useRef } from "react";
+
 import "./loginpage.scss";
+import { toast } from "react-toastify";
 const LoginPage = (props) => {
   const [hideCurrentPassword, setHideCurrentPassword] = useState(true);
+  const [loginStatus, setLoginStatus] = useState(null);
+  const [curentStatusPage, setCurentStatusPage] = useState(true);
   const paramAccount = {
     EmailAddress: String,
     Password: String,
     RememberMe: false,
   };
-  // useEffect(() => {
-  //   const userAgent = navigator.userAgent.toLowerCase();
-  //   if (userAgent.indexOf("chrome") > -1) {
-  //     console.log("Running on Google Chrome");
-  //   } else if (userAgent.indexOf("opera") > -1) {
-  //     console.log("Running on Opera");
-  //   } else if (userAgent.indexOf("firefox") > -1) {
-  //     console.log("Running on Mozilla Firefox");
-  //   } else {
-  //     console.log("Running on an unknown browser");
-  //   }
-  // }, []);
-  const refParamAccount = useRef(paramAccount);
+  useEffect(() => {
+    const fetchData = async () => {
+      // setData(props.onChangeDataRefresh);
+      if(){
+      setLoginStatus(props.onChangeLoginStatus);}
+    };
+    fetchData();
+  }, [props]);
   const refEmailAddress = useRef(null);
   const refPassword = useRef(null);
   const refRememberMe = useRef(false);
   const handleOnClickLoginButton = (e) => {
     if (
-      refEmailAddress.current.value !== null &&
-      refPassword.current.value !== null
+      refEmailAddress.current.value !== "" &&
+      refPassword.current.value !== ""
     ) {
       const email = refEmailAddress.current.value;
-      if (validateEmail(email)) {
-        console.log("Valid email:", email);
-        paramAccount.EmailAddress = email;
-      } else {
-        console.log("Invalid email:", email);
-      }
-
       const password = refPassword.current.value;
-      const validationMessage = validatePassword(password);
-      if (validationMessage === "valid") {
-        console.log("Valid password:", password);
-        paramAccount.Password = refPassword.current.value;
+      const validationMessagePassword = validatePassword(password);
+      const validationMessageEmail = validateEmail(email);
+      if (validationMessageEmail === "valid") {
+        console.log("Valid email:" + email);
+        paramAccount.EmailAddress = email;
+        if (validationMessagePassword === "valid") {
+          console.log("Valid password:" + password);
+          paramAccount.Password = refPassword.current.value;
+          if (paramAccount.RememberMe) {
+            // Save email and password to local storage
+            localStorage.setItem("email", email);
+            localStorage.setItem("password", password);
+          }
+          handleLogin(paramAccount);
+        } else {
+          toast.dismiss();
+          toast.error(
+            <div>
+              <h4 className="font-bold">Invalid password:</h4>
+              <p>{validationMessagePassword}</p>
+            </div>,
+            {
+              autoClose: 1000, // Set the duration (in milliseconds) for the toast to be displayed
+            }
+          );
+          console.log("Invalid password:" + validationMessagePassword);
+        }
       } else {
-        console.log("Invalid password:", validationMessage);
+        toast.dismiss();
+        toast.error(
+          <div>
+            <h4 className="font-bold">Invalid email:</h4>
+            <p>{validationMessageEmail}</p>
+          </div>,
+          {
+            autoClose: 1000, // Set the duration (in milliseconds) for the toast to be displayed
+          }
+        );
+        console.log("Invalid email:" + email);
       }
-      const browserName = navigator.userAgent;
-      console.log(browserName);
       console.log(paramAccount);
     } else {
+      toast.dismiss();
+      toast.error("Email or password was empty", {
+        autoClose: 1000, // Set the duration (in milliseconds) for the toast to be displayed
+      });
       console.log("Invalid value");
     }
   };
+  useEffect(() => {
+    const fetchData = async () => {
+      const email = localStorage.getItem("email");
+      const password = localStorage.getItem("password");
+      if (email !== "" && password !== "") {
+        refEmailAddress.current.value = email;
+        refPassword.current.value = password;
+      }
+    };
+    fetchData();
+  }, []);
+
+  const handleLogin = (account) => {
+    props.onChangeDataLogin(account);
+    refEmailAddress.current.value = "";
+    refPassword.current.value = "";
+    window.location.href = "/";
+  };
   const validateEmail = (email) => {
-    // Regular expression for email validation
     const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
-    return emailRegex.test(email);
+
+    if (email.trim() === "") {
+      return "Email is required.";
+    }
+
+    if (!emailRegex.test(email)) {
+      if (!email.includes("@")) {
+        return "Email is missing the @ symbol.";
+      }
+
+      if (!email.endsWith(".com")) {
+        return "Email should end with .com domain.";
+      }
+
+      // Add more specific checks as needed
+
+      return "Invalid email format.";
+    }
+
+    return "valid";
   };
   const handleOnChangeCheckbox = () => {
-    // refRememberMe.current = !refRememberMe.current;
     paramAccount.RememberMe = !refRememberMe.current;
   };
   const validatePassword = (password) => {
@@ -70,7 +132,7 @@ const LoginPage = (props) => {
       return "Password should contain at least one uppercase letter.";
     }
     if (!/[a-z]/.test(password)) {
-      return "Password should contain at least one downcase letter.";
+      return "Password should contain at least one lowercase letter.";
     }
     // Check for numeric digit
     if (!/\d/.test(password)) {
@@ -92,8 +154,7 @@ const LoginPage = (props) => {
     <div className="flex justify-center">
       <div className="register_form padding_default shadow_sm w-[450px] px-[24px] py-[30px]">
         <h4 className="title_2 text-2xl font-semibold uppercase pb-2">LOGIN</h4>
-        <p className="pb-3 text-sm">Login if you a a returing customer.</p>
-
+        <p className="pb-3 text-sm">Login if you are a returning customer</p>
         <div className="row">
           <div className="col-12">
             <div className="single_billing_inp">
@@ -104,7 +165,9 @@ const LoginPage = (props) => {
                 type="email"
                 placeholder="example@mail.com"
                 ref={refEmailAddress}
+                id="email"
               />
+              {/* <p className="text-xs pl-3 pt-2 text-[#6e676793]">Password</p> */}
             </div>
           </div>
 
@@ -118,6 +181,7 @@ const LoginPage = (props) => {
                   type={hideCurrentPassword ? "password" : "text"}
                   placeholder="type password"
                   ref={refPassword}
+                  id="password"
                 />
                 <span className="icon">
                   <i

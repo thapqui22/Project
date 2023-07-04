@@ -1,5 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
+import { toast } from "react-toastify";
 import React, { useState, useEffect, useRef } from "react";
 import Home from "./page/home/Home";
 import Knowledge from "./page/knowledge/Knowledge";
@@ -33,10 +34,16 @@ function App() {
   const [cartItems] = useStorage("cartItems", []);
   const [dataForPreview, setDataForPreview] = useState(null);
   const [data, setData] = useState(cartItems.length);
+  const [loginAccount, setLoginAccount] = useStorage("loginAccount", []);
   const [pathManageMyAccount1, setPathManageMyAccount] = useStorage(
     "pathManageMyAccount",
     []
   );
+  const paramAccountAdmin = {
+    EmailAddress: "thapqui@gmail.com",
+    Password: "123!45Qq",
+    RememberMe: false,
+  };
   const [dataQuill, setDataQuill] = useState({
     title: "",
     description: "",
@@ -57,15 +64,50 @@ function App() {
     setPathManageMyAccount(path);
     console.log(path);
   };
-  const handleonclicktestbutton = (newData) => {
-    console.log(123);
+  const handleCheckDataAccount = (Data) => {
+    console.log(Data);
+    if (paramAccountAdmin.EmailAddress === Data.EmailAddress) {
+      if (paramAccountAdmin.Password === Data.Password) {
+        toast.success("Login success", {
+          autoClose: 1000, // Set the duration (in milliseconds) for the toast to be displayed
+        });
+        setLoginAccount(true);
+      } else {
+        toast.dismiss();
+        toast.error("Password does not match", {
+          autoClose: 1000, // Set the duration (in milliseconds) for the toast to be displayed
+        });
+      }
+    } else {
+      toast.dismiss();
+      toast.error("EmailAddress does not match", {
+        autoClose: 1000, // Set the duration (in milliseconds) for the toast to be displayed
+      });
+    }
+  };
+  const handleLoginOrLogout = (status) => {
+    console.log(status);
+    setLoginAccount(status);
   };
   return (
     <>
-      <ToastContainer />
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
       <MenuBar handleOnClickChangePath={handleOnClickChangePath} />
       <SearchBar
+        handleOnClickLogOut={handleLoginOrLogout}
         onChangeDataRefresh={data}
+        onChangeLoginStatus={loginAccount}
         handleOnClickChangePath={handleOnClickChangePath}
       />
       <div className="py-3 flex justify-center items-center">
@@ -78,7 +120,6 @@ function App() {
           <i className="las la-angle-right "></i>
           <span className="ml-1 text-lg">Home</span>
         </div>
-        <button onClick={handleonclicktestbutton}>Test</button>
       </div>
       <Routes>
         <Route
@@ -131,7 +172,16 @@ function App() {
             />
           }
         />
-        <Route path="/loginpage" element={<LoginPage />} />
+        <Route
+          path="/loginpage"
+          element={
+            <LoginPage
+              onChangeLoginStatus={loginAccount}
+              onChangeDataLogin={handleCheckDataAccount}
+              // handleOnClickLogOut={handleLoginOrLogout}
+            />
+          }
+        />
         <Route path="/forgotpasswordpage" element={<ForgotPasswordPage />} />
         <Route path="/registerpage" element={<Registerpage />} />
         <Route
