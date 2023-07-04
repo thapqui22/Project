@@ -97,8 +97,10 @@ const Shopping = (props) => {
             : item
         )
       );
+      toast.dismiss();
       toast.success("The quantity has increased");
     } else {
+      toast.dismiss();
       toast.success("Has adding to cart");
       setCartItems([...cartItems, { ...product, quantity: 1 }]);
       handleAddToCart(cartItems);

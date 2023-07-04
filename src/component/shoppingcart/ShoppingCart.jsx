@@ -30,12 +30,14 @@ const ShoppingCart = (props) => {
             : item
         )
       );
+      toast.dismiss();
       toast.success(`Increasing successful`, {
-        autoClose: 200,
+        autoClose: 1000,
       });
     } else {
+      toast.dismiss();
       toast.error(`Error: Can't increasing product`, {
-        autoClose: 200, // Set the duration to 1 second (1000 milliseconds)
+        autoClose: 1000, // Set the duration to 1 second (1000 milliseconds)
       });
     }
   };
@@ -52,8 +54,9 @@ const ShoppingCart = (props) => {
       };
       if (updatedCartItem.quantity === 0) {
         setCartItems(cartItems.filter((item) => item.id !== product.id));
+        toast.dismiss();
         toast.success(`Delete successful`, {
-          autoClose: 200,
+          autoClose: 1000,
         });
       } else {
         setCartItems(
@@ -61,8 +64,9 @@ const ShoppingCart = (props) => {
             item.id === product.id ? updatedCartItem : item
           )
         );
+        toast.dismiss();
         toast.success(`Decreasing successful`, {
-          autoClose: 200, // Set the duration to 1 second (1000 milliseconds)
+          autoClose: 1000, // Set the duration to 1 second (1000 milliseconds)
         });
       }
     } else {
@@ -78,8 +82,9 @@ const ShoppingCart = (props) => {
   }
   const removeFromCart = (productId) => {
     setCartItems(cartItems.filter((item) => item.id !== productId));
+    toast.dismiss();
     toast.success(`Removing successful`, {
-      autoClose: 200, // Set the duration to 1 second (1000 milliseconds)
+      autoClose: 1000, // Set the duration to 1 second (1000 milliseconds)
     });
     handleOnClickRemove();
   };

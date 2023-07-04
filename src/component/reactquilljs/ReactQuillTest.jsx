@@ -32,6 +32,7 @@ const ReactQuillTest = (props) => {
     try {
       const url = `https://63f43c77864fb1d600247a6d.mockapi.io/Products/manage/${item}`;
       const response = await axios.post(url, data);
+      toast.dismiss();
       toast.success("Blog has added!");
       console.log("Blog has added:", response.data);
     } catch (error) {

@@ -20,6 +20,7 @@ const MenuBar = (props) => {
     props.handleOnClickChangePath(param[number].name);
     // console.log(currentUrl);
   };
+
   return (
     <div className="containernavbar bg-white flex justify-center">
       <div className="w-[1200px]">

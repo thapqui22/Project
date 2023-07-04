@@ -4,6 +4,7 @@ import "./searchbar.scss";
 const SearchBar = (props) => {
   const [data, setData] = useState(null);
   const [hoverIconCart, setHoverIconCart] = useState(false);
+  const [loginStatus, setLoginStatus] = useState(null);
   const [hoverIconAccount, setHoverIconAccount] = useState(false);
   const currentUrl = window.location.pathname;
   const param = [
@@ -23,12 +24,17 @@ const SearchBar = (props) => {
   useEffect(() => {
     const fetchData = async () => {
       setData(props.onChangeDataRefresh);
+      // console.log(props.onChangeLoginStatus);
+      setLoginStatus(props.onChangeLoginStatus);
     };
     fetchData();
   }, [props]);
   const handleOnClickChangePath = (number) => {
     props.handleOnClickChangePath(param[number].name);
     // console.log(currentUrl);
+  };
+  const handleOnClickLogOut = (status) => {
+    props.handleOnClickLogOut(status);
   };
   return (
     <div className="navbar py-0">
@@ -144,8 +150,23 @@ const SearchBar = (props) => {
               onMouseEnter={() => setHoverIconAccount(true)}
               onMouseLeave={() => setHoverIconAccount(false)}
             >
-              <span className="icon text-[20px]">
-                <i className="fa-regular fa-user"></i>
+              <span
+                className={
+                  loginStatus
+                    ? "icon text-[20px] flex justify-center"
+                    : "icon text-[20px]"
+                }
+              >
+                {loginStatus ? (
+                  <div className="acprof_img_searchbar rounded-full flex justify-center cursor-pointer hover:border-defaut-color-pink">
+                    <img
+                      src="https://themes.rslahmed.dev/rafcart/assets/images/avatar-2.png"
+                      alt=""
+                    />
+                  </div>
+                ) : (
+                  <i className="fa-regular fa-user" />
+                )}
               </span>
               <span className="icon_text text-[12px]">Account</span>
             </a>
@@ -162,15 +183,19 @@ const SearchBar = (props) => {
                   <h4 className="text-base font-semibold">
                     Welcome to RAFCART Shop
                   </h4>
-                  <div className="buttonaccount flex justify-between  mt-2">
-                    <a className="btnjoin" href="/registerpage">
-                      JOIN
-                    </a>
-                    <a className="btnlogin" href="/loginpage">
-                      LOGIN
-                    </a>
-                  </div>
-                  <div className="flex text-lg pt-3">
+                  {loginStatus ? (
+                    ""
+                  ) : (
+                    <div className="buttonaccount flex justify-between  mt-2">
+                      <a className="btnjoin" href="/registerpage">
+                        JOIN
+                      </a>
+                      <a className="btnlogin" href="/loginpage">
+                        LOGIN
+                      </a>
+                    </div>
+                  )}
+                  <div className="flex text-lg pt-1">
                     <div className="ac_links grid justify-items-stretch [&>div]:justify-self-start [&>a]:pl-2">
                       <div className="divitemaccount flex justify-center items-center">
                         <i className="lar la-id-card"></i>
@@ -224,7 +249,12 @@ const SearchBar = (props) => {
                       <div className="divitemaccount flex justify-center items-center">
                         <i className="las la-power-off"></i>
 
-                        <a href="/loginpage">Log out</a>
+                        <a
+                          href="/loginpage"
+                          onClick={() => handleOnClickLogOut(false)}
+                        >
+                          Log out
+                        </a>
                       </div>
                     </div>
                   </div>

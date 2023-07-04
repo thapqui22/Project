@@ -101,15 +101,19 @@ const ReactQuillJs = (props) => {
   const handlePreviewButtonAlert = () => {
     switch (true) {
       case quillRef.current.value === "":
+        toast.dismiss();
         toast.error("Quill Field is empty, please fill in");
         break;
       case titleRef.current.value === "":
+        toast.dismiss();
         toast.error("Title is empty, please fill in");
         break;
       case titleimageRef.current.value === "":
+        toast.dismiss();
         toast.error("Title Image is empty, please fill in");
         break;
       case descriptionRef.current.value === "":
+        toast.dismiss();
         toast.error("Description is empty, please fill in");
         break;
 
@@ -139,7 +143,7 @@ const ReactQuillJs = (props) => {
     //   console.log(data);
     //   props.onClickPreview(data);
     // } else {
-    //   toast.error("Field is empty, please fill in");
+    //   toast.dismiss();toast.error("Field is empty, please fill in");
     // }
   };
 
@@ -147,6 +151,7 @@ const ReactQuillJs = (props) => {
     try {
       const url = `https://63f43c77864fb1d600247a6d.mockapi.io/Products/manage/${item}`;
       const response = await axios.post(url, data);
+      toast.dismiss();
       toast.success("Item has added!");
       console.log("Item has added:", response.data);
     } catch (error) {
@@ -189,6 +194,7 @@ const ReactQuillJs = (props) => {
         console.error("Error updating item:", error);
       }
     } else {
+      toast.dismiss();
       toast.error("Field is empty, please fill in");
     }
   };
@@ -202,6 +208,7 @@ const ReactQuillJs = (props) => {
       };
       props.onClickPreview(emptyData);
       quillRef.current.getEditor().setContents(emptyContent);
+      toast.dismiss();
       toast.success("The Field are clear");
     } catch (error) {
       console.error("Error updating item:", error);

@@ -13,9 +13,9 @@ const LoginPage = (props) => {
   };
   useEffect(() => {
     const fetchData = async () => {
-      // setData(props.onChangeDataRefresh);
-      if(){
-      setLoginStatus(props.onChangeLoginStatus);}
+      // // setData(props.onChangeDataRefresh);
+      // if(){
+      // setLoginStatus(props.onChangeLoginStatus);}
     };
     fetchData();
   }, [props]);

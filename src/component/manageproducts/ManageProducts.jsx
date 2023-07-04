@@ -26,6 +26,7 @@ const ManageProducts = () => {
     try {
       const url = `https://63f43c77864fb1d600247a6d.mockapi.io/Products/products/${item}`;
       const response = await axios.post(url, data);
+      toast.dismiss();
       toast.success("Item has added!");
       console.log("Item has added:", response.data);
     } catch (error) {
@@ -54,6 +55,7 @@ const ManageProducts = () => {
         console.error("Error updating item:", error);
       }
     } else {
+      toast.dismiss();
       toast.error("The field is empty!");
     }
   };
@@ -61,6 +63,7 @@ const ManageProducts = () => {
     try {
       const url = `https://63f43c77864fb1d600247a6d.mockapi.io/Products/products/${itemId}`;
       const response = await axios.put(url, data);
+      toast.dismiss();
       toast.success("Item has updated!");
       console.log("Item updated:", response.data);
     } catch (error) {
@@ -88,6 +91,7 @@ const ManageProducts = () => {
         console.error("Error updating item:", error);
       }
     } else {
+      toast.dismiss();
       toast.error("The field is empty!");
     }
   };

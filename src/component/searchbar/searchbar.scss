@@ -182,3 +182,14 @@ $defaut-color-pink: #fc3d57;
     color: #fc3d57;
   }
 }
+.acprof_img_searchbar {
+  width: 30px;
+  // padding: 5px;
+  border: 1px solid #e9e4e4;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+}
+.acprof_img_searchbar:hover {
+  border: 1px solid #e9e4e4 !important;
+}
