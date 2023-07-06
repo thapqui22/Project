@@ -173,7 +173,6 @@ $defaut-color-pink: #fc3d57;
     width: 25%;
     h5 {
       font-size: 15px;
-      // height: 35px;
       font-weight: 600;
       padding-bottom: 5px;
     }
@@ -189,7 +188,6 @@ $defaut-color-pink: #fc3d57;
     width: 25%;
     h5 {
       font-size: 15px;
-      // height: 35px;
       font-weight: 600;
       padding-bottom: 5px;
     }
@@ -214,7 +212,6 @@ $defaut-color-pink: #fc3d57;
       width: 48%;
     }
   }
-
   .single_orderdet {
     display: flex;
     flex-direction: column;
@@ -229,6 +226,93 @@ $defaut-color-pink: #fc3d57;
     }
     p {
       font-size: 11px;
+    }
+  }
+}
+.shipping_process {
+  .sprocess_cont .sprosbar {
+    position: absolute;
+    // left: 37px;
+    top: 30%;
+    // right: 35px;
+    width: 54%;
+    background: #e9e4e4;
+    height: 2px;
+    z-index: -1;
+  }
+  .sprocess_cont .sprosbar .sp_fill {
+    position: absolute;
+    // left: 0;
+    // top: 0;
+    height: 2px;
+    // width: 100%;
+    background: #4cae50;
+  }
+}
+.single_sproc_cont {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 9px;
+  .sproc_cont_dot {
+    // top: 50%;
+    width: 15px;
+    height: 15px;
+    background: #4cae50;
+    border-radius: 50%;
+  }
+}
+.order_detail_wrapper .orderdet_info .single_orderdet {
+  h5 {
+    font-weight: 600;
+  }
+  p {
+    padding-top: 5px;
+    font-size: 13px;
+  }
+}
+.order_detail_wrapper .order_prodetails {
+  .single_orderdet {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 20px;
+    width: 20%;
+    h5 {
+      font-size: 15px;
+      // height: 35px;
+      font-weight: 600;
+      padding-bottom: 5px;
+    }
+    p {
+      font-size: 12px;
+    }
+  }
+}
+.profile_info_wrap {
+  .single_prof_info {
+    border: none !important;
+    padding: 30px 0px;
+    h4 {
+      padding-bottom: 10px;
+    }
+  }
+}
+.write_review_wrap {
+  .single_orderdet {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 20px;
+    width: 20%;
+    h5 {
+      font-size: 15px;
+      // height: 35px;
+      font-weight: 600;
+      padding-bottom: 5px;
+    }
+    p {
+      font-size: 14px;
     }
   }
 }

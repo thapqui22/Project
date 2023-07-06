@@ -167,211 +167,214 @@ const Shopping = (props) => {
 
   return (
     <div className="flex justify-center">
-      <div className="containersbox divide-y [&>div]:py-2">
-        <div className="filter_list py-1">
-          <h4>CATEGORIES</h4>
-          {Object.keys(paramCategory).map((item) => (
-            <div
-              className={`custom_check ${
-                selectedCategory === "" ? "" : "active"
-              }`}
-            >
-              <input
-                type="checkbox"
-                className="check_inp"
-                hidden=""
-                id={`cat-${item}`}
-                checked={selectedCategory === item}
-                readOnly
-                onClick={() => handleCategoryChange(item)}
-              />
-              <label htmlFor={`cat-${item}`}>{item.toUpperCase()}</label>
-              <p>{paramCategory[item].length}</p>
-            </div>
-          ))}
-        </div>
-        <div className="shop_filter [&>div]:py-1">
-          <h4 className="custom_check ">
-            BRANDS
-            {selectedCategory ? (
-              <i className="las la-angle-down"></i>
-            ) : (
-              <i className="las la-angle-up "></i>
-            )}
-          </h4>
-          <div
-            className={`filter_list_brands ${dropdownVisible ? "show" : ""}`}
-          >
-            {selectedCategory !== ""
-              ? paramCategory[selectedCategory].map((item) => (
-                  <div className="custom_check ">
-                    <input
-                      type="checkbox"
-                      className="check_inp"
-                      hidden=""
-                      id={`bnd-${item}`}
-                      checked={selectedBrands.includes(item)}
-                      readOnly
-                      onClick={() => handleOnClickCheckBoxBrands(item)}
-                    />
-                    <label htmlFor={`bnd-${item}`}>{item}</label>
-                  </div>
-                ))
-              : null}
+      <div className=" w-[1224px] flex">
+        <div className="containersbox  w-1/4 ml-2 border rounded pl-3 divide-y [&>div]:py-2">
+          <div className="filter_list py-1">
+            <h4>CATEGORIES</h4>
+            {Object.keys(paramCategory).map((item) => (
+              <div
+                className={`custom_check ${
+                  selectedCategory === "" ? "" : "active"
+                }`}
+                key={`cat-${item}`}
+              >
+                <input
+                  type="checkbox"
+                  className="check_inp"
+                  hidden=""
+                  id={`cat-${item}`}
+                  checked={selectedCategory === item}
+                  readOnly
+                  onClick={() => handleCategoryChange(item)}
+                />
+                <label htmlFor={`cat-${item}`}>{item.toUpperCase()}</label>
+                <p>{paramCategory[item].length}</p>
+              </div>
+            ))}
           </div>
-        </div>
-        <div className="price_filter [&>div]:py-2">
-          <h4>PRICE</h4>
-          <MultiRangeSlider
-            min={0}
-            max={1000}
-            onChange={({ min, max }) => handleSaveMinMax(min, max)}
-          />
-        </div>
-        <div className="shop_filter border-bottom-0 pb-0">
-          <div className="radio-toolbar-search">
-            <h5>Size:</h5>
-            <div className="flex w-52 justify-between items-center">
-              <input
-                type="radio"
-                disabled
-                name="size-search"
-                value="XS"
-                className="size_inp"
-                id="size-xs-search"
-                onChange={handleSizeChange}
-                checked={selectedSizeSearch === "XS"}
-              />
-              <label htmlFor="size-xs-search">XS</label>
-
-              <input
-                type="radio"
-                disabled
-                name="size-search"
-                value="S"
-                className="size_inp"
-                id="size-s-search"
-                onChange={handleSizeChange}
-                checked={selectedSizeSearch === "S"}
-              />
-              <label htmlFor="size-s-search">S</label>
-
-              <input
-                type="radio"
-                disabled
-                name="size-search"
-                value="M"
-                className="size_inp"
-                id="size-m-search"
-                onChange={handleSizeChange}
-                checked={selectedSizeSearch === "M"}
-              />
-              <label htmlFor="size-m-search">M</label>
-
-              <input
-                type="radio"
-                disabled
-                name="size-search"
-                value="L"
-                className="size_inp"
-                id="size-l-search"
-                onChange={handleSizeChange}
-                checked={selectedSizeSearch === "L"}
-              />
-              <label htmlFor="size-l-search">L</label>
-
-              <input
-                type="radio"
-                disabled
-                name="size-search"
-                value="XL"
-                className="size_inp"
-                id="size-xl-search"
-                onChange={handleSizeChange}
-                checked={selectedSizeSearch === "XL"}
-              />
-              <label htmlFor="size-xl-search">XL</label>
+          <div className="shop_filter [&>div]:py-1">
+            <h4 className="custom_check ">
+              BRANDS
+              {selectedCategory ? (
+                <i className="las la-angle-down"></i>
+              ) : (
+                <i className="las la-angle-up "></i>
+              )}
+            </h4>
+            <div
+              className={`filter_list_brands ${dropdownVisible ? "show" : ""}`}
+            >
+              {selectedCategory !== ""
+                ? paramCategory[selectedCategory].map((item) => (
+                    <div className="custom_check ">
+                      <input
+                        type="checkbox"
+                        className="check_inp"
+                        hidden=""
+                        id={`bnd-${item}`}
+                        checked={selectedBrands.includes(item)}
+                        readOnly
+                        onClick={() => handleOnClickCheckBoxBrands(item)}
+                      />
+                      <label htmlFor={`bnd-${item}`}>{item}</label>
+                    </div>
+                  ))
+                : null}
             </div>
+          </div>
+          <div className="price_filter [&>div]:py-2">
+            <h4>PRICE</h4>
+            <MultiRangeSlider
+              min={0}
+              max={1000}
+              onChange={({ min, max }) => handleSaveMinMax(min, max)}
+            />
           </div>
           <div className="shop_filter border-bottom-0 pb-0">
-            <div className="radio-toolbar-color">
-              <h5>Color:</h5>
-              <div className="flex w-auto  items-center">
+            <div className="radio-toolbar-search">
+              <h5>Size:</h5>
+              <div className="flex w-52 justify-between items-center">
                 <input
                   type="radio"
                   disabled
-                  hidden=""
-                  name="color-search"
-                  value="RGB"
-                  className="size_inp-1"
-                  id="color-RGB-search"
-                  onChange={handleColorChange}
-                  checked={selectedColorSearch === "RGB"}
+                  name="size-search"
+                  value="XS"
+                  className="size_inp"
+                  id="size-xs-search"
+                  onChange={handleSizeChange}
+                  checked={selectedSizeSearch === "XS"}
                 />
-                <label htmlFor="color-RGB-search">RGB</label>
+                <label htmlFor="size-xs-search">XS</label>
 
                 <input
                   type="radio"
                   disabled
-                  hidden=""
-                  name="color-search"
-                  value="WRGB"
-                  className="size_inp-1"
-                  id="color-WRGB-search"
-                  onChange={handleColorChange}
-                  checked={selectedColorSearch === "WRGB"}
+                  name="size-search"
+                  value="S"
+                  className="size_inp"
+                  id="size-s-search"
+                  onChange={handleSizeChange}
+                  checked={selectedSizeSearch === "S"}
                 />
-                <label htmlFor="color-WRGB-search">WRGB</label>
+                <label htmlFor="size-s-search">S</label>
 
                 <input
                   type="radio"
                   disabled
-                  hidden=""
-                  name="color-search"
-                  value="WRGB-UV"
-                  className="size_inp-1"
-                  id="color-WRGB-UV-search"
-                  onChange={handleColorChange}
-                  checked={selectedColorSearch === "WRGB-UV"}
+                  name="size-search"
+                  value="M"
+                  className="size_inp"
+                  id="size-m-search"
+                  onChange={handleSizeChange}
+                  checked={selectedSizeSearch === "M"}
                 />
-                <label htmlFor="color-WRGB-UV-search">WRGB-UV</label>
+                <label htmlFor="size-m-search">M</label>
+
+                <input
+                  type="radio"
+                  disabled
+                  name="size-search"
+                  value="L"
+                  className="size_inp"
+                  id="size-l-search"
+                  onChange={handleSizeChange}
+                  checked={selectedSizeSearch === "L"}
+                />
+                <label htmlFor="size-l-search">L</label>
+
+                <input
+                  type="radio"
+                  disabled
+                  name="size-search"
+                  value="XL"
+                  className="size_inp"
+                  id="size-xl-search"
+                  onChange={handleSizeChange}
+                  checked={selectedSizeSearch === "XL"}
+                />
+                <label htmlFor="size-xl-search">XL</label>
+              </div>
+            </div>
+            <div className="shop_filter border-bottom-0 pb-0">
+              <div className="radio-toolbar-color">
+                <h5>Color:</h5>
+                <div className="flex w-auto  items-center">
+                  <input
+                    type="radio"
+                    disabled
+                    hidden=""
+                    name="color-search"
+                    value="RGB"
+                    className="size_inp-1"
+                    id="color-RGB-search"
+                    onChange={handleColorChange}
+                    checked={selectedColorSearch === "RGB"}
+                  />
+                  <label htmlFor="color-RGB-search">RGB</label>
+
+                  <input
+                    type="radio"
+                    disabled
+                    hidden=""
+                    name="color-search"
+                    value="WRGB"
+                    className="size_inp-1"
+                    id="color-WRGB-search"
+                    onChange={handleColorChange}
+                    checked={selectedColorSearch === "WRGB"}
+                  />
+                  <label htmlFor="color-WRGB-search">WRGB</label>
+
+                  <input
+                    type="radio"
+                    disabled
+                    hidden=""
+                    name="color-search"
+                    value="WRGB-UV"
+                    className="size_inp-1"
+                    id="color-WRGB-UV-search"
+                    onChange={handleColorChange}
+                    checked={selectedColorSearch === "WRGB-UV"}
+                  />
+                  <label htmlFor="color-WRGB-UV-search">WRGB-UV</label>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-        <div>
-          <button
-            className="btnsearch"
-            onClick={() => setDataStatus(!dataStatus)}
-          >
-            Search
-          </button>
-        </div>
-      </div>
-      <div>
-        <Modal
-          onClickFaMagnifyingGlass={changeData}
-          onClickCancel={handleChildClickCancel}
-        />
-        <div className="containers">
-          <div className="containershop">
-            {isLoading ? <LoadingModal /> : <div />}
-            {currentItems.map((item) => (
-              <Card
-                onChangData={item}
-                key={item.id}
-                onChangePathData={(e) => handleOnClickChangePath(e)}
-                onClickFaMagnifyingGlass={handleChildClick}
-                onClickAddtoCartButton={(e) => addtocart(e)}
-              />
-            ))}
+          <div>
+            <button
+              className="btnsearch"
+              onClick={() => setDataStatus(!dataStatus)}
+            >
+              Search
+            </button>
           </div>
         </div>
-        <PaginationShopping
-          onClickChangePage={handleClickChangePage}
-          onChangeData={data}
-          onChangeDataItemToShow={itemsPerPage}
-        />
+        <div className="w-3/4">
+          <div className="containers">
+            <div className="containershop">
+              {currentItems.map((item) => (
+                <Card
+                  onChangData={item}
+                  key={item.id}
+                  onChangePathData={(e) => handleOnClickChangePath(e)}
+                  onClickFaMagnifyingGlass={handleChildClick}
+                  onClickAddtoCartButton={(e) => addtocart(e)}
+                />
+              ))}
+            </div>
+          </div>
+          {isLoading ? <LoadingModal /> : <div />}
+          <Modal
+            onClickFaMagnifyingGlass={changeData}
+            onClickCancel={handleChildClickCancel}
+          />
+          <PaginationShopping
+            onClickChangePage={handleClickChangePage}
+            onChangeData={data}
+            onChangeDataItemToShow={itemsPerPage}
+          />
+        </div>
       </div>
     </div>
   );

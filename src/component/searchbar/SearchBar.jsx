@@ -5,6 +5,7 @@ const SearchBar = (props) => {
   const [data, setData] = useState(null);
   const [hoverIconCart, setHoverIconCart] = useState(false);
   const [loginStatus, setLoginStatus] = useState(null);
+
   const [hoverIconAccount, setHoverIconAccount] = useState(false);
   const currentUrl = window.location.pathname;
   const param = [

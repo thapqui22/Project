@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
+import "./managemyaccount.scss";
 import MyWishList from "../mywishlist/MyWishList";
 import ProfileInformation from "./ProfileInformation";
-import "./managemyaccount.scss";
 import ChangePassWord from "./ChangePassWord";
 import ManageMyAddress from "./ManageMyAddress";
 import ManageMyAccount from "./ManageMyAccount";
@@ -11,9 +11,11 @@ import MyReturns from "./MyReturns";
 import MyReviews from "./MyReviews";
 import PayMentsMethods from "./PayMentsMethods";
 import Voucher from "./Voucher";
-import { useStorage } from "../localstorage/LocalStorage";
+import WriteReview from "./WriteReview";
+import OrderDetails from "./OrderDetails";
+import ReturnRequest from "./ReturnRequest";
 const MyAccountPage = (props) => {
-  const [actice, setActice] = useState(true);
+  const [active, setActive] = useState(true);
   const [pageActive, setPageActive] = useState(null);
   // const [pathManageMyAccount, setPathManageMyAccount] = useStorage(
   //   "pathManageMyAccount",
@@ -31,12 +33,26 @@ const MyAccountPage = (props) => {
     { id: 8, name: "PayMentsMethods" },
     { id: 9, name: "Voucher" },
     { id: 10, name: "MyWishList" },
+    { id: 11, name: "WriteReview" },
+    { id: 12, name: "OrderDetails" },
+    { id: 13, name: "ReturnRequest" },
   ];
   useEffect(() => {
     setPageActive(props.onChangeData);
+    // console.log(pathManageMyAccount);
   }, [props.onChangeData]);
   const handlePageChange = (pagenumber) => {
-    setPageActive(param[pagenumber].name);
+    if (
+      Number.isInteger(pagenumber) &&
+      pagenumber < param.length &&
+      pagenumber >= 0
+    ) {
+      setPageActive(param[pagenumber].name);
+    } else {
+      // Handle the case when pagenumber is not an integer
+      console.log("Invalid page number:", pagenumber);
+      // You can show an error message, display a default page, or take any other appropriate action
+    }
   };
   return (
     <div className="containercenter ">
@@ -63,7 +79,7 @@ const MyAccountPage = (props) => {
                 <div onClick={() => handlePageChange(0)}>
                   <h4
                     className={
-                      actice === true
+                      pageActive === "ManageMyAccount"
                         ? "acprof_link_title text-defaut-color-pink"
                         : "acprof_link_title "
                     }
@@ -73,52 +89,142 @@ const MyAccountPage = (props) => {
                   </h4>
                 </div>
                 <div onClick={() => handlePageChange(1)}>
-                  Profile Information
+                  <p
+                    className={
+                      pageActive === "ProfileInformation"
+                        ? "text-defaut-color-pink"
+                        : " "
+                    }
+                  >
+                    Profile Information
+                  </p>
                 </div>
-                <div onClick={() => handlePageChange(2)}>Manage Address</div>
-                <div onClick={() => handlePageChange(3)}>Change Password</div>
+                <div onClick={() => handlePageChange(2)}>
+                  <p
+                    className={
+                      pageActive === "ManageMyAddress"
+                        ? "text-defaut-color-pink"
+                        : " "
+                    }
+                  >
+                    Manage Address
+                  </p>
+                </div>
+                <div onClick={() => handlePageChange(3)}>
+                  <p
+                    className={
+                      pageActive === "ChangePassword"
+                        ? "text-defaut-color-pink"
+                        : " "
+                    }
+                  >
+                    Change Password
+                  </p>
+                </div>
               </div>
               <div className="acprof_links">
                 <div onClick={() => handlePageChange(4)}>
-                  <h4 className="acprof_link_title">
+                  <h4
+                    className={
+                      pageActive === "MyOrderHistory"
+                        ? "acprof_link_title text-defaut-color-pink"
+                        : "acprof_link_title "
+                    }
+                  >
                     <i className="las la-gift"></i>
                     My Order History
                   </h4>
                 </div>
-                <div onClick={() => handlePageChange(5)}>My Returns</div>
-                <div onClick={() => handlePageChange(6)}>My Cancellations</div>
-                <div onClick={() => handlePageChange(7)}>My Reviews</div>
+                <div onClick={() => handlePageChange(5)}>
+                  <p
+                    className={
+                      pageActive === "MyReturns"
+                        ? "text-defaut-color-pink"
+                        : " "
+                    }
+                  >
+                    My Returns
+                  </p>
+                </div>
+                <div onClick={() => handlePageChange(6)}>
+                  <p
+                    className={
+                      pageActive === "MyCancellations"
+                        ? "text-defaut-color-pink"
+                        : " "
+                    }
+                  >
+                    My Cancellations
+                  </p>
+                </div>
+                <div onClick={() => handlePageChange(7)}>
+                  <p
+                    className={
+                      pageActive === "MyReviews"
+                        ? "text-defaut-color-pink"
+                        : " "
+                    }
+                  >
+                    My Reviews
+                  </p>
+                </div>
               </div>
               <div className="acprof_links">
                 <div onClick={() => handlePageChange(8)}>
-                  <h4 className="acprof_link_title">
+                  <h4
+                    className={
+                      pageActive === "PayMentsMethods"
+                        ? "acprof_link_title text-defaut-color-pink"
+                        : "acprof_link_title "
+                    }
+                  >
                     <i className="las la-credit-card"></i>
                     Payments Methods
                   </h4>
                 </div>
-                <div onClick={() => handlePageChange(9)}>Voucher</div>
+                <div onClick={() => handlePageChange(9)}>
+                  <p
+                    className={
+                      pageActive === "Voucher" ? "text-defaut-color-pink" : " "
+                    }
+                  >
+                    Voucher
+                  </p>
+                </div>
               </div>
               <div className="acprof_links">
                 <div onClick={() => handlePageChange(10)}>
-                  <h4 className="acprof_link_title">
+                  <h4
+                    className={
+                      pageActive === "MyWishList"
+                        ? "acprof_link_title text-defaut-color-pink"
+                        : "acprof_link_title "
+                    }
+                  >
                     <i className="lar la-heart"></i>
                     My Wishlist
                   </h4>
                 </div>
               </div>
-              <div className="acprof_links border-0">
-                <div href="">
+              <div className="acprof_links border-0 ">
+                <div>
                   <h4 className="acprof_link_title">
-                    <i className="las la-power-off"></i>
-                    Log Out
+                    <a
+                      href="/loginpage"
+                      className="hover:text-defaut-color-pink hover:no-underline"
+                    >
+                      <i className="las la-power-off"></i>Log Out
+                    </a>
                   </h4>
                 </div>
               </div>
             </div>
-          </div>{" "}
+          </div>
         </div>
         <div className=" w-3/4">
-          {pageActive === "ManageMyAccount" ? <ManageMyAccount /> : null}
+          {pageActive === "ManageMyAccount" ? (
+            <ManageMyAccount onChangePath={handlePageChange} />
+          ) : null}
           {pageActive === "ProfileInformation" ? <ProfileInformation /> : null}
           {pageActive === "ManageMyAddress" ? <ManageMyAddress /> : null}
           {pageActive === "ChangePassword" ? <ChangePassWord /> : null}
@@ -129,6 +235,11 @@ const MyAccountPage = (props) => {
           {pageActive === "MyReviews" ? <MyReviews /> : null}
           {pageActive === "PayMentsMethods" ? <PayMentsMethods /> : null}
           {pageActive === "MyWishList" ? <MyWishList /> : null}
+          {pageActive === "WriteReview" ? <WriteReview /> : null}
+          {pageActive === "OrderDetails" ? (
+            <OrderDetails onChangePath={handlePageChange} />
+          ) : null}
+          {pageActive === "ReturnRequest" ? <ReturnRequest /> : null}
         </div>
       </div>
     </div>

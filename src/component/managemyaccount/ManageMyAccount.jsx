@@ -1,6 +1,28 @@
 import React from "react";
 import "./managemyaccount.scss";
-const ManageMyAccount = () => {
+import { useStorage } from "../localstorage/LocalStorage";
+const ManageMyAccount = (props) => {
+  const param = [
+    { id: 0, name: "ManageMyAccount" },
+    { id: 1, name: "ProfileInformation" },
+    { id: 2, name: "ManageMyAddress" },
+    { id: 3, name: "ChangePassword" },
+    { id: 4, name: "MyOrderHistory" },
+    { id: 5, name: "MyReturns" },
+    { id: 6, name: "MyCancellations" },
+    { id: 7, name: "MyReviews" },
+    { id: 8, name: "PayMentsMethods" },
+    { id: 9, name: "Voucher" },
+    { id: 10, name: "MyWishList" },
+    { id: 11, name: "WriteReview" },
+    { id: 12, name: "OrderDetails" },
+    { id: 13, name: "ReturnRequest" },
+  ];
+  const handleOnClickChangePath = (pagenumber) => {
+    // setPathManageMyAccount(param[pagenumber].name);
+    props.onChangePath(pagenumber);
+    console.log(param[pagenumber].name);
+  };
   return (
     <div className="account_cont_wrap">
       <div className="profile_info_wrap px-4">
@@ -69,7 +91,10 @@ const ManageMyAccount = () => {
                 alt="product"
               />
             </div>
-            <div className="prorder_btn w-1/5 flex uppercase rounded-sm hover:border-defaut-color-pink hover:border font-medium hover:text-defaut-color-pink hover:bg-white transition duration-300 ease-out hover:ease-in">
+            <div
+              onClick={() => handleOnClickChangePath(12)}
+              className="prorder_btn w-1/5 flex uppercase rounded-sm hover:border-defaut-color-pink hover:border font-medium hover:text-defaut-color-pink hover:bg-white transition duration-300 ease-out hover:ease-in"
+            >
               <a>view order</a>
             </div>
           </div>
@@ -103,7 +128,7 @@ const ManageMyAccount = () => {
           </div>
         </div>
         <div className="single_prof_recorder border p-4 mb-4">
-          <div className="flex justify-between ">
+          <div className="flex justify-between">
             <div className="prorder_img">
               <img
                 loading="lazy"
@@ -121,7 +146,10 @@ const ManageMyAccount = () => {
                 alt="product"
               />
             </div>
-            <div className="prorder_btn border-defaut-color w-1/5 flex uppercase rounded-sm hover:border-defaut-color-pink hover:border font-medium hover:text-defaut-color-pink hover:bg-white transition duration-300 ease-out hover:ease-in">
+            <div
+              onClick={() => handleOnClickChangePath(12)}
+              className="prorder_btn border-defaut-color w-1/5 flex uppercase rounded-sm hover:border-defaut-color-pink hover:border font-medium hover:text-defaut-color-pink hover:bg-white transition duration-300 ease-out hover:ease-in"
+            >
               <a>view order</a>
             </div>
           </div>

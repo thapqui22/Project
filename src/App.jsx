@@ -35,7 +35,7 @@ function App() {
   const [dataForPreview, setDataForPreview] = useState(null);
   const [data, setData] = useState(cartItems.length);
   const [loginAccount, setLoginAccount] = useStorage("loginAccount", []);
-  const [pathManageMyAccount1, setPathManageMyAccount] = useStorage(
+  const [pathManageMyAccount, setPathManageMyAccount] = useStorage(
     "pathManageMyAccount",
     []
   );
@@ -62,7 +62,6 @@ function App() {
   };
   const handleOnClickChangePath = (path) => {
     setPathManageMyAccount(path);
-    console.log(path);
   };
   const handleCheckDataAccount = (Data) => {
     console.log(Data);
@@ -192,7 +191,7 @@ function App() {
         <Route path="/testpage" element={<TestPage />} />
         <Route
           path="/managemyaccount"
-          element={<MyAccountPage onChangeData={pathManageMyAccount1} />}
+          element={<MyAccountPage onChangeData={pathManageMyAccount} />}
         />{" "}
         <Route path="/checkoutpage" element={<CheckOutPage />} />
         <Route path="/faq" element={<FAQ />} />

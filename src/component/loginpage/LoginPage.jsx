@@ -1,24 +1,15 @@
 import React, { useState, useEffect, useRef } from "react";
-
+import { useStorage } from "../localstorage/LocalStorage";
 import "./loginpage.scss";
 import { toast } from "react-toastify";
 const LoginPage = (props) => {
   const [hideCurrentPassword, setHideCurrentPassword] = useState(true);
-  const [loginStatus, setLoginStatus] = useState(null);
-  const [curentStatusPage, setCurentStatusPage] = useState(true);
+  const [loginAccount, setLoginAccount] = useStorage("loginAccount", []);
   const paramAccount = {
     EmailAddress: String,
     Password: String,
     RememberMe: false,
   };
-  useEffect(() => {
-    const fetchData = async () => {
-      // // setData(props.onChangeDataRefresh);
-      // if(){
-      // setLoginStatus(props.onChangeLoginStatus);}
-    };
-    fetchData();
-  }, [props]);
   const refEmailAddress = useRef(null);
   const refPassword = useRef(null);
   const refRememberMe = useRef(false);
@@ -32,10 +23,8 @@ const LoginPage = (props) => {
       const validationMessagePassword = validatePassword(password);
       const validationMessageEmail = validateEmail(email);
       if (validationMessageEmail === "valid") {
-        console.log("Valid email:" + email);
         paramAccount.EmailAddress = email;
         if (validationMessagePassword === "valid") {
-          console.log("Valid password:" + password);
           paramAccount.Password = refPassword.current.value;
           if (paramAccount.RememberMe) {
             // Save email and password to local storage
@@ -54,7 +43,6 @@ const LoginPage = (props) => {
               autoClose: 1000, // Set the duration (in milliseconds) for the toast to be displayed
             }
           );
-          console.log("Invalid password:" + validationMessagePassword);
         }
       } else {
         toast.dismiss();
@@ -67,7 +55,6 @@ const LoginPage = (props) => {
             autoClose: 1000, // Set the duration (in milliseconds) for the toast to be displayed
           }
         );
-        console.log("Invalid email:" + email);
       }
       console.log(paramAccount);
     } else {
@@ -75,14 +62,13 @@ const LoginPage = (props) => {
       toast.error("Email or password was empty", {
         autoClose: 1000, // Set the duration (in milliseconds) for the toast to be displayed
       });
-      console.log("Invalid value");
     }
   };
   useEffect(() => {
     const fetchData = async () => {
       const email = localStorage.getItem("email");
       const password = localStorage.getItem("password");
-      if (email !== "" && password !== "") {
+      if (email !== "" && password !== "" && loginAccount === false) {
         refEmailAddress.current.value = email;
         refPassword.current.value = password;
       }
@@ -152,100 +138,123 @@ const LoginPage = (props) => {
   };
   return (
     <div className="flex justify-center">
-      <div className="register_form padding_default shadow_sm w-[450px] px-[24px] py-[30px]">
-        <h4 className="title_2 text-2xl font-semibold uppercase pb-2">LOGIN</h4>
-        <p className="pb-3 text-sm">Login if you are a returning customer</p>
-        <div className="row">
-          <div className="col-12">
-            <div className="single_billing_inp">
-              <label>
-                Email Address<span>*</span>
-              </label>
-              <input
-                type="email"
-                placeholder="example@mail.com"
-                ref={refEmailAddress}
-                id="email"
-              />
-              {/* <p className="text-xs pl-3 pt-2 text-[#6e676793]">Password</p> */}
-            </div>
-          </div>
-
-          <div className="col-12">
-            <div className="single_billing_inp">
-              <label>
-                Password <span>*</span>
-              </label>
-              <div className="inputpassword">
+      {loginAccount === false ? (
+        <div className="register_form padding_default shadow_sm w-[450px] px-[24px] py-[30px]">
+          <h4 className="title_2 text-2xl font-semibold uppercase pb-2">
+            LOGIN
+          </h4>
+          <p className="pb-3 text-sm">Login if you are a returning customer</p>
+          <div className="row">
+            <div className="col-12">
+              <div className="single_billing_inp">
+                <label>
+                  Email Address<span>*</span>
+                </label>
                 <input
-                  type={hideCurrentPassword ? "password" : "text"}
-                  placeholder="type password"
-                  ref={refPassword}
-                  id="password"
+                  type="email"
+                  placeholder="example@mail.com"
+                  ref={refEmailAddress}
+                  id="email"
                 />
-                <span className="icon">
-                  <i
-                    className="las la-eye-slash hover:text-defaut-color-pink"
-                    onClick={() => handleHidePassword("Current Password")}
-                  />
-                </span>
+                {/* <p className="text-xs pl-3 pt-2 text-[#6e676793]">Password</p> */}
               </div>
             </div>
+
+            <div className="col-12">
+              <div className="single_billing_inp">
+                <label>
+                  Password <span>*</span>
+                </label>
+                <div className="inputpassword">
+                  <input
+                    type={hideCurrentPassword ? "password" : "text"}
+                    placeholder="type password"
+                    ref={refPassword}
+                    id="password"
+                  />
+                  <span className="icon">
+                    <i
+                      className="las la-eye-slash hover:text-defaut-color-pink"
+                      onClick={() => handleHidePassword("Current Password")}
+                    />
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div className="col-12 mt-2 d-flex align-items-center justify-between">
+              <label className="custom_check whitespace-nowrap check_2 ">
+                <input
+                  type="checkbox"
+                  className="check_inp"
+                  hidden=""
+                  id="save-default"
+                  onChange={handleOnChangeCheckbox}
+                />
+                <span className="pl-2">Remember Me</span>
+              </label>
+              <a
+                href="/forgotpasswordpage"
+                className="text-defaut-color-pink mb-2 pl-1 hover:no-underline hover:text-defaut-color-pink"
+              >
+                Forgot Password?
+              </a>
+            </div>
+            <div className="col-12 mt-3">
+              <button
+                className="btnviewcart h-[35px] uppercase"
+                onClick={() => handleOnClickLoginButton()}
+              >
+                login
+              </button>
+            </div>
           </div>
-          <div className="col-12 mt-2 d-flex align-items-center justify-between">
-            <label className="custom_check whitespace-nowrap check_2 ">
-              <input
-                type="checkbox"
-                className="check_inp"
-                hidden=""
-                id="save-default"
-                onChange={handleOnChangeCheckbox}
-              />
-              <span className="pl-2">Remember Me</span>
-            </label>
-            <a
-              href="/forgotpasswordpage"
-              className="text-defaut-color-pink mb-2 pl-1 hover:no-underline hover:text-defaut-color-pink"
-            >
-              Forgot Password?
-            </a>
+
+          <div className="dif_regway my-3 text-center">
+            <span className="txt uppercase bg-white px-2 relative z-10">
+              OR LOGIN IN WITH
+            </span>
+            <div className="relative border-b-[1px] w-[100%] top-[-13px]"></div>
           </div>
-          <div className="col-12 mt-3">
-            <button
-              className="btnviewcart h-[35px] uppercase"
-              onClick={() => handleOnClickLoginButton()}
-            >
-              login
+
+          <div className="btnfg flex justify-between">
+            <button className="btnf h-[35px] uppercase">
+              <i className="fab fa-facebook-f me-2"></i> Facebook
+            </button>
+            <button className="btng h-[35px] uppercase">
+              <i className="fab fa-google me-2"></i> Google
             </button>
           </div>
-        </div>
 
-        <div className="dif_regway my-3 text-center">
-          <span className="txt uppercase bg-white px-2 relative z-10">
-            OR LOGIN IN WITH
-          </span>
-          <div className="relative border-b-[1px] w-[100%] top-[-13px]"></div>
+          <p className="text-center mt-3 mb-0">
+            Don't have an account.?{" "}
+            <a
+              href="login.html"
+              className="text-color text-defaut-color hover:no-underline hover:text-defaut-color"
+            >
+              Register Now
+            </a>
+          </p>
         </div>
-
-        <div className="btnfg flex justify-between">
-          <button className="btnf h-[35px] uppercase">
-            <i className="fab fa-facebook-f me-2"></i> Facebook
-          </button>
-          <button className="btng h-[35px] uppercase">
-            <i className="fab fa-google me-2"></i> Google
-          </button>
+      ) : (
+        <div className="row py-10 w-[1200px]">
+          <div className="row flex text-center justify-center">
+            <div className="text-center py-3">
+              <i className="fa-solid fa-circle-check text-7xl text-defaut-color"></i>
+            </div>
+            <div className="font-bold text-3xl ">You are logged in</div>
+            <div className="text-xl p-2 w-1/2">
+              You have successfully logged in to your account.
+            </div>
+            <div className="coupon_form_footer ">
+              <a href="/shopping">
+                <button className="proccesstocheckoutbtn uppercase rounded min-w-[200px] w-[10%] hover:border-defaut-color-pink hover:border font-medium text-base hover:text-defaut-color-pink hover:bg-white transition duration-300 ease-out hover:ease-in">
+                  continue shopping
+                </button>
+              </a>
+            </div>{" "}
+          </div>
         </div>
-
-        <p className="text-center mt-3 mb-0">
-          Don't have an account.?{" "}
-          <a
-            href="login.html"
-            className="text-color text-defaut-color hover:no-underline hover:text-defaut-color"
-          >
-            Register Now
-          </a>
-        </p>
-      </div>
+      )}
     </div>
   );
 };

@@ -2,16 +2,14 @@ $defaut-color-black: black;
 $defaut-color-white: white;
 $defaut-color-pink: #fc3d57;
 .containershop {
-  width: 100%;
-  max-width: 940px;
   display: flex;
-  gap: 1em;
+  // gap: 7px;
+  // width: 75%;
   flex-wrap: wrap;
-  padding-top: 20px;
-  padding-bottom: 10px;
+  // padding: 20px 0px 10px 20px;
   height: auto;
   min-height: 800px;
-  justify-content: center;
+  justify-content: space-evenly;
 }
 .containers {
   display: flex;
@@ -19,7 +17,8 @@ $defaut-color-pink: #fc3d57;
 }
 .custom_check {
   display: flex;
-  width: 200px;
+  padding-right: 10px;
+  // width: 200px;
   label {
     display: flex;
     align-items: center;
@@ -46,10 +45,11 @@ $defaut-color-pink: #fc3d57;
   }
 }
 .containersbox {
-  padding: 20px 10px 10px 10px;
-  height: 100%;
-  box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1),
-    0 8px 10px -6px rgb(0 0 0 / 0.1);
+  padding: 10px;
+  // height: 100%;
+  height: 450px;
+  // box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1),
+  //   0 8px 10px -6px rgb(0 0 0 / 0.1);
   h4 {
     font-family: Roboto, sans-serif;
     font-size: 1rem /* 16px */;

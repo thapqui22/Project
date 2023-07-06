@@ -37,7 +37,7 @@ function Card(props) {
       <div
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
-        className="card bg-white w-[275px] h-[350px] m-2 rounded-lg shadow-l"
+        className="card bg-white w-[276px] h-[350px] m-2 rounded-lg shadow-l"
       >
         <div className="relative flex items-center justify-center">
           <img

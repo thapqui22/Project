@@ -1,8 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useStorage } from "../localstorage/LocalStorage";
 import "./menubar.scss";
 const MenuBar = (props) => {
   const currentUrl = window.location.pathname;
+  const [loginAccount, setLoginAccount] = useStorage("loginAccount", []);
   const param = [
     { id: 0, name: "ManageMyAccount" },
     { id: 1, name: "ProfileInformation" },
@@ -18,7 +20,6 @@ const MenuBar = (props) => {
   ];
   const handleOnClickChangePath = (number) => {
     props.handleOnClickChangePath(param[number].name);
-    // console.log(currentUrl);
   };
 
   return (
@@ -42,7 +43,7 @@ const MenuBar = (props) => {
             </li>
             <li className="relative parent">
               <a
-                href="#"
+                href="/shopping"
                 className="flex md:inline-flex py-3 px-2 items-center "
               >
                 <span>
@@ -207,7 +208,15 @@ const MenuBar = (props) => {
                     </a>
                   </li>
                   <li>
-                    <a href="#" className="flex hover:text-defaut-color">
+                    <a
+                      href={
+                        currentUrl === "/managemyaccount"
+                          ? "#"
+                          : "/managemyaccount"
+                      }
+                      onClick={() => handleOnClickChangePath(10)}
+                      className="flex hover:text-defaut-color"
+                    >
                       Wishlist
                     </a>
                   </li>
@@ -233,15 +242,20 @@ const MenuBar = (props) => {
           </ul>
           <ul className=" md:flex ml-auto md:space-x-2 absolute md:relative top-full left-0 right-0">
             <li className="flex">
-              <div className="py-3 px-2">
-                <a href="login.html">
-                  <span>Login</span>
-                </a>
-                <span className="text_xs">/</span>
-                <a href="register.html">
-                  <span>Register</span>
-                </a>
-              </div>
+              {loginAccount ? (
+                ""
+              ) : (
+                <div className="py-3 px-2">
+                  <a href="/loginpage">
+                    <span>Login</span>
+                  </a>
+                  <span className="text_xs">/</span>
+                  <a href="/registerpage">
+                    <span>Register</span>
+                  </a>
+                </div>
+              )}
+
               <li className="relative parent">
                 <a
                   href="#"
