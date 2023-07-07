@@ -243,7 +243,7 @@ $defaut-color-pink: #fc3d57;
   .sprocess_cont .sprosbar {
     position: absolute;
     // left: 37px;
-    top: 30%;
+    top: 25%;
     // right: 35px;
     width: 54%;
     background: #e9e4e4;
@@ -252,9 +252,7 @@ $defaut-color-pink: #fc3d57;
   }
   .sprocess_cont .sprosbar .sp_fill {
     position: absolute;
-    // left: 0;
-    // top: 0;
-    height: 2px;
+    height: 3px;
     // width: 100%;
     background: #4cae50;
   }
@@ -265,6 +263,7 @@ $defaut-color-pink: #fc3d57;
   align-items: center;
   padding-top: 9px;
   .sproc_cont_dot {
+    margin-bottom: 8px;
     // top: 50%;
     width: 15px;
     height: 15px;
@@ -320,10 +319,11 @@ $defaut-color-pink: #fc3d57;
     padding-left: 20px;
     width: 20%;
     h5 {
-      font-size: 15px;
+      font-size: 16px;
       // height: 35px;
-      font-weight: 600;
+      font-weight: 500;
       padding-bottom: 5px;
+      font-family: "Roboto", sans-serif;
     }
     p {
       font-size: 14px;

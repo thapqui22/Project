@@ -56,8 +56,8 @@ const WriteReview = () => {
 
       <div class="row mt-4">
         <div class="col-md-6 mb-3 mb-md-0">
-          <h4 class="font-bold">Rate and review your product</h4>
-          <div class="d-flex align-items-center mt-3">
+          <h4 class="text-base">Rate and review your product</h4>
+          <div class="d-flex mt-3">
             <div class="intaractive_rating">
               <div class="rating-group">
                 <label class="rating__label">
@@ -122,12 +122,12 @@ const WriteReview = () => {
                 </label>
               </div>
             </div>
-            <p class="font-semibold text-sm mb-2 pl-2">Good</p>
+            <p class="font-semibold text-sm pl-2">Good</p>
           </div>
         </div>
         <div class="col-md-6 mb-3 mb-md-0">
           <h4 class="font-bold">Rate and review your seller</h4>
-          <div class="d-flex align-items-center mt-3">
+          <div class="d-flex mt-3">
             <div class="intaractive_rating">
               <div class="rating-group">
                 <label class="rating__label">
@@ -209,7 +209,7 @@ const WriteReview = () => {
         </div>
         <div class="col-md-6">
           <h4 class="font-bold mt-3 mt-md-0">Rate your Rider</h4>
-          <div class="d-flex align-items-center mt-3">
+          <div class="d-flex mt-3">
             <div class="intaractive_rating">
               <div class="rating-group">
                 <label class="rating__label">

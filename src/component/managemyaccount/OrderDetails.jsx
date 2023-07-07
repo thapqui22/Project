@@ -46,8 +46,8 @@ const OrderDetails = (props) => {
             <a> Write A Review</a>
           </div>
         </div>
-        <div className="shipping_process pt-16 pb-5 relative pb-3">
-          <div className="sprocess_cont flex justify-evenly">
+        <div className="shipping_process pt-16  ">
+          <div className="sprocess_cont relative flex justify-evenly">
             <div className="sprosbar absolute">
               <span className="sp_fill w-[100%]" />
             </div>
@@ -64,7 +64,7 @@ const OrderDetails = (props) => {
               <p>Delivered</p>
             </div>
           </div>
-          <div className="flex justify-center pt-5">
+          <div className="flex justify-center pt-4">
             <div className="sprocess_tooltip w-[75%] text-sm flex border rounded items-center justify-between py-3 px-6">
               <p>23 Jul 2021.18.56</p>
               <p>
@@ -75,7 +75,7 @@ const OrderDetails = (props) => {
           </div>
         </div>
 
-        <div className="order_prodetails d-flex align-items-center justify-between mb-3">
+        <div className="order_prodetails d-flex align-items-center pt-5 justify-between mb-3">
           <div className="orderprod_img w-16">
             <img
               loading="lazy"
