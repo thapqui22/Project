@@ -24,11 +24,11 @@ const ManageMyAccount = (props) => {
     console.log(param[pagenumber].name);
   };
   return (
-    <div className="account_cont_wrap">
-      <div className="profile_info_wrap px-4">
-        <div className="flex [&>*]:p-2">
-          <div className="container_address_manage_my_account w-1/3">
-            <div className="single_prof_info shadow_sm">
+    <div className="account_cont_wrap pl-4 mb-4">
+      <div className="profile_info_wrap_1 ">
+        <div className="flex [&>*]:px-2 justify-between [&>*]:w-[30%]">
+          <div className="container_address_manage_my_account  ">
+            <div className="single_prof_info ">
               <div className="prof_info_title">
                 <h4>Personal Profile</h4>
                 <a href="account-profile-info.html">Edit</a>
@@ -40,8 +40,8 @@ const ManageMyAccount = (props) => {
               </div>
             </div>
           </div>
-          <div className="container_address_manage_my_account w-1/3">
-            <div className="single_prof_info shadow_sm">
+          <div className="container_address_manage_my_account ">
+            <div className="single_prof_info">
               <div className="prof_info_title">
                 <h4>Shipping Address</h4>
                 <a href="account-manage-address.html">Edit</a>
@@ -54,8 +54,8 @@ const ManageMyAccount = (props) => {
               </div>
             </div>
           </div>
-          <div className="container_address_manage_my_account w-1/3">
-            <div className="single_prof_info shadow_sm mb-0">
+          <div className="container_address_manage_my_account ">
+            <div className="single_prof_info">
               <div className="prof_info_title">
                 <h4>Billing Address</h4>
                 <a href="account-manage-address.html">Edit</a>
@@ -70,7 +70,7 @@ const ManageMyAccount = (props) => {
           </div>
         </div>
       </div>
-      <div className="prof_recent_order shadow_sm px-8 py-6 mt-[40px]">
+      <div className="prof_recent_order px-8 pt-6 pb-2 mt-[40px]">
         <h4 className="pb-3 font-bold">Recent Orders</h4>
         <div className="single_prof_recorder border p-4 mb-4">
           <div className="flex justify-between ">

@@ -3,8 +3,7 @@ import "./managemyaccount.scss";
 
 const MyOrderHistory = () => {
   return (
-    <>
-      {" "}
+    <div className="pl-[20px]">
       <div className="single_prof_recorder border p-4 mb-4">
         <div className="flex justify-between ">
           <div className="prorder_img">
@@ -213,7 +212,7 @@ const MyOrderHistory = () => {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

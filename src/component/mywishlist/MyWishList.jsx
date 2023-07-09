@@ -2,8 +2,8 @@ import React from "react";
 import "./mywishlist.scss";
 const MyWishList = () => {
   return (
-    <div className="single_shop_cart">
-      <div className="cart_img mb-4 mb-md-0 w-[10%]">
+    <div className="single_shop_cart ml-[20px]">
+      <div className="cart_img  w-[10%]">
         <img
           loading="lazy"
           src="https://themes.rslahmed.dev/rafcart/assets/images/keyboard.png"

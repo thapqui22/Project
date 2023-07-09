@@ -56,10 +56,10 @@ const MyAccountPage = (props) => {
   };
   return (
     <div className="containercenter ">
-      <div className="childcontainercenter flex">
-        <div className="w-1/4">
+      <div className="childcontainercenter flex mb-5">
+        <div className="w-1/5">
           <div className="account_sidebar">
-            <div className="flex px-3 py-2">
+            <div className="account_sidebar_account flex  py-2 mb-3">
               <div className="acprof_img rounded-full flex justify-center cursor-pointer hover:border-defaut-color-pink">
                 <img
                   src="https://themes.rslahmed.dev/rafcart/assets/images/avatar-2.png"
@@ -221,7 +221,7 @@ const MyAccountPage = (props) => {
             </div>
           </div>
         </div>
-        <div className=" w-3/4">
+        <div className=" w-4/5">
           {pageActive === "ManageMyAccount" ? (
             <ManageMyAccount onChangePath={handlePageChange} />
           ) : null}
@@ -229,7 +229,9 @@ const MyAccountPage = (props) => {
           {pageActive === "ManageMyAddress" ? <ManageMyAddress /> : null}
           {pageActive === "ChangePassword" ? <ChangePassWord /> : null}
           {pageActive === "MyOrderHistory" ? <MyOrderHistory /> : null}
-          {pageActive === "MyReturns" ? <MyReturns /> : null}
+          {pageActive === "MyReturns" ? (
+            <MyReturns onChangePath={handlePageChange} />
+          ) : null}
           {pageActive === "MyCancellations" ? <MyCancellations /> : null}
           {pageActive === "Voucher" ? <Voucher /> : null}
           {pageActive === "MyReviews" ? <MyReviews /> : null}

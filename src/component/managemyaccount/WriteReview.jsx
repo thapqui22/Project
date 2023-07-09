@@ -17,6 +17,9 @@ const WriteReview = () => {
       setStarShinesProduct(number);
     }
   };
+  function activateInput() {
+    document.getElementById("upload_img").click();
+  }
   const handleOnHoverStarSeller = (number) => {
     if (Number.isInteger(number)) {
       setStarShinesSeller(number);
@@ -279,17 +282,20 @@ const WriteReview = () => {
         </div>
       </div>
       <div class="d-flex mt-1 align-items-start">
-        <div class="img_uploading border-dashed border-2 border-defaut-color-pink rounded-md cursor-pointer">
+        <div
+          onClick={activateInput}
+          class="img_uploading border-dashed border-2 border-defaut-color-pink rounded-md cursor-pointer"
+        >
           <input type="file" id="upload_img" hidden />
-          <label class="upload_img p-3 pb-2 ">
-            <div class="upload_icn pb-2 flex justify-center">
+          <label class="upload_img p-3 pb-2 cursor-pointer">
+            <div class="upload_icn pb-2 flex justify-center cursor-pointer">
               <img
                 className="w-[35px]"
                 loading="lazy"
                 src="https://themes.rslahmed.dev/rafcart/assets/images/upload-img.png"
               />
             </div>
-            <p className="text-xs">Upload Photo</p>
+            <p className="text-xs cursor-pointer">Upload Photo</p>
           </label>
         </div>
         <div class="img_uproles pl-2 relative">

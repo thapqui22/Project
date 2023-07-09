@@ -23,8 +23,8 @@ const OrderDetails = (props) => {
     console.log(param[pagenumber].name);
   };
   return (
-    <div className="px-2 pt-4">
-      <div className="order_detail_wrapper shadow_sm">
+    <div className=" ml-[20px]">
+      <div className="order_prodetails p-4 ">
         <h4 className="od_title font-bold pb-3">Order Details</h4>
         <div className="orderdet_info d-flex align-items-center justify-content-between flex-wrap">
           <div className="single_orderdet">
@@ -75,7 +75,7 @@ const OrderDetails = (props) => {
           </div>
         </div>
 
-        <div className="order_prodetails d-flex align-items-center pt-5 justify-between mb-3">
+        <div className=" d-flex align-items-center pt-5 justify-between mb-3">
           <div className="orderprod_img w-16">
             <img
               loading="lazy"
@@ -87,19 +87,21 @@ const OrderDetails = (props) => {
             <h5>Sound Intone I65 Earphone</h5>
             <p>No Warranty Available</p>
           </div>
-          <div className="single_orderdet">
+          <div className="single_orderdet text-center">
             <h5>$50</h5>
           </div>
-          <div className="single_orderdet">
+          <div className="single_orderdet text-center">
             <h5>Qty:1</h5>
           </div>
-          <div className="single_orderdet  d-flex align-items-center d-md-block  ">
-            <h5 className="text-color text-uppercase me-3 me-md-0 mb-0 mb-md-1">
-              <a href="#" className="text-defaut-color-pink">
-                Return
-              </a>{" "}
-            </h5>
-            <p>Until 24Sep 2021</p>
+          <div className="single_orderdet text-center  d-flex align-items-center d-md-block  ">
+            <div className="flex flex-col">
+              <h5 className="text-color text-uppercase me-3 me-md-0 mb-0 mb-md-1">
+                <a href="#" className="text-defaut-color-pink">
+                  Return
+                </a>{" "}
+              </h5>
+              <p>Until 24Sep 2021</p>
+            </div>
           </div>
         </div>
       </div>
@@ -107,8 +109,8 @@ const OrderDetails = (props) => {
       <div className="profile_info_wrap mt-4">
         <div className="row">
           <div className="col-lg-4">
-            <div className="single_prof_info shadow_sm">
-              <div className="prof_info_title pb-2">
+            <div className="single_prof_info ">
+              <div className="prof_info_title">
                 <h4>Shipping Address</h4>
               </div>
               <div className="prfo_info_cont">
@@ -120,7 +122,7 @@ const OrderDetails = (props) => {
             </div>
           </div>
           <div className="col-lg-4">
-            <div className="single_prof_info shadow_sm">
+            <div className="single_prof_info ">
               <div className="prof_info_title pb-2">
                 <h4>Billing Address</h4>
               </div>
@@ -133,7 +135,7 @@ const OrderDetails = (props) => {
             </div>
           </div>
           <div className="col-lg-4">
-            <div className="single_prof_info shadow_sm mb-0">
+            <div className="single_prof_info  mb-0">
               <div className="prof_info_title pb-2">
                 <h4>Total Summary</h4>
               </div>

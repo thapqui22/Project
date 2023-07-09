@@ -43,6 +43,8 @@ $defaut-color-pink: #fc3d57;
   outline: none;
 }
 .acprof_info_wrap {
+  margin-left: 20px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.08);
   padding: 32px 24px;
 }
 .savechangebtn {
@@ -70,7 +72,7 @@ $defaut-color-pink: #fc3d57;
   position: relative !important;
 }
 .single_prof_info {
-  border: 1px solid #e9e4e4;
+  // border: 1px solid #e9e4e4;
   min-height: 165px;
   .prof_info_title {
     a {
@@ -93,6 +95,13 @@ $defaut-color-pink: #fc3d57;
   div {
     padding: 8px 8px;
   }
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.08);
+}
+.account_sidebar .account_sidebar_account {
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.08);
+}
+.account_sidebar .acprof_wrap {
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.08);
 }
 .prfo_info_cont {
   .name_mma {
@@ -102,6 +111,7 @@ $defaut-color-pink: #fc3d57;
   font-size: 14px;
 }
 .single_prof_recorder {
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.08);
   display: flex;
   flex-direction: column;
   .prorder_img {
@@ -162,8 +172,12 @@ $defaut-color-pink: #fc3d57;
 //     background-color: $defaut-color-pink !important;
 //   }
 // }
-
+.profile_info_wrap .single_prof_info {
+  padding: 16px !important;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.08);
+}
 .order_prodetails {
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.08);
   .orderprod_img {
     display: flex;
     justify-content: center;
@@ -206,7 +220,11 @@ $defaut-color-pink: #fc3d57;
     }
   }
 }
+.single_shop_cart {
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.08);
+}
 .single_paymethod {
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.08);
   .orderprod_img {
     display: flex;
     justify-content: center;
@@ -301,11 +319,14 @@ $defaut-color-pink: #fc3d57;
 .profile_info_wrap {
   .single_prof_info {
     border: none !important;
-    padding: 30px 0px;
+    padding: 20px 0px;
     h4 {
       padding-bottom: 10px;
     }
   }
+}
+.prof_recent_order {
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.08);
 }
 .write_review_wrap {
   h4 {

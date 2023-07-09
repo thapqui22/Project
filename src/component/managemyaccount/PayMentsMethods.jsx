@@ -2,7 +2,7 @@ import React from "react";
 import "./managemyaccount.scss";
 const PayMentsMethods = () => {
   return (
-    <div className="single_paymethod flex flex-nowrap rounded mt-0 shadow-sm border mb-2 px-4 py-3 justify-between">
+    <div className="single_paymethod flex flex-nowrap rounded ml-[20px] mb-2 px-4 py-3 justify-between">
       <div className="paymeth_img flex items-center w-[10%]">
         <img
           loading="lazy"

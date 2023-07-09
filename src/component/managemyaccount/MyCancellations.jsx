@@ -2,8 +2,7 @@ import React from "react";
 import "./managemyaccount.scss";
 const MyCancellations = () => {
   return (
-    <>
-      {" "}
+    <div className="ml-[20px]">
       <div className="single_prof_recorder border p-4 mb-4">
         <div className="flex justify-between ">
           <div className="prorder_img">
@@ -212,7 +211,7 @@ const MyCancellations = () => {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
