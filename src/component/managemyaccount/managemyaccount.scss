@@ -1,7 +1,14 @@
 $defaut-color-black: black;
 $defaut-color-white: white;
 $defaut-color-pink: #fc3d57;
-
+h4 {
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+}
+h5 {
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+}
 .position-relative {
   input {
     width: 80%;
@@ -16,6 +23,14 @@ $defaut-color-pink: #fc3d57;
       font-size: 14px;
       color: black;
     }
+  }
+}
+.padding_default {
+  .nice_select input {
+    height: 50%;
+    min-width: 30%;
+    font-size: 12px;
+    outline-color: #e2e8f0;
   }
 }
 .single_billing_inp {
@@ -44,7 +59,7 @@ $defaut-color-pink: #fc3d57;
 }
 .acprof_info_wrap {
   margin-left: 20px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.04);
   padding: 32px 24px;
 }
 .savechangebtn {
@@ -95,13 +110,16 @@ $defaut-color-pink: #fc3d57;
   div {
     padding: 8px 8px;
   }
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.04);
+}
+.padding_default {
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.04);
 }
 .account_sidebar .account_sidebar_account {
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.04);
 }
 .account_sidebar .acprof_wrap {
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.04);
 }
 .prfo_info_cont {
   .name_mma {
@@ -111,7 +129,7 @@ $defaut-color-pink: #fc3d57;
   font-size: 14px;
 }
 .single_prof_recorder {
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.04);
   display: flex;
   flex-direction: column;
   .prorder_img {
@@ -174,10 +192,10 @@ $defaut-color-pink: #fc3d57;
 // }
 .profile_info_wrap .single_prof_info {
   padding: 16px !important;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.04);
 }
-.order_prodetails {
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.08);
+.return_ordwrap .order_prodetails {
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.04);
   .orderprod_img {
     display: flex;
     justify-content: center;
@@ -221,10 +239,10 @@ $defaut-color-pink: #fc3d57;
   }
 }
 .single_shop_cart {
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.04);
 }
 .single_paymethod {
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.04);
   .orderprod_img {
     display: flex;
     justify-content: center;
@@ -326,7 +344,7 @@ $defaut-color-pink: #fc3d57;
   }
 }
 .prof_recent_order {
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.04);
 }
 .write_review_wrap {
   h4 {
@@ -356,4 +374,44 @@ $defaut-color-pink: #fc3d57;
     font-size: 20px;
     cursor: pointer;
   }
+}
+.padding_default {
+  input[type="radio"] {
+    border: 2px solid white;
+    box-shadow: 0 0 0 1px #fc3d57;
+    appearance: none;
+    border-radius: 50%;
+    width: 12px;
+    height: 12px;
+    background-color: #fff;
+    transition: all ease-in 0.2s;
+  }
+  /* Define the custom styles for the checkbox */
+  input[type="radio"]:checked {
+    background-color: #fc3d57;
+  }
+  // input[type="checkbox"] {
+  //   border: 2px solid white;
+  //   box-shadow: 0 0 0 1px #fc3d57;
+  //   appearance: none;
+  //   -webkit-appearance: none;
+  //   -moz-appearance: none;
+  //   border-radius: 10%;
+  //   width: 12px;
+  //   height: 12px;
+  //   background-color: #fc3d57;
+  //   transition: all ease-in 0.2s;
+  // }
+  // input[type="checkbox"]:checked {
+  //   border: 2px solid white;
+  //   box-shadow: 0 0 0 1px #fc3d57;
+  //   appearance: none;
+  //   -webkit-appearance: none;
+  //   -moz-appearance: none;
+  //   border-radius: 10%;
+  //   width: 12px;
+  //   height: 12px;
+  //   background-color: white;
+  //   transition: all ease-in 0.2s;
+  // }
 }

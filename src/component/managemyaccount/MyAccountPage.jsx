@@ -16,12 +16,7 @@ import OrderDetails from "./OrderDetails";
 import ReturnRequest from "./ReturnRequest";
 import EditPaymentMethod from "./EditPaymentMethod";
 const MyAccountPage = (props) => {
-  const [active, setActive] = useState(true);
   const [pageActive, setPageActive] = useState(null);
-  // const [pathManageMyAccount, setPathManageMyAccount] = useStorage(
-  //   "pathManageMyAccount",
-  //   []
-  // );
   const param = [
     { id: 0, name: "ManageMyAccount" },
     { id: 1, name: "ProfileInformation" },
@@ -39,9 +34,10 @@ const MyAccountPage = (props) => {
     { id: 13, name: "ReturnRequest" },
     { id: 14, name: "EditPaymentMethod" },
   ];
+  //error cause prop dont change
   useEffect(() => {
     setPageActive(props.onChangeData);
-    // console.log(pathManageMyAccount);
+    console.log(props.onChangeData);
   }, [props.onChangeData]);
   const handlePageChange = (pagenumber) => {
     if (
@@ -51,17 +47,15 @@ const MyAccountPage = (props) => {
     ) {
       setPageActive(param[pagenumber].name);
     } else {
-      // Handle the case when pagenumber is not an integer
       console.log("Invalid page number:", pagenumber);
-      // You can show an error message, display a default page, or take any other appropriate action
     }
   };
   return (
     <div className="containercenter ">
       <div className="childcontainercenter flex mb-5">
-        <div className="w-1/5">
+        <div className="w-[20%]">
           <div className="account_sidebar">
-            <div className="account_sidebar_account flex  py-2 mb-3">
+            <div className="account_sidebar_account flex py-2 px-3 mb-3">
               <div className="acprof_img rounded-full flex justify-center cursor-pointer hover:border-defaut-color-pink">
                 <img
                   src="https://themes.rslahmed.dev/rafcart/assets/images/avatar-2.png"
@@ -70,13 +64,13 @@ const MyAccountPage = (props) => {
               </div>
               <div className="acprof_cont pl-3">
                 <p className="text-sm">Hello,</p>
-                <h4 className="font-bold">Russell Ahmed</h4>
+                <h4 className="text-sm font-bold">Russell Ahmed</h4>
               </div>
               <div className="profile_hambarg d-lg-none d-block">
                 <i className="las la-bars"></i>
               </div>
             </div>
-            <div className="acprof_wrap shadow_sm py-4 px-3">
+            <div className="acprof_wrap shadow_sm pt-4 px-3">
               <div className="acprof_links">
                 <div onClick={() => handlePageChange(0)}>
                   <h4

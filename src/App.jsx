@@ -62,9 +62,9 @@ function App() {
   };
   const handleOnClickChangePath = (path) => {
     setPathManageMyAccount(path);
+    console.log(path);
   };
   const handleCheckDataAccount = (Data) => {
-    console.log(Data);
     if (paramAccountAdmin.EmailAddress === Data.EmailAddress) {
       if (paramAccountAdmin.Password === Data.Password) {
         toast.success("Login success", {
