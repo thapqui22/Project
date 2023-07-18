@@ -14,6 +14,7 @@ import Voucher from "./Voucher";
 import WriteReview from "./WriteReview";
 import OrderDetails from "./OrderDetails";
 import ReturnRequest from "./ReturnRequest";
+import EditPaymentMethod from "./EditPaymentMethod";
 const MyAccountPage = (props) => {
   const [active, setActive] = useState(true);
   const [pageActive, setPageActive] = useState(null);
@@ -36,6 +37,7 @@ const MyAccountPage = (props) => {
     { id: 11, name: "WriteReview" },
     { id: 12, name: "OrderDetails" },
     { id: 13, name: "ReturnRequest" },
+    { id: 14, name: "EditPaymentMethod" },
   ];
   useEffect(() => {
     setPageActive(props.onChangeData);
@@ -235,13 +237,16 @@ const MyAccountPage = (props) => {
           {pageActive === "MyCancellations" ? <MyCancellations /> : null}
           {pageActive === "Voucher" ? <Voucher /> : null}
           {pageActive === "MyReviews" ? <MyReviews /> : null}
-          {pageActive === "PayMentsMethods" ? <PayMentsMethods /> : null}
+          {pageActive === "PayMentsMethods" ? (
+            <PayMentsMethods onChangePath={handlePageChange} />
+          ) : null}
           {pageActive === "MyWishList" ? <MyWishList /> : null}
           {pageActive === "WriteReview" ? <WriteReview /> : null}
           {pageActive === "OrderDetails" ? (
             <OrderDetails onChangePath={handlePageChange} />
           ) : null}
           {pageActive === "ReturnRequest" ? <ReturnRequest /> : null}
+          {pageActive === "EditPaymentMethod" ? <EditPaymentMethod /> : null}
         </div>
       </div>
     </div>

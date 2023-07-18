@@ -4,7 +4,7 @@ const WriteReview = () => {
   const [starShinesProduct, setStarShinesProduct] = useState(0);
   const [starShinesSeller, setStarShinesSeller] = useState(0);
   const [starShinesRider, setStarShinesRider] = useState(0);
-  const [hideNote, setHideNote] = useState(false);
+  const [hideNote, setHideNote] = useState(true);
   const param = [
     { star: 1, status: "Very bad" },
     { star: 2, status: "Bad" },
