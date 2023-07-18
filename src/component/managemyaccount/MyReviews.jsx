@@ -2,7 +2,7 @@ import React from "react";
 import "./managemyaccount.scss";
 const MyReviews = () => {
   return (
-    <div className="order_prodetails ml-[20px] flex flex-nowrap rounded mt-0 shadow-sm border mb-2 px-4 py-3">
+    <div className="order_prodetails ml-[20px] flex flex-nowrap justify-between rounded mt-0 shadow-sm border mb-2 px-4 py-3">
       <div className="orderprod_img w-[10%]">
         <img
           className="h-[80%]"
