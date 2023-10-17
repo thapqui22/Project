@@ -65,19 +65,26 @@ const SearchBar = (props) => {
             <span className="">Search</span>
           </button>
         </div>
-        <div className="containerNarbarIcon w-[150px] flex text-center justify-between [&>a]:text-white">
-          <a
-            href={currentUrl === "/managemyaccount" ? "#" : "/managemyaccount"}
-            className="icon_wrp grid"
-            onClick={() => handleOnClickChangePath(10)}
-          >
-            <span className="popsheart">77</span>
-            <span className="icon text-[20px]">
-              <i className="fa-solid fa-heart"></i>
-            </span>
-            <span className="icon_text text-[12px]">Wish List</span>
-          </a>
-          <div className="parent relative ">
+        <div className="containerNarbarIcon w-[150px] flex text-center [&>a]:text-white">
+          <div className="w-1/3 whitespace-nowrap text-white ">
+            <a
+              href={
+                currentUrl === "/managemyaccount" ? "#" : "/managemyaccount"
+              }
+              className="icon_wrp grid hover:text-white"
+              onClick={() => handleOnClickChangePath(10)}
+            >
+              <span className="popsheart">77</span>
+              <span className="icon text-[20px]">
+                <i className="fa-solid fa-heart"></i>
+              </span>
+              <span className="icon_text text-[12px] hover:text-white">
+                Wish List
+              </span>
+            </a>
+          </div>
+
+          <div className="parent relative w-1/3">
             <a
               href="/shoppingcart"
               className="icon_wrp grid text-white"
@@ -144,7 +151,7 @@ const SearchBar = (props) => {
               </div>
             </nav>
           </div>
-          <div className="parent relative ">
+          <div className="parent relative w-1/3">
             <a
               href="#"
               className="icon_wrp grid text-white"
@@ -169,7 +176,10 @@ const SearchBar = (props) => {
                   <i className="fa-regular fa-user" />
                 )}
               </span>
-              <span className="icon_text text-[12px]">Account</span>
+              <span className="icon_text text-[12px]">
+                {" "}
+                {loginStatus ? "Russell" : "Account"}
+              </span>
             </a>
             <nav
               className="text-black hover:bg-black flex items-center relative"
