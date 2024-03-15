@@ -51,7 +51,7 @@ const CarouselTest = (props) => {
     setShowModal(modalStatus);
   };
   return (
-    <div className="container max-w-[1200px] h-auto">
+    <div className="container p-0 pt-4 max-w-[1200px] h-auto">
       <Modal
         onClickFaMagnifyingGlass={changeData}
         onClickCancel={handleChildClickCancel}

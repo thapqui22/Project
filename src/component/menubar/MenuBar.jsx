@@ -47,8 +47,7 @@ const MenuBar = (props) => {
                 className="flex md:inline-flex py-3 px-2 items-center "
               >
                 <span>
-                  Shop
-                  <i className="las la-angle-down"></i>
+                  Shop<i className="las la-angle-down"></i>
                 </span>
               </a>
               <ul className="child flex transition p-3 duration-300 md:absolute top-full left-0  md:w-[auto] bg-white md:shadow-inner md:rounded-b ">
@@ -102,7 +101,7 @@ const MenuBar = (props) => {
                 className="flex md:inline-flex py-3 px-2 items-center "
               >
                 <span>
-                  Pages <i className="las la-angle-down"></i>
+                  Pages<i className="las la-angle-down"></i>
                 </span>
               </a>
               <ul className="child flex transition p-3 duration-300 md:absolute top-full left-0  md:w-[auto] bg-white md:shadow-inner md:rounded-b ">

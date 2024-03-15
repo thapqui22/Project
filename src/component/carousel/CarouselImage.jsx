@@ -5,7 +5,7 @@ import Carousel from "react-bootstrap/Carousel";
 const CarouselImage = () => {
   return (
     <div className="divImg w-[100%]">
-      <div className="w-[1140px] flex">
+      <div className="w-[1200px] flex">
         <div className="sub_categories w-[200px] max-w-[200px] flex flex-col shadow-md">
           <a href="#" className="singlecats">
             <span className="img_wrp">
