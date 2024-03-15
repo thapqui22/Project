@@ -6,7 +6,7 @@ const CarouselImage = () => {
   return (
     <div className="divImg w-[100%]">
       <div className="w-[1200px] flex">
-        <div className="sub_categories w-[200px] max-w-[200px] flex flex-col shadow-md">
+        <div className="sub_categories w-[200px] flex flex-col shadow-md">
           <a href="#" className="singlecats">
             <span className="img_wrp">
               <i className="las la-shoe-prints"></i>
@@ -63,7 +63,7 @@ const CarouselImage = () => {
             <span className="txt">Headphones</span>
           </a>
         </div>
-        <div className="divImgContainer pl-2">
+        <div className="divImgContainer w-[85%] pl-1">
           <Carousel fade>
             <Carousel.Item>
               <img

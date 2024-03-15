@@ -8,7 +8,7 @@ const Iconadss = () => {
         <div className="row flex justify-center w-1200">
           <div className="flex justify-around w-[1000px] flex-grow">
             <div className="flex flex-grow justify-center">
-              <div className="border-solid border-2 border-defaut-color-pink w-[333px] flex justify-center">
+              <div className="border-solid border-2 border-defaut-color-pink w-[333px] flex justify-center rounded">
                 <div className="flex py-3 px-4">
                   <div className="feature_icon p-2 flex items-center">
                     <img
@@ -28,7 +28,7 @@ const Iconadss = () => {
               </div>
             </div>
             <div className="flex flex-grow justify-center">
-              <div className="border-solid border-2 border-defaut-color-pink w-[333px] flex justify-center">
+              <div className="border-solid border-2 border-defaut-color-pink w-[333px] flex justify-center rounded">
                 <div className="flex py-3 px-4">
                   <div className="feature_icon p-2">
                     <img
@@ -47,7 +47,7 @@ const Iconadss = () => {
               </div>
             </div>
             <div className="flex flex-grow justify-center">
-              <div className="border-solid border-2 border-defaut-color-pink w-[333px] flex justify-center">
+              <div className="border-solid border-2 border-defaut-color-pink w-[333px] flex justify-center rounded">
                 <div className="flex py-3 px-4">
                   <div className="feature_icon p-2">
                     <img

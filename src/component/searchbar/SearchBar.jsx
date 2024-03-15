@@ -8,6 +8,12 @@ const SearchBar = (props) => {
 
   const [hoverIconAccount, setHoverIconAccount] = useState(false);
   const currentUrl = window.location.pathname;
+
+  const text = "Informations"; // Your text
+  const maxLength = 25; // Maximum length before truncation
+  const truncatedText =
+    text.length > maxLength ? `${text.slice(0, maxLength)}...` : text;
+
   const param = [
     { id: 0, name: "ManageMyAccount" },
     { id: 1, name: "ProfileInformation" },
@@ -115,28 +121,49 @@ const SearchBar = (props) => {
                   </h4>
                   <a
                     href="product-view.html"
-                    className="single_cartdrop mb-3 flex mt-3"
+                    className="single_cartdrop  flex mt-3"
                   >
-                    <div className="cardcontainer flex justify-between  w-[250px] px-2 ">
-                      <div className="flex flex-row">
-                        <div className="topimage grid grid-cols-1 content-center">
+                    <div className="cardcontainer w-[300px]">
+                      <div className="flex flex-row pb-3 justify-around">
+                        <div className="topimage w-[60px] h-[60px] pr-2 self-center">
                           <img
-                            className="image object-cover h-20 w-20 rounded hover:cursor-pointer hover:opacity-80"
-                            src="https://choicacanh.com/content/uploads/cms/2020/12/14/huong-dan-cham-soc-ca-neon-vua_600x400.jpg"
+                            className="image object-cover rounded hover:cursor-pointer hover:opacity-80"
+                            src="https://themes.programmingkit.xyz/rafcart/assets/images/parse.png"
                           />
                         </div>
-                        <div className="flex flex-col  items-start px-2">
+                        <div className="flex flex-col  items-start w-[70%]">
                           <h4 className="title text-lg font-medium hover:text-defaut-color-pink transition duration-150 ease-out hover:ease-in hover:cursor-pointer">
-                            Informations
+                            {truncatedText}
                           </h4>
+
                           <div>
+                            <span className="pl-2">x1</span>
                             <span className="pl-1 text-defaut-color">$450</span>
-                            <span className="pl-2 text-xs">x1</span>
                           </div>
                           <span className="pl-1 text-sm">Size: XXL</span>
+                        </div>{" "}
+                        <i className="fa-solid fa-xmark text-black pt-1" />
+                      </div>{" "}
+                      <div className="flex flex-row pb-3 justify-around">
+                        <div className="topimage w-[60px] h-[60px] pr-2 self-center">
+                          <img
+                            className="image object-cover rounded hover:cursor-pointer hover:opacity-80"
+                            src="https://themes.programmingkit.xyz/rafcart/assets/images/parse.png"
+                          />
                         </div>
+                        <div className="flex flex-col  items-start w-[70%]">
+                          <h4 className="title text-lg font-medium hover:text-defaut-color-pink transition duration-150 ease-out hover:ease-in hover:cursor-pointer">
+                            {truncatedText}
+                          </h4>
+
+                          <div>
+                            <span className="pl-2">x1</span>
+                            <span className="pl-1 text-defaut-color">$450</span>
+                          </div>
+                          <span className="pl-1 text-sm">Size: XXL</span>
+                        </div>{" "}
+                        <i className="fa-solid fa-xmark text-black pt-1" />
                       </div>
-                      <i className="fa-solid fa-xmark text-black"></i>
                     </div>
                   </a>
                   <div className="total_cartdrop flex justify-between border-t-2 py-2">
@@ -177,7 +204,6 @@ const SearchBar = (props) => {
                 )}
               </span>
               <span className="icon_text text-[12px]">
-                {" "}
                 {loginStatus ? "Russell" : "Account"}
               </span>
             </a>

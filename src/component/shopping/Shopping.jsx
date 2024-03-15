@@ -58,19 +58,31 @@ const Shopping = (props) => {
   //   fetchData();
   // }, [dataStatus]);
   useEffect(() => {
+    let requestResolved = false; // Flag to track if request has resolved
     const fetchData = async () => {
       const startTime = Date.now(); // Store the start time
-      const response = await axios.get(url);
-      const filteredData = handleSearched(response.data);
-      setData(filteredData);
-      const endTime = Date.now(); // Calculate the end time
-      const timeDiff = endTime - startTime; // Calculate the loading time
-      setLoadingTime(timeDiff);
-      setIsLoading(false);
+      try {
+        const response = await axios.get(url);
+        requestResolved = true; // Request resolved successfully
+        const filteredData = handleSearched(response.data);
+        setData(filteredData);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      } finally {
+        if (!requestResolved) {
+          // If request hasn't resolved after 10 seconds, set isLoading to false
+          setTimeout(() => {
+            setIsLoading(false);
+          }, 10000); // 10000 milliseconds = 10 seconds
+        }
+        const endTime = Date.now(); // Calculate the end time
+        const timeDiff = endTime - startTime; // Calculate the loading time
+        setLoadingTime(timeDiff);
+      }
     };
-
     fetchData();
   }, [dataStatus]);
+
   const handleClickChangePage = (data) => {
     setCurrentPage(data);
   };

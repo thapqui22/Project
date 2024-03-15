@@ -59,7 +59,7 @@ const CarouselTest = (props) => {
       <TopRankingCard />
       <div className="cardcontainer max-w-[1200px]">
         <div className="containers flex items-center justify-between">
-          <h4 className="title text-3xl font-bold p-2  text-defaut-color-pink hover:cursor-default">
+          <h4 className="title text-3xl font-bold text-defaut-color-pink hover:cursor-default">
             New Arrivals
           </h4>
           <a
@@ -115,7 +115,7 @@ const CarouselTest = (props) => {
       <div className="cardcontainer max-w-[1200px] py-[30px]">
         <a href="/">
           <img
-            className="hover:cursor-pointer px-2"
+            className="hover:cursor-pointer "
             src="https://themes.rslahmed.dev/rafcart/assets/images/offer-3.jpg"
             alt="imgads"
           />
@@ -123,7 +123,7 @@ const CarouselTest = (props) => {
       </div>
       <div className="cardcontainer max-w-[1200px]">
         <div className="containers flex items-center justify-between">
-          <h4 className="title text-3xl font-bold p-2 text-defaut-color-pink hover:cursor-default">
+          <h4 className="title text-3xl font-bold text-defaut-color-pink hover:cursor-default">
             Recomended For You
           </h4>
           <a
@@ -241,7 +241,7 @@ const CarouselTest = (props) => {
           <div className="flex-1 flex justify-center">
             <a href="/">
               <img
-                className="hover:cursor-pointer px-2  h-[500px]"
+                className="hover:cursor-pointer  h-[500px]"
                 src="https://themes.rslahmed.dev/rafcart/assets/images/mobile-view.png"
                 alt="imgads"
               />

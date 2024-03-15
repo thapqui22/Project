@@ -410,7 +410,7 @@ const TestPage = () => {
             </div>
           </div>
           <div>
-            <h4 className="title text-3xl font-bold p-2 text-defaut-color-pink hover:cursor-default">
+            <h4 className="title text-3xl font-bold text-defaut-color-pink hover:cursor-default">
               Related Products
             </h4>
             <Carousel

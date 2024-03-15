@@ -96,7 +96,7 @@ const ShoppingCart = (props) => {
   return (
     <div className="flex justify-center">
       <div className="flex justify-center w-[1200px] h-[auto] min-h-1000px">
-        <div className="w-[900px] px-3">
+        <div className="w-[900px] pr-2">
           <h4 className="flex h-8  justify-center bg-[#E9E4E4] items-center [&>span]:text-center mb-4  p-[20px]">
             <span className="basis-1/2">Product</span>
             <span className="basis-1/4">Quantity</span>
@@ -168,14 +168,14 @@ const ShoppingCart = (props) => {
         </div>
 
         <div className="w-[300px] h-[310px] border rounded-lg border-gray-300 [&>div]:justify-between [&>div]:flex p-3 [&>div]:pb-2">
-          <h4 className="font-extrabold pb-3">ORDER SUMMARY</h4>
+          <h4 className="font-weight-bold text-xl pb-3">ORDER SUMMARY</h4>
           <div className="font-semibold">
             <span>Subtotal</span>
-            <span>${(45).toFixed(2)}</span>
+            <span>${(10).toFixed(2)}</span>
           </div>
           <div>
             <span>Delivery</span>
-            <span>${5}</span>
+            <span>${(10).toFixed(2)}</span>
           </div>
           <div>
             <span>Tax</span>
@@ -183,15 +183,15 @@ const ShoppingCart = (props) => {
           </div>
           <div className="border-t pt-2 font-bold">
             <span>TOTAL</span>
-            <span> ${(total() + total() * 0.1 + 5).toFixed(2)}</span>
+            <span> ${(total() + total() * 0.1).toFixed(2)}</span>
           </div>
           <div className="coupon_form_footer">
             <input
               type="text"
               placeholder="Enter coupon"
-              className="border-2 border-[#6c757] border-r-0 rounded-l px-3 "
+              className="border-2 border-[#6c757] border-r-0 rounded-l px-1"
             />
-            <button className="rounded-r w-full border-2 text-sm font-medium border-defaut-color-pink  bg-defaut-color-pink hover:text-defaut-color-pink hover:bg-white transition duration-300 ease-out hover:ease-in ">
+            <button className="rounded-r border-2 w-16 text-sm font-medium border-defaut-color-pink  bg-defaut-color-pink hover:text-defaut-color-pink hover:bg-white transition duration-300 ease-out hover:ease-in ">
               APPLY
             </button>
           </div>
