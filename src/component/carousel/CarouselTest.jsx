@@ -5,12 +5,14 @@ import Card from "./Card";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronRight, faL } from "@fortawesome/free-solid-svg-icons";
 import Modal from "../modal/Modal";
+import { DummyDataCard } from "./DummyDataCard";
 import axios from "axios";
 import "./Card.scss";
 import TopRankingCard from "../toprankingcard/TopRankingCard";
 const CarouselTest = (props) => {
   const [showModal, setShowModal] = useState(true);
   const [changeData, setChangeData] = useState();
+  const [hideDummy, setHideDummy] = useState(false);
   let url = "https://63f43c77864fb1d600247a6d.mockapi.io/Products/products";
   const [data, setData] = useState([]);
   const responsive = {
@@ -31,9 +33,24 @@ const CarouselTest = (props) => {
     },
   };
   useEffect(() => {
+    setHideDummy(false);
+    let requestResolved = false;
     const fetchData = async () => {
-      const response = await axios.get(url);
-      setData(response.data);
+      try {
+        const response = await axios.get(url);
+        requestResolved = true;
+        setHideDummy(true);
+        setData(response.data);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      } finally {
+        if (!requestResolved) {
+          setTimeout(() => {
+            setHideDummy(false);
+            setData(response.data);
+          }, 5000);
+        }
+      }
     };
     fetchData();
   }, []);
@@ -102,14 +119,18 @@ const CarouselTest = (props) => {
           slidesToSlide={4}
           swipeable
         >
-          {data.map((i) => (
-            <Card
-              onChangePathData={(e) => handleOnClickChangePath(e)}
-              onChangData={i}
-              key={i.id}
-              onClickFaMagnifyingGlass={handleChildClick}
-            />
-          ))}
+          {hideDummy === true ? (
+            data.map((i) => (
+              <Card
+                onChangePathData={(e) => handleOnClickChangePath(e)}
+                onChangData={i}
+                key={i.id}
+                onClickFaMagnifyingGlass={handleChildClick}
+              />
+            ))
+          ) : (
+            <DummyDataCard />
+          )}
         </Carousel>
       </div>
       <div className="cardcontainer max-w-[1200px] py-[30px]">
@@ -163,14 +184,18 @@ const CarouselTest = (props) => {
           slidesToSlide={4}
           swipeable
         >
-          {data.slice(4, 8).map((i) => (
-            <Card
-              onChangePathData={(e) => handleOnClickChangePath(e)}
-              onChangData={i}
-              key={i.id}
-              onClickFaMagnifyingGlass={handleChildClick}
-            />
-          ))}
+          {hideDummy === true ? (
+            data.map((i) => (
+              <Card
+                onChangePathData={(e) => handleOnClickChangePath(e)}
+                onChangData={i}
+                key={i.id}
+                onClickFaMagnifyingGlass={handleChildClick}
+              />
+            ))
+          ) : (
+            <DummyDataCard />
+          )}
         </Carousel>
         <Carousel
           arrows={false}
@@ -198,14 +223,18 @@ const CarouselTest = (props) => {
           slidesToSlide={4}
           swipeable
         >
-          {data.slice(4, 8).map((i) => (
-            <Card
-              onChangePathData={(e) => handleOnClickChangePath(e)}
-              onChangData={i}
-              key={i.id}
-              onClickFaMagnifyingGlass={handleChildClick}
-            />
-          ))}
+          {hideDummy === true ? (
+            data.map((i) => (
+              <Card
+                onChangePathData={(e) => handleOnClickChangePath(e)}
+                onChangData={i}
+                key={i.id}
+                onClickFaMagnifyingGlass={handleChildClick}
+              />
+            ))
+          ) : (
+            <DummyDataCard />
+          )}
         </Carousel>
         <Carousel
           arrows={false}

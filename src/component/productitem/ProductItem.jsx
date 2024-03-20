@@ -23,65 +23,53 @@ const ProductItem = () => {
     setCurrentPage(data);
   };
   return (
-    <div className={style.container}>
-      <MDBContainer fluid>
-        {currentItems.map((item) => (
-          <MDBRow className="justify-content-center mb-0" key={item.id}>
-            <MDBCol md="10" xl="8">
-              <MDBCard className="shadow-0 border rounded-3 mt-2 mb-1">
-                <MDBCardBody>
-                  <MDBRow>
-                    <MDBCol md="10" lg="3" className="mb-4 mb-lg-0">
-                      <img className={style.imgItem} src={item.url} />
-                      <a href="#!">
-                        <div
-                          className="mask"
-                          style={{
-                            backgroundColor: "rgba(251, 251, 251, 0.15)",
-                          }}
-                        ></div>
-                      </a>
-                    </MDBCol>
-                    <MDBCol md="8">
-                      <h5>{item.name}</h5>
-                      <div className="mt-1 mb-0 text-muted small">
-                        <span>100% cotton</span>
-                        <span className="text-primary"> • </span>
-                        <span>Light weight</span>
-                        <span className="text-primary"> • </span>
-                        <span>
-                          Best finish
-                          <br />
-                        </span>
-                      </div>
-                      <div className="mb-2 text-muted small">
-                        <span>Unique design</span>
-                        <span className="text-primary"> • </span>
-                        <span>For men</span>
-                        <span className="text-primary"> • </span>
-                        <span>
-                          Casual
-                          <br />
-                        </span>
-                      </div>
-                      <p>
-                        There are many variations of passages of Lorem Ipsum
-                        available, but the majority have suffered alteration in
-                        some form, by injected humour, or randomised words which
-                        don't look even slightly believable.
-                      </p>
-                      <div>
-                        <button className={style.detals}>Details</button>
-                      </div>
-                    </MDBCol>
-                  </MDBRow>
-                </MDBCardBody>
-              </MDBCard>
-            </MDBCol>
-          </MDBRow>
-        ))}
-      </MDBContainer>
-      <PaginationKnowleg onClickChangePage={handleClickChangePage} />
+    <div className="flex justify-center">
+      <div className={style.container}>
+        <div className="flex justify-center flex-col w-[1200px]">
+          {currentItems.map((item) => (
+            <div key={item.id} className="">
+              <div className="flex shadow-0 border rounded-3 mb-2 p-2">
+                <div className="">
+                  <img className={style.imgItem} src={item.url} />
+                </div>
+                <div className="pt-2 pl-2 w-[80%] h-[200px]">
+                  <h5 className="text-xl font-medium">{item.name}</h5>
+                  <div className="mt-1 mb-0 text-muted small">
+                    <span>100% cotton</span>
+                    <span className="text-primary"> • </span>
+                    <span>Light weight</span>
+                    <span className="text-primary"> • </span>
+                    <span>
+                      Best finish
+                      <br />
+                    </span>
+                  </div>
+                  <div className="mb-2 text-muted small">
+                    <span>Unique design</span>
+                    <span className="text-primary"> • </span>
+                    <span>For men</span>
+                    <span className="text-primary"> • </span>
+                    <span>
+                      Casual
+                      <br />
+                    </span>
+                  </div>
+                  <p>
+                    There are many variations of passages of Lorem Ipsum
+                    available, but the majority have suffered alteration in some
+                    form, by injected humour, or randomised words which don't
+                    look even slightly believable.
+                  </p>
+                  <div className="buttonaccount pt-2 w-[30%]">
+                    <button className="btnjoin h-[35px]">DETAILS</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+        <PaginationKnowleg onClickChangePage={handleClickChangePage} />
+      </div>{" "}
     </div>
   );
 };

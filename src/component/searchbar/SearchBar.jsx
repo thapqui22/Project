@@ -9,10 +9,33 @@ const SearchBar = (props) => {
   const [hoverIconAccount, setHoverIconAccount] = useState(false);
   const currentUrl = window.location.pathname;
 
-  const text = "Informations"; // Your text
-  const maxLength = 25; // Maximum length before truncation
+  const text = "Informationsssssssssss"; // Your text
+  const maxLength = 18; // Maximum length before truncation
   const truncatedText =
     text.length > maxLength ? `${text.slice(0, maxLength)}...` : text;
+  const dummyProducts = [
+    {
+      image: "https://via.placeholder.com/150", // Placeholder image URL 1
+      name: "Product 1",
+      size: "Large",
+      price: "$10",
+      quantity: 2,
+    },
+    {
+      image: "https://via.placeholder.com/150", // Placeholder image URL 2
+      name: "Product 2",
+      size: "Medium",
+      price: "$15",
+      quantity: 1,
+    },
+    {
+      image: "https://via.placeholder.com/150", // Placeholder image URL 3
+      name: "Product 3",
+      size: "Small",
+      price: "$5",
+      quantity: 3,
+    },
+  ];
 
   const param = [
     { id: 0, name: "ManageMyAccount" },
@@ -119,53 +142,44 @@ const SearchBar = (props) => {
                   <h4 className="text-base font-semibold flex justify-start border-b-2">
                     2 Items
                   </h4>
-                  <a
-                    href="product-view.html"
-                    className="single_cartdrop  flex mt-3"
-                  >
-                    <div className="cardcontainer w-[300px]">
-                      <div className="flex flex-row pb-3 justify-around">
-                        <div className="topimage w-[60px] h-[60px] pr-2 self-center">
-                          <img
-                            className="image object-cover rounded hover:cursor-pointer hover:opacity-80"
-                            src="https://themes.programmingkit.xyz/rafcart/assets/images/parse.png"
-                          />
-                        </div>
-                        <div className="flex flex-col  items-start w-[70%]">
-                          <h4 className="title text-lg font-medium hover:text-defaut-color-pink transition duration-150 ease-out hover:ease-in hover:cursor-pointer">
-                            {truncatedText}
-                          </h4>
-
-                          <div>
-                            <span className="pl-2">x1</span>
-                            <span className="pl-1 text-defaut-color">$450</span>
+                  {dummyProducts.map((product, index) => (
+                    <a
+                      key={index}
+                      href="product-view.html"
+                      className="single_cartdrop flex mt-3"
+                    >
+                      <div className="flex flex-row w-[250px] pb-3 justify-between hover:text-defaut-color-black">
+                        <div className="flex">
+                          <div className="topimage self-center pr-1 pt-1">
+                            <img
+                              className="image object-fit w-[60px] h-[60px] rounded hover:cursor-pointer hover:opacity-80 "
+                              src={product.image}
+                              alt={product.name} // Add alt attribute for accessibility
+                            />
                           </div>
-                          <span className="pl-1 text-sm">Size: XXL</span>
-                        </div>{" "}
-                        <i className="fa-solid fa-xmark text-black pt-1" />
-                      </div>{" "}
-                      <div className="flex flex-row pb-3 justify-around">
-                        <div className="topimage w-[60px] h-[60px] pr-2 self-center">
-                          <img
-                            className="image object-cover rounded hover:cursor-pointer hover:opacity-80"
-                            src="https://themes.programmingkit.xyz/rafcart/assets/images/parse.png"
-                          />
+                          <div className="flex flex-col items-start h-[60px] ">
+                            <h4 className="title text-lg font-medium hover:text-defaut-color-pink transition duration-150 ease-out hover:ease-in hover:cursor-pointer">
+                              {product.name}
+                            </h4>
+                            <div className="text-xs">
+                              <span className="">x{product.quantity}</span>{" "}
+                              {/* Use product.quantity */}
+                              <span className=" text-defaut-color">
+                                {product.price}
+                              </span>{" "}
+                              {/* Use product.price */}
+                            </div>
+                            <span className=" text-sm">
+                              Size: {product.size}
+                            </span>{" "}
+                            {/* Use product.size */}
+                          </div>{" "}
                         </div>
-                        <div className="flex flex-col  items-start w-[70%]">
-                          <h4 className="title text-lg font-medium hover:text-defaut-color-pink transition duration-150 ease-out hover:ease-in hover:cursor-pointer">
-                            {truncatedText}
-                          </h4>
-
-                          <div>
-                            <span className="pl-2">x1</span>
-                            <span className="pl-1 text-defaut-color">$450</span>
-                          </div>
-                          <span className="pl-1 text-sm">Size: XXL</span>
-                        </div>{" "}
                         <i className="fa-solid fa-xmark text-black pt-1" />
                       </div>
-                    </div>
-                  </a>
+                    </a>
+                  ))}
+
                   <div className="total_cartdrop flex justify-between border-t-2 py-2">
                     <h4 className="text_lg text-uppercase mb-0">Sub Total:</h4>
                     <h4 className="text_lg mb-0 ms-2">$980.00</h4>

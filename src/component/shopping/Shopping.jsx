@@ -73,6 +73,8 @@ const Shopping = (props) => {
           // If request hasn't resolved after 10 seconds, set isLoading to false
           setTimeout(() => {
             setIsLoading(false);
+            toast.dismiss();
+            toast.error("Network problem.Please check your network!");
           }, 10000); // 10000 milliseconds = 10 seconds
         }
         const endTime = Date.now(); // Calculate the end time

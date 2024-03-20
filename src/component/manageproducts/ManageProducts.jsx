@@ -220,10 +220,12 @@ const ManageProducts = () => {
     );
   };
   return (
-    <div className={style.containers}>
-      {renderData()}
-      <div className={style.containerTable}>
-        <ManageProductList onClickFixButton={handleChildClick} />
+    <div className="flex justify-center">
+      <div className={style.containers}>
+        {renderData()}
+        <div className={style.containerTable}>
+          <ManageProductList onClickFixButton={handleChildClick} />
+        </div>
       </div>
     </div>
   );

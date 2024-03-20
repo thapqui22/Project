@@ -26,11 +26,11 @@ const TopRankingCardChild = (props) => {
         onClickFaMagnifyingGlass={changeData}
         onClickCancel={handleChildClickCancel}
       />
-      <div className="cardcontainer flex flex-row  w-[300px] p-2">
+      <div className="cardcontainer flex flex-row w-[300px] p-2">
         <div className="topimage grid grid-cols-1 content-center">
           <img
             onClick={onClickDetail}
-            className="image object-cover h-24 w-24 rounded hover:cursor-pointer hover:opacity-80"
+            className="image object-cover h-20 w-20 rounded hover:cursor-pointer hover:opacity-80"
             src="https://choicacanh.com/content/uploads/cms/2020/12/14/huong-dan-cham-soc-ca-neon-vua_600x400.jpg"
           />
         </div>
