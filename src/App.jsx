@@ -29,6 +29,7 @@ import { useStorage } from "./component/localstorage/LocalStorage";
 import FAQ from "./component/faq/FAQ";
 import CheckOutPage from "./component/checkoutpage/CheckOutPage";
 import PrivacyPolicy from "./component/registerpage/PrivacyPolicy";
+import CheckName from "./component/checkname/CheckName";
 
 function App() {
   const [cartItems] = useStorage("cartItems", []);
@@ -183,6 +184,7 @@ function App() {
         />
         <Route path="/forgotpasswordpage" element={<ForgotPasswordPage />} />
         <Route path="/registerpage" element={<Registerpage />} />
+        <Route path="/checkname" element={<CheckName />} />
         <Route
           path="/termandconditionspage"
           element={<TermAndConditionsPage />}

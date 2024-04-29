@@ -183,6 +183,14 @@ const MenuBar = (props) => {
                       Forgot pass
                     </a>
                   </li>
+                  <li>
+                    <a
+                      href="/checkname"
+                      className="flex hover:text-defaut-color"
+                    >
+                      Check Name
+                    </a>
+                  </li>
                 </div>
                 <div className="divchild text-sm text-nowrap pl-3">
                   <li>
